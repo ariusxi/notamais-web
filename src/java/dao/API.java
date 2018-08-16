@@ -26,15 +26,17 @@ import java.util.Map;
 public class API {
     
     private static final String baseurl = "https://notamaisapi.herokuapp.com/";
+    private String token;
     private String query;
     private String method;
     
-    public API(String query, String method){
+    public API(String query, String method, String token){
         this.query = query;
         this.method = method;
+        this.token = token;
     }
     
-    public String getJsonString(HashMap<String, String> postDataParams) throws RuntimeException{
+    public String getJsonString(HashMap<String, String> postDataParams) throws RuntimeException, IOException{
         
         String requesturl = baseurl+""+query;
         
@@ -48,6 +50,7 @@ public class API {
             conn  = (HttpURLConnection)url.openConnection();
             conn.setRequestMethod(method);
             conn.setRequestProperty("Accept", "application/json");
+            conn.setRequestProperty("x-access-token", token);
             
             if(method.equals("POST")){
                 conn.setDoInput(true);
