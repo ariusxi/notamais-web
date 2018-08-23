@@ -10,7 +10,7 @@
         <a href="forgot-password">Esqueci minha senha</a>
     </div>
     <div class="row mt-3 justify-content-center">
-        <a href="new-password">Nova senha</a>
+        <a href="views/new-password.jsp?token=3cdae9bbb9befa49f511652f52fa7d95">Nova senha</a>
     </div>
 </div>
 <jsp:include page="views/layout/footer.jsp" />

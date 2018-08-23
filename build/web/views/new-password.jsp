@@ -46,12 +46,29 @@
     $("#formNewPassword").submit(function (e) {
         e.preventDefault();
 
-        var form = $(this);
+        var password = $('#password').val();
+        var cpassword = $('#confirmpassword').val();
 
+        if (password != cpassword) {
+            $('#message').css('display', 'block');
+            $('#message').html('As senhas devem ser iguais');
+        } else {
+
+            var form = $(this);
+            var token = location.search.split('token=')[1];
+            var formData = form.serialize() + "&token=" + token;
+
+            $('#message').css('display', 'none');
+            setNewPassword(formData);
+        }
+
+    });
+
+    function setNewPassword(formData) {
         $.ajax({
-            url: "https://notamaisapi.herokuapp.com/users/update-password/",
+            url: "../forms/new-password.jsp",
             method: "post",
-            data: form.serialize(),
+            data: formData,
             beforeSend: function () {
                 $('#message').css('display', 'block');
                 $('#message').html('Aguarde...');
@@ -66,7 +83,7 @@
                 $('#message').html(error.responseText);
             }
         });
+    }
 
-    });
 
 </script>
