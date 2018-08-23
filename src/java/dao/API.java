@@ -18,91 +18,92 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 
 /**
  *
  * @author Windows 7
  */
 public class API {
-    
+
     private static final String baseurl = "https://notamaisapi.herokuapp.com/";
     private String token;
     private String query;
     private String method;
-    
-    public API(String query, String method, String token){
+
+    public API(String query, String method, String token) {
         this.query = query;
         this.method = method;
         this.token = token;
     }
-    
-    public String getJsonString(HashMap<String, String> postDataParams) throws RuntimeException, IOException{
-        
-        String requesturl = baseurl+""+query;
-        
+
+    public String getJsonString(HashMap<String, String> postDataParams) throws RuntimeException, IOException {
+
+        String requesturl = baseurl + "" + query;
+
         StringBuilder strBuf = new StringBuilder();
-        
+
         HttpURLConnection conn = null;
         BufferedReader reader = null;
-        
-        try{
+
+        InputStreamReader res;
+
+        try {
             URL url = new URL(requesturl);
-            conn  = (HttpURLConnection)url.openConnection();
+            conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod(method);
             conn.setRequestProperty("Accept", "application/json");
             conn.setRequestProperty("x-access-token", token);
-            
-            if(method.equals("POST")){
+
+            if (method.equals("POST")) {
                 conn.setDoInput(true);
                 conn.setDoOutput(true);
-                
+
                 OutputStream os = conn.getOutputStream();
                 BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(os, "UTF-8"));
                 writer.write(getPostDataString(postDataParams));
-                
+
                 writer.flush();
                 writer.close();
                 os.close();
             }
-            
-            if(conn.getResponseCode() != 200 && conn.getResponseCode() != 201){
-                throw new RuntimeException("HTTP GET Request Failed with Error code : "
-                              + conn.getResponseCode());
-            }
-            
-            reader = new BufferedReader(new InputStreamReader(conn.getInputStream(),"utf-8"));
+
+
+            reader = new BufferedReader(new InputStreamReader(conn.getInputStream(), "utf-8"));
             String output = null;
-            while((output = reader.readLine()) != null)
+            while ((output = reader.readLine()) != null) {
                 strBuf.append(output);
-        }catch(MalformedURLException e){
+            }
+        } catch (MalformedURLException e) {
             e.printStackTrace();
-        }catch(IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
-        }finally{
-            if(reader != null){
-                try{
+        } finally {
+            if (reader != null) {
+                try {
                     reader.close();
-                }catch(IOException e){
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
-            if(conn != null){
+            if (conn != null) {
                 conn.disconnect();
             }
         }
-        
+
         return strBuf.toString();
-        
+
     }
-    
-    private String getPostDataString(HashMap<String, String> params) throws UnsupportedEncodingException{
+
+    private String getPostDataString(HashMap<String, String> params) throws UnsupportedEncodingException {
         StringBuilder result = new StringBuilder();
         boolean first = true;
-        for(Map.Entry<String, String> entry : params.entrySet()){
-            if (first)
+        for (Map.Entry<String, String> entry : params.entrySet()) {
+            if (first) {
                 first = false;
-            else
+            } else {
                 result.append("&");
+            }
 
             result.append(URLEncoder.encode(entry.getKey(), "UTF-8"));
             result.append("=");
@@ -111,5 +112,5 @@ public class API {
 
         return result.toString();
     }
-    
+
 }
