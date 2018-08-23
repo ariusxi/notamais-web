@@ -8,6 +8,7 @@ package dao;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
@@ -67,9 +68,19 @@ public class API {
                 writer.close();
                 os.close();
             }
-
-
-            reader = new BufferedReader(new InputStreamReader(conn.getInputStream(), "utf-8"));
+            
+            if(conn.getResponseCode() != 200 && conn.getResponseCode() != 201){
+                String line, response = "";
+                InputStream errorstream = conn.getErrorStream();
+                BufferedReader br = new BufferedReader(new InputStreamReader(errorstream));
+                while((line = br.readLine()) != null){
+                    response += line;
+                }
+                throw new RuntimeException("Alo amiguinho tem boi na rota : "
+                              + conn.getResponseCode() + ", ERRO " + response);
+            }
+            
+            reader = new BufferedReader(new InputStreamReader(conn.getInputStream(),"utf-8"));
             String output = null;
             while ((output = reader.readLine()) != null) {
                 strBuf.append(output);
