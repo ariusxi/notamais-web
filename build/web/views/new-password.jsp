@@ -1,6 +1,6 @@
 <%-- 
-    Document   : forgot-password
-    Created on : 23/08/2018, 10:43:32
+    Document   : new-password
+    Created on : 23/08/2018, 15:21:24
     Author     : lucas
 --%>
 
@@ -10,20 +10,22 @@
         <div class="col-sm-12 col-md-4">
             <div class="card">
                 <div class="card-header">
-                    <div class="h5 text-left mb-0">Esqueci minha senha</div>    
+                    <div class="h5 text-left mb-0">Redefinição de Senha</div>    
                 </div>
                 <div class="card-body">
                     <p class="text-center">
-                        <i class="fa fa-fw fa-life-ring fa-4x"></i>
+                        <i class="fa fa-fw fa-key fa-4x"></i>
                     </p>
-                    <p class="text-center m-0">Digite o seu endereço de e-mail.</p>
-                    <p class="text-center m-0">Nós enviaremos um link para redefinir a senha da sua conta.</p>
-                    <form id="formForgotPassword" class="mt-4">
+                    <form id="formNewPassword" class="mt-4">
                         <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" class="form-control" name="email" id="email" required>
+                            <label for="password">Nova senha</label>
+                            <input type="password" class="form-control" name="password" id="password" required>
                         </div>
-                        <input type="submit" value="Enviar" class="btn btn-primary form-control">
+                        <div class="form-group">
+                            <label for="confirmpassword">Confirme a nova senha</label>
+                            <input type="password" class="form-control" name="confirmpassword" id="confirmpassword" required>
+                        </div>
+                        <input type="submit" value="Salvar" class="btn btn-primary form-control">
                     </form>
                     <div class="alert alert-info mt-2 mb-0" id="message"></div>
                 </div>
@@ -41,13 +43,13 @@
 
 <script type="text/javascript">
 
-    $("#formForgotPassword").submit(function (e) {
+    $("#formNewPassword").submit(function (e) {
         e.preventDefault();
 
         var form = $(this);
 
         $.ajax({
-            url: "forgot-password",
+            url: "https://notamaisapi.herokuapp.com/users/update-password/",
             method: "post",
             data: form.serialize(),
             beforeSend: function () {

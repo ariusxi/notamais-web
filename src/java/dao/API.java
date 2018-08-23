@@ -76,8 +76,8 @@ public class API {
                 while((line = br.readLine()) != null){
                     response += line;
                 }
-                throw new RuntimeException("Alo amiguinho tem boi na rota : "
-                              + conn.getResponseCode() + ", ERRO " + response);
+                
+                return response;
             }
             
             reader = new BufferedReader(new InputStreamReader(conn.getInputStream(),"utf-8"));
