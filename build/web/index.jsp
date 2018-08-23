@@ -4,7 +4,6 @@
     Author     : Windows 7
 --%>
 
-
 <jsp:include page="views/layout/header.jsp" />
 <div class="container">
     <div class="row mt-3 justify-content-center">
