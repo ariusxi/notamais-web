@@ -30,7 +30,9 @@
                         </div>
                         <input type="submit" value="Entrar" class="btn btn-primary form-control">
                     </form>
-                    <div class="alert alert-info mt-2 mb-0" id="message"></div>
+                    <div class="alert alert-info mt-2 mb-0" id="message">
+
+                    </div>
                 </div>
             </div>
         </div>
