@@ -18,16 +18,53 @@
                     </p>
                     <p class="text-center m-0">Digite o seu endereço de e-mail.</p>
                     <p class="text-center m-0">Nós enviaremos um link para redefinir a senha da sua conta.</p>
-                    <form action="../forms/forgot-password.jsp" method="POST" class="mt-4">
+                    <form id="formForgotPassword" class="mt-4">
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" class="form-control" name="email" id="email">
+                            <input type="email" class="form-control" name="email" id="email" required>
                         </div>
                         <input type="submit" value="Enviar" class="btn btn-primary form-control">
                     </form>
+                    <div class="alert alert-info mt-2 mb-0" id="message"></div>
                 </div>
             </div>
         </div>
     </div>
 </div>
 <jsp:include page="../views/layout/footer.jsp" />
+
+<style rel="stylesheet">
+    #message{
+        display: none;
+    }
+</style>
+
+<script type="text/javascript">
+
+    $("#formForgotPassword").submit(function (e) {
+        e.preventDefault();
+
+        var form = $(this);
+
+        $.ajax({
+            url: "forgot-password",
+            method: "post",
+            data: form.serialize(),
+            beforeSend: function () {
+                $('#message').css('display', 'block');
+                $('#message').html('Aguarde...');
+            },
+            success: function (data) {
+                var dataJSON = JSON.parse(data);
+                $('#message').css('display', 'block');
+                $('#message').html(dataJSON.message);
+            },
+            error: function (error) {
+                $('#message').css('display', 'block');
+                $('#message').html(error.responseText);
+            }
+        });
+
+    });
+
+</script>

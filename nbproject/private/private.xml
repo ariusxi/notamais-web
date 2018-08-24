@@ -4,7 +4,13 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Windows%207/Documents/NetBeansProjects/WNotaMais/web/index.jsp</file>
+            <file>file:/C:/Users/Windows%207/Documents/NetBeansProjects/WNotaMais/nbproject/build-impl.xml</file>
+            <file>file:/C:/Users/Windows%207/Documents/NetBeansProjects/WNotaMais/web/forms/new-password.jsp</file>
+            <file>file:/C:/Users/Windows%207/Documents/NetBeansProjects/WNotaMais/src/java/servlets/ForgotPassword.java</file>
+            <file>file:/C:/Users/Windows%207/Documents/NetBeansProjects/WNotaMais/web/views/new-password.jsp</file>
+            <file>file:/C:/Users/Windows%207/Documents/NetBeansProjects/WNotaMais/web/views/login.jsp</file>
             <file>file:/C:/Users/Windows%207/Documents/NetBeansProjects/WNotaMais/src/java/dao/API.java</file>
+            <file>file:/C:/Users/Windows%207/Documents/NetBeansProjects/WNotaMais/nbproject/private/private.properties</file>
         </group>
     </open-files>
 </project-private>
