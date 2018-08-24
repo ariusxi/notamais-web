@@ -66,9 +66,17 @@
                 $('#message').html('Aguarde...');
             },
             success: function (data) {
+
                 var dataJSON = JSON.parse(data);
-                $('#message').css('display', 'block');
-                $('#message').html(dataJSON.message);
+
+                if (dataJSON.message != null) {
+                    $('#message').css('display', 'block');
+                    $('#message').html(dataJSON.message);
+                } else {
+                    $('#message').css('display', 'block');
+                    $('#message').html('Login bem sucedido.');
+                }
+
             },
             error: function (error) {
                 $('#message').css('display', 'block');
