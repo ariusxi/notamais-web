@@ -75,6 +75,9 @@
                 } else {
                     $('#message').css('display', 'block');
                     $('#message').html('Login bem sucedido.');
+                    setTimeout(function () {
+                        $(location).attr('href', '/notamais-web');
+                    }, 2000);
                 }
 
             },
