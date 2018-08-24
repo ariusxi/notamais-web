@@ -21,14 +21,14 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author lucas
  */
-@WebServlet("/forgot-password")
-public class ForgotPassword extends HttpServlet {
+@WebServlet("/login")
+public class SetLogin extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        String url = "/views/forgot-password.jsp";
+
+        String url = "/views/login.jsp";
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
         dispatcher.forward(request, response);
     }
@@ -40,17 +40,21 @@ public class ForgotPassword extends HttpServlet {
 
         response.setContentType("text/html;charset=UTF-8");
 
-        String email = request.getParameter("email");
-        API con = new API("users/generate-token", "POST", "");
+        String login = request.getParameter("login");
+        String password = request.getParameter("password");
+        String ip = request.getRemoteAddr();
+
+        API con = new API("users/auth", "POST", "");
 
         Hashtable<Integer, String> source = new Hashtable<Integer, String>();
         HashMap<String, String> map = new HashMap(source);
-        map.put("email", email);
+        map.put("email", login);
+        map.put("password", password);
+        map.put("ip", ip);
 
         String responseJSON = con.getJsonString(map);
 
         out.print(responseJSON);
-
     }
-    
+
 }

@@ -8,6 +8,14 @@
         <servlet-name>NewPassword</servlet-name>
         <servlet-class>servlets.NewPassword</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Login</servlet-name>
+        <servlet-class>servlets.Login</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SetLogin</servlet-name>
+        <servlet-class>servlets.SetLogin</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ForgotPassword</servlet-name>
         <url-pattern>/ForgotPassword</url-pattern>
@@ -15,6 +23,14 @@
     <servlet-mapping>
         <servlet-name>NewPassword</servlet-name>
         <url-pattern>/NewPassword</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Login</servlet-name>
+        <url-pattern>/Login</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SetLogin</servlet-name>
+        <url-pattern>/SetLogin</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -77,6 +77,11 @@
                 var dataJSON = JSON.parse(data);
                 $('#message').css('display', 'block');
                 $('#message').html(dataJSON.message);
+                if (dataJSON.message == "Senha atualizada com sucesso") {
+                    setTimeout(function () {
+                        $(location).attr('href','/notamais-web');
+                    }, 2000);
+                }
             },
             error: function (error) {
                 $('#message').css('display', 'block');
