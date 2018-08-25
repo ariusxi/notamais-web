@@ -16,6 +16,18 @@
         <servlet-name>SetLogin</servlet-name>
         <servlet-class>servlets.SetLogin</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DashBoard</servlet-name>
+        <servlet-class>servlets.DashBoard</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Employee</servlet-name>
+        <servlet-class>.Employee</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Register</servlet-name>
+        <servlet-class>servlets.Register</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ForgotPassword</servlet-name>
         <url-pattern>/ForgotPassword</url-pattern>
@@ -31,6 +43,18 @@
     <servlet-mapping>
         <servlet-name>SetLogin</servlet-name>
         <url-pattern>/SetLogin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DashBoard</servlet-name>
+        <url-pattern>/DashBoard</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Employee</servlet-name>
+        <url-pattern>/Employee</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Register</servlet-name>
+        <url-pattern>/Register</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

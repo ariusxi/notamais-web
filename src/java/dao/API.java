@@ -102,6 +102,7 @@ public class API {
             }
         }
 
+        System.out.println(strBuf.toString());
         return strBuf.toString();
 
     }
@@ -116,6 +117,7 @@ public class API {
                 result.append("&");
             }
 
+            System.out.println(entry.getKey());
             result.append(URLEncoder.encode(entry.getKey(), "UTF-8"));
             result.append("=");
             result.append(URLEncoder.encode(entry.getValue(), "UTF-8"));

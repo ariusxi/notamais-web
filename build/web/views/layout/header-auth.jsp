@@ -4,14 +4,14 @@
     Author     : lucas
 --%>
 
-    <%@page contentType="text/html" pageEncoding="UTF-8"%>
+    <%@page contentType="text/html"%>
         <!DOCTYPE html>
         <html lang="pt_br">
 
         <head>
-            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+            <meta charset="utf-8">
+            <meta http-equiv="Content-Type" content="text/html;">
             <title>Nota Mais</title>
-            
             <!-- Fonts -->
             <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
             <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -29,7 +29,7 @@
             <!-- search for navbar bootstrap -->
             <nav class="navbar navbar-expand-lg navbar-dark blue-sky">
                 <a class="navbar-brand" href="#">
-                    Nota+  
+                    Nota+
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -57,10 +57,10 @@
                     </ul>
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="login">Login</a>
+                            <a class="nav-link" href="#"><%= session.getAttribute("name") %></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="register">Cadastre-se</a>
+                            <a class="nav-link" href="#">Sair</a>
                         </li>
                     </ul>
                 </div>
