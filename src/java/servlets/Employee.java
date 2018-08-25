@@ -1,14 +1,13 @@
+package servlets;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package servlets;
 
 import dao.API;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.logging.Level;
@@ -24,23 +23,33 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.json.JSONException;
 import org.json.JSONObject;
+import servlets.SetLogin;
 
 /**
  *
- * @author lucas
+ * @author Windows 7
  */
-@WebServlet("/login")
-public class SetLogin extends HttpServlet {
+@WebServlet("/employee")
+public class Employee extends HttpServlet {
 
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        String url = "/views/login.jsp";
+        String url = "/views/employee.jsp";
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
         dispatcher.forward(request, response);
     }
-
+    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -80,8 +89,6 @@ public class SetLogin extends HttpServlet {
                 if (m.find()) {
                     userRoles = m.group(0);
                 }
-                
-                System.out.println();
 
                 session.setAttribute("token", token);
                 session.setAttribute("id", userID);
@@ -97,5 +104,15 @@ public class SetLogin extends HttpServlet {
             Logger.getLogger(SetLogin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    /**
+     * Returns a short description of the servlet.
+     *
+     * @return a String containing servlet description
+     */
+    @Override
+    public String getServletInfo() {
+        return "Short description";
+    }// </editor-fold>
 
 }

@@ -26,7 +26,7 @@
                             <input type="password" class="form-control" name="password" id="password" required>
                         </div>
                         <div class="text-center mb-3">
-                            <a href="#">Esqueci minha senha</a>
+                            <a href="forgot-password">Esqueci minha senha</a>
                         </div>
                         <input type="submit" value="Entrar" class="btn btn-primary form-control">
                     </form>
@@ -78,7 +78,7 @@
                     $('#message').css('display', 'block');
                     $('#message').html('Login bem sucedido.');
                     setTimeout(function () {
-                        $(location).attr('href', '/notamais-web');
+                        $(location).attr('href', '/WNotaMais/dashboard');
                     }, 2000);
                 }
 
