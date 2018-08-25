@@ -60,6 +60,46 @@ $(function(){
         return false;
     });
     
+    $("#contato").submit(function(e){
+        e.preventDefault();
+        
+        let email = $("#email").val();
+        let title = $("#title").val();
+        let text = $("#text").val();
+        
+        $('#message').css('display', 'none');
+        
+        if(email == "" || title == "" || text == ""){
+            $('#message').css('display', 'block');
+            $('#message').html('Voce deve preencher todos os campos');
+            return false;
+        }
+        
+        let form = $(this);
+        let formData = form.serialize();
+        
+         $.ajax({
+            url: "contact",
+            method: "post",
+            data: formData,
+            beforeSend: function () {
+                $('#message').css('display', 'block');
+                $('#message').html('Aguarde...');
+            },
+            success: function (data) {
+                var dataJSON = JSON.parse(data);
+                $("#message").css('display', 'block');
+                $('#message').html(dataJSON.message);
+            },
+            error: function(e) {
+                $('#message').css('display', 'block');
+                $('#message').html(e.responseText);
+            }
+        });
+        
+        return false
+    });
+    
     $("#counter-register").submit(function(e){
         e.preventDefault();
         
@@ -99,8 +139,6 @@ $(function(){
         let form = $(this);
         let formData = form.serialize();
         formData += '&type=counter';
-        
-        console.log(formData);
         
         $.ajax({
             url: "register",
