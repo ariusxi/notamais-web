@@ -100,7 +100,69 @@ $(function(){
         return false
     });
     
-    $("#counter-register").submit(function(e){
+    $("#employee-register").submit(function(e){
+        e.preventDefault();
+        
+        let fullname = $("#fullname").val();
+        let email = $("#email").val();
+        let cpf = $("#cpf").val();
+        let gender  = $("#gender").val();
+        let password = $("#password").val();
+        let confirm = $("#confirm").val();
+        
+        $('#message').css('display', 'none');
+        
+        if(fullname == "" || email == "" || cpf == "" || gender == "" || password == "" || confirm == ""){
+            $('#message').css('display', 'block');
+            $('#message').html('Voce deve preencher os campos obrigatorios');
+            return false;
+        }
+        
+        if(password != confirm){
+            $('#message').css('display', 'block');
+            $('#message').html('As senhas informadas devem ser iguais');
+            return false;
+        }
+        
+        if(!validarCPF(cpf)){
+            $('#message').css('display', 'block');
+            $('#message').html('CPF Inválido');
+            return false;
+        }
+        
+        if(password.length < 6){
+            $('#message').css('display', 'block');
+            $('#message').html('A senha deve ser maior que 6 digitos');
+            return false;
+        }
+        
+        let form = $(this);
+        let formData = form.serialize();
+        formData += '&type=counter';
+        
+        $.ajax({
+            url: "register",
+            method: "post",
+            data: formData,
+            beforeSend: function () {
+                $('#message').css('display', 'block');
+                $('#message').html('Aguarde...');
+            },
+            success: function (data) {
+                $("#message").css('display', 'block');
+                $('#message').html(data.message);
+                setTimeout(() => {
+                    $(location).attr('href', '/notamais-web/dashboard');
+                }, 2000);
+            },
+            error: function(e) {
+                $('#message').css('display', 'block');
+                $('#message').html(e.responseText);
+            }
+        });
+        
+        return false;
+         $("#counter-register").submit(function(e){
         e.preventDefault();
         
         let fullname = $("#fullname").val();
@@ -164,4 +226,5 @@ $(function(){
         return false;
     });
     
+});
 });

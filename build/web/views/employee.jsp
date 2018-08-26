@@ -1,9 +1,74 @@
 <jsp:include page="../views/layout/header-auth.jsp" />
 <div class="container">
-    <div class="row mt-12 justify-content-center">
-        <div class="col-sm-12 col-md-12">
-            Funcionários
+    
+       
+   
+     <div class="row employee">
+        
+   
+   
+        <form action="" method="POST" id="employee-register">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <h1 class="title-register">Cadastro de Funcionário</h1>
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <div class="form-group">
+                        <label for="fullname">Nome do Funcionário</label>
+                        <input type="text" class="form-control"  placeholder="Nome Completo" name="fullname" id="fullname">
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="text" class="form-control" placeholder="Email" name="email" id="email">
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-4 col-lg-4">
+                    <div class="form-group">
+                        <label for="nickname">Nickname</label>
+                        <input type="text" class="form-control" placeholder="Nickname" name="nickname" id="nickname">
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-4 col-lg-4">
+                    <div class="form-group">
+                        <label for="cpf">CPF</label>
+                        <input type="text" class="form-control" placeholder="CPF" name="cpf" id="cpf">
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-4 col-lg-4">
+                    <div class="form-group">
+                        <label for="nickname">Gênero</label>
+                        <select class="form-control" id="gender" name="gender">
+                            <option value="">Escolha o seu gênero</option>
+                            <option value="M">Masculino</option>
+                            <option value="F">Feminino</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-6">
+                    <div class="form-group">
+                        <label for="password">Senha</label>
+                        <input type="password" class="form-control" placeholder="Senha" name="password" id="password">
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-6">
+                    <div class="form-group">
+                        <label for="confirm">Confirme sua Senha</label>
+                        <input type="password" class="form-control" placeholder="Confirme sua Senha" name="confirm" id="confirm">
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <input type="submit" class="btn btn-primary" value="Cadastrar">
+                    <input type="button" class="btn btn-primary back-type" value="Voltar">
+                </div>
+            </div>
+        </form>
+        <div class="alert alert-info mt-2 mb-0" id="message" style="margin-bottom:100px !important;">
+
         </div>
+    </div>
+</div>
     </div>
 </div>
 <jsp:include page="../views/layout/footer.jsp" />
