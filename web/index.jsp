@@ -10,7 +10,6 @@
     <div class="caption">
         <span class="border">
             <p>Uma nova forma de armazenar seus arquivos XML</p>
-            <button>Contrate</button>
         </span>
     </div>
 </div>

@@ -134,6 +134,9 @@ a:hover{
 #message{
     display:none;
 }
+.navbar{
+    z-index:1000;
+}
 footer {
     width: 100%;
     position:fixed;
