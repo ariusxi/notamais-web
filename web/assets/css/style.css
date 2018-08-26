@@ -127,7 +127,7 @@ a:hover{
 .user{
     display:none;
 }
-#counter-register{
+#counter-register, #user-register{
     width:100%;
     display:none;
 }
