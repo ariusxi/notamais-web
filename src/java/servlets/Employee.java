@@ -63,32 +63,30 @@ public class Employee extends HttpServlet {
         String cpf = request.getParameter("cpf");
         String gender = request.getParameter("gender");
         String id = (String) session.getAttribute("id");
+        String e = (String) request.getParameter("id");
         String token = (String) session.getAttribute("token");
-
-        API con = new API("employees/create/"+id, "POST", token);
+        String type = request.getParameter("type");
         
-        System.out.println(token);
+        API con;
+        if(type.equals("employee-list")){
+            con = new API("employees/fetch-all/"+id, "GET", token);
+        }else if(type.equals("delete-employee")){
+            con = new API("employees/delete/"+id, "GET", token);
+        }else{
+            con = new API("employees/create/"+id, "POST", token);
+        }
 
         Hashtable<Integer, String> source = new Hashtable<Integer, String>();
         HashMap<String, String> map = new HashMap(source);
-        map.put("name", name);
-        map.put("nickname", nickname);
-        map.put("cpf", cpf);
-        map.put("gender", gender);
+        if(!type.equals("employee-list") && !type.equals("delete-employee")){
+            map.put("name", name);
+            map.put("nickname", nickname);
+            map.put("cpf", cpf);
+            map.put("gender", gender);
+        }
 
         String responseJSON = con.getJsonString(map);
-        try {
-            JSONObject json = new JSONObject(responseJSON);
-            if (json.has("message")) {
-                out.print(responseJSON);
-            } else {
-                out.print("ERRO");
-                
-            }
-
-        } catch (JSONException ex) {
-            Logger.getLogger(SetLogin.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        out.print(responseJSON);
     }
 
     /**

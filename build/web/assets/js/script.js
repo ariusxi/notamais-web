@@ -156,6 +156,62 @@ $(function(){
         return false
     });
     
+    $("#employee-list").ready(function(e){
+        $.ajax({
+            url: "employee",
+            method: "POST",
+            data: {
+                type: 'employee-list'
+            },
+            dataType: "json",
+            success: function(data){
+                console.log(data);
+                $.each(data, function(i, value){
+                    let nickname = "Não informado";
+                    if(value.person.nickname != ""){
+                        nickname = value.person.nickname;
+                    }
+                    let html = "<tr><td>"+value.person.name+"</td>";
+                        html += "<td>"+value.person.gender+"</td>";
+                        html += "<td>"+nickname+"</td>";
+                        html += "<td>"+value.person.cpf+"</td>";
+                        html += "<td><button class='btn btn-primary delete-employee' id='"+value._id+"'>Excluir</button></td>";
+                        html += "</tr>";
+                    
+                    $("#employee-list tbody").append(html);
+                });
+            },error: function(e){
+                console.log(e);
+            }
+        });
+    });
+    
+    $(document).on('click', '.delete-employee', function(e){
+        e.preventDefault();
+        
+        var id = $(this).attr('id');
+        var $this = $(this);
+        
+        if(!confirm("Tem certeza que deseja excluir esse funcionario?")){
+            return false;
+        }
+        
+        $.ajax({
+            url: "employee",
+            type: "POST",
+            data: {
+                type: "delete-employee",
+                e: id
+            },success: function(data){
+                $this.parent().parent().remove();
+            },error: function(e){
+                console.log(e);
+            }
+        });
+        
+        return false;
+    });
+    
     $("#user-register").submit(function(e){
         e.preventDefault();
         

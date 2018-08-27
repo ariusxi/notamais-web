@@ -18,6 +18,7 @@
             <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
             <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
             <link href="${pageContext.request.contextPath}/assets/css/style.css" rel="stylesheet"/>
+            <link href="${pageContext.request.contextPath}/assets/css/jquery.dataTables.min.css" rel="stylesheet"/>
             <!-- Bootstrap -->
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
                 crossorigin="anonymous">
@@ -51,13 +52,24 @@
                             <a class="nav-link" href="#"><%= session.getAttribute("name") %></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Sair</a>
+                            <a class="nav-link" href="logout.jsp">Sair</a>
                         </li>
                     </ul>
                 </div>
             </nav>
-           <div class="container-fluid">
+           <div class="container-fluid user-profile">
                 <div class="row employee">
                     <div class="col-sm-12 col-md-3 col-lg-3">
-                        teste
+                        <div class="list-group">
+                            <div class="list-group-item ">
+                                <div class="text-center">
+                                    <img src="${pageContext.request.contextPath}/assets/img/default-user.png" class="img-fluid img-thumbnail img-profile" alt="<%= session.getAttribute("name") %>"><br/><br/>
+                                </div>
+                                <h5 class="card-title"><%= session.getAttribute("name") %></h5>
+                                <h6 class="card-subtitle mb-2 text-muted"><%= session.getAttribute("roles") %></h6>
+                            </div>
+                            <a href="dashboard" class="list-group-item list-group-item-action">Meu perfil</a>
+                            <a href="employee" class="list-group-item list-group-item-action">Funcionários</a>
+                            <a href="#" class="list-group-item list-group-item-action">Alterar dados de perfil</a>
+                        </div>
                     </div>
