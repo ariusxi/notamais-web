@@ -53,6 +53,12 @@ body{
     width:100%;
     height:70px;
 }
+.user-profile{
+    padding:50px 0px;
+}
+.img-circle{
+    border-radius:50% !important;
+}
 .caption {
     position: absolute;
     left: 0;
@@ -204,3 +210,4 @@ footer .social a:hover {
         width: 100%;
     }
 }
+

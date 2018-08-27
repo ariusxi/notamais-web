@@ -36,24 +36,15 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Administrador</a>
+                        <% if(session.getAttribute("roles").equals("user")){ %>
+                        <li class="nav-item">
+                            <a class="nav-link" href="dashboard">Página Inicial</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">SST</a>
+                            <a class="nav-link" href="employee">Meus funcionários</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Exames</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">eSocial</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Gerencia</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Receber</a>
-                        </li>
+                        <% }else{ %>
+                        <% } %>
                     </ul>
                     <ul class="navbar-nav">
                         <li class="nav-item">
@@ -65,3 +56,8 @@
                     </ul>
                 </div>
             </nav>
+           <div class="container-fluid">
+                <div class="row employee">
+                    <div class="col-sm-12 col-md-3 col-lg-3">
+                        teste
+                    </div>

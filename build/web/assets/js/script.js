@@ -294,4 +294,52 @@ $(function(){
         
         return false;
     });
+    
+    $("#employee-register").submit(function(e){
+        e.preventDefault();
+        
+        let name = $("#name").val();
+        let nickname = $("#nickname").val();
+        let cpf = $("#cpf").val();
+        let gender = $("#gender").val();
+        
+        if(name == "" || cpf == "" || gender == ""){
+            $('#message').css('display', 'block');
+            $('#message').html('Voce deve preencher os campos obrigatorios');
+            return false;
+        }
+        
+        if(!validarCPF(cpf)){
+            $('#message').css('display', 'block');
+            $('#message').html('CPF Inválido');
+            return false;
+        }
+        
+        let form = $(this);
+        let formData = form.serialize();
+        
+        $.ajax({
+            url: "employee",
+            method: "post",
+            data: formData,
+            beforeSend: function () {
+                $('#message').css('display', 'block');
+                $('#message').html('Aguarde...');
+            },
+            success: function (data) {
+                var data = JSON.parse(data);
+                $("#message").css('display', 'block');
+                $('#message').html(data.message);
+                //setTimeout(() => {
+                    //$(location).attr('href', '/WNotaMais/dashboard');
+                //}, 2000);
+            },
+            error: function(e) {
+                $('#message').css('display', 'block');
+                $('#message').html(e.responseText);
+            }
+        });
+        
+        return false;
+    });
 });
