@@ -186,6 +186,27 @@ $(function(){
         });
     });
     
+    $("#plans, #plans-list").ready(function(){
+        $.ajax({
+            url: "plan",
+            method: "POST",
+            data: {
+                type: "plan-list"
+            },
+            dataType: "json",
+            success: function(data){
+                $.each(data, function(i, value){
+                    let html = '<div id="'+value._id+'" class="plan"><h2 class="plan-heading">'+value.name+'</h2><div class="plan-subheading">$'+value.value+'/mes</div><p>Armazenamento de '+value.qtdeXML+' XMLs</p><p>'+value.description+'</p></div>';
+                    $("#plans").append(html);
+                    html = "<tr><td>"+value.name+"</td><td>"+value.description+"</td><td>"+value.value+"</td><td>"+value.qtdeXML+"</td><td><a href='editplan?id="+value._id+"' class='btn btn-primary'>Editar</a><button class='delete-plan btn btn-primary' id='"+value._id+"'>Excluir</button></td></tr>";
+                    $("#plans-list tbody").append(html);
+                });
+            }, error: function(e){
+                console.log(e);
+            }
+        });
+    });
+    
     $(document).on('click', '.delete-employee', function(e){
         e.preventDefault();
         
@@ -206,6 +227,83 @@ $(function(){
                 $this.parent().parent().remove();
             },error: function(e){
                 console.log(e);
+            }
+        });
+        
+        return false;
+    });
+    
+    $(document).on('click', '.delete-plan', function(e){
+        e.preventDefault();
+        
+        var id = $(this).attr('id');
+        var $this = $(this);
+        
+        if(!confirm("Tem certeza que deseja excluir esse plano?")){
+            return false;
+        }
+        
+        $.ajax({
+            url: "plan",
+            type: "POST",
+            data: {
+                type: "plan-delete",
+                id: id
+            },success: function(data){
+                $this.parent().parent().remove();
+            },error: function(e){
+                console.log(e);
+            } 
+        });
+        
+        return false;
+    });
+    
+    $("#plan-register").submit(function(e){
+        e.preventDefault();
+        
+        let name = $("#name").val();
+        let value = $("#value").val();
+        let qtdeXML = $("#qtdeXML").val();
+        let description = $("#description").val();
+        
+        if(name == "" || value == "" ||  qtdeXML == "" || description == ""){
+            $('#message').css('display', 'block');
+            $('#message').html('Voce deve preencher os campos obrigatorios');
+            return false;
+        }
+        
+        if(value < 0){
+            $('#message').css('display', 'block');
+            $('#message').html('O preço do plano não pode ser maior que 0');
+            return false;
+        }
+        
+        if(qtdeXML <= 0){
+            $('#message').css('display', 'block');
+            $('#message').html('A quantidade de XMLs não pode ser menor ou igual a zero');
+            return false;
+        }
+        
+        let form = $(this);
+        let formData = form.serialize();
+        formData += '&type=plan-create';
+        
+        $.ajax({
+            url: "plan",
+            method: "POST",
+            data: formData,
+            dataType: "json",
+            beforeSend: function () {
+                $('#message').css('display', 'block');
+                $('#message').html('Aguarde...');
+            },
+            success: function(data){
+                $("#message").css('display', 'block');
+                $('#message').html(data.message);
+            },error: function(e){
+                $('#message').css('display', 'block');
+                $('#message').html(e.responseText);
             }
         });
         
