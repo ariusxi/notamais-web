@@ -142,7 +142,8 @@
                         </div>
                     </div>
                     <div class="col-sm-12 col-md-12 col-lg-12">
-                        <input type="submit" class="btn btn-success" value="Enviar"/>
+                        <br/>
+                        <input type="submit" class="btn btn-outline-light" value="Enviar"/>
                     </div>
                 </form>
                 <div class="alert alert-success mt-2 mb-0" id="message">    

@@ -5,7 +5,7 @@
                 <a class="nav-link active" href="#list" data-toggle="tab">Lista de Funcionarios</a>
             </li>
             <li>
-                <a class="nav-link" href="#register" data-toggle="tab">Cadastrar Funcionário</a>
+                <a  class="nav-link" href="#register" data-toggle="tab">Cadastrar Funcionário</a>
             </li>
         </ul>
         <div class="tab-content ">
@@ -63,8 +63,8 @@
                         </div>
                     </div>
                     <div class="col-sm-12 col-md-12 col-lg-12">
-                        <input type="submit" class="btn btn-primary" value="Cadastrar">
-                        <input type="button" class="btn btn-primary back-type" value="Voltar">
+                        <input type="submit" class="btn btn-secondary" value="Cadastrar">
+                        <input type="button" class="btn btn-secondary back-type" value="Voltar">
                     </div>
                 </div>
             </form>
