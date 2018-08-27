@@ -58,17 +58,23 @@ public class Employee extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
 
-        String login = request.getParameter("login");
-        String password = request.getParameter("password");
-        String ip = request.getRemoteAddr();
+        String name = request.getParameter("name");
+        String nickname = request.getParameter("nickname");
+        String cpf = request.getParameter("cpf");
+        String gender = request.getParameter("gender");
+        String id = (String) session.getAttribute("id");
+        String token = (String) session.getAttribute("token");
 
-        API con = new API("users/auth", "POST", "");
+        API con = new API("employees/create/"+id, "POST", token);
+        
+        System.out.println(token);
 
         Hashtable<Integer, String> source = new Hashtable<Integer, String>();
         HashMap<String, String> map = new HashMap(source);
-        map.put("email", login);
-        map.put("password", password);
-        map.put("ip", ip);
+        map.put("name", name);
+        map.put("nickname", nickname);
+        map.put("cpf", cpf);
+        map.put("gender", gender);
 
         String responseJSON = con.getJsonString(map);
         try {
@@ -76,27 +82,7 @@ public class Employee extends HttpServlet {
             if (json.has("message")) {
                 out.print(responseJSON);
             } else {
-                JSONObject data = json.getJSONObject("data");
-
-                String token = json.get("token").toString();
-                String userID = data.get("id").toString();
-                String userEmail = data.get("email").toString();
-                String userName = data.get("name").toString();
-                Object userRoles = data.get("roles").toString();
-
-                Pattern p = Pattern.compile("()\\w+");
-                Matcher m = p.matcher(userRoles.toString());
-                if (m.find()) {
-                    userRoles = m.group(0);
-                }
-
-                session.setAttribute("token", token);
-                session.setAttribute("id", userID);
-                session.setAttribute("email", userEmail);
-                session.setAttribute("name", userName);
-                session.setAttribute("roles", userRoles);
-                
-                out.print(data);
+                out.print("ERRO");
                 
             }
 

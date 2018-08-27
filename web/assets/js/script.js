@@ -1,6 +1,8 @@
 $(function(){
     
-    $('#cpf').mask('000.000.000-00', {reverse: true});
+    $('.cpf').mask('000.000.000-00', {reverse: true});
+    $('.cnpj').mask('00.000.000/0000-00', {reverse: true});
+    $('.telephone').mask('(00) 0000-0000');
     
     function validarCPF(cpf) {	
 	cpf = cpf.replace(/[^\d]+/g,'');	
@@ -37,6 +39,60 @@ $(function(){
 	if (rev != parseInt(cpf.charAt(10)))
 		return false;		
 	return true;   
+    }
+    
+    function validarCNPJ(cnpj) {
+
+        cnpj = cnpj.replace(/[^\d]+/g,'');
+
+        if(cnpj == '') return false;
+
+        if (cnpj.length != 14)
+            return false;
+
+        // Elimina CNPJs invalidos conhecidos
+        if (cnpj == "00000000000000" || 
+            cnpj == "11111111111111" || 
+            cnpj == "22222222222222" || 
+            cnpj == "33333333333333" || 
+            cnpj == "44444444444444" || 
+            cnpj == "55555555555555" || 
+            cnpj == "66666666666666" || 
+            cnpj == "77777777777777" || 
+            cnpj == "88888888888888" || 
+            cnpj == "99999999999999")
+            return false;
+
+        // Valida DVs
+        tamanho = cnpj.length - 2
+        numeros = cnpj.substring(0,tamanho);
+        digitos = cnpj.substring(tamanho);
+        soma = 0;
+        pos = tamanho - 7;
+        for (i = tamanho; i >= 1; i--) {
+          soma += numeros.charAt(tamanho - i) * pos--;
+          if (pos < 2)
+                pos = 9;
+        }
+        resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
+        if (resultado != digitos.charAt(0))
+            return false;
+
+        tamanho = tamanho + 1;
+        numeros = cnpj.substring(0,tamanho);
+        soma = 0;
+        pos = tamanho - 7;
+        for (i = tamanho; i >= 1; i--) {
+          soma += numeros.charAt(tamanho - i) * pos--;
+          if (pos < 2)
+                pos = 9;
+        }
+        resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
+        if (resultado != digitos.charAt(1))
+              return false;
+
+        return true;
+
     }
    
     $(".open-register").click(function(e){
@@ -100,15 +156,90 @@ $(function(){
         return false
     });
     
+    $("#user-register").submit(function(e){
+        e.preventDefault();
+        
+        let fullname = $("#user-register #fullname").val();
+        let email = $("#user-register #email").val();
+        let cpf = $("#user-register #cpf").val();
+        let gender  = $("#user-register #gender").val();
+        let password = $("#user-register #password").val();
+        let confirm = $("#user-register #confirm").val();
+        let fantasia = $("#user-register #fantasia").val();
+        let cnpj = $("#user-register #cnpj").val();
+        let ie = $("#user-register #ie").val();
+        let telephone = $("#user-register #telephone").val();
+        
+        $('#message').css('display', 'none');
+        
+        if(fullname == "" || email == "" || cpf == "" || gender == "" || password == "" || confirm == "" || fantasia == "" || cnpj == "" || ie == "" || telephone == ""){
+            $('#message').css('display', 'block');
+            $('#message').html('Voce deve preencher os campos obrigatorios');
+            return false;
+        }
+        
+        if(password != confirm){
+            $('#message').css('display', 'block');
+            $('#message').html('As senhas informadas devem ser iguais');
+            return false;
+        }
+        
+        if(!validarCPF(cpf)){
+            $('#message').css('display', 'block');
+            $('#message').html('CPF Inválido');
+            return false;
+        }
+        
+        if(!validarCNPJ(cnpj)){
+            $('#message').css('display', 'block');
+            $('#message').html('CNPJ Inválido');
+            return false;
+        }
+        
+        if(password.length < 6){
+            $('#message').css('display', 'block');
+            $('#message').html('A senha deve ser maior que 6 digitos');
+            return false;
+        }
+        
+        let form = $(this);
+        let formData = form.serialize();
+        formData += '&type=user';
+        
+        $.ajax({
+            url: "register",
+            method: "post",
+            data: formData,
+            beforeSend: function () {
+                $('#message').css('display', 'block');
+                $('#message').html('Aguarde...');
+            },
+            success: function (data) {
+                $("#message").css('display', 'block');
+                $('#message').html(data.message);
+                setTimeout(() => {
+                    $(location).attr('href', '/WNotaMais/');
+                }, 2000);
+            },
+            error: function(e) {
+                $('#message').css('display', 'block');
+                $('#message').html(e.responseText);
+            }
+        });
+        
+        return false;
+        
+    });
+    
     $("#counter-register").submit(function(e){
         e.preventDefault();
         
-        let fullname = $("#fullname").val();
-        let email = $("#email").val();
-        let cpf = $("#cpf").val();
-        let gender  = $("#gender").val();
-        let password = $("#password").val();
-        let confirm = $("#confirm").val();
+        let fullname = $("#counter-register #fullname").val();
+        let email = $("#counter-register #email").val();
+        let cpf = $("#counter-register #cpf").val();
+        let gender  = $("#counter-register #gender").val();
+        let password = $("#counter-register #password").val();
+        let confirm = $("#counter-register #confirm").val();
         
         $('#message').css('display', 'none');
         
@@ -164,4 +295,51 @@ $(function(){
         return false;
     });
     
+    $("#employee-register").submit(function(e){
+        e.preventDefault();
+        
+        let name = $("#name").val();
+        let nickname = $("#nickname").val();
+        let cpf = $("#cpf").val();
+        let gender = $("#gender").val();
+        
+        if(name == "" || cpf == "" || gender == ""){
+            $('#message').css('display', 'block');
+            $('#message').html('Voce deve preencher os campos obrigatorios');
+            return false;
+        }
+        
+        if(!validarCPF(cpf)){
+            $('#message').css('display', 'block');
+            $('#message').html('CPF Inválido');
+            return false;
+        }
+        
+        let form = $(this);
+        let formData = form.serialize();
+        
+        $.ajax({
+            url: "employee",
+            method: "post",
+            data: formData,
+            beforeSend: function () {
+                $('#message').css('display', 'block');
+                $('#message').html('Aguarde...');
+            },
+            success: function (data) {
+                var data = JSON.parse(data);
+                $("#message").css('display', 'block');
+                $('#message').html(data.message);
+                //setTimeout(() => {
+                    //$(location).attr('href', '/WNotaMais/dashboard');
+                //}, 2000);
+            },
+            error: function(e) {
+                $('#message').css('display', 'block');
+                $('#message').html(e.responseText);
+            }
+        });
+        
+        return false;
+    });
 });
