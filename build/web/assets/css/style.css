@@ -11,6 +11,9 @@ body{
     background:#f1f1f1;
     font-family: 'Montserrat', sans-serif !important;
 }
+.img-profile{
+    border-radius:50% !important;
+}
 .parallax { 
     /* The image used */
     background-image: url("../img/parallax.jpg");

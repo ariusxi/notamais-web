@@ -2,15 +2,31 @@
     <div class="col-sm-12 col-md-9 col-lg-9">
         <ul class="nav nav-tabs">
             <li class="active">
-                <a  href="#list" data-toggle="tab">Lista de Funcionarios</a>
+                <a class="nav-link active" href="#list" data-toggle="tab">Lista de Funcionarios</a>
             </li>
             <li>
-                <a href="#register" data-toggle="tab">Cadastrar Funcionário</a>
+                <a class="nav-link" href="#register" data-toggle="tab">Cadastrar Funcionário</a>
             </li>
         </ul>
         <div class="tab-content ">
             <div class="tab-pane active" id="list">
-                Lista de Funcionários
+                <h2 class="title-register">Lista de Funcionários</h2>
+                <table id="employee-list" class="display table">
+                    <thead>
+                        <tr>
+                            <td>Nome</td>
+                            <td>Gênero</td>
+                            <td>Nickname</td>
+                            <td>CPF</td>
+                            <td>Ações</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            
+                        </tr>
+                    </tbody>
+                </table>
             </div>
             <div class="tab-pane" id="register">
             <form action="" method="POST" id="employee-register">
@@ -58,4 +74,5 @@
         </div>
     </div>
 </div>
+<div class="space-footer"></div>
 <jsp:include page="../views/layout/footer.jsp" />
