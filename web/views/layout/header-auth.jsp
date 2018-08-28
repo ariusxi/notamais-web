@@ -48,10 +48,10 @@
                     </ul>
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><%= session.getAttribute("name") %></a>
+                            <a class="nav-link" href="${pageContext.request.contextPath}/dashboard"><%= session.getAttribute("name") %></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="logout.jsp">Sair</a>
+                            <a class="nav-link" href="${pageContext.request.contextPath}/logout.jsp">Sair</a>
                         </li>
                     </ul>
                 </div>
