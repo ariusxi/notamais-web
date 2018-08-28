@@ -27,7 +27,7 @@
 
         <body>
             <!-- search for navbar bootstrap -->
-            <nav class="navbar navbar-expand-lg navbar-dark blue-sky">
+            <nav class="navbar navbar-expand-lg navbar-dark blue-sky m-0">
                 <a class="navbar-brand" href="#">
                     Nota+
                 </a>
