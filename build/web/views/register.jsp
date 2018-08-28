@@ -6,14 +6,14 @@
         </div>
         <div class="col-sm-6 col-md-6 col-lg-6">
             <a href="" class="open-register" id="user">
-                <h1><i class="fas fa-user"></i></h1>
-                <p>Usuário</p>
+                <h1 style="color: #4E4D4C"><i class="fas fa-user"></i></h1>
+                <p style="color: orange">Usuário</p>
             </a>
         </div>
         <div class="col-sm-6 col-md-6 col-lg-6 text-center  counter-register">
             <a href="" class="open-register" id="counter">
-                <h1><i class="fas fa-user-tie"></i></h1>
-                <p>Contador</p>
+                <h1 style="color: #4E4D4C"><i class="fas fa-user-tie"></i></h1>
+                <p style="color: orange">Contador</p>
             </a>
         </div>
     </div>
@@ -71,7 +71,7 @@
                 </div>
                 <hr/>
                 <div class="col-sm-12 col-md-12 col-lg-12">
-                    <h3 class="title-register">Dados da Empresa</h3>
+                    <h3 style="color: orange" class="title-register">Dados da Empresa</h3>
                 </div>
                 <div class="col-sm-12 col-md-6 col-lg-6">
                     <div class="form-group">
@@ -98,8 +98,9 @@
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-12 col-lg-12">
-                    <input type="submit" class="btn btn-primary" value="Cadastrar">
-                    <input type="button" class="btn btn-primary back-type" value="Voltar">
+                    <input type="submit" class="btn btn-secondary" value="Cadastrar">
+                    <input type="button" class="btn btn-secondary back-type" value="Voltar">
+                   
                 </div>
             </div>
         </form>
@@ -157,11 +158,13 @@
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-12 col-lg-12">
-                    <input type="submit" class="btn btn-primary" value="Cadastrar">
-                    <input type="button" class="btn btn-primary back-type" value="Voltar">
+                    <input  type="submit" class="btn btn-secondary" value="Cadastrar">
+                    <input type="button" class="btn btn-secondary back-type" value="Voltar">
                 </div>
             </div>
+                      
         </form>
+          <hr/>
     </div>
     <div class="alert alert-info mt-2 mb-0" id="message" style="margin-bottom:100px !important;">
 
