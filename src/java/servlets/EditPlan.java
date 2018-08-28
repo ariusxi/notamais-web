@@ -70,14 +70,9 @@ public class EditPlan extends HttpServlet {
             con = new API("plans/update/"+id, "POST", token);
         }
         
-        out.println(name);
-        out.println(value);
-        out.println(qtdeXML);
-        out.println(description);
-        /*
         Hashtable<Integer, String> source = new Hashtable<Integer, String>();
         HashMap<String, String> map = new HashMap(source);
-        if(!type.equals("update-plan")){
+        if(type.equals("update-plan")){
             map.put("name", name);
             map.put("value", value);
             map.put("qtdeXML", qtdeXML);
@@ -86,7 +81,6 @@ public class EditPlan extends HttpServlet {
         
         String responseJSON = con.getJsonString(map);
         out.print(responseJSON);
-        */
         
     }
 
