@@ -26,7 +26,7 @@ import org.json.JSONObject;
  *
  * @author lucas
  */
-@WebServlet(name = "user-edit", urlPatterns = {"/user-edit"})
+@WebServlet(name = "edit-user", urlPatterns = {"/edit-user"})
 public class EditUser extends HttpServlet {
 
     String POST = "POST";
@@ -43,7 +43,7 @@ public class EditUser extends HttpServlet {
         String idUser = session.getAttribute("id").toString();
         String token = session.getAttribute("token").toString();
 
-        String route = "users/get-profile/" + idUser;
+        String route = "users/get-client/" + idUser;
         API con = new API(route, GET, token);
 
         Hashtable<Integer, String> source = new Hashtable<Integer, String>();
@@ -53,10 +53,11 @@ public class EditUser extends HttpServlet {
         out.print(session.getAttribute("email"));
         request.setAttribute("userData", responseJson);
 
+        out.print(responseJson);
+
         String url = "/views/edit-user.jsp";
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
         dispatcher.forward(request, response);
-
     }
 
     @Override

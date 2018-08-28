@@ -8,9 +8,9 @@
 <div class="col-sm-12 col-md-9 col-lg-9">
     <div class="card">
         <div class="card-body">
-            <form id="formEditUser">
+            <form id="formEditCounter">
                 <div class="form-row">
-                    <input type="hidden" id="idUser" name="idUser" />
+                    <input type="hidden" id="idCounter" name="idCounter" />
                     <div class="form-group col-md-6 ">
                         <label>Nome:</label>
                         <input type="text" class="form-control" id="name" name="name" value="<%= session.getAttribute("name")%>"/>
@@ -67,7 +67,7 @@
         var userData = '<%= request.getAttribute("userData")%>'
         var userDataJson = JSON.parse(userData)[0];
 
-        $('#formEditUser #idUser').val(userDataJson._id);
+        $('#formEditCounter #idUser').val(userDataJson._id);
         $('#nickname').val(userDataJson.nickname);
         $('#cpf').val(userDataJson.cpf);
         if (userDataJson.gender == "M") {
@@ -80,12 +80,12 @@
 
     });
 
-    $('#formEditUser').submit(function (event) {
+    $('#formEditCounter').submit(function (event) {
         event.preventDefault();
         var form = $(this);
         $.ajax({
 
-            url: "user-edit",
+            url: "edit-counter",
             method: "post",
             data: form.serialize(),
             beforeSend: function () {

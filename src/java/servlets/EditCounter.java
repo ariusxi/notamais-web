@@ -10,6 +10,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Hashtable;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,13 +19,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  *
  * @author lucas
  */
-@WebServlet(name = "user-edit", urlPatterns = {"/user-edit"})
-public class UserEdit extends HttpServlet {
+@WebServlet(name = "edit-counter", urlPatterns = {"/edit-counter"})
+public class EditCounter extends HttpServlet {
 
     String POST = "POST";
     String GET = "GET";
@@ -46,9 +50,12 @@ public class UserEdit extends HttpServlet {
         HashMap<String, String> map = new HashMap(source);
 
         String responseJson = con.getJsonString(map);
+        out.print(session.getAttribute("email"));
         request.setAttribute("userData", responseJson);
 
-        String url = "/views/edit-user.jsp";
+        out.print(responseJson);
+
+        String url = "/views/edit-counter.jsp";
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
         dispatcher.forward(request, response);
 
@@ -64,6 +71,7 @@ public class UserEdit extends HttpServlet {
 
         String token = (String) session.getAttribute("token");
         String idUser = (String) session.getAttribute("id");
+
         String name = (String) request.getParameter("name");
         String email = (String) request.getParameter("email");
         String nickname = (String) request.getParameter("nickname");
@@ -88,7 +96,21 @@ public class UserEdit extends HttpServlet {
         }
 
         String responseJSON = con.getJsonString(map);
-        out.print(responseJSON);
+        JSONObject json;
+        try {
+            json = new JSONObject(responseJSON);
+            if (json.has("message")) {
+                if (json.get("message").equals("Perfil atualizado com sucesso")) {
+                    session.setAttribute("email", email);
+                    session.setAttribute("name", name);
+                    out.print(json.get("message"));
+                }
+            } else {
+                out.print(responseJSON);
+            }
+        } catch (JSONException ex) {
+            Logger.getLogger(EditUser.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @Override
