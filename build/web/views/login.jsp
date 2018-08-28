@@ -78,7 +78,7 @@
                     $('#message').css('display', 'block');
                     $('#message').html('Login bem sucedido.');
                     setTimeout(function () {
-                        $(location).attr('href', '/WNotaMais/dashboard');
+                        $(location).attr('href', '/notamais-web/dashboard');
                     }, 2000);
                 }
 
