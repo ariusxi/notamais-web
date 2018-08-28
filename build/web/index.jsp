@@ -10,7 +10,6 @@
     <div class="caption">
         <span class="border">
             <p>Uma nova forma de armazenar seus arquivos XML</p>
-            <button>Contrate</button>
         </span>
     </div>
 </div>
@@ -74,45 +73,7 @@
             </p>
             <div class="wrapper">
                 <div id="plans">
-                    <div id="plan" class="plan">
-                        <h2 class="plan-heading">Basic</h2>
-                        <div class="plan-subheading">$10/mo</div>
-                        <div class="plan-divider">or</div>
-                        <div class="plan-highlight">
-                            $119/year <small>(save 10%)</small>
-                        </div>
-                        <ul class="plan-features">
-                            <li>100GB Disk Space</li>
-                            <li>1000GB Data Transfer/month</li>
-                            <li>10 Domains</li>
-                        </ul>
-                    </div>
-                    <div id="plan" class="plan">
-                        <h2 class="plan-heading">Basic</h2>
-                        <div class="plan-subheading">$10/mo</div>
-                        <div class="plan-divider">or</div>
-                        <div class="plan-highlight">
-                            $119/year <small>(save 10%)</small>
-                        </div>
-                        <ul class="plan-features">
-                            <li>100GB Disk Space</li>
-                            <li>1000GB Data Transfer/month</li>
-                            <li>10 Domains</li>
-                        </ul>
-                    </div>
-                    <div id="plan" class="plan">
-                        <h2 class="plan-heading">Basic</h2>
-                        <div class="plan-subheading">$10/mo</div>
-                        <div class="plan-divider">or</div>
-                        <div class="plan-highlight">
-                            $119/year <small>(save 10%)</small>
-                        </div>
-                        <ul class="plan-features">
-                            <li>100GB Disk Space</li>
-                            <li>1000GB Data Transfer/month</li>
-                            <li>10 Domains</li>
-                        </ul>
-                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -143,7 +104,8 @@
                         </div>
                     </div>
                     <div class="col-sm-12 col-md-12 col-lg-12">
-                        <input type="submit" class="btn btn-success" value="Enviar"/>
+                        <br/>
+                        <input type="submit" class="btn btn-outline-light" value="Enviar"/>
                     </div>
                 </form>
                 <div class="alert alert-success mt-2 mb-0" id="message">    

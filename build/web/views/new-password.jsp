@@ -25,7 +25,7 @@
                             <label for="confirmpassword">Confirme a nova senha</label>
                             <input type="password" class="form-control" name="confirmpassword" id="confirmpassword" required>
                         </div>
-                        <input type="submit" value="Salvar" class="btn btn-primary form-control">
+                        <input type="submit" value="Salvar" class="btn btn-secondary form-control">
                     </form>
                     <div class="alert alert-info mt-2 mb-0" id="message"></div>
                 </div>

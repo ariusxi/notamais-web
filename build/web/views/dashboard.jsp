@@ -5,11 +5,10 @@
 --%>
 
 <jsp:include page="../views/layout/header-auth.jsp" />
-<div class="container">
-    <div class="row mt-12 justify-content-center">
-        <div class="col-sm-12 col-md-12">
+        <div class="col-sm-12 col-md-9 col-lg-9">
             teste
         </div>
     </div>
 </div>
+<div class="space-footer"></div>
 <jsp:include page="../views/layout/footer.jsp" />

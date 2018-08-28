@@ -63,14 +63,10 @@ public class Register extends HttpServlet {
         String nickname = request.getParameter("nickname");
         String cpf = request.getParameter("cpf");
         String type = request.getParameter("type");
-        
-        System.out.println(name);
-        System.out.println(email);
-        System.out.println(password);
-        System.out.println(gender);
-        System.out.println(nickname);
-        System.out.println(cpf);
-        System.out.println(type);
+        String fantasia = request.getParameter("fantasia");
+        String cnpj = request.getParameter("cnpj");
+        String ie = request.getParameter("ie");
+        String telephone = request.getParameter("telephone");
         
         String route = "";
         
@@ -92,6 +88,12 @@ public class Register extends HttpServlet {
             map.put("nickname", nickname);
         }
         map.put("cpf", cpf);
+        if(type.equals("user")){
+            map.put("fantasia", fantasia);
+            map.put("cnpj", cnpj);
+            map.put("ie", ie);
+            map.put("telephone", telephone);
+        }
         
         try{
             String responseJSON = con.getJsonString(map);

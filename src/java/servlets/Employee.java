@@ -58,51 +58,35 @@ public class Employee extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
 
-        String login = request.getParameter("login");
-        String password = request.getParameter("password");
-        String ip = request.getRemoteAddr();
-
-        API con = new API("users/auth", "POST", "");
+        String name = request.getParameter("name");
+        String nickname = request.getParameter("nickname");
+        String cpf = request.getParameter("cpf");
+        String gender = request.getParameter("gender");
+        String id = (String) session.getAttribute("id");
+        String e = (String) request.getParameter("id");
+        String token = (String) session.getAttribute("token");
+        String type = request.getParameter("type");
+        
+        API con;
+        if(type.equals("employee-list")){
+            con = new API("employees/fetch-all/"+id, "GET", token);
+        }else if(type.equals("delete-employee")){
+            con = new API("employees/delete/"+id, "GET", token);
+        }else{
+            con = new API("employees/create/"+id, "POST", token);
+        }
 
         Hashtable<Integer, String> source = new Hashtable<Integer, String>();
         HashMap<String, String> map = new HashMap(source);
-        map.put("email", login);
-        map.put("password", password);
-        map.put("ip", ip);
+        if(!type.equals("employee-list") && !type.equals("delete-employee")){
+            map.put("name", name);
+            map.put("nickname", nickname);
+            map.put("cpf", cpf);
+            map.put("gender", gender);
+        }
 
         String responseJSON = con.getJsonString(map);
-        try {
-            JSONObject json = new JSONObject(responseJSON);
-            if (json.has("message")) {
-                out.print(responseJSON);
-            } else {
-                JSONObject data = json.getJSONObject("data");
-
-                String token = json.get("token").toString();
-                String userID = data.get("id").toString();
-                String userEmail = data.get("email").toString();
-                String userName = data.get("name").toString();
-                Object userRoles = data.get("roles").toString();
-
-                Pattern p = Pattern.compile("()\\w+");
-                Matcher m = p.matcher(userRoles.toString());
-                if (m.find()) {
-                    userRoles = m.group(0);
-                }
-
-                session.setAttribute("token", token);
-                session.setAttribute("id", userID);
-                session.setAttribute("email", userEmail);
-                session.setAttribute("name", userName);
-                session.setAttribute("roles", userRoles);
-                
-                out.print(data);
-                
-            }
-
-        } catch (JSONException ex) {
-            Logger.getLogger(SetLogin.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        out.print(responseJSON);
     }
 
     /**
