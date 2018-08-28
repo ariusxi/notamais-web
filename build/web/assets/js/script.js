@@ -371,7 +371,7 @@ $(function(){
                 $("#message").css('display', 'block');
                 $('#message').html(data.message);
                 setTimeout(() => {
-                    $(location).attr('href', '/WNotaMais/');
+                    $(location).attr('href', '/notamais-web/');
                 }, 2000);
             },
             error: function(e) {
@@ -436,7 +436,7 @@ $(function(){
                 $("#message").css('display', 'block');
                 $('#message').html(data.message);
                 setTimeout(() => {
-                    $(location).attr('href', '/WNotaMais/');
+                    $(location).attr('href', '/notamais-web/');
                 }, 2000);
             },
             error: function(e) {
@@ -484,7 +484,7 @@ $(function(){
                 $("#message").css('display', 'block');
                 $('#message').html(data.message);
                 //setTimeout(() => {
-                    //$(location).attr('href', '/WNotaMais/dashboard');
+                    //$(location).attr('href', '/notamais-web/dashboard');
                 //}, 2000);
             },
             error: function(e) {
