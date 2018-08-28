@@ -185,6 +185,75 @@ $(function(){
         });
     });
     
+    $("#form-edit-plan").ready(function(){
+        var id = $("#id_plano").val();
+        $.ajax({
+            url: "edit-plan",
+            method: "POST",
+            data: {
+                id: id,
+                type: "select-plan"
+            },
+            dataType: "json",
+            success: function(data){
+                $("#form-edit-plan #name").val(data.name);
+                $("#form-edit-plan #value").val(data.value);
+                $("#form-edit-plan #qtdeXML").val(data.qtdeXML);
+                $("#form-edit-plan #description").val(data.description);
+            },error: function(e){
+                console.log(e);
+            }
+        });
+    });
+    
+    $("#form-edit-plan").submit(function(e){
+        e.preventDefault();
+        
+        let name = $("#name").val();
+        let value = $("#value").val();
+        let qtdeXML = $("#qtdeXML").val();
+        let description = $("#description").val();
+        let id = $("#id_plano").val();
+        
+        if(name == "" || value == "" ||  qtdeXML == "" || description == ""){
+            $('#message').css('display', 'block');
+            $('#message').html('Voce deve preencher os campos obrigatorios');
+            return false;
+        }
+        
+        if(value < 0){
+            $('#message').css('display', 'block');
+            $('#message').html('O preço do plano não pode ser maior que 0');
+            return false;
+        }
+        
+        if(qtdeXML <= 0){
+            $('#message').css('display', 'block');
+            $('#message').html('A quantidade de XMLs não pode ser menor ou igual a zero');
+            return false;
+        }
+        
+        let form = $(this);
+        let formData = form.serialize();
+        formData += '&type=update-plan&id='+id;
+        
+        $.ajax({
+            url: "edit-plan",
+            method: "POST",
+            data: formData,
+            dataType: "json",
+            success: function(data){
+                $("#message").css('display', 'block');
+                $("#message").html(data.message);
+            },error: function(e){
+                $('#message').css('display', 'block');
+                $('#message').html(e.responseText);
+            }
+        });
+        
+        return false;
+    });
+    
     $("#plans, #plans-list").ready(function(){
         $.ajax({
             url: "plan",
@@ -197,7 +266,7 @@ $(function(){
                 $.each(data, function(i, value){
                     let html = '<div id="'+value._id+'" class="plan"><h2 class="plan-heading">'+value.name+'</h2><div class="plan-subheading">$'+value.value+'/mes</div><p>Armazenamento de '+value.qtdeXML+' XMLs</p><p>'+value.description+'</p></div>';
                     $("#plans").append(html);
-                    html = "<tr><td>"+value.name+"</td><td>"+value.description+"</td><td>"+value.value+"</td><td>"+value.qtdeXML+"</td><td><a href='editplan?id="+value._id+"' class='btn btn-primary'>Editar</a><button class='delete-plan btn btn-primary' id='"+value._id+"'>Excluir</button></td></tr>";
+                    html = "<tr><td>"+value.name+"</td><td>"+value.description+"</td><td>"+value.value+"</td><td>"+value.qtdeXML+"</td><td><a href='edit-plan?id="+value._id+"' class='btn btn-primary'>Editar</a><button class='delete-plan btn btn-primary' id='"+value._id+"'>Excluir</button></td></tr>";
                     $("#plans-list tbody").append(html);
                 });
             }, error: function(e){

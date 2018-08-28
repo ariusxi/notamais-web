@@ -36,6 +36,10 @@
         <servlet-name>Plan</servlet-name>
         <servlet-class>servlets.Plan</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EditPlan</servlet-name>
+        <servlet-class>servlets.EditPlan</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ForgotPassword</servlet-name>
         <url-pattern>/ForgotPassword</url-pattern>
@@ -71,6 +75,10 @@
     <servlet-mapping>
         <servlet-name>Plan</servlet-name>
         <url-pattern>/Plan</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditPlan</servlet-name>
+        <url-pattern>/EditPlan</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
