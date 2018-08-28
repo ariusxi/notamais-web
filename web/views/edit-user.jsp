@@ -10,7 +10,6 @@
         <div class="card-body">
             <form id="formEditUser">
                 <div class="form-row">
-                    <input type="hidden" id="idUser" name="idUser" />
                     <div class="form-group col-md-6 ">
                         <label>Nome:</label>
                         <input type="text" class="form-control" id="name" name="name" value="<%= session.getAttribute("name")%>"/>
@@ -88,8 +87,9 @@
 
         var userDataClient = userDataJson[0][0];
         var userDataProfile = userDataJson[1][0];
-        
+
         console.log(userDataClient);
+        console.log(userDataProfile);
 
         //Profile data
         $('#idUser').val(userDataProfile._id);
