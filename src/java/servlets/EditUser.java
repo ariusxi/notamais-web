@@ -105,7 +105,7 @@ public class EditUser extends HttpServlet {
 
         Hashtable<Integer, String> source = new Hashtable<Integer, String>();
         HashMap<String, String> map = new HashMap(source);
-
+        
         //Put on map the profile data
         map.put("name", name);
         map.put("email", email);

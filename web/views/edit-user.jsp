@@ -116,7 +116,7 @@
         var form = $(this);
         $.ajax({
 
-            url: "edit-counter",
+            url: "edit-user",
             method: "post",
             data: form.serialize(),
             beforeSend: function () {
