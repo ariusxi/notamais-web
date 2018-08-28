@@ -32,6 +32,10 @@
         <servlet-name>Contact</servlet-name>
         <servlet-class>servlets.Contact</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Plan</servlet-name>
+        <servlet-class>servlets.Plan</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ForgotPassword</servlet-name>
         <url-pattern>/ForgotPassword</url-pattern>
@@ -63,6 +67,10 @@
     <servlet-mapping>
         <servlet-name>Contact</servlet-name>
         <url-pattern>/Contact</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Plan</servlet-name>
+        <url-pattern>/Plan</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
