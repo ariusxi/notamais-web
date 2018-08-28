@@ -57,7 +57,7 @@
                     </ul>
                 </div>
             </nav>
-           <div class="container-fluid user-profile">
+           <div class="container-fluid user-profile mb-5">
                 <div class="row employee">
                     <div class="col-sm-12 col-md-3 col-lg-3">
                         <div class="list-group">
@@ -74,6 +74,6 @@
                             <% }else if(session.getAttribute("roles").equals("admin")){  %>
                             <a href="plan" class="list-group-item list-group-item-action">Planos</a>
                             <% } %>
-                            <a href="#" class="list-group-item list-group-item-action">Alterar dados de perfil</a>
+                            <a href="user-edit" class="list-group-item list-group-item-action">Alterar dados de perfil</a>
                         </div>
                     </div>
