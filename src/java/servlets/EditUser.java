@@ -85,6 +85,7 @@ public class EditUser extends HttpServlet {
         String token = (String) session.getAttribute("token");
         String idUser = (String) session.getAttribute("id");
 
+        //User profile data
         String name = (String) request.getParameter("name");
         String email = (String) request.getParameter("email");
         String nickname = (String) request.getParameter("nickname");
@@ -93,12 +94,19 @@ public class EditUser extends HttpServlet {
         String newPassword = (String) request.getParameter("newpassword");
         String confirmNewPassword = (String) request.getParameter("confirmnewpassword");
 
+        //User client data
+        String namefantasy = (String) request.getParameter("namefantasy");
+        String cnpj = (String) request.getParameter("cnpj");
+        String ie = (String) request.getParameter("ie");
+        String telephone = (String) request.getParameter("telephone");
+
         String route = "users/update-profile/" + idUser;
         API con = new API(route, POST, token);
 
         Hashtable<Integer, String> source = new Hashtable<Integer, String>();
         HashMap<String, String> map = new HashMap(source);
 
+        //Put on map the profile data
         map.put("name", name);
         map.put("email", email);
         map.put("nickname", nickname);
@@ -107,6 +115,12 @@ public class EditUser extends HttpServlet {
         if (!newPassword.equals("")) {
             map.put("password", newPassword);
         }
+
+        //Put on map the client data
+        map.put("fantasia", namefantasy);
+        map.put("cnpj", cnpj);
+        map.put("ie", ie);
+        map.put("telephone", telephone);
 
         String responseJSON = con.getJsonString(map);
         JSONObject json;

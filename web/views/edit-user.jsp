@@ -8,7 +8,7 @@
 <div class="col-sm-12 col-md-9 col-lg-9">
     <div class="card">
         <div class="card-body">
-            <form id="formEditCounter">
+            <form id="formEditUser">
                 <div class="form-row">
                     <input type="hidden" id="idUser" name="idUser" />
                     <div class="form-group col-md-6 ">
@@ -33,6 +33,24 @@
                         <label>Gênero:</label>
                         <select class="form-control" id="gender" name="gender">
                         </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-3">
+                        <label>Nome fantasia:</label>
+                        <input type="text" class="form-control" id="namefantasy" name="namefantasy"/>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label>CNPJ</label>
+                        <input type="text" class="form-control" id="cnpj" name="cnpj"/>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label>IE</label>
+                        <input type="text" class="form-control" id="ie" name="ie"/>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label>Telefone</label>
+                        <input type="text" class="form-control" id="telephone" name="telephone"/>
                     </div>
                 </div>
                 <div class="form-row">
@@ -71,9 +89,10 @@
         var userDataClient = userDataJson[0][0];
         var userDataProfile = userDataJson[1][0];
         
-        console.log(userDataProfile);
-        
-        $('#formEditCounter #idUser').val(userDataProfile._id);
+        console.log(userDataClient);
+
+        //Profile data
+        $('#idUser').val(userDataProfile._id);
         $('#nickname').val(userDataProfile.nickname);
         $('#cpf').val(userDataProfile.cpf);
         if (userDataProfile.gender == "M") {
@@ -84,9 +103,15 @@
             $("#gender").append("<option value='M'>M</option>");
         }
 
+        //Client data
+        $('#namefantasy').val(userDataClient.fantasia);
+        $('#cnpj').val(userDataClient.cnpj);
+        $('#ie').val(userDataClient.ie);
+        $('#telephone').val(userDataClient.telephone);
+
     });
 
-    $('#formEditCounter').submit(function (event) {
+    $('#formEditUser').submit(function (event) {
         event.preventDefault();
         var form = $(this);
         $.ajax({
