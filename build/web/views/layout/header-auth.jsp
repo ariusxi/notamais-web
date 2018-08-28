@@ -23,56 +23,67 @@
                 crossorigin="anonymous">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-        </head>
+    </head>
 
-        <body>
-            <!-- search for navbar bootstrap -->
-            <nav class="navbar navbar-expand-lg navbar-dark blue-sky">
-                <a class="navbar-brand" href="#">
-                    Nota+
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto">
-                        <% if(session.getAttribute("roles").equals("user")){ %>
-                        <li class="nav-item">
-                            <a class="nav-link" href="dashboard">Página Inicial</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="employee">Meus funcionários</a>
-                        </li>
-                        <% }else{ %>
-                        <% } %>
-                    </ul>
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="${pageContext.request.contextPath}/dashboard"><%= session.getAttribute("name") %></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="${pageContext.request.contextPath}/logout.jsp">Sair</a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-           <div class="container-fluid user-profile mb-5">
-                <div class="row employee">
-                    <div class="col-sm-12 col-md-3 col-lg-3">
-                        <div class="list-group">
-                            <div class="list-group-item ">
-                                <div class="text-center">
-                                    <img src="${pageContext.request.contextPath}/assets/img/default-user.png" class="img-fluid img-thumbnail img-profile" alt="<%= session.getAttribute("name") %>"><br/><br/>
-                                </div>
-                                <h5 class="card-title"><%= session.getAttribute("name") %></h5>
-                                <h6 class="card-subtitle mb-2 text-muted"><%= session.getAttribute("roles") %></h6>
+    <body>
+        <!-- search for navbar bootstrap -->
+        <nav class="navbar navbar-expand-lg navbar-dark blue-sky m-0">
+            <a class="navbar-brand" href="#">
+                Nota+
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <% if (session.getAttribute("roles").equals("user")) { %>
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard">Página Inicial</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="employee">Meus funcionários</a>
+                    </li>
+                    <% } else { %>
+                    <% }%>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><%= session.getAttribute("name")%></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="logout.jsp">Sair</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="container-fluid user-profile mb-5">
+            <div class="row employee">
+                <div class="col-sm-12 col-md-3 col-lg-3">
+                    <div class="list-group">
+                        <div class="list-group-item ">
+                            <div class="text-center">
+                                <img src="${pageContext.request.contextPath}/assets/img/default-user.png" class="img-fluid img-thumbnail img-profile" alt="<%= session.getAttribute("name")%>"><br/><br/>
                             </div>
-                            <a href="dashboard" class="list-group-item list-group-item-action">Meu perfil</a>
-                            <% if(session.getAttribute("roles").equals("user")){ %>
-                            <a href="employee" class="list-group-item list-group-item-action">Funcionários</a>
-                            <% }else if(session.getAttribute("roles").equals("admin")){  %>
-                            <a href="plan" class="list-group-item list-group-item-action">Planos</a>
-                            <% } %>
-                            <a href="user-edit" class="list-group-item list-group-item-action">Alterar dados de perfil</a>
+                            <h5 class="card-title">
+                                <%= session.getAttribute("name")%>
+                            </h5>
+                            <h6 class="card-subtitle mb-2 text-muted">
+                                <%= session.getAttribute("roles")%>
+                            </h6>
                         </div>
+                        
+                        <a href="dashboard" class="list-group-item list-group-item-action">Meu perfil</a>
+                        
+                        <% if (session.getAttribute("roles").equals("user")) { %>
+                            <a href="employee" class="list-group-item list-group-item-action">Funcionários</a>
+                        <% } else if (session.getAttribute("roles").equals("admin")) {  %>
+                            <a href="plan" class="list-group-item list-group-item-action">Planos</a>
+                        <% }%>
+                        
+                        <% if (session.getAttribute("roles").equals("user")) { %>
+                            <a href="edit-user" class="list-group-item list-group-item-action">Alterar dados de perfil</a>
+                        <% } else if (session.getAttribute("roles").equals("counter")){ %>
+                            <a href="edit-counter" class="list-group-item list-group-item-action">Alterar dados de perfil</a>
+                        <% } %>
                     </div>
+                </div>
