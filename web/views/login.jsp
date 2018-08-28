@@ -25,10 +25,10 @@
                             <label for="password">Senha</label>
                             <input type="password" class="form-control" name="password" id="password" required>
                         </div>
-                        <div class="text-center mb-3">
-                            <a href="forgot-password">Esqueci minha senha</a>
+                        <div class="text-center mb-3" >
+                            <a href="forgot-password"style="color: orange">Esqueci minha senha</a>
                         </div>
-                        <input type="submit" value="Entrar" class="btn btn-primary form-control">
+                        <input type="submit" value="Entrar" class="btn btn-secondary form-control">
                     </form>
                     <div class="alert alert-info mt-2 mb-0" id="message">
 

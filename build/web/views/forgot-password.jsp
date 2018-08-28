@@ -23,7 +23,7 @@
                             <label for="email">Email</label>
                             <input type="email" class="form-control" name="email" id="email" required>
                         </div>
-                        <input type="submit" value="Enviar" class="btn btn-primary form-control">
+                        <input type="submit" value="Enviar" class="btn btn-secondary  form-control">
                     </form>
                     <div class="alert alert-info mt-2 mb-0" id="message"></div>
                 </div>
