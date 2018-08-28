@@ -7,5 +7,3 @@ org.json e o servlet-api.jar:
   <li>http://www.java2s.com/Code/Jar/o/Downloadorgjsonjar.htm</li>
   <li>http://www.java2s.com/Code/Jar/s/Downloadservletapijar.htm</li>
 </ul>
-
-Renomear a pasta do projeto para WNotaMais
