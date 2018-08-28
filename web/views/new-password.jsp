@@ -49,18 +49,29 @@
         var password = $('#password').val();
         var cpassword = $('#confirmpassword').val();
 
+        if(password == "" || cpassword == ""){
+            $('#message').css('display', 'block');
+            $('#message').html('Você deve preencher todos os campos');
+        }
+
         if (password != cpassword) {
             $('#message').css('display', 'block');
             $('#message').html('As senhas devem ser iguais');
-        } else {
-
-            var form = $(this);
-            var token = location.search.split('token=')[1];
-            var formData = form.serialize() + "&token=" + token;
-
-            $('#message').css('display', 'none');
-            setNewPassword(formData);
+            return false;
         }
+        
+        if(password.length < 6){
+            $("#message").css('display', 'block');
+            $("#message").html("A sua senha não pode ser menor que 6 digitos");
+            return false;
+        }
+
+        var form = $(this);
+        var token = location.search.split('token=')[1];
+        var formData = form.serialize() + "&token=" + token;
+
+        $('#message').css('display', 'none');
+        setNewPassword(formData);
 
     });
 

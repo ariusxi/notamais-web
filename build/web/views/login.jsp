@@ -18,7 +18,7 @@
                     </p>
                     <form id="formLogin" class="mt-4">
                         <div class="form-group">
-                            <label for="login">Nome de Usuário</label>
+                            <label for="login">Email</label>
                             <input type="text" class="form-control" name="login" id="login" required>
                         </div>
                         <div class="form-group">
