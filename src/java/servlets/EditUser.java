@@ -8,8 +8,10 @@ package servlets;
 import dao.API;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Hashtable;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -40,21 +42,33 @@ public class EditUser extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
 
+        //Parameters
         String idUser = session.getAttribute("id").toString();
         String token = session.getAttribute("token").toString();
 
-        String route = "users/get-client/" + idUser;
-        API con = new API(route, GET, token);
+        //Route to get profile data
+        String routeGetProfile = "users/get-profile/" + idUser;
+        API conGetProfile = new API(routeGetProfile, GET, token);
+
+        //Route to get user data
+        String routeGetClient = "users/get-client/" + idUser;
+        API conGetClient = new API(routeGetClient, GET, token);
 
         Hashtable<Integer, String> source = new Hashtable<Integer, String>();
         HashMap<String, String> map = new HashMap(source);
 
-        String responseJson = con.getJsonString(map);
-        out.print(session.getAttribute("email"));
-        request.setAttribute("userData", responseJson);
+        //Get response of routes
+        String responseGetClient = conGetClient.getJsonString(map);
+        String responseGetProfile = conGetProfile.getJsonString(map);
 
-        out.print(responseJson);
+        //Make a single data list to get on javascript
+        ArrayList<String> data = new ArrayList<String>();
+        data.add(responseGetClient);
+        data.add(responseGetProfile);
+        request.setAttribute("userData", data);
+        out.print(data);
 
+        //Redirect to edit user view
         String url = "/views/edit-user.jsp";
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
         dispatcher.forward(request, response);

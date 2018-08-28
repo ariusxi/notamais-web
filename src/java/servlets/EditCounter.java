@@ -40,10 +40,10 @@ public class EditCounter extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
 
-        String idUser = session.getAttribute("id").toString();
+        String idCounter = session.getAttribute("id").toString();
         String token = session.getAttribute("token").toString();
 
-        String route = "users/get-profile/" + idUser;
+        String route = "users/get-profile/" + idCounter;
         API con = new API(route, GET, token);
 
         Hashtable<Integer, String> source = new Hashtable<Integer, String>();
@@ -51,7 +51,7 @@ public class EditCounter extends HttpServlet {
 
         String responseJson = con.getJsonString(map);
         out.print(session.getAttribute("email"));
-        request.setAttribute("userData", responseJson);
+        request.setAttribute("counterData", responseJson);
 
         out.print(responseJson);
 

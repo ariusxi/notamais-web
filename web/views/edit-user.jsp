@@ -1,6 +1,6 @@
 <%-- 
     Document   : edit-user
-    Created on : Aug 27, 2018, 10:16:30 PM
+    Created on : 28/08/2018, 17:04:32
     Author     : lucas
 --%>
 
@@ -10,7 +10,7 @@
         <div class="card-body">
             <form id="formEditCounter">
                 <div class="form-row">
-                    <input type="hidden" id="idCounter" name="idCounter" />
+                    <input type="hidden" id="idUser" name="idUser" />
                     <div class="form-group col-md-6 ">
                         <label>Nome:</label>
                         <input type="text" class="form-control" id="name" name="name" value="<%= session.getAttribute("name")%>"/>
@@ -64,17 +64,23 @@
 <script type="text/javascript">
 
     $(document).ready(function () {
-        var userData = '<%= request.getAttribute("counterData")%>'
-        var userDataJson = JSON.parse(userData)[0];
 
-        $('#formEditCounter #idUser').val(userDataJson._id);
-        $('#nickname').val(userDataJson.nickname);
-        $('#cpf').val(userDataJson.cpf);
-        if (userDataJson.gender == "M") {
-            $("#gender").append("<option value='" + userDataJson.gender + "' selected>" + userDataJson.gender + "</option>");
+        var userData = '<%= request.getAttribute("userData")%>'
+        var userDataJson = JSON.parse(userData);
+
+        var userDataClient = userDataJson[0][0];
+        var userDataProfile = userDataJson[1][0];
+        
+        console.log(userDataProfile);
+        
+        $('#formEditCounter #idUser').val(userDataProfile._id);
+        $('#nickname').val(userDataProfile.nickname);
+        $('#cpf').val(userDataProfile.cpf);
+        if (userDataProfile.gender == "M") {
+            $("#gender").append("<option value='" + userDataProfile.gender + "' selected>" + userDataProfile.gender + "</option>");
             $("#gender").append("<option value='F'>F</option>");
         } else {
-            $("#gender").append("<option value='" + userDataJson.gender + "' selected>" + userDataJson.gender + "</option>");
+            $("#gender").append("<option value='" + userDataProfile.gender + "' selected>" + userDataProfile.gender + "</option>");
             $("#gender").append("<option value='M'>M</option>");
         }
 
