@@ -58,10 +58,10 @@
                     </ul>
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="login">Login</a>
+                            <a class="nav-link" href="${pageContext.request.contextPath}/login">Login</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="register">Cadastre-se</a>
+                            <a class="nav-link" href="${pageContext.request.contextPath}/register">Cadastre-se</a>
                         </li>
                     </ul>
                 </div>
