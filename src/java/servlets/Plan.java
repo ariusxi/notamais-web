@@ -53,11 +53,12 @@ public class Plan extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        
         PrintWriter out = response.getWriter();
+        
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
-
+        
         String name = request.getParameter("name");
         String description = request.getParameter("description");
         String value = request.getParameter("value");
@@ -68,7 +69,7 @@ public class Plan extends HttpServlet {
         
         API con;
         if(type.equals("plan-list")){
-            con = new API("plans/", "GET", token);
+            con = new API("plans/", "GET", "");
         }else if(type.equals("plan-update")){
             con = new API("plans/update/"+id, "POST", token);
         }else if(type.equals("plan-delete")){
@@ -77,17 +78,19 @@ public class Plan extends HttpServlet {
             con = new API("plans/create", "POST", token);
         }
         
+        
         Hashtable<Integer, String> source = new Hashtable<Integer, String>();
         HashMap<String, String> map = new HashMap(source);
-        if(!type.equals("plan-list") && !type.equals("plan-delete")){
+        
+        
+        if(!type.equals("plan-list") && !type.equals("plan-update")){
             map.put("name", name);
             map.put("description", description);
             map.put("value", value);
             map.put("qtdeXML", qtdeXML);
         }
-
         String responseJSON = con.getJsonString(map);
-        out.print(responseJSON);
+        out.println(responseJSON);
     }
 
     /**

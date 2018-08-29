@@ -6,10 +6,10 @@
 
     <%@page contentType="text/html" pageEncoding="UTF-8"%>
         <!DOCTYPE html>
-        <html lang="pt_br">
+        <html>
 
         <head>
-            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+            <meta http-equiv="content-type" content="text/html; charset=UTF-8">
             <title>Nota Mais</title>
             
             <!-- Fonts -->
@@ -58,10 +58,10 @@
                     </ul>
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="login">Login</a>
+                            <a class="nav-link" href="${pageContext.request.contextPath}/login">Login</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="register">Cadastre-se</a>
+                            <a class="nav-link" href="${pageContext.request.contextPath}/register">Cadastre-se</a>
                         </li>
                     </ul>
                 </div>
