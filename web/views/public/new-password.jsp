@@ -77,7 +77,7 @@
 
     function setNewPassword(formData) {
         $.ajax({
-            url: "../forms/new-password.jsp",
+            url: "../../forms/new-password.jsp",
             method: "post",
             data: formData,
             beforeSend: function () {
