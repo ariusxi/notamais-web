@@ -1,4 +1,4 @@
-<jsp:include page="../views/layout/header-auth.jsp" />
+<jsp:include page="../layout/header-auth.jsp" />
     <div class="col-sm-12 col-md-9 col-lg-9">
         <form action="" method="POST" id="form-edit-plan">
             <input type="hidden" name="id_plano" id="id_plano" value="<% out.print(request.getParameter("id")); %>">
@@ -41,4 +41,4 @@
         </div>
     </div>
 <div class="space-footer"></div>
-<jsp:include page="../views/layout/footer.jsp" />
+<jsp:include page="../layout/footer.jsp" />

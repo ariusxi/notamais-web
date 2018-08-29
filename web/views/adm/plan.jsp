@@ -1,4 +1,4 @@
-<jsp:include page="../views/layout/header-auth.jsp" />
+<jsp:include page="../layout/ header-auth.jsp" />
     <div class="col-sm-12 col-md-9 col-lg-9">
         <ul class="nav nav-tabs">
             <li class="active">
@@ -71,4 +71,4 @@
     </div>
 </div>
 <div class="space-footer"></div>
-<jsp:include page="../views/layout/footer.jsp" />
+<jsp:include page="../layout/footer.jsp" />
