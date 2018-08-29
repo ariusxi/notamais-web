@@ -30,16 +30,6 @@ import org.json.JSONObject;
  */
 @WebServlet("/contact")
 public class Contact extends HttpServlet {
-
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -74,14 +64,4 @@ public class Contact extends HttpServlet {
             Logger.getLogger(SetLogin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
 }
