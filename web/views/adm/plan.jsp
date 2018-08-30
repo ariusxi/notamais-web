@@ -80,4 +80,12 @@
         $('#qtdeXML').bind('keydown', onlyNumber);
     });
 
+    $(document).ready(function ()
+    {
+        $("#value").maskMoney({
+            decimal: ",",
+            thousands: "."
+        });
+    });
+
 </script>
