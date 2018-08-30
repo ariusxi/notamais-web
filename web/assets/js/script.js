@@ -588,3 +588,12 @@ function onlyNumber(e) {
     }
     return false;
 }
+
+function formatPrice(num) {
+    var er = /[^0-9.,]/;
+    er.lastIndex = 0;
+    var field = num;
+    if (er.test(field.value)) {
+        field.value = "";
+    }
+}

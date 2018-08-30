@@ -1,34 +1,34 @@
 <jsp:include page="../layout/header-auth.jsp" />
-    <div class="col-sm-12 col-md-9 col-lg-9">
-        <ul class="nav nav-tabs">
-            <li class="active">
-                <a class="nav-link active" href="#list" data-toggle="tab">Lista de Planos</a>
-            </li>
-            <li>
-                <a class="nav-link" href="#register" data-toggle="tab">Cadastrar Plano</a>
-            </li>
-        </ul>
-        <div class="tab-content ">
-            <div class="tab-pane active" id="list">
-                <h2 class="title-register">Lista de Planos</h2>
-                <table id="plans-list" class="display table">
-                    <thead>
-                        <tr>
-                            <td>Nome</td>
-                            <td>Descrição</td>
-                            <td>Preço</td>
-                            <td>Quantidade de XML</td>
-                            <td>Ações</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="tab-pane" id="register">
+<div class="col-sm-12 col-md-9 col-lg-9">
+    <ul class="nav nav-tabs">
+        <li class="active">
+            <a class="nav-link active" href="#list" data-toggle="tab">Lista de Planos</a>
+        </li>
+        <li>
+            <a class="nav-link" href="#register" data-toggle="tab">Cadastrar Plano</a>
+        </li>
+    </ul>
+    <div class="tab-content ">
+        <div class="tab-pane active" id="list">
+            <h2 class="title-register">Lista de Planos</h2>
+            <table id="plans-list" class="display table">
+                <thead>
+                    <tr>
+                        <td>Nome</td>
+                        <td>Descrição</td>
+                        <td>Preço</td>
+                        <td>Quantidade de XML</td>
+                        <td>Ações</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="tab-pane" id="register">
             <form action="" method="POST" id="plan-register">
                 <div class="row">
                     <div class="col-sm-12 col-md-12 col-lg-12">
@@ -60,7 +60,7 @@
                     </div>
                     <div class="col-sm-12 col-md-12 col-lg-12">
                         <input type="submit" class="btn btn-primary" value="Cadastrar">
-                        <input type="button" class="btn btn-primary back-type" value="Voltar">
+                        <button class="btn btn-primary" onclick="$(location).attr('href','plan')">Voltar</button>
                     </div>
                 </div>
             </form>
@@ -79,15 +79,4 @@
         $('#qtdeXML').bind('keydown', onlyNumber);
     });
 
-    function formatPrice(num) {
-        var er = /[^0-9.,]/;
-        er.lastIndex = 0;
-        var field = num;
-        if (er.test(field.value)) {
-            field.value = "";
-        }
-    }
-
 </script>
-
-<jsp:include page="../layout/footer.jsp" />
