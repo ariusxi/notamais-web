@@ -88,7 +88,7 @@
                 <div class="col-sm-12 col-md-6 col-lg-6">
                     <div class="form-group">
                         <label for="ie">IE</label>
-                        <input type="text" class="form-control"  placeholder="IE" name="ie" id="ie">
+                        <input type="text" class="form-control ie"  placeholder="IE" name="ie" id="ie">
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-6 col-lg-6">
@@ -100,12 +100,12 @@
                 <div class="col-sm-12 col-md-12 col-lg-12">
                     <input type="submit" class="btn btn-secondary" value="Cadastrar">
                     <input type="button" class="btn btn-secondary back-type" value="Voltar">
-                   
+
                 </div>
             </div>
         </form>
     </div>
-    <div class="row counter">
+    <div class="row counter mt-0">
         <form action="" method="POST" id="counter-register">
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-12">
@@ -162,13 +162,41 @@
                     <input type="button" class="btn btn-secondary back-type" value="Voltar">
                 </div>
             </div>
-                      
         </form>
-          <hr/>
+        <hr/>
     </div>
     <div class="alert alert-info mt-2 mb-0" id="message" style="margin-bottom:100px !important;">
-
     </div>
 </div>
 <div class="space-footer"></div>
 <jsp:include page="../layout/footer.jsp" />
+
+<script type="text/javascript">
+
+    $(function () {
+        $('#cpf').bind('keydown', onlyNumber);
+        $('#cnpj').bind('keydown', onlyNumber);
+        $('#ie').bind('keydown', onlyNumber);
+        $('#telephone').bind('keydown', onlyNumber);
+    });
+
+    function onlyNumber(e) {
+
+        keyCodes = new Array(8, 9, 37, 39, 46);
+
+        for (x = 48; x <= 57; x++) {
+            keyCodes.push(x);
+        }
+
+        for (x = 96; x <= 105; x++) {
+            keyCodes.push(x);
+        }
+
+        keyCode = e.which;
+
+        if ($.inArray(keyCode, keyCodes) != -1) {
+            return true;
+        }
+        return false;
+    }
+</script>
