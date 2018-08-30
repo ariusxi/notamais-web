@@ -589,10 +589,25 @@ function onlyNumber(e) {
     return false;
 }
 
-function formatPrice(num) {
+function onlyLetter(e) {
+
+    var tecla = new Number();
+    if (window.event) {
+        tecla = e.keyCode;
+    } else if (e.which) {
+        tecla = e.which;
+    } else {
+        return true;
+    }
+    if ((tecla >= "48") && (tecla <= "57")) {
+        return false;
+    }
+}
+
+function formatPrice(text) {
     var er = /[^0-9.,]/;
     er.lastIndex = 0;
-    var field = num;
+    var field = text;
     if (er.test(field.value)) {
         field.value = "";
     }

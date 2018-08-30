@@ -64,6 +64,7 @@
 <script type="text/javascript">
 
     $(function () {
+        $('#name').bind('keydown', onlyLetter);
         $('#cpf').bind('keydown', onlyNumber);
     });
 

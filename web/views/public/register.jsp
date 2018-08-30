@@ -174,10 +174,13 @@
 <script type="text/javascript">
 
     $(function () {
+        $('#user-register #fullname').bind('keydown', onlyLetter);
+        $('#counter-register #fullname').bind('keydown', onlyLetter);
+        $('#fantasia').bind('keydown', onlyLetter);
         $('#cpf').bind('keydown', onlyNumber);
         $('#cnpj').bind('keydown', onlyNumber);
         $('#ie').bind('keydown', onlyNumber);
         $('#telephone').bind('keydown', onlyNumber);
     });
-    
+
 </script>

@@ -4,7 +4,7 @@
     Author     : lucas
 --%>
 
-<jsp:include page="../layout/footer.jsp"/>
+<jsp:include page="../layout/header-auth.jsp"/>
 <div class="col-sm-12 col-md-9 col-lg-9">
     <div class="card">
         <div class="card-body">
@@ -12,7 +12,7 @@
                 <div class="form-row">
                     <div class="form-group col-md-6 ">
                         <label>Nome:</label>
-                        <input type="text" class="form-control" id="name" name="name" value="<%= session.getAttribute("name")%>"/>
+                        <input type="text" class="form-control" id="name" name="name" value="<%= session.getAttribute("name")%>" onkeydown="onlyLetter(this)"/>
                     </div>
                     <div class="form-group col-md-6">
                         <label>Email:</label>
@@ -81,6 +81,8 @@
 <script type="text/javascript">
 
     $(function () {
+        $('#name').bind('keydown', onlyLetter);
+        $('#namefantasy').bind('keydown', onlyLetter);
         $('#cpf').bind('keydown', onlyNumber);
         $('#cnpj').bind('keydown', onlyNumber);
         $('#ie').bind('keydown', onlyNumber);

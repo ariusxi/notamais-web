@@ -60,7 +60,7 @@
                     </div>
                     <div class="col-sm-12 col-md-12 col-lg-12">
                         <input type="submit" class="btn btn-primary" value="Cadastrar">
-                        <button class="btn btn-primary" onclick="$(location).attr('href','plan')">Voltar</button>
+                        <button class="btn btn-primary" onclick="$(location).attr('href', 'plan')">Voltar</button>
                     </div>
                 </div>
             </form>
@@ -76,6 +76,7 @@
 <script type="text/javascript">
 
     $(function () {
+        $('#name').bind('keydown', onlyLetter);
         $('#qtdeXML').bind('keydown', onlyNumber);
     });
 
