@@ -25,13 +25,11 @@ import javax.servlet.http.HttpSession;
 @WebServlet("/plan")
 public class Plan extends HttpServlet {
 
-/*
+    /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
- */
-
-
+     */
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -49,44 +47,45 @@ public class Plan extends HttpServlet {
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
         dispatcher.forward(request, response);
     }
-    
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         PrintWriter out = response.getWriter();
-        
+
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
-        
+
         String name = request.getParameter("name");
         String description = request.getParameter("description");
         String value = request.getParameter("value");
+        String valueFloat = request.getParameter("valueFloat");
         String qtdeXML = request.getParameter("qtdeXML");
         String id = request.getParameter("id");
         String token = (String) session.getAttribute("token");
         String type = request.getParameter("type");
-        
+
+        out.print(value);
+
         API con;
-        if(type.equals("plan-list")){
+        if (type.equals("plan-list")) {
             con = new API("plans/", "GET", "");
-        }else if(type.equals("plan-update")){
-            con = new API("plans/update/"+id, "POST", token);
-        }else if(type.equals("plan-delete")){
-            con = new API("plans/delete/"+id, "GET", token);
-        }else{
+        } else if (type.equals("plan-update")) {
+            con = new API("plans/update/" + id, "POST", token);
+        } else if (type.equals("plan-delete")) {
+            con = new API("plans/delete/" + id, "GET", token);
+        } else {
             con = new API("plans/create", "POST", token);
         }
-        
-        
+
         Hashtable<Integer, String> source = new Hashtable<Integer, String>();
         HashMap<String, String> map = new HashMap(source);
-        
-        
-        if(!type.equals("plan-list") && !type.equals("plan-update")){
+
+        if (!type.equals("plan-list") && !type.equals("plan-update")) {
             map.put("name", name);
             map.put("description", description);
-            map.put("value", value);
+            map.put("value", valueFloat);
             map.put("qtdeXML", qtdeXML);
         }
         String responseJSON = con.getJsonString(map);

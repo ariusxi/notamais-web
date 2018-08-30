@@ -337,6 +337,12 @@ $(function () {
         let qtdeXML = $("#qtdeXML").val();
         let description = $("#description").val();
 
+        //Format value with mask on Real format to float
+        var valueReal = (value).toLocaleString('pt-BR');
+        var valueDecimal = valueReal.replace(".", "");
+        var separatorPosition = valueDecimal.charAt(valueDecimal.length - 3);
+        var valueFloat = valueDecimal.replace(separatorPosition, ".");
+
         if (name == "" || value == "" || qtdeXML == "" || description == "") {
             $('#message').css('display', 'block');
             $('#message').html('Voce deve preencher os campos obrigatorios');
@@ -357,7 +363,7 @@ $(function () {
 
         let form = $(this);
         let formData = form.serialize();
-        formData += '&type=plan-create';
+        formData += '&type=plan-create&valueFloat=' + valueFloat;
 
         $.ajax({
             url: "plan",
