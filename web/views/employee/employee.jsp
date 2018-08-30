@@ -75,4 +75,4 @@
     </div>
 </div>
 <div class="space-footer"></div>
-<jsp:include page="../views/layout/footer.jsp" />
+<jsp:include page="../layout/footer.jsp" />

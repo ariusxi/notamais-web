@@ -70,7 +70,7 @@
         </div>
     </div>
 </div>
-<jsp:include page="../layout/header-auth.jsp"/>
+<jsp:include page="../layout/footer.jsp"/>
 
 <style rel="stylesheet">
     #message{
@@ -79,6 +79,14 @@
 </style>
 
 <script type="text/javascript">
+
+    $(function () {
+        $('#cpf').bind('keydown', onlyNumber);
+        $('#cnpj').bind('keydown', onlyNumber);
+        $('#ie').bind('keydown', onlyNumber);
+        $('#telephone').bind('keydown', onlyNumber);
+    });
+
 
     $(document).ready(function () {
 

@@ -63,6 +63,10 @@
 
 <script type="text/javascript">
 
+    $(function () {
+        $('#cpf').bind('keydown', onlyNumber);
+    });
+
     $(document).ready(function () {
         var userData = '<%= request.getAttribute("counterData")%>'
         var userDataJson = JSON.parse(userData)[0];

@@ -179,24 +179,5 @@
         $('#ie').bind('keydown', onlyNumber);
         $('#telephone').bind('keydown', onlyNumber);
     });
-
-    function onlyNumber(e) {
-
-        keyCodes = new Array(8, 9, 37, 39, 46);
-
-        for (x = 48; x <= 57; x++) {
-            keyCodes.push(x);
-        }
-
-        for (x = 96; x <= 105; x++) {
-            keyCodes.push(x);
-        }
-
-        keyCode = e.which;
-
-        if ($.inArray(keyCode, keyCodes) != -1) {
-            return true;
-        }
-        return false;
-    }
+    
 </script>
