@@ -1,15 +1,22 @@
 <jsp:include page="../layout/header-auth.jsp" />
-<div class="col-sm-12 col-md-9 col-lg-9">
-    <form action="" method="POST" id="form-edit-plan">
-        <input type="hidden" name="id_plano" id="id_plano" value="<% out.print(request.getParameter("id"));%>">
-        <div class="row">
-            <div class="col-sm-12 col-md-12 col-lg-12">
-                <h1 class="title-register">Editar plano</h1>
-            </div>
-            <div class="col-sm-12 col-md-12 col-lg-12">
-                <div class="form-group">
-                    <label for="name">Nome do Plano</label>
-                    <input type="text" class="form-control"  placeholder="Titulo" name="name" id="name">
+    <div class="col-sm-12 col-md-9 col-lg-9">
+        <form action="" method="POST" id="form-edit-plan">
+            <input type="hidden" name="id_plano" id="id_plano" value="<% out.print(request.getParameter("id")); %>">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <h1 class="title-register">Editar plano</h1>
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <div class="form-group">
+                        <label for="name">Nome do Plano</label>
+                        <input type="text" class="form-control"  placeholder="Titulo" name="name" id="name">
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-6">
+                    <div class="form-group">
+                        <label for="value">Preço</label>
+                        <input type="text" class="form-control" placeholder="Preço" name="value" id="value">
+                    </div>
                 </div>
             </div>
             <div class="col-sm-12 col-md-6 col-lg-6">
@@ -41,7 +48,8 @@
     </div>
 </div>
 <div class="space-footer"></div>
-<jsp:include page="../views/layout/footer.jsp" />
+
+<jsp:include page="../layout/footer.jsp" />
 
 <script type="text/javascript">
 
@@ -50,3 +58,4 @@
     });
 
 </script>
+

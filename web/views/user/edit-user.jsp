@@ -4,7 +4,7 @@
     Author     : lucas
 --%>
 
-<jsp:include page="../layout/header-auth.jsp"/>
+<jsp:include page="../layout/footer.jsp"/>
 <div class="col-sm-12 col-md-9 col-lg-9">
     <div class="card">
         <div class="card-body">
