@@ -28,7 +28,7 @@ public class ForgotPassword extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        String url = "/views/forgot-password.jsp";
+        String url = "/views/public/forgot-password.jsp";
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
         dispatcher.forward(request, response);
     }
