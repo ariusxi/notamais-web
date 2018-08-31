@@ -46,7 +46,7 @@ public class EditPlan extends HttpServlet {
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
         dispatcher.forward(request, response);
     }
-    
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -58,30 +58,30 @@ public class EditPlan extends HttpServlet {
         String id = (String) request.getParameter("id");
         String name = request.getParameter("name");
         String description = request.getParameter("description");
-        String value = request.getParameter("value");
+        String value = request.getParameter("valueFloat");
         String qtdeXML = request.getParameter("qtdeXML");
         String token = (String) session.getAttribute("token");
         String type = request.getParameter("type");
-        
+
         API con = null;
-        if(type.equals("select-plan")){
-            con = new API("plans/get/"+id, "GET", token);
-        }else if(type.equals("update-plan")){
-            con = new API("plans/update/"+id, "POST", token);
+        if (type.equals("select-plan")) {
+            con = new API("plans/get/" + id, "GET", token);
+        } else if (type.equals("update-plan")) {
+            con = new API("plans/update/" + id, "POST", token);
         }
-        
+
         Hashtable<Integer, String> source = new Hashtable<Integer, String>();
         HashMap<String, String> map = new HashMap(source);
-        if(type.equals("update-plan")){
+        if (type.equals("update-plan")) {
             map.put("name", name);
             map.put("value", value);
             map.put("qtdeXML", qtdeXML);
             map.put("description", description);
         }
-        
+
         String responseJSON = con.getJsonString(map);
         out.print(responseJSON);
-        
+
     }
 
     /**
