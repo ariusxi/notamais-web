@@ -59,14 +59,11 @@ public class Plan extends HttpServlet {
 
         String name = request.getParameter("name");
         String description = request.getParameter("description");
-        String value = request.getParameter("value");
         String valueFloat = request.getParameter("valueFloat");
         String qtdeXML = request.getParameter("qtdeXML");
         String id = request.getParameter("id");
         String token = (String) session.getAttribute("token");
         String type = request.getParameter("type");
-
-        out.print(value);
 
         API con;
         if (type.equals("plan-list")) {

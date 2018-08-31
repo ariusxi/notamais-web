@@ -199,7 +199,7 @@ $(function () {
             dataType: "json",
             success: function (data) {
                 $("#form-edit-plan #name").val(data.name);
-                $("#form-edit-plan #value").val(data.value);
+                $("#form-edit-plan #value").val(floatToReal(data.value));
                 $("#form-edit-plan #qtdeXML").val(data.qtdeXML);
                 $("#form-edit-plan #description").val(data.description);
             }, error: function (e) {
@@ -266,9 +266,12 @@ $(function () {
             dataType: "json",
             success: function (data) {
                 $.each(data, function (i, value) {
-                    let html = '<div id="' + value._id + '" class="plan"><h2 class="plan-heading">' + value.name + '</h2><div class="plan-subheading">$' + value.value + '/mes</div><p>Armazenamento de ' + value.qtdeXML + ' XMLs</p><p>' + value.description + '</p></div>';
+
+                    let valueReal = floatToReal(value.value);
+
+                    let html = '<div id="' + value._id + '" class="plan"><h2 class="plan-heading">' + value.name + '</h2><div class="plan-subheading">$' + valueReal + '/mes</div><p>Armazenamento de ' + value.qtdeXML + ' XMLs</p><p>' + value.description + '</p></div>';
                     $("#plans").append(html);
-                    html = "<tr><td>" + value.name + "</td><td>" + value.description + "</td><td>" + value.value + "</td><td>" + value.qtdeXML + "</td><td><a href='edit-plan?id=" + value._id + "' class='btn btn-primary'>Editar</a><button class='delete-plan btn btn-primary' id='" + value._id + "'>Excluir</button></td></tr>";
+                    html = "<tr><td>" + value.name + "</td><td>" + value.description + "</td><td>" + valueReal + "</td><td>" + value.qtdeXML + "</td><td><a href='edit-plan?id=" + value._id + "' class='btn btn-primary'>Editar</a><button class='delete-plan btn btn-primary' id='" + value._id + "'>Excluir</button></td></tr>";
                     $("#plans-list tbody").append(html);
                 });
             }, error: function (e) {
@@ -617,4 +620,10 @@ function formatPrice(text) {
     if (er.test(field.value)) {
         field.value = "";
     }
+}
+
+function floatToReal(value) {
+    var numero = value.toFixed(2).split('.');
+    numero[0] = numero[0].split(/(?=(?:...)*$)/).join('.');
+    return numero.join(',');
 }
