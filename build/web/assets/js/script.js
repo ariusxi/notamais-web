@@ -235,6 +235,13 @@ $(function () {
             return false;
         }
 
+        //Format value with mask on Real format to float
+        var valueReal = (value).toLocaleString('pt-BR');
+        var valueDecimal = valueReal.replace(".", "");
+        var separatorPosition = valueDecimal.charAt(valueDecimal.length - 3);
+        var valueFloat = valueDecimal.replace(separatorPosition, ".");
+        value = valueFloat;
+
         let form = $(this);
         let formData = form.serialize();
         formData += '&type=update-plan&id=' + id;
