@@ -66,8 +66,6 @@ public class Plan extends HttpServlet {
         String token = (String) session.getAttribute("token");
         String type = request.getParameter("type");
 
-        out.print(value);
-
         API con;
         if (type.equals("plan-list")) {
             con = new API("plans/", "GET", "");
