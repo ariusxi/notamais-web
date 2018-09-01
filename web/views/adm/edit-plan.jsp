@@ -15,7 +15,7 @@
             <div class="col-sm-12 col-md-6 col-lg-6">
                 <div class="form-group">
                     <label for="value">Preço</label>
-                    <input type="text" class="form-control" placeholder="Preço" name="value" id="value">
+                    <input type="text" class="form-control" placeholder="Preço" name="value" id="value" onkeydown=" formatPrice(this)">
                 </div>
             </div>
             <div class="col-sm-12 col-md-6 col-lg-6">
@@ -32,7 +32,7 @@
             </div>
             <div class="col-sm-12 col-md-12 col-lg-12">
                 <input type="submit" class="btn btn-primary" value="Alterar">
-                <input type="button" class="btn btn-primary" value="Voltar">
+                <a href="plan" class="btn btn-primary">Voltar</a>
             </div>
         </div>
     </form>

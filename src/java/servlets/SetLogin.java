@@ -68,7 +68,7 @@ public class SetLogin extends HttpServlet {
                 out.print(responseJSON);
             } else {
                 JSONObject data = json.getJSONObject("data");
-
+                
                 String token = json.get("token").toString();
                 String userID = data.get("id").toString();
                 String userEmail = data.get("email").toString();

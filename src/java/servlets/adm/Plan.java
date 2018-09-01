@@ -59,7 +59,6 @@ public class Plan extends HttpServlet {
 
         String name = request.getParameter("name");
         String description = request.getParameter("description");
-        String value = request.getParameter("value");
         String valueFloat = request.getParameter("valueFloat");
         String qtdeXML = request.getParameter("qtdeXML");
         String id = request.getParameter("id");
@@ -68,7 +67,7 @@ public class Plan extends HttpServlet {
 
         API con;
         if (type.equals("plan-list")) {
-            con = new API("plans/", "GET", "");
+            con = new API("plans/fetch-all", "GET", token);
         } else if (type.equals("plan-update")) {
             con = new API("plans/update/" + id, "POST", token);
         } else if (type.equals("plan-delete")) {
