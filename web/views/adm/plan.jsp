@@ -14,17 +14,14 @@
             <table id="plans-list" class="display table">
                 <thead>
                     <tr>
-                        <td>Nome</td>
-                        <td>Descrição</td>
-                        <td>Preço</td>
-                        <td>Quantidade de XML</td>
-                        <td>Ações</td>
+                        <th>Nome</th>
+                        <th>Descrição</th>
+                        <th>Preço</th>
+                        <th>Quantidade de XML</th>
+                        <th>Ações</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-
-                    </tr>
                 </tbody>
             </table>
         </div>

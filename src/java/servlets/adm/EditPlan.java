@@ -62,25 +62,33 @@ public class EditPlan extends HttpServlet {
         String qtdeXML = request.getParameter("qtdeXML");
         String token = (String) session.getAttribute("token");
         String type = request.getParameter("type");
+        String active = request.getParameter("active");
         
         API con = null;
         if(type.equals("select-plan")){
             con = new API("plans/get/"+id, "GET", token);
         }else if(type.equals("update-plan")){
             con = new API("plans/update/"+id, "POST", token);
+        }else if(type.equals("plan-activate")){
+            con = new API("plans/activate/"+id, "POST", token);
         }
         
         Hashtable<Integer, String> source = new Hashtable<Integer, String>();
         HashMap<String, String> map = new HashMap(source);
         if(type.equals("update-plan")){
+            value = value.replace(",", ".");
+            
             map.put("name", name);
             map.put("value", value);
             map.put("qtdeXML", qtdeXML);
             map.put("description", description);
+        }else if(type.equals("plan-activate")){
+            map.put("active", active);
         }
         
         String responseJSON = con.getJsonString(map);
         out.print(responseJSON);
+        
         
     }
 
