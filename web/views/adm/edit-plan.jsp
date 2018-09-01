@@ -18,34 +18,27 @@
                     <input type="text" class="form-control" placeholder="Preço" name="value" id="value">
                 </div>
             </div>
-        </div>
-        <div class="col-sm-12 col-md-6 col-lg-6">
-            <div class="form-group">
-                <label for="value">Preço</label>
-                <input type="text" class="form-control" placeholder="Preço" name="value" id="value" onkeydown=" formatPrice(this)">
+            <div class="col-sm-12 col-md-6 col-lg-6">
+                <div class="form-group">
+                    <label for="qtdeXML">Quantidade de XML</label>
+                    <input type="number" class="form-control cpf" placeholder="Quantidade de XML" name="qtdeXML" id="qtdeXML">
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <div class="form-group">
+                    <label for="description">Descrição do Plano</label>
+                    <textarea class="form-control" placeholder="Descrição do Plano" id="description" name="description"></textarea>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <input type="submit" class="btn btn-primary" value="Alterar">
+                <input type="button" class="btn btn-primary" value="Voltar">
             </div>
         </div>
-        <div class="col-sm-12 col-md-6 col-lg-6">
-            <div class="form-group">
-                <label for="qtdeXML">Quantidade de XML</label>
-                <input type="number" class="form-control cpf" placeholder="Quantidade de XML" name="qtdeXML" id="qtdeXML">
-            </div>
-        </div>
-        <div class="col-sm-12 col-md-12 col-lg-12">
-            <div class="form-group">
-                <label for="description">Descrição do Plano</label>
-                <textarea class="form-control" placeholder="Descrição do Plano" id="description" name="description"></textarea>
-            </div>
-        </div>
-        <div class="col-sm-12 col-md-12 col-lg-12">
-            <input type="submit" class="btn btn-primary" value="Alterar">
-            <input type="button" class="btn btn-primary" value="Voltar">
-        </div>
-</div>
-</form>
-<div class="alert alert-info mt-2 mb-0" id="message" style="margin-bottom:100px !important;">
+    </form>
+    <div class="alert alert-info mt-2 mb-0" id="message" style="margin-bottom:100px !important;">
 
-</div>
+    </div>
 </div>
 <div class="space-footer"></div>
 
