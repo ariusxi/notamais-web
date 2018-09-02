@@ -277,6 +277,67 @@ $(function () {
         });
     });
 
+    $("#users-list").ready(function () {
+        
+        $.ajax({
+            url: "users",
+            method: "POST",
+            data: {
+                type: "users-list"
+            },
+            dataType: "json",
+            success: function (data) {
+                
+                $.each(data, function (i, value) {
+                    let roles = value.roles[0];
+                    let html = "<tr><td>" + value.name + "</td><td>" + value.email + "</td><td><a href='user-profile?id=" + value._id + "' class='btn btn-primary'>Perfil</a>&nbsp;<button class='btn btn-primary btnAtivacao' data-id='" + value._id + "'data-ativo='" + value.active + "'>" + (value.active?"Desativar":"Ativar") + "</button></td></tr>";
+
+                    if (roles == "user") {
+                        $("#users-list tbody").append(html);
+                    }
+                    else if(roles == "counter")
+                    {
+                        $("#counter-list tbody").append(html);
+                    }
+                });
+
+                $("#users-list").dataTable();
+                $("#counter-list").dataTable();
+                
+            }, error: function (e) {
+                console.log(e);
+            }
+        });
+        
+    });
+    $(document).on('click', '.btnAtivacao', function (e) {
+    e.preventDefault();
+
+    var id = $(this).attr('data-id');    
+    var ativo = $(this).attr('data-ativo');
+
+    var $this = $(this);
+
+    if (!confirm("Tem certeza que deseja " + (ativo?"desativar":"ativar") + " esse funcionario?")) {
+        return false;
+    }
+
+//    $.ajax({
+//        url: "employee",
+//        type: "POST",
+//        data: {
+//            type: "delete-employee",
+//            e: id
+//        }, success: function (data) {
+//            $this.parent().parent().remove();
+//        }, error: function (e) {
+//            console.log(e);
+//        }
+//    });
+
+    return false;
+});
+
     $(document).on('click', '.delete-employee', function (e) {
         e.preventDefault();
 

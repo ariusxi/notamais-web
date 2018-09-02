@@ -3,13 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Windows%207/Documents/NetBeansProjects/notamais-web/src/java/servlets/Register.java</file>
-            <file>file:/C:/Users/Windows%207/Documents/NetBeansProjects/notamais-web/src/java/servlets/Dashboard.java</file>
-            <file>file:/C:/Users/Windows%207/Documents/NetBeansProjects/notamais-web/src/java/dao/API.java</file>
-            <file>file:/C:/Users/Windows%207/Documents/NetBeansProjects/notamais-web/web/views/layout/header.jsp</file>
-            <file>file:/C:/Users/Windows%207/Documents/NetBeansProjects/notamais-web/web/views/layout/header-auth.jsp</file>
-            <file>file:/C:/Users/Windows%207/Documents/NetBeansProjects/notamais-web/src/java/servlets/SetLogin.java</file>
-            <file>file:/C:/Users/Windows%207/Documents/NetBeansProjects/notamais-web/web/assets/js/script.js</file>
+            <file>file:/C:/Users/VBSNET-5/Documents/notamais-web/web/views/adm/users.jsp</file>
+            <file>file:/C:/Users/VBSNET-5/Documents/notamais-web/src/java/dao/API.java</file>
+            <file>file:/C:/Users/VBSNET-5/Documents/notamais-web/web/assets/js/script.js</file>
+            <file>file:/C:/Users/VBSNET-5/Documents/notamais-web/src/java/servlets/adm/EditPlan.java</file>
+            <file>file:/C:/Users/VBSNET-5/Documents/notamais-web/src/java/servlets/adm/Users.java</file>
+            <file>file:/C:/Users/VBSNET-5/Documents/notamais-web/src/java/servlets/adm/Plan.java</file>
         </group>
     </open-files>
 </project-private>

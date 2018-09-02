@@ -78,6 +78,7 @@
                             <a href="employee" class="list-group-item list-group-item-action">Funcionários</a>
                         <% } else if (session.getAttribute("roles").equals("admin")) {  %>
                             <a href="plan" class="list-group-item list-group-item-action">Planos</a>
+                            <a href="users" class="list-group-item list-group-item-action">Usuários</a>
                         <% }%>
                         
                         <% if (session.getAttribute("roles").equals("user")) { %>
