@@ -67,7 +67,7 @@ public class Plan extends HttpServlet {
 
         API con;
         if (type.equals("plan-list")) {
-            con = new API("plans/fetch-all", "GET", token);
+            con = new API("plans/", "GET", "");
         } else if (type.equals("plan-update")) {
             con = new API("plans/update/" + id, "POST", token);
         } else if (type.equals("plan-delete")) {
