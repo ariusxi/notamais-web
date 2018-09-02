@@ -105,6 +105,7 @@
                     </div>
                     <div class="col-sm-12 col-md-12 col-lg-12">
                         <br/>
+                        <br>
                         <input type="submit" class="btn btn-outline-light" value="Enviar"/>
                     </div>
                 </form>
@@ -120,6 +121,11 @@
                 <h3>Onde estamos</h3>
                 <p>Bairro: Liberdade</p>
                 <p>CEP: 01503-000</p>
+                <h3>Bandeiras Aceitas<h3>
+                <a href="register"><img src="assets/img/visa.png" height=31px" width="50px"></a>
+                <a href="register"><img src="assets/img/mastercard.png" height="50px"></a>
+                <a href="register"><img src="assets/img/american.png" height="50px"></a>
+                <a href="register"><img src="assets/img/elo.png" height="30px"></a>
             </div>
         </div>
     </div>
