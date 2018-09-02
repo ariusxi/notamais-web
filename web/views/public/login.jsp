@@ -70,6 +70,7 @@
             success: function (data) {
 
                 var dataJSON = JSON.parse(data);
+                console.log(dataJSON);
                 if (dataJSON.message != null) {
                     $('#message').css('display', 'block');
                     $('#message').html(dataJSON.message);
@@ -77,7 +78,7 @@
                     $('#message').css('display', 'block');
                     $('#message').html('Login bem sucedido.');
                     setTimeout(function () {
-                        if(dataJSON.firstlogin == true){
+                        if(dataJSON.firstlogin == true && dataJSON.roles[1] == "user"){
                             $(location).attr('href', '/notamais-web/first-login');
                         }else{
                             $(location).attr('href', '/notamais-web/dashboard');
