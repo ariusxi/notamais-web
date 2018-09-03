@@ -76,8 +76,6 @@ public class Employee extends HttpServlet {
             con = new API("employees/create/"+id, "POST", token);
         }
         
-
-        
         Hashtable<Integer, String> source = new Hashtable<Integer, String>();
         HashMap<String, String> map = new HashMap(source);
         if(!type.equals("employee-list") && !type.equals("delete-employee")){
