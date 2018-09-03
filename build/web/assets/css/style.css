@@ -144,6 +144,10 @@ a:hover{
 #message{
     display:none;
 }
+#american{
+    height: 55px;
+    width: 50px;
+}
 .navbar{
     z-index:1000;
 }
