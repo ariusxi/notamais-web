@@ -167,6 +167,7 @@ $(function () {
             },
             dataType: "json",
             success: function (data) {
+                console.log(data);
                 $.each(data, function (i, value) {
                     let nickname = "Não informado";
                     if (value.person.nickname != "") {

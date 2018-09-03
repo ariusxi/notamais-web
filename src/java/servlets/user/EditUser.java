@@ -11,7 +11,6 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Hashtable;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -50,23 +49,14 @@ public class EditUser extends HttpServlet {
         String routeGetProfile = "users/get-profile/" + idUser;
         API conGetProfile = new API(routeGetProfile, GET, token);
 
-        //Route to get user data
-        String routeGetClient = "users/get-client/" + idUser;
-        API conGetClient = new API(routeGetClient, GET, token);
-
         Hashtable<Integer, String> source = new Hashtable<Integer, String>();
         HashMap<String, String> map = new HashMap(source);
 
         //Get response of routes
-        String responseGetClient = conGetClient.getJsonString(map);
         String responseGetProfile = conGetProfile.getJsonString(map);
 
         //Make a single data list to get on javascript
-        ArrayList<String> data = new ArrayList<String>();
-        data.add(responseGetClient);
-        data.add(responseGetProfile);
-        request.setAttribute("userData", data);
-        out.print(data);
+        request.setAttribute("userData", responseGetProfile);
 
         //Redirect to edit user view
         String url = "/views/user/edit-user.jsp";
@@ -105,7 +95,7 @@ public class EditUser extends HttpServlet {
 
         Hashtable<Integer, String> source = new Hashtable<Integer, String>();
         HashMap<String, String> map = new HashMap(source);
-        
+
         //Put on map the profile data
         map.put("name", name);
         map.put("email", email);
