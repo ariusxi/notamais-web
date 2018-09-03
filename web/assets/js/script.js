@@ -240,6 +240,8 @@ $(function () {
         var valueDecimal = valueReal.replace(".", "");
         var separatorPosition = valueDecimal.charAt(valueDecimal.length - 3);
         var valueFloat = valueDecimal.replace(separatorPosition, ".");
+        
+        console.log(valueFloat);
 
         let form = $(this);
         let formData = form.serialize();

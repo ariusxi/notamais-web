@@ -86,6 +86,7 @@ public class EditPlan extends HttpServlet {
 
         String responseJSON = con.getJsonString(map);
         out.print(responseJSON);
+        
     }
 
     /**
