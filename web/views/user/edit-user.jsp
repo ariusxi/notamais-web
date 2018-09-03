@@ -26,7 +26,7 @@
                     </div>
                     <div class="form-group col-md-4">
                         <label>CPF:</label>
-                        <input type="text" class="form-control" id="cpf" name="cpf"/>
+                        <input type="text" class="form-control cpf" id="cpf" name="cpf"/>
                     </div>
                     <div class="form-group col-md-3">
                         <label>Gênero:</label>
@@ -41,7 +41,7 @@
                     </div>
                     <div class="form-group col-md-3">
                         <label>CNPJ</label>
-                        <input type="text" class="form-control" id="cnpj" name="cnpj"/>
+                        <input type="text" class="form-control cnpj" id="cnpj" name="cnpj"/>
                     </div>
                     <div class="form-group col-md-3">
                         <label>IE</label>
