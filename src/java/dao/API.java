@@ -31,6 +31,7 @@ public class API {
     private String token;
     private String query;
     private String method;
+    
 
     public API(String query, String method, String token) {
         this.query = query;

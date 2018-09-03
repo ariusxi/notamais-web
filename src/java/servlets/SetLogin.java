@@ -62,26 +62,26 @@ public class SetLogin extends HttpServlet {
         map.put("ip", ip);
 
         String responseJSON = con.getJsonString(map);
+        
         try {
             JSONObject json = new JSONObject(responseJSON);
             if (json.has("message")) {
                 out.print(responseJSON);
             } else {
                 JSONObject data = json.getJSONObject("data");
-
+                
                 String token = json.get("token").toString();
                 String userID = data.get("id").toString();
                 String userEmail = data.get("email").toString();
                 String userName = data.get("name").toString();
                 Object userRoles = data.get("roles").toString();
+                Object contract = data.get("contract").toString();
 
                 Pattern p = Pattern.compile("()\\w+");
                 Matcher m = p.matcher(userRoles.toString());
                 if (m.find()) {
                     userRoles = m.group(0);
                 }
-                
-                System.out.println();
 
                 session.setAttribute("token", token);
                 session.setAttribute("id", userID);

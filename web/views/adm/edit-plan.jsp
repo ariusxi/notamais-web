@@ -32,7 +32,7 @@
             </div>
             <div class="col-sm-12 col-md-12 col-lg-12">
                 <input type="submit" class="btn btn-primary" value="Alterar">
-                <input type="button" class="btn btn-primary" value="Voltar">
+                <a href="plan" class="btn btn-primary">Voltar</a>
             </div>
         </div>
     </form>

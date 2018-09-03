@@ -68,17 +68,166 @@
     <div class="row">
         <div class="col-sm-12 col-md-12 col-lg-12">
             <h3>Para empresas</h3>
-            <p>
+            <p >
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
             </p>
             <div class="wrapper">
                 <div id="plans">
                     
                 </div>
+                
             </div>
         </div>
     </div>
 </div>
+<p align="center"> <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#modalQuickView">Detalhes</button></p>
+  <!-- TESTANDO MODAL PLANOS -->
+
+  
+    <!-- Modal: modalQuickView -->
+    <div class="modal fade" id="modalQuickView" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <!--Carousel Wrapper-->
+                            <div id="carousel-thumb" class="carousel slide carousel-fade carousel-thumbnails" data-ride="carousel">
+                                <!--Slides-->
+                                <div class="carousel-inner" role="listbox">
+                                    <div class="carousel-item active">
+                                        <img class="d-block w-100" src="assets/img/imagem1.jpg" alt="First slide">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img class="d-block w-100" src="assets/img/imagem2.jpg" alt="Second slide">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img class="d-block w-100" src="assets/img/imagem3.jpg" alt="Third slide">
+                                    </div>
+                                </div>
+                                <!--/.Slides-->
+                                <!--Controls-->
+                                <a class="carousel-control-prev" href="#carousel-thumb" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                                <a class="carousel-control-next" href="#carousel-thumb" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+                                <!--/.Controls-->
+                               
+                            </div>
+                            <!--/.Carousel Wrapper-->
+                        </div>
+                        <div class="col-lg-7">
+                            <h2 class="h2-responsive product-name">
+                                <strong>Nota +</strong>
+                            </h2>
+                            <h4 class="h4-responsive">
+                                <span class="green-text">
+                                    <h5> A parir de </h5>
+                <strong>$49</strong>
+              </span>
+          
+                            </h4>
+
+                            <!--Accordion wrapper-->
+                            <div class="accordion" id="accordion" role="tablist" aria-multiselectable="true">
+
+                                <!-- Accordion card -->
+                                <div class="card">
+
+                                    <!-- Card header -->
+                                    <div class="card-header" role="tabpanel" id="headingOne">
+                                        <a data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                            <h5 class="mb-0">
+                                                Standard <i class="fa fa-angle-down rotate-icon"></i>
+                                            </h5>
+                                        </a>
+                                    </div>
+
+                                    <!-- Card body -->
+                                    <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+                                        <div class="card-body">
+                                            <div id="card1">
+                                    
+                                            </div>
+                                            </div>
+                                    </div>
+                                </div>
+                                <!-- Accordion card -->
+
+                                <!-- Accordion card -->
+                                <div class="card">
+
+                                    <!-- Card header -->
+                                    <div class="card-header" role="tab" id="headingTwo">
+                                        <a class="collapsed" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                            <h5 class="mb-0">
+                                                Plus <i class="fa fa-angle-down rotate-icon"></i>
+                                            </h5>
+                                        </a>
+                                    </div>
+
+                                    <!-- Card body -->
+                                    <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
+                                        <div class="card-body">
+                                          <div id="card2">
+                                    
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Accordion card -->
+
+                                <!-- Accordion card -->
+                                <div class="card">
+
+                                    <!-- Card header -->
+                                    <div class="card-header" role="tab" id="headingThree">
+                                        <a class="collapsed" data-toggle="collapse" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                            <h5 class="mb-0">
+                                                Premium <i class="fa fa-angle-down rotate-icon"></i>
+                                            </h5>
+                                        </a>
+                                    </div>
+
+                                    <!-- Card body -->
+                                    <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordion">
+                                        <div class="card-body">
+                                           <div id="card3">
+                                    
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Accordion card -->
+                            </div>
+                            <!--/.Accordion wrapper-->
+
+                            <!-- Add to Cart -->
+                            <div class="card-body">
+                               
+                                <div class="text-center">
+
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                                    <button class="btn btn-dark"> <a href="register">Cadastre-se</a>
+                  <i  aria-hidden="true"></i>
+                </button>
+                                </div>
+                            </div>
+                            <!-- /.Add to Cart -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal: modalQuickView -->
+
+
+    <!--FIM DO TESTE -->
 <div class="footer">
     <div class="container">
         <div class="row">
