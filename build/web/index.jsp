@@ -269,6 +269,11 @@
                 <h3>Onde estamos</h3>
                 <p>Bairro: Liberdade</p>
                 <p>CEP: 01503-000</p>
+                <h3>Bandeiras Aceitas</h3>
+                <a href="register"><img src="assets/img/visa64.png"></a>
+                <a href="register"><img src="assets/img/master64.png"></a>
+                <a href="register"><img id="american" src="assets/img/american.png"></a>
+                <a href="register"><img src="assets/img/elo64.png"></a>
             </div>
         </div>
     </div>
