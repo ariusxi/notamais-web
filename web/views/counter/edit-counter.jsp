@@ -27,7 +27,7 @@
                     </div>
                     <div class="form-group col-md-4">
                         <label>CPF:</label>
-                        <input type="text" class="form-control" id="cpf" name="cpf"/>
+                        <input type="text" class="form-control cpf" id="cpf" name="cpf"/>
                     </div>
                     <div class="form-group col-md-3">
                         <label>Gênero:</label>
@@ -69,17 +69,20 @@
     });
 
     $(document).ready(function () {
-        var userData = '<%= request.getAttribute("counterData")%>'
-        var userDataJson = JSON.parse(userData)[0];
+        var counterData = '<%= request.getAttribute("counterData")%>'
+        var counterDataJson = JSON.parse(counterData);
 
-        $('#formEditCounter #idUser').val(userDataJson._id);
-        $('#nickname').val(userDataJson.nickname);
-        $('#cpf').val(userDataJson.cpf);
-        if (userDataJson.gender == "M") {
-            $("#gender").append("<option value='" + userDataJson.gender + "' selected>" + userDataJson.gender + "</option>");
+        var counter = counterDataJson.user;
+        var counterProfile = counterDataJson.profile[0];
+        
+        $('#idCounter').val(counter._id);
+        $('#nickname').val(counterProfile.nickname);
+        $('#cpf').val(counterProfile.cpf);
+        if (counterProfile.gender == "M") {
+            $("#gender").append("<option value='" + counterProfile.gender + "' selected>" + counterProfile.gender + "</option>");
             $("#gender").append("<option value='F'>F</option>");
         } else {
-            $("#gender").append("<option value='" + userDataJson.gender + "' selected>" + userDataJson.gender + "</option>");
+            $("#gender").append("<option value='" + counterProfile.gender + "' selected>" + counterProfile.gender + "</option>");
             $("#gender").append("<option value='M'>M</option>");
         }
 
@@ -88,6 +91,7 @@
     $('#formEditCounter').submit(function (event) {
         event.preventDefault();
         var form = $(this);
+        console.log(form.serialize());
         $.ajax({
 
             url: "edit-counter",
