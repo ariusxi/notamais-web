@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/VBSNET-5/Documents/notamais-web/web/assets/js/script.js</file>
-            <file>file:/C:/Users/VBSNET-5/Documents/notamais-web/src/java/servlets/adm/EditPlan.java</file>
-            <file>file:/C:/Users/VBSNET-5/Documents/notamais-web/src/java/dao/API.java</file>
-            <file>file:/C:/Users/VBSNET-5/Documents/notamais-web/src/java/servlets/adm/Plan.java</file>
+            <file>file:/C:/Users/VBSNET-5/Documents/notamais-web/src/java/servlets/adm/UserProfile.java</file>
+            <file>file:/C:/Users/VBSNET-5/Documents/notamais-web/web/views/adm/user-profile.jsp</file>
             <file>file:/C:/Users/VBSNET-5/Documents/notamais-web/src/java/servlets/adm/Users.java</file>
-            <file>file:/C:/Users/VBSNET-5/Documents/notamais-web/web/views/adm/users.jsp</file>
         </group>
     </open-files>
 </project-private>
