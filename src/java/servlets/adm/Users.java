@@ -34,6 +34,7 @@ public class Users extends HttpServlet {
             throws ServletException, IOException {
 
         String url = "/views/adm/users.jsp";
+        
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
         dispatcher.forward(request, response);
     }
@@ -53,30 +54,26 @@ public class Users extends HttpServlet {
 
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
-
-        String name = request.getParameter("name");
-        String description = request.getParameter("description");
-        String value = request.getParameter("value");
-        String valueFloat = request.getParameter("valueFloat");
-        String qtdeXML = request.getParameter("qtdeXML");
+        
         String id = request.getParameter("id");
         String token = (String) session.getAttribute("token");
         String type = request.getParameter("type");
 
-        API con = new API("", "", "");
+        API con = null;
         if (type.equals("users-list")) {
             con = new API("users/fetch-all/", "GET", token);
+        }
+        else if(type.equals("users-block")){
+            con = new API("users/block/" + id, "GET", token);            
         }
 
         Hashtable<Integer, String> source = new Hashtable<Integer, String>();
         HashMap<String, String> map = new HashMap(source);
-
-        if (!type.equals("users-list") && !type.equals("users-update")) {
-            map.put("name", name);
-            map.put("email", description);
-        }
         String responseJSON = con.getJsonString(map);
         out.println(responseJSON);
+            
+            
+
     }
 
     /**

@@ -3,12 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package servlets;
+package servlets.user;
 
 import dao.API;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.logging.Level;
@@ -24,19 +23,20 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.json.JSONException;
 import org.json.JSONObject;
+import servlets.SetLogin;
 
 /**
  *
- * @author lucas
+ * @author Windows 7
  */
-@WebServlet("/login")
-public class SetLogin extends HttpServlet {
+@WebServlet("/first-login")
+public class FirstLogin extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        String url = "/views/public/login.jsp";
+        String url = "/views/user/first-login.jsp";
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
         dispatcher.forward(request, response);
     }
@@ -49,49 +49,51 @@ public class SetLogin extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
 
-        String login = request.getParameter("login");
-        String password = request.getParameter("password");
-        String ip = request.getRemoteAddr();
+        String user = session.getAttribute("id").toString();
+        String token = session.getAttribute("token").toString();
+        String plan = request.getParameter("plan");
+        String CardNumber = request.getParameter("CardNumber");
+        String Holder = request.getParameter("Holder");
+        String ExpirationDate = request.getParameter("ExpirationDate");
+        String SecurityCode = request.getParameter("SecurityCode");
+        String Brand = request.getParameter("Brand");
+        String method = request.getParameter("method");
 
-        API con = new API("users/auth", "POST", "");
-
+        
+        
+        API con = null;
+        if(method.equals("pay")){
+            con = new API("contracts/create", "POST", token);
+        }else if(method.equals("test")){
+            con = new API("contracts/test", "POST", token);
+        }
+        
         Hashtable<Integer, String> source = new Hashtable<Integer, String>();
         HashMap<String, String> map = new HashMap(source);
-        map.put("email", login);
-        map.put("password", password);
-        map.put("ip", ip);
+        if(method.equals("pay")){
+            CardNumber = CardNumber.replace(" ", "");
+            String[] date = ExpirationDate.split("/");
+            ExpirationDate = date[0]+ "/20" + date[1];
+           
+            map.put("plan", plan);
+            map.put("user", user);
+            map.put("CardNumber", CardNumber);
+            map.put("Holder", Holder);
+            map.put("ExpirationDate", ExpirationDate);
+            map.put("SecurityCode", SecurityCode);
+            map.put("Brand", Brand);
+            map.put("cardType", "CreditCard");
+        }else if(method.equals("test")){
+            map.put("user", user);
+        }
 
         String responseJSON = con.getJsonString(map);
         
         try {
             JSONObject json = new JSONObject(responseJSON);
-            if (json.has("message")) {
-                out.print(responseJSON);
-            } else {
-                JSONObject data = json.getJSONObject("data");
-                
-                String token = json.get("token").toString();
-                String userID = data.get("id").toString();
-                String userEmail = data.get("email").toString();
-                String userName = data.get("name").toString();
-                Object userRoles = data.get("roles").toString();
-                Object contract = data.get("contract").toString();
-
-                Pattern p = Pattern.compile("()\\w+");
-                Matcher m = p.matcher(userRoles.toString());
-                if (m.find()) {
-                    userRoles = m.group(0);
-                }
-
-                session.setAttribute("token", token);
-                session.setAttribute("id", userID);
-                session.setAttribute("email", userEmail);
-                session.setAttribute("name", userName);
-                session.setAttribute("roles", userRoles);
-                
-                out.print(data);
-                
-            }
+            
+            out.print(responseJSON);
+            
 
         } catch (JSONException ex) {
             Logger.getLogger(SetLogin.class.getName()).log(Level.SEVERE, null, ex);
