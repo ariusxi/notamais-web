@@ -587,7 +587,7 @@ $(function () {
                 $("#message").css('display', 'block');
                 $('#message').html(data.message);
                 setTimeout(() => {
-                    $(location).attr('href', '/notamais-web/');
+                    $(location).attr('href', '/');
                 }, 2000);
             },
             error: function (e) {
@@ -652,7 +652,7 @@ $(function () {
                 $("#message").css('display', 'block');
                 $('#message').html(data.message);
                 setTimeout(() => {
-                    $(location).attr('href', '/notamais-web/');
+                    $(location).attr('href', '/');
                 }, 2000);
             },
             error: function (e) {

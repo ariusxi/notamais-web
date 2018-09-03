@@ -9,9 +9,11 @@
             <file>file:/C:/Users/Windows%207/Documents/NetBeansProjects/notamais-web/src/java/servlets/adm/Plan.java</file>
             <file>file:/C:/Users/Windows%207/Documents/NetBeansProjects/notamais-web/web/views/user/edit-user.jsp</file>
             <file>file:/C:/Users/Windows%207/Documents/NetBeansProjects/notamais-web/web/views/layout/header.jsp</file>
+            <file>file:/C:/Users/Windows%207/Documents/NetBeansProjects/notamais-web/web/views/public/forgot-password.jsp</file>
             <file>file:/C:/Users/Windows%207/Documents/NetBeansProjects/notamais-web/web/index.jsp</file>
             <file>file:/C:/Users/Windows%207/Documents/NetBeansProjects/notamais-web/src/java/servlets/SetLogin.java</file>
             <file>file:/C:/Users/Windows%207/Documents/NetBeansProjects/notamais-web/web/assets/css/first-login.css</file>
+            <file>file:/C:/Users/Windows%207/Documents/NetBeansProjects/notamais-web/web/views/public/register.jsp</file>
             <file>file:/C:/Users/Windows%207/Documents/NetBeansProjects/notamais-web/src/java/servlets/employee/Employee.java</file>
             <file>file:/C:/Users/Windows%207/Documents/NetBeansProjects/notamais-web/web/assets/js/first-login.js</file>
             <file>file:/C:/Users/Windows%207/Documents/NetBeansProjects/notamais-web/web/assets/css/plans.css</file>
@@ -23,6 +25,7 @@
             <file>file:/C:/Users/Windows%207/Documents/NetBeansProjects/notamais-web/web/views/layout/header-auth.jsp</file>
             <file>file:/C:/Users/Windows%207/Documents/NetBeansProjects/notamais-web/src/java/servlets/user/FirstLogin.java</file>
             <file>file:/C:/Users/Windows%207/Documents/NetBeansProjects/notamais-web/src/java/servlets/adm/EditPlan.java</file>
+            <file>file:/C:/Users/Windows%207/Documents/NetBeansProjects/notamais-web/web/views/public/new-password.jsp</file>
             <file>file:/C:/Users/Windows%207/Documents/NetBeansProjects/notamais-web/web/assets/js/script.js</file>
         </group>
     </open-files>
