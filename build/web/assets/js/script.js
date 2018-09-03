@@ -240,6 +240,8 @@ $(function () {
         var valueDecimal = valueReal.replace(".", "");
         var separatorPosition = valueDecimal.charAt(valueDecimal.length - 3);
         var valueFloat = valueDecimal.replace(separatorPosition, ".");
+        
+        console.log(valueFloat);
 
         let form = $(this);
         let formData = form.serialize();
@@ -329,6 +331,87 @@ $(function () {
             }
         });
         
+        return false;
+    });
+
+    $("#users-list").ready(function () {
+        
+        $.ajax({
+            url: "users",
+            method: "post",
+            data: {
+                type: "users-list"
+            },
+            dataType: "json",
+            success: function (data) {
+                
+                $.each(data, function (i, value) {
+                    let roles = value.roles[0];
+                    let html = "<tr><td>" + value.name + "</td><td>" + value.email + "</td><td><div class='btn-group btn-group-toogle' data-toggle='buttons'><a href='user-profile?id=" + value._id + "' class='btn btn-primary'>Perfil</a>&nbsp;<button class='btn btn-primary btnAtivacao' data-id='" + value._id + "'data-ativo='" + value.active + "'>" + (value.active?"Desativar":"Ativar") + "</button></div></td></tr>";
+
+                    if (roles == "user") {
+                        $("#users-list tbody").append(html);
+                    }
+                    else if(roles == "counter")
+                    {
+                        $("#counter-list tbody").append(html);
+                    }
+                });
+
+        $("#users-list").dataTable({
+            "language": {
+            "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Portuguese-Brasil.json"
+            }
+        });
+        $("#counter-list").dataTable({
+            "language": {
+            "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Portuguese-Brasil.json"
+            }
+        });    
+            }, error: function (e) {
+                console.log(e);
+            }
+        });
+        
+    });
+    $(document).on('click', '.btnAtivacao', function (e) {
+        e.preventDefault();
+
+        var id = $(this).attr('data-id');    
+        var ativo = $(this).attr('data-ativo');
+        var newativo = false;
+        if(ativo == "false")
+            newativo = true;
+        else
+            newativo = false;
+
+        var $this = $(this);
+
+        if (!confirm("Tem certeza que deseja " + (ativo?"desativar":"ativar") + " esse usuario?")) {
+            return false;
+        }
+
+        $.ajax({
+            url: "users",
+            type: "post",
+
+            data: {
+                type: "users-block",
+                id: id
+            }, success: function (data) {
+                $this.attr('data-ativo', newativo);
+                console.log(newativo);
+                if(newativo == false){
+                    $this.text('Ativar');
+                }else{
+                    $this.text('Desativar');
+                }
+                //location.href = location.href;
+            }, error: function (e) {
+                console.log(e);
+            }
+       });
+
         return false;
     });
 

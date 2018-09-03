@@ -10,8 +10,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Hashtable;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,19 +17,29 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 /**
  *
- * @author Windows 7
+ * @author VBSNET-5
  */
-@WebServlet("/edit-plan")
-public class EditPlan extends HttpServlet {
+@WebServlet("/users")
+public class Users extends HttpServlet {
 
+
+    String POST = "POST";
+    String GET = "GET";
+    
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        String url = "/views/adm/users.jsp";
+        
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
+        dispatcher.forward(request, response);
+    }
     /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
+     * Handles the HTTP <code>POST</code> method.
      *
      * @param request servlet request
      * @param response servlet response
@@ -39,54 +47,33 @@ public class EditPlan extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-
-        String url = "/views/adm/edit-plan.jsp";
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
-        dispatcher.forward(request, response);
-    }
-
-    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        
         PrintWriter out = response.getWriter();
+
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
-
-        String id = (String) request.getParameter("id");
-        String name = request.getParameter("name");
-        String description = request.getParameter("description");
-        String value = request.getParameter("valueFloat");
-        String qtdeXML = request.getParameter("qtdeXML");
+        
+        String id = request.getParameter("id");
         String token = (String) session.getAttribute("token");
         String type = request.getParameter("type");
-        String active = request.getParameter("active");
-        
+
         API con = null;
-        if(type.equals("select-plan")){
-            con = new API("plans/get/"+id, "GET", token);
-        }else if(type.equals("update-plan")){
-            con = new API("plans/update/"+id, "POST", token);
-        }else if(type.equals("plan-activate")){
-            con = new API("plans/activate/"+id, "POST", token);
+        if (type.equals("users-list")) {
+            con = new API("users/fetch-all/", "GET", token);
+        }
+        else if(type.equals("users-block")){
+            con = new API("users/block/" + id, "GET", token);            
         }
 
         Hashtable<Integer, String> source = new Hashtable<Integer, String>();
         HashMap<String, String> map = new HashMap(source);
-        if (type.equals("update-plan")) {
-            map.put("name", name);
-            map.put("value", value);
-            map.put("qtdeXML", qtdeXML);
-            map.put("description", description);
-        }else if(type.equals("plan-activate")){
-            map.put("active", active);
-        }
-
         String responseJSON = con.getJsonString(map);
-        out.print(responseJSON);
-        
+        out.println(responseJSON);
+            
+            
+
     }
 
     /**
