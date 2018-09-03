@@ -26,7 +26,7 @@
                     </div>
                     <div class="form-group col-md-4">
                         <label>CPF:</label>
-                        <input type="text" class="form-control" id="cpf" name="cpf"/>
+                        <input type="text" class="form-control cpf" id="cpf" name="cpf"/>
                     </div>
                     <div class="form-group col-md-3">
                         <label>Gênero:</label>
@@ -41,7 +41,7 @@
                     </div>
                     <div class="form-group col-md-3">
                         <label>CNPJ</label>
-                        <input type="text" class="form-control" id="cnpj" name="cnpj"/>
+                        <input type="text" class="form-control cnpj" id="cnpj" name="cnpj"/>
                     </div>
                     <div class="form-group col-md-3">
                         <label>IE</label>
@@ -95,29 +95,27 @@
         var userData = '<%= request.getAttribute("userData")%>'
         var userDataJson = JSON.parse(userData);
 
-        var userDataClient = userDataJson[0][0];
-        var userDataProfile = userDataJson[1][0];
-
-        console.log(userDataClient);
-        console.log(userDataProfile);
+        var userProfile = userDataJson.profile[0];
+        var userClient = userDataJson.client[0];
+        var user = userDataJson.user;
 
         //Profile data
-        $('#idUser').val(userDataProfile._id);
-        $('#nickname').val(userDataProfile.nickname);
-        $('#cpf').val(userDataProfile.cpf);
-        if (userDataProfile.gender == "M") {
-            $("#gender").append("<option value='" + userDataProfile.gender + "' selected>" + userDataProfile.gender + "</option>");
+        $('#idUser').val(user._id);
+        $('#nickname').val(userProfile.nickname);
+        $('#cpf').val(userProfile.cpf);
+        if (userProfile.gender == "M") {
+            $("#gender").append("<option value='" + userProfile.gender + "' selected>" + userProfile.gender + "</option>");
             $("#gender").append("<option value='F'>F</option>");
-        } else {
-            $("#gender").append("<option value='" + userDataProfile.gender + "' selected>" + userDataProfile.gender + "</option>");
+        } else if (userProfile[0].gender == "F") {
+            $("#gender").append("<option value='" + userProfile.gender + "' selected>" + userProfile.gender + "</option>");
             $("#gender").append("<option value='M'>M</option>");
         }
 
         //Client data
-        $('#namefantasy').val(userDataClient.fantasia);
-        $('#cnpj').val(userDataClient.cnpj);
-        $('#ie').val(userDataClient.ie);
-        $('#telephone').val(userDataClient.telephone);
+        $('#namefantasy').val(userClient.fantasia);
+        $('#cnpj').val(userClient.cnpj);
+        $('#ie').val(userClient.ie);
+        $('#telephone').val(userClient.telephone);
 
     });
 
