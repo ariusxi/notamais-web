@@ -240,12 +240,10 @@ $(function () {
         var valueDecimal = valueReal.replace(".", "");
         var separatorPosition = valueDecimal.charAt(valueDecimal.length - 3);
         var valueFloat = valueDecimal.replace(separatorPosition, ".");
-        value = valueFloat;
 
         let form = $(this);
         let formData = form.serialize();
-        formData += '&type=update-plan&id=' + id;
-        console.log(formData);
+        formData += '&type=update-plan&id=' + id + "&valueFloat=" + valueFloat;
 
         $.ajax({
             url: "edit-plan",
