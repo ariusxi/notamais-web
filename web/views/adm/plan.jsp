@@ -50,14 +50,13 @@
                         </div>
                     </div>
                     <div class="col-sm-12 col-md-12 col-lg-12">
-                        <div class="form-group">
-                            <label for="description">Descriçãoo do Plano</label>
-                            <textarea class="form-control" placeholder="Descriçãoo do Plano" id="description" name="description"></textarea>
+                        <div class="form-group"> 
+                            <label for="description">Descrição do Plano</label>
+                            <textarea class="form-control" placeholder="Descrição do Plano" id="description" name="description"></textarea>
                         </div>
                     </div>
                     <div class="col-sm-12 col-md-12 col-lg-12">
                         <input type="submit" class="btn btn-primary" value="Cadastrar">
-                        <button class="btn btn-primary" onclick="$(location).attr('href', 'plan')">Voltar</button>
                     </div>
                 </div>
             </form>

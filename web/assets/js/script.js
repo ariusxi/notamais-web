@@ -5,6 +5,7 @@ $(function () {
     $('.telephone').mask('(00) 0000-0000');
     $('.expirationDate').mask('00/0000');
     $('.securityCode').mask('0000');
+    $('.telephone').mask('(99) 9999-9999');
 
     $("#modalQuickView").on('show.bs.modal', function () {
         $("#uno3").appendTo($("#card1"));

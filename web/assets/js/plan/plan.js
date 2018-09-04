@@ -94,7 +94,7 @@ $("#plans, #plans-list").ready(function () {
 
                 let html = '<div id="' + value._id + '" class="plan"><h2 class="plan-heading">' + value.name + '</h2><div class="plan-subheading">$' + valueReal + '/mes</div><p>Armazenamento de ' + value.qtdeXML + ' XMLs</p><p id="uno3">' + value.description + '</p></div>';
                 $("#plans").append(html);
-                html = "<tr><td>" + value.name + "</td><td>" + value.description + "</td><td>" + valueReal + "</td><td>" + value.qtdeXML + "</td><td><div class='btn-group btn-group-toggle' data-toggle='buttons'><a href='edit-plan?id=" + value._id + "' class='btn btn-primary'>Editar</a><button class='delete-plan btn btn-primary' id='" + value._id + "'>Excluir</button>";
+                html = "<tr><td>" + value.name + "</td><td>" + value.description + "</td><td>" + valueReal + "</td><td>" + value.qtdeXML + "</td><td><div class='btn-group btn-group-toggle'><a href='edit-plan?id=" + value._id + "' class='btn btn-primary'>Editar</a><button class='delete-plan btn btn-primary' id='" + value._id + "'>Excluir</button>";
                 if (value.active) {
                     html += "<button class='btn btn-primary activate' id='" + value._id + "'>Ativado</button>";
                 } else {
@@ -166,7 +166,7 @@ $(document).on('click', '.delete-plan', function (e) {
             type: "plan-delete",
             id: id
         }, success: function (data) {
-            $this.parent().parent().remove();
+            $this.parent().parent().parent().remove();
         }, error: function (e) {
             console.log(e);
         }
