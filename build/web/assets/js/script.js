@@ -3,6 +3,8 @@ $(function () {
     $('.cpf').mask('000.000.000-00', {reverse: true});
     $('.cnpj').mask('00.000.000/0000-00', {reverse: true});
     $('.telephone').mask('(00) 0000-0000');
+    $('.expirationDate').mask('00/0000');
+    $('.securityCode').mask('0000');
 
     $("#modalQuickView").on('show.bs.modal', function () {
         $("#uno3").appendTo($("#card1"));
