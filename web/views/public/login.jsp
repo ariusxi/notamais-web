@@ -78,9 +78,9 @@
                     $('#message').html('Login bem sucedido.');
                     setTimeout(function () {
                         if(dataJSON.firstlogin == true && dataJSON.roles[0] == "user"){
-                            $(location).attr('href', '/first-login');
+                            $(location).attr('href', '/notamais-web/first-login');
                         }else{
-                            $(location).attr('href', '/dashboard');
+                            $(location).attr('href', '/notamais-web/dashboard');
                         }
                     }, 2000);
                 }

@@ -110,7 +110,7 @@ $(function(){
                 if(data.message == "Plano contratado com sucesso" || data.message  == "Periodo de testes iniciado com sucesso"){
                     $("#message").html("<div style='color:green;'>"+data.message+"</div>");
                     setTimeout(function () {
-                        $(location).attr('href', '/dashboard');
+                        $(location).attr('href', '/notamais-web/dashboard');
                     }, 2000);
                 }else{
                     $("#message").html("<div style='color:red;'>"+data.message+"</div>");
