@@ -12,8 +12,8 @@
     <import file="nbproject/build-impl.xml"/>
     
     <target name="-post-jar">
-        <jar jarfile="src/jar-files/org.json.jar"></jar>
-        <jar jarfile="src/jar-files/servlet-api.jar"></jar>
+        <jar jarfile="/src/jar-files/org.json.jar"></jar>
+        <jar jarfile="/src/jar-files/servlet-api.jar"></jar>
     </target>
     <!--
 

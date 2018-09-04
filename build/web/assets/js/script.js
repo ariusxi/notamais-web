@@ -4,72 +4,73 @@ $(function () {
     $('.cnpj').mask('00.000.000/0000-00', {reverse: true});
     $('.telephone').mask('(00) 0000-0000');
 
-    $(".open-register").click(function (e) {
-        e.preventDefault();
-
-        var type = $(this).attr('id');
-
-        $(".user-register").hide();
-        $("." + type + " form").fadeIn();
-
-        return false;
-    });
-
-    $(".back-type").click(function (e) {
-        e.preventDefault();
-
-        $(".user form, .counter form").hide();
-
-        $(".user-register").show();
-
-        return false;
-    });
-
-    $("#contato").submit(function (e) {
-        e.preventDefault();
-
-        let email = $("#email").val();
-        let title = $("#title").val();
-        let text = $("#text").val();
-
-        $('#message').css('display', 'none');
-
-        if (email == "" || title == "" || text == "") {
-            $('#message').css('display', 'block');
-            $('#message').html('Voce deve preencher todos os campos');
-            return false;
-        }
-
-        let form = $(this);
-        let formData = form.serialize();
-
-        $.ajax({
-            url: "contact",
-            method: "post",
-            data: formData,
-            beforeSend: function () {
-                $('#message').css('display', 'block');
-                $('#message').html('Aguarde...');
-            },
-            success: function (data) {
-                var dataJSON = JSON.parse(data);
-                $("#message").css('display', 'block');
-                $('#message').html(dataJSON.message);
-            },
-            error: function (e) {
-                $('#message').css('display', 'block');
-                $('#message').html(e.responseText);
-            }
-        });
-
-        return false
-    });
-
     $("#modalQuickView").on('show.bs.modal', function () {
         $("#uno3").appendTo($("#card1"));
         $("#uno3").appendTo($("#card2"));
         $("#uno3").appendTo($("#card3"));
     });
+
+});
+
+$(".open-register").click(function (e) {
+    e.preventDefault();
+
+    var type = $(this).attr('id');
+
+    $(".user-register").hide();
+    $("." + type + " form").fadeIn();
+
+    return false;
+});
+
+$(".back-type").click(function (e) {
+    e.preventDefault();
+
+    $(".user form, .counter form").hide();
+
+    $(".user-register").show();
+
+    return false;
+});
+
+$("#contato").submit(function (e) {
+    e.preventDefault();
+
+    let email = $("#email").val();
+    let title = $("#title").val();
+    let text = $("#text").val();
+
+    $('#message').css('display', 'none');
+
+    if (email == "" || title == "" || text == "") {
+        $('#message').css('display', 'block');
+        $('#message').html('Voce deve preencher todos os campos');
+        return false;
+    }
+
+    let form = $(this);
+    let formData = form.serialize();
+
+    $.ajax({
+        url: "contact",
+        method: "post",
+        data: formData,
+        beforeSend: function () {
+            $('#message').css('display', 'block');
+            $('#message').html('Aguarde...');
+        },
+        success: function (data) {
+            var dataJSON = JSON.parse(data);
+            $("#message").css('display', 'block');
+            $('#message').html(dataJSON.message);
+        },
+        error: function (e) {
+            $('#message').css('display', 'block');
+            $('#message').html(e.responseText);
+        }
+    });
+
+    return false
 });
 
 function validarCNPJ(cnpj) {
