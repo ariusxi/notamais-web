@@ -51,7 +51,7 @@
 
         if(password == "" || cpassword == ""){
             $('#message').css('display', 'block');
-            $('#message').html('Você deve preencher todos os campos');
+            $('#message').html('Vocï¿½ deve preencher todos os campos');
         }
 
         if (password != cpassword) {
@@ -90,7 +90,7 @@
                 $('#message').html(dataJSON.message);
                 if (dataJSON.message == "Senha atualizada com sucesso") {
                     setTimeout(function () {
-                        $(location).attr('href','/');
+                        $(location).attr('href','/notamais-web/');
                     }, 2000);
                 }
             },
