@@ -90,7 +90,7 @@
                 $('#message').html(dataJSON.message);
                 if (dataJSON.message == "Senha atualizada com sucesso") {
                     setTimeout(function () {
-                        $(location).attr('href','/notamais-web');
+                        $(location).attr('href','/');
                     }, 2000);
                 }
             },

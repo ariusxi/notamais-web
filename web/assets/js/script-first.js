@@ -21,7 +21,7 @@ $(function(){
         if($(this).val() != ""){
             brand = $(this).val();
         }
-        $("#brand").attr('src', '/notamais-web/assets/img/'+brand+'64.png');
+        $("#brand").attr('src', '/assets/img/'+brand+'64.png');
     });
     
     $('.choice').on('click', function() {
@@ -110,7 +110,7 @@ $(function(){
                 if(data.message == "Plano contratado com sucesso" || data.message  == "Periodo de testes iniciado com sucesso"){
                     $("#message").html("<div style='color:green;'>"+data.message+"</div>");
                     setTimeout(function () {
-                        $(location).attr('href', '/notamais-web/dashboard');
+                        $(location).attr('href', '/dashboard');
                     }, 2000);
                 }else{
                     $("#message").html("<div style='color:red;'>"+data.message+"</div>");
