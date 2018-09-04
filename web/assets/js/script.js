@@ -3,6 +3,8 @@ $(function () {
     $('.cpf').mask('000.000.000-00', {reverse: true});
     $('.cnpj').mask('00.000.000/0000-00', {reverse: true});
     $('.telephone').mask('(00) 0000-0000');
+    $('.expirationDate').mask('00/0000');
+    $('.securityCode').mask('0000');
 
     function validarCPF(cpf) {
         cpf = cpf.replace(/[^\d]+/g, '');
@@ -294,6 +296,39 @@ $(function () {
         });
     });
     
+    
+    $("#cards, #cards-list").ready(function () {
+        $.ajax({
+            url: "card",
+            method: "POST",
+            data: {
+                methodType: "card-list"
+            },
+            dataType: "json",
+            success: function (data) {
+                
+                $.each(data, function (i, value) {
+
+                    let html = "<tr><td>" + value.CardNumber + "</td>";
+                    html += "<td>" + value.Holder + "</td>";
+                    html += "<td>" + value.SecurityCode + "</td>";
+                    html += "<td>" + value.ExpirationDate + "</td>";
+                    html += "<td>" + value.Brand + "</td>";
+                    html += "<td>" + value.type + "</td>";
+                    html += "<td><button class='btn btn-primary delete-card' id='" + value._id + "'>Excluir</button></td>";
+                    html += "</tr>";
+
+                    $("#cards-list tbody").append(html);
+                    
+                });
+                
+            }, error: function (e) {
+                console.log(e);
+            }
+        });
+    });
+    
+    
     $(document).on('click', ".activate, .desactivate", function(e){
         e.preventDefault();
         
@@ -385,6 +420,34 @@ $(function () {
 
         return false;
     });
+    
+    
+    $(document).on('click', '.delete-card', function (e) {
+        e.preventDefault();
+
+        var id = $(this).attr('id');
+        var $this = $(this);
+
+        if (!confirm("Tem certeza que deseja excluir esse cartao de credito?")) {
+            return false;
+        }
+
+        $.ajax({
+            url: "card",
+            type: "POST",
+            data: {
+                methodType: "card-delete",
+                id: id
+            }, success: function (data) {
+                $this.parent().parent().remove();
+            }, error: function (e) {
+                console.log(e);
+            }
+        });
+
+        return false;
+    });
+    
 
     $("#plan-register").submit(function (e) {
         e.preventDefault();
@@ -442,6 +505,64 @@ $(function () {
 
         return false;
     });
+    
+    
+    $("#card-register").submit(function (e) {
+        e.preventDefault();
+
+        let number = $("#number").val();
+        let holder = $("#holder").val();
+        let expirationDate = $("#expiration-date").val();
+        let brand = $("#brand").val();
+        let securityCode = $("#security-code").val();
+        let cardType = $("#card-type").val();
+        
+
+        if (number == "" || holder == "" || expirationDate == "" || securityCode == "" || brand == "" || cardType == "") {
+            $('#message').css('display', 'block');
+            $('#message').html('Voce deve preencher os campos obrigatorios');
+            return false;
+        }
+        
+        if (number.length < 16 || number.length > 16 ){
+            $('#message').css('display', 'block');
+            $('#message').html('Número do cartão está incorreto!');
+            return false;
+        }
+        
+        if (securityCode.length < 4 || securityCode.length > 4 ){
+            $('#message').css('display', 'block');
+            $('#message').html('o Código de segurança do cartão está incorreto!');
+            return false;
+        }
+
+        let form = $(this);
+        let formData = form.serialize();
+        formData += '&methodType=card-create';
+        
+        $.ajax({
+            url: "card",
+            method: "POST",
+            data: formData,
+            dataType: "json",
+            beforeSend: function () {
+                $('#message').css('display', 'block');
+                $('#message').html('Aguarde...');
+            },
+            success: function (data) {
+                $("#message").css('display', 'block');
+                $('#message').html(data.message);
+            }, error: function (e) {
+                $('#message').css('display', 'block');
+                $('#message').html(e.responseText);
+            }
+            
+        });
+        
+        return false;
+    });
+    
+    
 
     $("#user-register").submit(function (e) {
         e.preventDefault();

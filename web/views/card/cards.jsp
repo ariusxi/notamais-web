@@ -18,7 +18,7 @@
     <div class="tab-content ">
         <div class="tab-pane active" id="list">
             <h2 class="title-register">Lista de Cartões de Crédito</h2>
-            <table id="employee-list" class="display table">
+            <table id="cards-list" class="display table">
                 <thead>
                     <tr>
                         <td>Número do cartão</td>
@@ -37,6 +37,7 @@
                 </tbody>
             </table>
         </div>
+        
         <div class="tab-pane" id="register">
             <form action="" method="POST" id="card-register">
                 <div class="row">
@@ -58,7 +59,13 @@
                     <div class="col-sm-12 col-md-4 col-lg-4">
                         <div class="form-group">
                             <label for="expiration-date">Data de expiração</label>
-                            <input type="date" class="form-control cpf" placeholder="Data de expiração" name="expiration-date" id="expiration-date">
+                            <input type="text" class="form-control expirationDate" placeholder="Data de expiração" name="expiration-date" id="expiration-date">
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-4 col-lg-4">
+                        <div class="form-group">
+                            <label for="security-code">Código de Segurança</label>
+                            <input type="text" class="form-control securityCode" placeholder="Código de segurança" size="4" max="4" name="security-code" id="security-code">
                         </div>
                     </div>
                     <div class="col-sm-12 col-md-4 col-lg-4">
@@ -72,6 +79,16 @@
                                 <option value="hiper-card">Hiper Card</option>
                                 <option value="diners-club">Diners Club</option>
                                 <option value="american-express">America Express</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-4 col-lg-4">
+                        <div class="form-group">
+                            <label for="card-type">Tipo:</label>
+                            <select class="form-control" id="card-type" name="card-type">
+                                <option value="">Escolha a bandeira do seu cartão de crédito</option>
+                                <option value="CreditCard">Cartão de Crédito</option>
+                                <option value="DebitCard">Cartão de Débito</option>
                             </select>
                         </div>
                     </div>
