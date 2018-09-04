@@ -73,12 +73,11 @@
                             <label for="brand">Bandeira</label>
                             <select class="form-control" id="brand" name="brand">
                                 <option value="">Escolha a bandeira do seu cartão de crédito</option>
-                                <option value="martercard">Master Card</option>
-                                <option value="visa">VISA</option>
-                                <option value="elo">ELO</option>
-                                <option value="hiper-card">Hiper Card</option>
-                                <option value="diners-club">Diners Club</option>
-                                <option value="american-express">America Express</option>
+                                <option value="" selected="">Bandeira</option>
+                                <option value="master">Master</option>
+                                <option value="visa">Visa</option>
+                                <option value="elo">Elo</option>
+                                <option value="amex">Amex</option>
                             </select>
                         </div>
                     </div>

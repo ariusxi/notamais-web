@@ -145,15 +145,15 @@ $(document).on('click', '.delete-card', function (e) {
         return false;
     }
 
-    if (number.length < 16 || number.length > 16 ){
+    if (number.length < 13 || number.length > 16 ){
         $('#message').css('display', 'block');
         $('#message').html('Número do cartão está incorreto!');
         return false;
     }
 
-    if (securityCode.length < 4 || securityCode.length > 4 ){
+    if (securityCode.length < 3 || securityCode.length > 4 ){
         $('#message').css('display', 'block');
-        $('#message').html('o Código de segurança do cartão está incorreto!');
+        $('#message').html('O Código de segurança do cartão está incorreto');
         return false;
     }
     let form = $(this);
@@ -179,6 +179,6 @@ $(document).on('click', '.delete-card', function (e) {
 
     });
         
-        return false;
-    });
+    return false;
+});
 
