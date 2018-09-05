@@ -228,7 +228,7 @@
 
 
     <!--FIM DO TESTE -->
-<div class="footer">
+<div class="footer" name="contato">
     <div class="container">
         <div class="row">
             <div class="col-sm-12 col-md-6 col-lg-6">

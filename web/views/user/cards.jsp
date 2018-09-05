@@ -23,8 +23,8 @@
                     <tr>
                         <td>Número do cartão</td>
                         <td>Titular</td>
-                        <td>Data de expiração</td>
                         <td>Código de Segurança</td>
+                        <td>Data de expiração</td>
                         <td>Bandeira</td>
                         <td>Tipo</td>
                         <td>Ações</td>

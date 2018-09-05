@@ -9,7 +9,7 @@
         <p>© 2018 - Nota+</p>
     </div>
     <div class="social">
-        <a href="contato" class="support">Contato</a>
+        <a href="index.jsp#contato" class="support">Contato</a>
         <a href="#" class="face">f</a>
         <a href="#" class="tweet">t</a>
         <a href="#" class="linked">in</a>

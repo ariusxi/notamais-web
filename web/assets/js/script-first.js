@@ -21,7 +21,7 @@ $(function(){
         if($(this).val() != ""){
             brand = $(this).val();
         }
-        $("#brand").attr('src', '/assets/img/'+brand+'64.png');
+        $("#brand").attr('src', '/notamais-web/assets/img/'+brand+'64.png');
     });
     
     $('.choice').on('click', function() {
