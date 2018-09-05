@@ -29,7 +29,7 @@
     <body>
         <!-- search for navbar bootstrap -->
         <nav class="navbar navbar-expand-lg navbar-dark blue-sky m-0">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="index.jsp">
                 Nota+
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

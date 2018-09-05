@@ -94,7 +94,7 @@
                 <div class="col-sm-12 col-md-6 col-lg-6">
                     <div class="form-group">
                         <label for="telephone">Telefone</label>
-                        <input type="text" class="form-control"  placeholder="Telefone" name="telephone" id="telephone">
+                        <input type="text" class="form-control telephone"  placeholder="Telefone" name="telephone" id="telephone">
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-12 col-lg-12">
