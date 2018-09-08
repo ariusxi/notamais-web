@@ -5,6 +5,8 @@
 --%>
 
 <jsp:include page="../layout/header-auth.jsp" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript"></script>
 <div class="col-sm-12 col-md-9 col-lg-9">
     <ul class="nav nav-tabs">
         <li class="active">
@@ -38,6 +40,38 @@
             </table>
         </div>
         
+   
+   
+   <table>
+         <h2 class="title-register">Formas de Pagamento</h2>
+           
+
+        </h1>
+        <form>
+            <tr>        
+            <td><input type="radio" name="pag" id="bol" value="Boleto" />  
+  Boleto<br /></td><td></td></tr>                                                                         
+            
+            <tr>
+            <td><input type="radio" name="pag" id="cred" value="Crédito" /> 
+            
+  Crédito<br /></td><td></td></tr>	
+            
+            <tr>
+            <td><input type="radio" name="pag" id="deb" value="Débito" />
+   Débito</td><td></td></tr>
+                        
+           
+        </table>
+		
+	</form>
+
+   
+   
+   
+   
+   
+   
         <div class="tab-pane" id="register">
             <form action="" method="POST" id="card-register">
                 <div class="row">

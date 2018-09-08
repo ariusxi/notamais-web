@@ -15,8 +15,10 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
   
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
-        
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
         <link href="${pageContext.request.contextPath}/assets/css/first-login.css" rel="stylesheet"/>
+       
     </head>
     <body>
         <div class="image-container set-full-height" style="background-image: url('http://demos.creative-tim.com/material-bootstrap-wizard/assets/img/wizard-book.jpg')">
@@ -34,13 +36,14 @@
 		                        	<h3 class="wizard-title">
 		                        		Bem vindo ao Nota+
 		                        	</h3>
-                                            <h5>Faça o passos abaixo para continuar</h5>
+                                            <h5>Faça os passos abaixo para continuar</h5>
 		                    	</div>
                                         <div class="wizard-navigation">
                                             <ul>
                                                 <li><a href="#captain" data-toggle="tab">Escolha um tipo</a></li>
                                                 <li><a href="#details" data-toggle="tab">Escolha um plano</a></li>
-                                                <li><a href="#description" data-toggle="tab">Pagamento</a></li>
+                                                <li><a href="#description" data-toggle="tab">Pagamento</a>
+                                                </li>
                                             </ul>
                                         </div>
 
@@ -123,6 +126,24 @@
                                                                 <option value="elo">Elo</option>
                                                                 <option value="amex">Amex</option>
                                                             </select>
+   <h4> Defina a forma de pagamento</h4>      
+   <div>        <input type="radio" name="pag" id="bol" value="Boleto" />  
+  Boleto<br />                                                                        
+           <input type="radio" name="pag" id="cred" value="Crédito" /> 
+            
+  Crédito	
+  <br>
+          <input type="radio" name="pag" id="deb" value="Débito" />
+   Débito
+   </div>
+            
+        
+                  
+           
+    
+		
+	
+
                                                         </div>
 		                                    </div>
                                                     <div class="col-sm-12" id="feedback"></div>
@@ -133,14 +154,19 @@
                                             <div id="message"></div>
                                             <div class="pull-right">
                                                 <input type='button' class='btn btn-next btn-fill btn-danger btn-wd' name='next' value='Próximo' />
-                                                <input type='button' class='btn btn-finish btn-fill btn-danger btn-wd' name='finish' value='Finalizar' />
+                                                <input type='button' class='btn btn-finish btn-fill btn-danger btn-wd' name='finish' value='Finalizar' /> 
+
                                             </div>
+                                            
                                             <div class="pull-left">
                                                 <input type='button' class='btn btn-previous btn-fill btn-default btn-wd' name='previous' value='Anterior' />
+                                                
                                             </div>
                                             <div class="clearfix"></div>
 	                        	</div>
+                                                                                                           
 		                    </form>
+                                                            
 		                </div>
 		            </div> <!-- wizard container -->
 		        </div>

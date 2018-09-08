@@ -293,3 +293,64 @@ function floatToReal(value) {
     numero[0] = numero[0].split(/(?=(?:...)*$)/).join('.');
     return numero.join(',');
 }
+/* FORMAS DE PAGAMENTO  */
+
+$(function () {
+			//validação do campo
+			$("#registrar").click(function(){
+       			$("input").each(function (index, item) { 
+
+					var obj = $(item);
+					if(obj.val("#list") == "") {
+						obj.removeClass("sucesso");
+						obj.addClass("erro");
+
+						if(item.name === "bol"){
+	 						$("#alerta1").fadeIn(3000);
+		   				}
+		   				if(item.name === "cred"){
+	 						$("#alerta2").fadeIn(3000);
+		   				}
+		   				if(item.name === "deb"){
+	 						$("#alerta3").fadeIn(3000);
+		   				}
+		   			}
+		   			else {
+						obj.removeClass("erro");
+						obj.addClass("sucesso");
+
+						if(item.name === "bol"){
+	 						$("#alerta1").hide();
+		   				}
+		   				if(item.name === "cred"){
+	 						$("#alerta2").hide();
+		   				}
+		   				if(item.name === "deb"){
+	 						$("#alerta3").hide();
+		   				}
+		   			}
+
+				});
+					//pegar o valor do objeto pelo id
+				if($("#bol").val() =="" || $("#cred").val() =="" || $("#deb").val() ==""){
+		   				$("#contErro").fadeIn(3000);
+		   				$("#contSuc").hide();
+		   			}
+		   		else{
+		   			$("#contSuc").fadeIn(3000);	
+		   			$("#contErro").hide();
+		   		}
+    		});
+				
+			$("#alerta1").hide();
+			$("#alerta2").hide();
+			$("#alerta3").hide();
+			$("#contSuc").hide();
+			$("#contErro").hide();
+			//mostra msg escondida
+			$("#conteudo").hide(); // esconde o conteudo do id
+			
+			$("#ajuda").click(function () {
+				$("#conteudo").slideToggle("slow");
+			});	
+		});
