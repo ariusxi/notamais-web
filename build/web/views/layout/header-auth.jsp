@@ -39,6 +39,17 @@
                 </div>
                 <div class="sidebar-wrapper">
                     <ul class="nav">
+                        <li class="nav-item">
+                            <div class="text-center">
+                                <img src="${pageContext.request.contextPath}/assets/img/default-user.png" class="img-fluid img-thumbnail img-profile" width="100" alt="<%= session.getAttribute("name")%>"><br/><br/>
+                                <h5 class="card-title">
+                                    <%= session.getAttribute("name")%>
+                                </h5>
+                                <h6 class="card-subtitle mb-2 text-muted">
+                                    <%= session.getAttribute("roles")%>
+                                </h6>
+                            </div>
+                        </li>
                         <% if (session.getAttribute("roles").equals("user")) { %>
                         <li class="nav-item active  ">
                             <a class="nav-link" href="dashboard">
@@ -46,49 +57,52 @@
                                 <p>Meu Perfil</p>
                             </a>
                         </li>
+                        <% }%>
+                        <% if (session.getAttribute("roles").equals("user")) { %>
                         <li class="nav-item active  ">
                             <a class="nav-link" href="employee">
                                 <i class="material-icons">dashboard</i>
-                                <p>Meu funcionários</p>
+                                <p>Funcionários</p>
+                            </a>
+                        </li>
+                        <% } else if (session.getAttribute("roles").equals("admin")) {  %>
+                        <li class="nav-item active  ">
+                            <a class="nav-link" href="plan">
+                                <i class="material-icons">dashboard</i>
+                                <p>Planos</p>
                             </a>
                         </li>
                         <% }%>
-                        <!-- your sidebar here -->
+                        <% if (session.getAttribute("roles").equals("user")) { %>
+                        <li class="nav-item active  ">
+                            <a class="nav-link" href="edit-user">
+                                <i class="material-icons">dashboard</i>
+                                <p>Alterar dados de perfil</p>
+                            </a>
+                        </li>
+                        <% } else if (session.getAttribute("roles").equals("counter")) { %>
+                        <li class="nav-item active  ">
+                            <a class="nav-link" href="edit-counter">
+                                <i class="material-icons">dashboard</i>
+                                <p>Alterar dados de perfil</p>
+                            </a>
+                        </li>
+                        <% }%>
                     </ul>
                 </div>
             </div>
             <div class="main-panel">
-                <!-- Navbar -->
                 <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
                     <div class="container-fluid">
                         <div class="navbar-wrapper">
                             <a class="navbar-brand" href="dashboard">Dashboard</a>
                         </div>
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="navbar-toggler-icon icon-bar"></span>
-                            <span class="navbar-toggler-icon icon-bar"></span>
-                            <span class="navbar-toggler-icon icon-bar"></span>
-                        </button>
-                        <div class="collapse navbar-collapse justify-content-end">
-                            <ul class="navbar-nav">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="javascript:void(0)">
-                                        <i class="material-icons">notifications</i>
-                                        <p class="d-lg-none d-md-block">
-                                            Notifications
-                                        </p>
-                                    </a>
-                                </li>
-                                <!-- your navbar here -->
-                            </ul>
+                        <div class="navbar-wrapper">
+                            <a class="navbar-brand" href="logout.jsp">Sair</a>
                         </div>
                     </div>
                 </nav>
-                <!-- End Navbar -->
-                <div class="content">
+                <div class="content mb-0">
                     <div class="container-fluid">
-                        <!-- your content here -->
-                    
 
 
