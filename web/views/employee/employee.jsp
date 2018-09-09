@@ -1,5 +1,5 @@
 <jsp:include page="../layout/header-auth.jsp" />
-<div class="col-sm-12 col-md-9 col-lg-9">
+<div class="col-sm-12 col-md-12 col-lg-12 mt-4">
     <ul class="nav nav-tabs">
         <li class="active">
             <a class="nav-link active" href="#list" data-toggle="tab">Lista de Funcionarios</a>
@@ -8,7 +8,7 @@
             <a  class="nav-link" href="#register" data-toggle="tab">Cadastrar Funcionário</a>
         </li>
     </ul>
-    <div class="tab-content ">
+    <div class="tab-content">
         <div class="tab-pane active" id="list">
             <h2 class="title-register">Lista de Funcionários</h2>
             <table id="employee-list" class="display table">
@@ -75,7 +75,7 @@
     </div>
 </div>
 <div class="space-footer"></div>
-<jsp:include page="../layout/footer.jsp" />
+<jsp:include page="../layout/footer-auth.jsp" />
 
 <script type="text/javascript">
     $(function () {

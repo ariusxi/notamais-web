@@ -5,7 +5,7 @@
 --%>
 
 <jsp:include page="../layout/header-auth.jsp"/>
-<div class="col-sm-12 col-md-9 col-lg-9">
+<div class="col-sm-12 col-md-12col-lg-12 mt-4">
     <div class="card">
         <div class="card-body">
             <form id="formEditCounter">
@@ -53,7 +53,7 @@
         </div>
     </div>
 </div>
-<jsp:include page="../layout/footer.jsp"/>
+<jsp:include page="../layout/footer-auth.jsp"/>
 
 <style rel="stylesheet">
     #message{
@@ -74,7 +74,7 @@
 
         var counter = counterDataJson.user;
         var counterProfile = counterDataJson.profile[0];
-        
+
         $('#idCounter').val(counter._id);
         $('#nickname').val(counterProfile.nickname);
         $('#cpf').val(counterProfile.cpf);
