@@ -85,6 +85,7 @@
                         <% if (session.getAttribute("roles").equals("user")) { %>
                             <a href="edit-user" class="list-group-item list-group-item-action">Alterar dados de perfil</a>
                             <a href="card" class="list-group-item list-group-item-action">Meus cartões</a>
+                            <a href="user-plan" class="list-group-item list-group-item-action">Meu plano</a>
                         <% } else if (session.getAttribute("roles").equals("counter")){ %>
                             <a href="edit-counter" class="list-group-item list-group-item-action">Alterar dados de perfil</a>
                         <% } %>
