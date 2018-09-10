@@ -1,5 +1,5 @@
 <jsp:include page="../layout/header-auth.jsp" />
-<div class="col-sm-12 col-md-9 col-lg-9">
+<div class="col-sm-12 col-md-12 col-lg-12">
     <ul class="nav nav-tabs">
         <li class="active">
             <a class="nav-link active" href="#list" data-toggle="tab">Lista de Funcionarios</a>
@@ -44,6 +44,12 @@
                         <div class="form-group">
                             <label for="nickname">Nickname</label>
                             <input type="text" class="form-control" placeholder="Nickname" name="nickname" id="nickname">
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-4 col-lg-4">
+                        <div class="form-group">
+                            <label for="email">Email do Funcionario </label>
+                            <input type="email" class="form-control" placeholder="Email" name="email" id="email">
                         </div>
                     </div>
                     <div class="col-sm-12 col-md-4 col-lg-4">

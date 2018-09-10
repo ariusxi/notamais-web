@@ -12,18 +12,24 @@
                     <input type="text" class="form-control"  placeholder="Titulo" name="name" id="name">
                 </div>
             </div>
-            <div class="col-sm-12 col-md-6 col-lg-6">
-                <div class="form-group">
-                    <label for="value">Preço</label>
-                    <input type="text" class="form-control" placeholder="Preço" name="value" id="value" onkeydown=" formatPrice(this)">
-                </div>
-            </div>
-            <div class="col-sm-12 col-md-6 col-lg-6">
-                <div class="form-group">
-                    <label for="qtdeXML">Quantidade de XML</label>
-                    <input type="number" class="form-control cpf" placeholder="Quantidade de XML" name="qtdeXML" id="qtdeXML">
-                </div>
-            </div>
+            <div class="col-sm-12 col-md-3 col-lg-3">
+                        <div class="form-group">
+                            <label for="value">Preço</label>
+                            <input type="text" class="form-control" placeholder="Preço" name="value" id="value" onkeydown=" formatPrice(this)">
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-3 col-lg-3">
+                        <div class="form-group">
+                            <label for="promotion">Preço Promocional</label>
+                            <input type="text" class="form-control" placeholder="Preço Promo" name="promotion" id="promotion" onkeydown=" formatPrice(this)">
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-3 col-lg-3">
+                        <div class="form-group">
+                            <label for="qtdeXML">Quantidade de XML</label>
+                            <input type="number" class="form-control" placeholder="Quantidade de XML" name="qtdeXML" id="qtdeXML">
+                        </div>
+                    </div>
             <div class="col-sm-12 col-md-12 col-lg-12">
                 <div class="form-group">
                     <label for="description">Descrição do Plano</label>
@@ -54,6 +60,10 @@
     $(document).ready(function ()
     {
         $("#value").maskMoney({
+            decimal: ",",
+            thousands: "."
+        });
+        $("#promotion").maskMoney({
             decimal: ",",
             thousands: "."
         });
