@@ -114,7 +114,7 @@ public class API {
 
     }
     
-    public String multipart(String filepath, String filefield, String fileMimeType) throws IOException{
+    public String multipart(String filepath, String filefield) throws IOException{
         HttpURLConnection conn = null;
         DataOutputStream outputStream = null;
         InputStream inputStream = null;
@@ -155,7 +155,7 @@ public class API {
             outputStream = new DataOutputStream(conn.getOutputStream());
             outputStream.writeBytes(twoHyphens + boundary + lineEnd);
             outputStream.writeBytes("Content-Disposition: form-data; name=\"" + filefield + "\"; filename=\"" + q[idx] + "\"" + lineEnd);
-            outputStream.writeBytes("Content-Type: " + fileMimeType + lineEnd);
+            outputStream.writeBytes("Content-Type: application/json" + lineEnd);
             outputStream.writeBytes("Content-Transfer-Encoding: binary" + lineEnd);
             
             outputStream.writeBytes(lineEnd);
