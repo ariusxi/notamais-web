@@ -1,9 +1,10 @@
 /target/
-nbproject/
+/nbproject/
 /build/
 /dist/
 
-private.properties
-project.properties
-project.xml
-build-impl.xml
+nbproject/private/private.properties
+nbproject/project.properties
+
+/nbproject/private/private.properties
+/nbproject/project.properties
