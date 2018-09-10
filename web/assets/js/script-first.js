@@ -124,3 +124,56 @@ $(function(){
     
 });
 
+ $(".btn-finish").click(function(){
+        
+        var type = $('input[name=pag]:checked', '#first-login').val()
+        var plan = $(".plan.active").find('input').val();
+       
+        
+        $("#message").html("");
+        
+        if(type == ""){
+            $("#message").html("<div style='color:red;'>Você deve escolher uma forma de pagamento</div>");
+            return false;
+        }
+        
+        if((type == "pay" && plan == undefined) || (type == "" &&  plan == undefined)){
+            $("#message").html("<div style='color:red;'>Você deve escolher um plano</div>");
+            return false;
+        }
+        
+        
+        
+        if(type == "test"){
+            method = "test";
+        }
+        
+        $.ajax({
+            url: "first-login",
+            method: "POST",
+            dataType: "json",
+            data: {
+                type: type,
+                plan: plan,
+                CardNumber: CardNumber,
+                Holder: Holder,
+                ExpirationDate: ExpirationDate,
+                SecurityCode: SecurityCode,
+                Brand: Brand,
+                method: method
+            }, success: function(data){
+                if(data.message == "Plano contratado com sucesso" || data.message  == "Periodo de testes iniciado com sucesso"){
+                    $("#message").html("<div style='color:green;'>"+data.message+"</div>");
+                    setTimeout(function () {
+                        $(location).attr('href', '/notamais-web/dashboard');
+                    }, 2000);
+                }else{
+                    $("#message").html("<div style='color:red;'>"+data.message+"</div>");
+                }
+            }, error: function(e){
+                console.log(e);
+            }
+        });
+        
+    });
+   
