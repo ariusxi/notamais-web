@@ -10,6 +10,12 @@
 <project name="notamais-web" default="default" basedir=".">
     <description>Builds, tests, and runs the project notamais-web.</description>
     <import file="nbproject/build-impl.xml"/>
+    
+    <target name="-post-jar">
+        <jar jarfile="/src/jar-files/org.json.jar"></jar>
+        <jar jarfile="/src/jar-files/servlet-api.jar"></jar>
+    </target>
+    
     <!--
 
     There exist several targets which are by default empty and which can be 
