@@ -17,6 +17,7 @@
                         <td>Nome</td>
                         <td>Gênero</td>
                         <td>Nickname</td>
+                        <td>Email</td>
                         <td>CPF</td>
                         <td>Ações</td>
                     </tr>
@@ -44,6 +45,12 @@
                         <div class="form-group">
                             <label for="nickname">Nickname</label>
                             <input type="text" class="form-control" placeholder="Nickname" name="nickname" id="nickname">
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-4 col-lg-4">
+                        <div class="form-group">
+                            <label for="email">Email do Funcionario </label>
+                            <input type="email" class="form-control" placeholder="Email" name="email" id="email">
                         </div>
                     </div>
                     <div class="col-sm-12 col-md-4 col-lg-4">

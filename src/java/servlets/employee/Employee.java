@@ -60,6 +60,7 @@ public class Employee extends HttpServlet {
 
         String name = request.getParameter("name");
         String nickname = request.getParameter("nickname");
+        String email = request.getParameter("email");
         String cpf = request.getParameter("cpf");
         String gender = request.getParameter("gender");
         String id = (String) session.getAttribute("id");
@@ -81,6 +82,7 @@ public class Employee extends HttpServlet {
         if(!type.equals("employee-list") && !type.equals("delete-employee")){
             map.put("name", name);
             map.put("nickname", nickname);
+            map.put("email", email);
             map.put("cpf", cpf);
             map.put("gender", gender);
         }

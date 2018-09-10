@@ -18,9 +18,14 @@ $("#employee-list").ready(function (e) {
                 if (value.person.nickname != "") {
                     nickname = value.person.nickname;
                 }
+                let email = "Não informado";
+                if (value.person.email != "") {
+                    email = value.person.email;
+                }
                 let html = "<tr><td>" + value.person.name + "</td>";
                 html += "<td>" + value.person.gender + "</td>";
                 html += "<td>" + nickname + "</td>";
+                html += "<td>" + email + "</td>";
                 html += "<td>" + value.person.cpf + "</td>";
                 html += "<td><button class='btn btn-primary delete-employee' id='" + value._id + "'>Excluir</button></td>";
                 html += "</tr>";
@@ -64,10 +69,11 @@ $("#employee-register").submit(function (e) {
 
     let name = $("#name").val();
     let nickname = $("#nickname").val();
+    let email = $("#email").val();
     let cpf = $("#cpf").val();
     let gender = $("#gender").val();
 
-    if (name == "" || cpf == "" || gender == "") {
+    if (name == "" || cpf == "" || gender == "" || email == "") {
         $('#message').css('display', 'block');
         $('#message').html('Voce deve preencher os campos obrigatorios');
         return false;
