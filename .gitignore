@@ -1,10 +1,7 @@
 /target/
-/nbproject/
+nbproject/*
 /build/
 /dist/
 
-nbproject/private/private.properties
-nbproject/project.properties
-
-/nbproject/private/private.properties
-/nbproject/project.properties
+project.properties
+private.properties
