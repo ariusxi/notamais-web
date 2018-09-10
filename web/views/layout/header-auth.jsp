@@ -71,12 +71,24 @@
                                 <p>Planos</p>
                             </a>
                         </li>
+                        <li class="nav-item active  ">
+                            <a class="nav-link" href="users">
+                                <i class="material-icons">dashboard</i>
+                                <p>Usuários</p>
+                            </a>
+                        </li>
                         <% }%>
                         <% if (session.getAttribute("roles").equals("user")) { %>
                         <li class="nav-item active  ">
                             <a class="nav-link" href="edit-user">
                                 <i class="material-icons">dashboard</i>
                                 <p>Alterar dados de perfil</p>
+                            </a>
+                        </li>
+                        <li class="nav-item active  ">
+                            <a class="nav-link" href="card">
+                                <i class="material-icons">dashboard</i>
+                                <p>Meus Cartões</p>
                             </a>
                         </li>
                         <% } else if (session.getAttribute("roles").equals("counter")) { %>
