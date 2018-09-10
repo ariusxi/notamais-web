@@ -17,6 +17,7 @@ $("#form-edit-plan").ready(function () {
         success: function (data) {
             $("#form-edit-plan #name").val(data.name);
             $("#form-edit-plan #value").val(floatToReal(data.value));
+            $("#form-edit-plan #promotion").val(floatToReal(data.promotion));
             $("#form-edit-plan #qtdeXML").val(data.qtdeXML);
             $("#form-edit-plan #description").val(data.description);
         }, error: function (e) {
@@ -30,11 +31,12 @@ $("#form-edit-plan").submit(function (e) {
 
     let name = $("#name").val();
     let value = $("#value").val();
+    let promotion = $("#promotion").val();
     let qtdeXML = $("#qtdeXML").val();
     let description = $("#description").val();
     let id = $("#id_plano").val();
 
-    if (name == "" || value == "" || qtdeXML == "" || description == "") {
+    if (name == "" || value == ""  || qtdeXML == "" || description == "") {
         $('#message').css('display', 'block');
         $('#message').html('Voce deve preencher os campos obrigatorios');
         return false;
@@ -43,6 +45,12 @@ $("#form-edit-plan").submit(function (e) {
     if (value < 0) {
         $('#message').css('display', 'block');
         $('#message').html('O preço do plano não pode ser maior que 0');
+        return false;
+    }
+    
+    if (promotion != "" && promotion < 0) {
+        $('#message').css('display', 'block');
+        $('#message').html('O preço promocional do plano não pode ser maior que 0');
         return false;
     }
 
@@ -57,10 +65,16 @@ $("#form-edit-plan").submit(function (e) {
     var valueDecimal = valueReal.replace(".", "");
     var separatorPosition = valueDecimal.charAt(valueDecimal.length - 3);
     var valueFloat = valueDecimal.replace(separatorPosition, ".");
+    
+    //Format promotion with mask on Real format to float
+    var promotionReal = (promotion).toLocaleString('pt-BR');
+    var promotionDecimal = promotionReal.replace(".", "");
+    var separatorPosition = promotionDecimal.charAt(promotionDecimal.length - 3);
+    var promotionFloat = promotionDecimal.replace(separatorPosition, ".");
 
     let form = $(this);
     let formData = form.serialize();
-    formData += '&type=update-plan&id=' + id + "&valueFloat=" + valueFloat;
+    formData += '&type=update-plan&id=' + id + "&valueFloat=" + valueFloat+'&promotionFloat=' + promotionFloat;
 
     $.ajax({
         url: "edit-plan",
@@ -91,10 +105,19 @@ $("#plans, #plans-list").ready(function () {
             $.each(data, function (i, value) {
 
                 let valueReal = floatToReal(value.value);
+                let promotion;
+                
+                if( value.promotion == null || value.promotion == "null"){
+                    promotion = "Nulo";
+                }else{
+                    promotion = floatToReal(value.promotion);
+                }
+                
+                
 
                 let html = '<div id="' + value._id + '" class="plan"><h2 class="plan-heading">' + value.name + '</h2><div class="plan-subheading">$' + valueReal + '/mes</div><p>Armazenamento de ' + value.qtdeXML + ' XMLs</p><p id="uno3">' + value.description + '</p></div>';
                 $("#plans").append(html);
-                html = "<tr><td>" + value.name + "</td><td>" + value.description + "</td><td>" + valueReal + "</td><td>" + value.qtdeXML + "</td><td><div class='btn-group btn-group-toggle'><a href='edit-plan?id=" + value._id + "' class='btn btn-primary'>Editar</a><button class='delete-plan btn btn-primary' id='" + value._id + "'>Excluir</button>";
+                html = "<tr><td>" + value.name + "</td><td>" + value.description + "</td><td>" + valueReal + "</td><td>" + promotion + "</td><td>" + value.qtdeXML + "</td><td><div class='btn-group btn-group-toggle'><a href='edit-plan?id=" + value._id + "' class='btn btn-primary'>Editar</a><button class='delete-plan btn btn-primary' id='" + value._id + "'>Excluir</button>";
                 if (value.active) {
                     html += "<button class='btn btn-primary activate' id='" + value._id + "'>Ativado</button>";
                 } else {
@@ -180,6 +203,7 @@ $("#plan-register").submit(function (e) {
 
     let name = $("#name").val();
     let value = $("#value").val();
+    let promotion = $("#promotion").val();
     let qtdeXML = $("#qtdeXML").val();
     let description = $("#description").val();
 
@@ -188,6 +212,12 @@ $("#plan-register").submit(function (e) {
     var valueDecimal = valueReal.replace(".", "");
     var separatorPosition = valueDecimal.charAt(valueDecimal.length - 3);
     var valueFloat = valueDecimal.replace(separatorPosition, ".");
+    
+    //Format promotion with mask on Real format to float
+    var promotionReal = (promotion).toLocaleString('pt-BR');
+    var promotionDecimal = promotionReal.replace(".", "");
+    var separatorPosition = promotionDecimal.charAt(promotionDecimal.length - 3);
+    var promotionFloat = promotionDecimal.replace(separatorPosition, ".");
 
     if (name == "" || value == "" || qtdeXML == "" || description == "") {
         $('#message').css('display', 'block');
@@ -200,6 +230,12 @@ $("#plan-register").submit(function (e) {
         $('#message').html('O preço do plano não pode ser maior que 0');
         return false;
     }
+    
+    if (promotion < 0) {
+        $('#message').css('display', 'block');
+        $('#message').html('O preço promo do plano não pode ser maior que 0');
+        return false;
+    }
 
     if (qtdeXML <= 0) {
         $('#message').css('display', 'block');
@@ -209,7 +245,7 @@ $("#plan-register").submit(function (e) {
 
     let form = $(this);
     let formData = form.serialize();
-    formData += '&type=plan-create&valueFloat=' + valueFloat;
+    formData += '&type=plan-create&valueFloat=' + valueFloat+'&promotionFloat=' + promotionFloat;
 
     $.ajax({
         url: "plan",

@@ -88,7 +88,10 @@ $("#contato").submit(function (e) {
             success: function (data) {
                 
                 $.each(data, function (i, value) {
-                    let roles = value.roles[0];
+                    let roles = "";
+                    if(value.roles != undefined){
+                        roles = value.roles[0];
+                    }
                     let html = "<tr><td>" + value.name + "</td><td>" + value.email + "</td><td><a href='user-profile?id=" + value._id + "' class='btn btn-primary'>Perfil</a>&nbsp;<button class='btn btn-primary btnAtivacao' data-id='" + value._id + "'data-ativo='" + value.active + "'>" + (value.active?"Desativar":"Ativar") + "</button></td></tr>";
 
                     if (roles == "user") {

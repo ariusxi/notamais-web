@@ -64,6 +64,12 @@
                                 <p>Funcionários</p>
                             </a>
                         </li>
+                        <li class="nav-item active  ">
+                            <a class="nav-link" href="user-plan">
+                                <i class="material-icons">dashboard</i>
+                                <p>Meu Plano</p>
+                            </a>
+                        </li>
                         <% } else if (session.getAttribute("roles").equals("admin")) {  %>
                         <li class="nav-item active  ">
                             <a class="nav-link" href="plan">
