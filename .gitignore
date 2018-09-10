@@ -1,7 +1,7 @@
 /target/
-/nbproject/*
+/nbproject/
+/nbproject/private
+/nbproject/project.properties
+/nbproject/project.xml
 /build/
 /dist/
-
-project.properties
-private.properties
