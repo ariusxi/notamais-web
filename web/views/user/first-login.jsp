@@ -134,6 +134,7 @@
                                             <div class="pull-right">
                                                 <input type='button' class='btn btn-next btn-fill btn-danger btn-wd' name='next' value='Próximo' />
                                                 <input type='button' class='btn btn-finish btn-fill btn-danger btn-wd' name='finish' value='Finalizar' />
+                                                
                                             </div>
                                             <div class="pull-left">
                                                 <input type='button' class='btn btn-previous btn-fill btn-default btn-wd' name='previous' value='Anterior' />

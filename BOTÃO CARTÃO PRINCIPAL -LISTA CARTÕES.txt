@@ -1,0 +1,21 @@
+$(document).on('click', '.select-card', function (e) {
+    e.preventDefault();
+    var id = $(this).attr('id');
+    var $this = $(this);
+    if (!confirm("Definir como Principal?")) {
+        return false;
+    }
+    $.ajax({
+        url: "card",
+        type: "POST",
+        data: {
+            methodType: "card-update",
+            id: id
+        }, success: function (data) {
+            $this.parent().parent().remove();
+        }, error: function (e) {
+            console.log(e);
+        }
+     });
+      return false;
+ });

@@ -97,6 +97,7 @@ $("#user-register").submit(function (e) {
                 html += "<td>" + value.Brand + "</td>";
                 html += "<td>" + value.type + "</td>";
                 html += "<td><button class='btn btn-primary delete-card' id='" + value._id + "'>Excluir</button></td>";
+                html += "<td><button class='btn btn-primary select-card' id='" + value._id + "'>Principal</button></td>";
                 html += "</tr>";
                  $("#cards-list tbody").append(html);
 
@@ -182,3 +183,25 @@ $(document).on('click', '.delete-card', function (e) {
     return false;
 });
 
+$(document).on('click', '.select-card', function (e) {
+    e.preventDefault();
+    var id = $(this).attr('id');
+    var $this = $(this);
+    if (!confirm("Definir como Principal?")) {
+        return false;
+    }
+    $.ajax({
+        url: "card",
+        type: "GET",
+        data: {
+            methodType: "cards",
+            id: id
+        }, success: function (data) {
+            $this.parent().parent().remove();
+        }, error: function (e) {
+            console.log(e);
+        }
+     });
+      return false;
+ });
+ 

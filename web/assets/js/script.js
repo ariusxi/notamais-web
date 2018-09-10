@@ -293,3 +293,33 @@ function floatToReal(value) {
     numero[0] = numero[0].split(/(?=(?:...)*$)/).join('.');
     return numero.join(',');
 }
+
+/*  pagamento   
+
+$(document).ready(function() {
+  $('input:radio[id="bol"]').change(function() {
+    if ($("input[id='bol']:checked")) {
+      alert ("Boleto");
+    } 
+
+  });
+});
+$(document).ready(function() {
+  $('input:radio[id="cred"]').change(function() {
+    if ($("input[id='cred']:checked")) {
+      alert ("Crédito");
+    } 
+
+  });
+});
+
+$(document).ready(function() {
+  $('input:radio[id="deb"]').change(function() {
+    if ($("input[id='deb']:checked")) {
+      alert ("Débito");
+    } 
+
+  });
+});
+
+ */
