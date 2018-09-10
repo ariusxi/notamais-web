@@ -114,7 +114,7 @@ public class API {
 
     }
     
-    public String multipart(Map<String, String> params, String filepath, String filefield, String fileMimeType) throws IOException{
+    public String multipart(String filepath, String filefield, String fileMimeType) throws IOException{
         HttpURLConnection conn = null;
         DataOutputStream outputStream = null;
         InputStream inputStream = null;
