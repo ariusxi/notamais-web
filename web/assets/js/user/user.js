@@ -183,7 +183,7 @@ $(document).on('click', '.delete-card', function (e) {
     return false;
 });
 
-$(document).on('click', '.select-card', function (e) {
+$(document).on('click','.select-card', function (e) {
     e.preventDefault();
     var id = $(this).attr('id');
     var $this = $(this);

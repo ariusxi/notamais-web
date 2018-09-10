@@ -126,18 +126,7 @@
                                                                 <option value="elo">Elo</option>
                                                                 <option value="amex">Amex</option>
                                                             </select>
-   <h4> Defina a forma de pagamento</h4>      
-   <div>        <input type="radio" name="pag" id="bol" value="Boleto" />  
-  Boleto<br />                                                                        
-           <input type="radio" name="pag" id="cred" value="Crédito" /> 
-            
-  Crédito	
-  <br>
-          <input type="radio" name="pag" id="deb" value="Débito" />
-   Débito
-   </div>
-            
-        
+       
                   
            
     
@@ -154,13 +143,12 @@
                                             <div id="message"></div>
                                             <div class="pull-right">
                                                 <input type='button' class='btn btn-next btn-fill btn-danger btn-wd' name='next' value='Próximo' />
-<<<<<<< HEAD
+
                                                 <input type='button' class='btn btn-finish btn-fill btn-danger btn-wd' name='finish' value='Finalizar' />
                                                 
-=======
-                                                <input type='button' class='btn btn-finish btn-fill btn-danger btn-wd' name='finish' value='Finalizar' /> 
 
->>>>>>> e74b6028ee34d2a0a1da94782e65b379d44ccd9f
+                                               
+
                                             </div>
                                             
                                             <div class="pull-left">
