@@ -29,6 +29,9 @@
                 <input type="hidden" id="idPlano" value="" />
             </div>
             <a href="#" data-target="#modalCadastro" data-toggle="modal">+ Cadastrar um novo cartão</a>
+            <div class="alert alert-info mb-0 mt-2" id="message">
+
+            </div>
       </div>
       <div class="modal-footer">
           <button type="button" class="btn btn-primary" onclick="salvarPlano();">Salvar</button>
@@ -211,23 +214,28 @@
     }
     
     function salvarPlano(){
-        debugger;
         var idPlano = $("#idPlano").val();
         var idCartao = $("#slcCartoes").val();
-    $.ajax({
-        url: "list-plan",
-        type: "POST",
-        data: {
-            methodType: "contracts-change",
-            idPlano : idPlano, 
-            idCartao : idCartao
-            
-        }, success: function (data) {
-            location.href = "/user-plan"
-        }, error: function (e) {
-            alert(e);
-        }
-     });
         
+        $("#message").css('display', 'none');
+        
+        $.ajax({
+            url: "list-plan",
+            type: "POST",
+            data: {
+                methodType: "contracts-change",
+                idPlano : idPlano, 
+                idCartao : idCartao
+            }, success: function (data) {
+                var responseData = JSON.parse(data);
+                $("#message").css('display', 'block');
+                $("#message").html(responseData.message);
+                setTimeout(function(){
+                    location.href = "/notamais-web/user-plan"
+                }, 2000);
+            }, error: function (e) {
+                alert(e);
+            }
+        });
     }
 </script>

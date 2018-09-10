@@ -74,6 +74,8 @@ public class ListPlan extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+        PrintWriter out = response.getWriter();
+        
         HttpSession session = request.getSession();
         String id = (String) session.getAttribute("id");
         String token = (String) session.getAttribute("token");
@@ -96,7 +98,7 @@ public class ListPlan extends HttpServlet {
         }
 
         String responseJSON = con.getJsonString(map); 
-        System.out.println(responseJSON);
+        out.print(responseJSON);
         
         
         
