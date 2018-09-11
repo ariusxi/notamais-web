@@ -78,8 +78,9 @@
     }
 </style>
 
-<script type="text/javascript">
+<jsp:include page="../layout/footer-auth.jsp"/>
 
+<script>
     $(function () {
         $('#name').bind('keydown', onlyLetter);
         $('#namefantasy').bind('keydown', onlyLetter);
@@ -141,5 +142,4 @@
         });
 
     });
-
 </script>

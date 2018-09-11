@@ -5,7 +5,7 @@
 --%>
 
 <jsp:include page="../layout/header-auth.jsp" />
-<div class="col-sm-12 col-md-9 col-lg-9">
+<div class="col-sm-12 col-md-12 col-lg-12">
     <ul class="nav nav-tabs">
         <li class="active">
             <a class="nav-link active" href="#list" data-toggle="tab">Lista de Cartão de Crédito</a>
@@ -102,3 +102,5 @@
     </div>
     
 </div>
+
+<jsp:include page="../layout/footer-auth.jsp" />

@@ -30,8 +30,6 @@
    <!-- <button class="btn btn-secondary" type="button" > 
     <i class="fa fa-times ng-scope" aria-hidden="true"></i> Remover</button>-->
 </form>
-   
-</div> 
  <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script>
 $("#formulario").submit(function (e) {

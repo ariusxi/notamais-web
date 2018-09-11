@@ -5,6 +5,7 @@
     <hr />
 </div>
 
+<jsp:include page="../layout/footer-auth.jsp"/>
 <script>
     window.onload = function(){
         var json = '<%= request.getAttribute("plano")%>';
