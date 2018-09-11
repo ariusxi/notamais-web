@@ -1,5 +1,9 @@
 /target/
-/nbproject/
 /nbproject/private/
 /build/
 /dist/
+
+/nbproject/
+/nbproject
+nbproject/
+nbproject
