@@ -15,8 +15,8 @@
         <nav class="float-left">
             <ul>
                 <li>
-                    <a href="https://www.creative-tim.com">
-                        Creative Tim
+                    <a href="https://notamais.herokuapp.com/">
+                        Nota+
                     </a>
                 </li>
             </ul>
