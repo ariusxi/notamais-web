@@ -97,6 +97,12 @@
                                 <p>Meus Cartões</p>
                             </a>
                         </li>
+                         <li class="nav-item active  ">
+                            <a class="nav-link" href="upload-xml">
+                                <i class="material-icons">dashboard</i>
+                                <p>Lista de NFes</p>
+                            </a>
+                        </li>
                         <% } else if (session.getAttribute("roles").equals("counter")) { %>
                         <li class="nav-item active  ">
                             <a class="nav-link" href="edit-counter">
