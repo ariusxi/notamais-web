@@ -102,3 +102,5 @@
     </div>
     
 </div>
+
+<jsp:include page="../layout/footer-auth.jsp" />
