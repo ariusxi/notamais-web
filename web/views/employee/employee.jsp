@@ -80,8 +80,7 @@
         </div>
     </div>
 </div>
-<div class="space-footer"></div>
-<jsp:include page="../layout/footer.jsp" />
+
 
 <script type="text/javascript">
     $(function () {

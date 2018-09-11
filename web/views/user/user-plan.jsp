@@ -4,7 +4,7 @@
     <h2>Meu plano</h2>
     <hr />
 </div>
-<jsp:include page="../layout/footer.jsp"/>
+
 <script>
     window.onload = function(){
         var json = '<%= request.getAttribute("plano")%>';

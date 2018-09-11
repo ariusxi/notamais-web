@@ -53,7 +53,7 @@
         </div>
     </div>
 </div>
-<jsp:include page="../layout/footer.jsp"/>
+
 
 <style rel="stylesheet">
     #message{

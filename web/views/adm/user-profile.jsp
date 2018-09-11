@@ -51,7 +51,7 @@
         </div>
     </div>
 </div>
-<jsp:include page="../layout/footer.jsp"/>
+<
 <script type="text/javascript">
 $(document).ready(function () {
     var json = '<%= request.getAttribute("user")%>';   

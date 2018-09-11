@@ -121,7 +121,7 @@
 
 
 
-<jsp:include page="../layout/footer.jsp"/>
+
 <script>
     var json = '<%= request.getAttribute("planos")%>';
 
