@@ -5,7 +5,7 @@
 --%>
 
 <jsp:include page="../layout/header-auth.jsp"/>
-<div class="col-sm-12 col-md-12 col-lg-12 mt-0">
+<div class="col-sm-12 col-md-12 col-lg-12 mt-4">
     <div class="card">
         <div class="card-body">
             <form id="formEditUser">
@@ -70,7 +70,6 @@
         </div>
     </div>
 </div>
-
 
 <style rel="stylesheet">
     #message{

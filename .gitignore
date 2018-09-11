@@ -1,7 +1,9 @@
-<<<<<<< HEAD
 /target/
-=======
 /nbproject/private/
 /build/
 /dist/
->>>>>>> 08dcf57abc6a5e170093e1c8ae3524e81a783552
+
+/nbproject/
+/nbproject
+nbproject/
+nbproject

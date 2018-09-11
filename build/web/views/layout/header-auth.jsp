@@ -27,7 +27,6 @@
         <!-- Material Kit CSS -->
         <link href="${pageContext.request.contextPath}/assets/dashboard/assets/css/material-dashboard.css" rel="stylesheet" />
     </head>
-    
     <body class="dark-edition">
         <div class="wrapper ">
             <div class="sidebar" data-color="purple" data-background-color="black" data-image="./assets/img/sidebar-2.jpg">
@@ -123,9 +122,15 @@
                         <div class="navbar-wrapper">
                             <a class="navbar-brand" href="logout.jsp">Sair</a>
                         </div>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="navbar-toggler-icon icon-bar"></span>
+                            <span class="navbar-toggler-icon icon-bar"></span>
+                            <span class="navbar-toggler-icon icon-bar"></span>
+                        </button>
                     </div>
                 </nav>
-                <div class="content mb-0">
+                <div class="content mt-3">
                     <div class="container-fluid">
 
 
