@@ -28,13 +28,13 @@
                 <select class="custom-select" id="slcCartoes"></select>
                 <input type="hidden" id="idPlano" value="" />
             </div>
-            <a href="#" data-target="#modalCadastro" data-toggle="modal">+ Cadastrar um novo cartão</a>
-            <div class="alert alert-info mb-0 mt-2" id="message">
+            <a href="#" data-target="#modalCadastro" data-toggle="modal" style="color:#2b76ca" >+ Cadastrar um novo cartão</a>
+            <div class="alert alert-info mb-0 mt-2" id="message1">
 
             </div>
       </div>
       <div class="modal-footer">
-          <button type="button" class="btn btn-primary" onclick="salvarPlano();">Salvar</button>
+          <button type="button" class="btn btn-primary" onclick="salvarPlano();" id="btnSalvar">Salvar</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
       </div>
     </div>
@@ -129,7 +129,7 @@
     var planos = JSON.parse(json);
     
     window.onload = function(){
-
+        $("#message1").css('display', 'none');
         
         var html="";
         var json2 = '<%= request.getAttribute("plano")%>';
@@ -190,6 +190,7 @@
     }    
     
     function getCartoes(){
+        $("#slcCartoes").attr("disabled", "");
         $.ajax({
             url: "card",
             method: "POST",
@@ -202,10 +203,11 @@
                     var html = "";
 
                 $.each(data, function (i, value) {
-
+                    
                     html += "<option value='" + value._id + "' " + (value.selected ? "selected= 'selected'": "") + "> Cartão de " + (value.type == "DebitCard"?"débido":"crédito") + " - " + value.Brand.toUpperCase() + " com final "  + value.CardNumber.substr(-4) + "</option> ";        
-                    $("#slcCartoes").html(html);
+                    $("#slcCartoes").html(html);   
                 });
+                $("#slcCartoes").removeAttr("disabled");
 
             }, error: function (e) {
                 console.log(e);
@@ -214,10 +216,13 @@
     }
     
     function salvarPlano(){
+        $("#btnSalvar").attr("disabled", "");
+        $("#slcCartoes").attr("disabled", "");
+        
         var idPlano = $("#idPlano").val();
         var idCartao = $("#slcCartoes").val();
         
-        $("#message").css('display', 'none');
+        $("#message1").css('display', 'none');
         
         $.ajax({
             url: "list-plan",
@@ -228,14 +233,17 @@
                 idCartao : idCartao
             }, success: function (data) {
                 var responseData = JSON.parse(data);
-                $("#message").css('display', 'block');
-                $("#message").html(responseData.message);
+                $("#message1").css('display', 'block');
+                $("#message1").html(responseData.message);
                 setTimeout(function(){
                     location.href = "/notamais-web/user-plan"
                 }, 2000);
+                $("#btnSalvar").removeAttr("disabled");
+                $("#slcCartoes").removeAttr("disabled");
             }, error: function (e) {
-                alert(e);
+                console.log(e);
             }
         });
+        
     }
 </script>
