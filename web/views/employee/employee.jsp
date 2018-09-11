@@ -11,22 +11,24 @@
     <div class="tab-content">
         <div class="tab-pane active" id="list">
             <h2 class="title-register">Lista de Funcionários</h2>
-            <table id="employee-list" class="display table">
-                <thead>
-                    <tr>
-                        <td>Nome</td>
-                        <td>Gênero</td>
-                        <td>Nickname</td>
-                        <td>CPF</td>
-                        <td>Ações</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
+            <div class="table-responsive">
+                <table id="employee-list" class="display table">
+                    <thead>
+                        <tr>
+                            <td>Nome</td>
+                            <td>Gênero</td>
+                            <td>Nickname</td>
+                            <td>CPF</td>
+                            <td>Ações</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
 
-                    </tr>
-                </tbody>
-            </table>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
         <div class="tab-pane" id="register">
             <form action="" method="POST" id="employee-register">

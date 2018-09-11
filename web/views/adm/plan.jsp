@@ -11,19 +11,21 @@
     <div class="tab-content ">
         <div class="tab-pane active" id="list">
             <h2 class="title-register">Lista de Planos</h2>
-            <table id="plans-list" class="display table">
-                <thead>
-                    <tr>
-                        <th>Nome</th>
-                        <th>Descrição</th>
-                        <th>Preço</th>
-                        <th>Quantidade de XML</th>
-                        <th>Ações</th>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
+            <div class="table-responsive">
+                <table id="plans-list" class="display table">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Descrição</th>
+                            <th>Preço</th>
+                            <th>Quantidade de XML</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
         </div>
         <div class="tab-pane" id="register">
             <form action="" method="POST" id="plan-register">

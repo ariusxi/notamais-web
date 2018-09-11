@@ -14,30 +14,35 @@
             <a  class="nav-link" href="#register" data-toggle="tab">Cadastrar Cartão de Crédito</a>
         </li>
     </ul>
-    
+
     <div class="tab-content ">
         <div class="tab-pane active" id="list">
             <h2 class="title-register">Lista de Cartões de Crédito</h2>
-            <table id="cards-list" class="display table">
-                <thead>
-                    <tr>
-                        <td>Número do cartão</td>
-                        <td>Titular</td>
-                        <td>Código de Segurança</td>
-                        <td>Data de expiração</td>
-                        <td>Bandeira</td>
-                        <td>Tipo</td>
-                        <td>Ações</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
+            <div class="table-responsive">
+                <table id="cards-list" class="display table text-center">
+                    <thead>
+                        <tr>
+                            <td>Número do cartão</td>
+                            <td>Titular</td>
+                            <td>Código de Segurança</td>
+                            <td>Data de expiração</td>
+                            <td>Bandeira</td>
+                            <td>Tipo</td>
+                            <td>Ações</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
 
-                    </tr>
-                </tbody>
-            </table>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="alert alert-info mt-2 mb-0" id="message" style="margin-bottom:100px !important;">
+
+            </div>
         </div>
-        
+
         <div class="tab-pane" id="register">
             <form action="" method="POST" id="card-register">
                 <div class="row">
@@ -102,6 +107,6 @@
             </div>
         </div>
     </div>
-    
+
 </div>
 <jsp:include page="../layout/footer-auth.jsp" />

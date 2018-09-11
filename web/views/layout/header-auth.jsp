@@ -26,7 +26,7 @@
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
         <!-- Material Kit CSS -->
-        <link href="${pageContext.request.contextPath}/assets/dashboard/assets/css/material-dashboard.css" rel="stylesheet" />
+        <link href="${pageContext.request.contextPath}/assets/dashboard/assets/css/material-dashboard.css?v=2.1.0" rel="stylesheet" />
     </head>
 
     <body class="dark-edition">
@@ -118,6 +118,12 @@
                         <div class="navbar-wrapper">
                             <a class="navbar-brand" href="logout.jsp">Sair</a>
                         </div>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="navbar-toggler-icon icon-bar"></span>
+                            <span class="navbar-toggler-icon icon-bar"></span>
+                            <span class="navbar-toggler-icon icon-bar"></span>
+                        </button>
                     </div>
                 </nav>
                 <div class="content mt-3">

@@ -20,6 +20,7 @@
 <script src="${pageContext.request.contextPath}/assets/js/jquery.dataTables.min.js" type="text/javascript"></script>
 
 <script src="${pageContext.request.contextPath}/assets/dashboard/assets/js/material-dashboard.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/assets/dashboard/assets/js/core/bootstrap-material-design.min.js" type="text/javascript"></script>
 
 </body>
 </html>
