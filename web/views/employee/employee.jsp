@@ -1,5 +1,5 @@
 <jsp:include page="../layout/header-auth.jsp" />
-<div class="col-sm-12 col-md-12 col-lg-12">
+<div class="col-sm-12 col-md-12 col-lg-12 mt-4">
     <ul class="nav nav-tabs">
         <li class="active">
             <a class="nav-link active" href="#list" data-toggle="tab">Lista de Funcionarios</a>
@@ -8,25 +8,27 @@
             <a  class="nav-link" href="#register" data-toggle="tab">Cadastrar Funcionário</a>
         </li>
     </ul>
-    <div class="tab-content ">
+    <div class="tab-content">
         <div class="tab-pane active" id="list">
             <h2 class="title-register">Lista de Funcionários</h2>
-            <table id="employee-list" class="display table">
-                <thead>
-                    <tr>
-                        <td>Nome</td>
-                        <td>Gênero</td>
-                        <td>Nickname</td>
-                        <td>CPF</td>
-                        <td>Ações</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
+            <div class="table-responsive">
+                <table id="employee-list" class="display table">
+                    <thead>
+                        <tr>
+                            <td>Nome</td>
+                            <td>Gênero</td>
+                            <td>Nickname</td>
+                            <td>CPF</td>
+                            <td>Ações</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
 
-                    </tr>
-                </tbody>
-            </table>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
         <div class="tab-pane" id="register">
             <form action="" method="POST" id="employee-register">
@@ -61,7 +63,7 @@
                     <div class="col-sm-12 col-md-4 col-lg-4">
                         <div class="form-group">
                             <label for="nickname">Gênero</label>
-                            <select class="form-control" id="gender" name="gender">
+                            <select class="form-control" id="gender" name="gender" style="color:#000 !important;">
                                 <option value="">Escolha o seu gênero</option>
                                 <option value="M">Masculino</option>
                                 <option value="F">Feminino</option>
@@ -80,9 +82,8 @@
         </div>
     </div>
 </div>
-
-<jsp:include page="../layout/footer-auth.jsp"/>
-
+<div class="space-footer"></div>
+<jsp:include page="../layout/footer-auth.jsp" />
 
 <script type="text/javascript">
     $(function () {

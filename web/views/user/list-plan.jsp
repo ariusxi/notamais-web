@@ -59,31 +59,31 @@
                     <div class="col-sm-12 col-md-12 col-lg-12">
                         <div class="form-group">
                             <label for="number">Número do cartão</label>
-                            <input type="number" class="form-control"  placeholder="Número do cartão" name="number" id="number">
+                            <input type="number" class="form-control"  placeholder="Número do cartão" name="number" id="number" style="color:#000 !important;">
                         </div>
                     </div>
                     <div class="col-sm-12 col-md-4 col-lg-4">
                         <div class="form-group">
                             <label for="holder">Titular</label>
-                            <input type="text" class="form-control" placeholder="Titular" name="holder" id="holder">
+                            <input type="text" class="form-control" placeholder="Titular" name="holder" id="holder" style="color:#000 !important;">
                         </div>
                     </div>
                     <div class="col-sm-12 col-md-4 col-lg-4">
                         <div class="form-group">
                             <label for="expiration-date">Data de expiração</label>
-                            <input type="text" class="form-control expirationDate" placeholder="Data de expiração" name="expiration-date" id="expiration-date">
+                            <input type="text" class="form-control expirationDate" placeholder="Data de expiração" name="expiration-date" id="expiration-date" style="color:#000 !important;">
                         </div>
                     </div>
                     <div class="col-sm-12 col-md-4 col-lg-4">
                         <div class="form-group">
                             <label for="security-code">Código de Segurança</label>
-                            <input type="text" class="form-control securityCode" placeholder="Código de segurança" size="4" max="4" name="security-code" id="security-code">
+                            <input type="text" class="form-control securityCode" placeholder="Código de segurança" size="4" max="4" name="security-code" id="security-code" style="color:#000 !important;">
                         </div>
                     </div>
                     <div class="col-sm-12 col-md-4 col-lg-4">
                         <div class="form-group">
                             <label for="brand">Bandeira</label>
-                            <select class="form-control" id="brand" name="brand">
+                            <select class="form-control" id="brand" name="brand" style="color:#000 !important;">
                                 <option value="" selected="">Bandeira</option>
                                 <option value="master">Master</option>
                                 <option value="visa">Visa</option>
