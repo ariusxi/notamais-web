@@ -10,7 +10,7 @@
 </div>
 </div>
 
-<footer class="footer">
+<!--<footer class="footer">
     <div class="container-fluid">
         <nav class="float-left">
             <ul>
@@ -22,7 +22,7 @@
             </ul>
         </nav>
     </div>
-</footer>
+</footer>-->
 
 <!--   Core JS Files 
 
@@ -46,6 +46,7 @@
 <script src="${pageContext.request.contextPath}/assets/js/jquery.mask.js" type="text/javascript"></script>
 <script src="${pageContext.request.contextPath}/assets/js/jquery.maskMoney.min.js" type="text/javascript"></script>
 <script src="${pageContext.request.contextPath}/assets/js/jquery.dataTables.min.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/assets/js/xml.js" type="text/javascript"></script>
 
 <script>
     $(document).ready(function () {

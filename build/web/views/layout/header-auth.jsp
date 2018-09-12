@@ -59,13 +59,13 @@
                         <% if (session.getAttribute("roles").equals("user")) { %>
                         <li class="nav-item active  ">
                             <a class="nav-link" href="employee">
-                                <i class="material-icons">dashboard</i>
+                                <i class="material-icons">person_pin</i>
                                 <p>Funcionários</p>
                             </a>
                         </li>
                         <li class="nav-item active  ">
                             <a class="nav-link" href="user-plan">
-                                <i class="material-icons">dashboard</i>
+                                <i class="material-icons">subtitles</i>
                                 <p>Meu Plano</p>
                             </a>
                         </li>
@@ -86,19 +86,19 @@
                         <% if (session.getAttribute("roles").equals("user")) { %>
                         <li class="nav-item active  ">
                             <a class="nav-link" href="edit-user">
-                                <i class="material-icons">dashboard</i>
-                                <p>Alterar dados de perfil</p>
+                                <i class="material-icons">person</i>
+                                <p>Alterar perfil</p>
                             </a>
                         </li>
                         <li class="nav-item active  ">
                             <a class="nav-link" href="card">
-                                <i class="material-icons">dashboard</i>
+                                <i class="material-icons">style</i>
                                 <p>Meus Cartões</p>
                             </a>
                         </li>
                          <li class="nav-item active  ">
                             <a class="nav-link" href="upload-xml">
-                                <i class="material-icons">dashboard</i>
+                                <i class="material-icons">insert_drive_file</i>
                                 <p>Lista de NFes</p>
                             </a>
                         </li>
