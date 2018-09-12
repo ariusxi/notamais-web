@@ -44,7 +44,7 @@ public class UploadXml extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-       /* PrintWriter out = response.getWriter();
+        PrintWriter out = response.getWriter();
 
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
@@ -54,15 +54,21 @@ public class UploadXml extends HttpServlet {
         String token = (String) session.getAttribute("token");
         String methodType = request.getParameter("methodType");
 
-        
-         API con;
-        if(methodType.equals("upload")) {
-            con = new API("files/" + id, "POST", token);
+        Hashtable<Integer, String> source = new Hashtable<Integer, String>();
+        HashMap<String, String> map = new HashMap(source);
+        API con;
+        switch(methodType){
+            case "list-xml":
+                con = new API("files/" + id, "GET", token);
+                break;
+            default: 
+                con = new API("/files/delete/" + id, "DELETE", token);
+                break;
         }
-        else{
-           con = new API("/files/delete/" + id, "DELETE", token);
-            
-       */ }
+        
+        String responseJSON = con.getJsonString(map); 
+        out.print(responseJSON);
+    }
     
     @Override
     public String getServletInfo() {

@@ -1,5 +1,5 @@
 <jsp:include page="../layout/header-auth.jsp"/>
-<div class="col-sm-12 col-md-12 col-lg-12">
+<div class="col-sm-12 col-md-12 col-lg-12 mt-4">
     <div class="card">
         <div class="card-body">
                 <div class="form-row">

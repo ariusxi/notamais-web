@@ -17,10 +17,8 @@
         
         var html="";
         
-        console.log(obj);
-        
         html += "<div class='card'>";
-        html += "<div class='card-header' id='titulo'>" + plano.name + "</div>";
+        html += "<div class='card-header text-light' id='titulo'>" + plano.name + "</div>";
         html += "<div class='card-body'>";
         html += "<h5 class='card-title' id='qtdXML'>" + "Armazenamento de " + plano.qtdeXML + " XMLs" + "</h5>";
         html += "<p class='card-text' id='descricao'>" + plano.description + "</p>";

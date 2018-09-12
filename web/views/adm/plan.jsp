@@ -1,5 +1,5 @@
 <jsp:include page="../layout/header-auth.jsp" />
-<div class="col-sm-12 col-md-12 col-lg-12">
+<div class="col-sm-12 col-md-12 col-lg-12 mt-4"
     <ul class="nav nav-tabs">
         <li class="active">
             <a class="nav-link active" href="#list" data-toggle="tab">Lista de Planos</a>
@@ -73,8 +73,8 @@
         </div>
     </div>
 </div>
-
-<jsp:include page="../layout/footer-auth.jsp"/>
+<div class="space-footer"></div>
+<jsp:include page="../layout/footer-auth.jsp" />
 
 <script type="text/javascript">
 

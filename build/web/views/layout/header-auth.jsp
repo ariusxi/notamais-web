@@ -27,7 +27,6 @@
         <!-- Material Kit CSS -->
         <link href="${pageContext.request.contextPath}/assets/dashboard/assets/css/material-dashboard.css" rel="stylesheet" />
     </head>
-    
     <body class="dark-edition">
         <div class="wrapper ">
             <div class="sidebar" data-color="purple" data-background-color="black" data-image="./assets/img/sidebar-2.jpg">
@@ -60,13 +59,13 @@
                         <% if (session.getAttribute("roles").equals("user")) { %>
                         <li class="nav-item active  ">
                             <a class="nav-link" href="employee">
-                                <i class="material-icons">dashboard</i>
+                                <i class="material-icons">person_pin</i>
                                 <p>Funcionários</p>
                             </a>
                         </li>
                         <li class="nav-item active  ">
                             <a class="nav-link" href="user-plan">
-                                <i class="material-icons">dashboard</i>
+                                <i class="material-icons">subtitles</i>
                                 <p>Meu Plano</p>
                             </a>
                         </li>
@@ -87,19 +86,19 @@
                         <% if (session.getAttribute("roles").equals("user")) { %>
                         <li class="nav-item active  ">
                             <a class="nav-link" href="edit-user">
-                                <i class="material-icons">dashboard</i>
-                                <p>Alterar dados de perfil</p>
+                                <i class="material-icons">person</i>
+                                <p>Alterar perfil</p>
                             </a>
                         </li>
                         <li class="nav-item active  ">
                             <a class="nav-link" href="card">
-                                <i class="material-icons">dashboard</i>
+                                <i class="material-icons">style</i>
                                 <p>Meus Cartões</p>
                             </a>
                         </li>
                          <li class="nav-item active  ">
                             <a class="nav-link" href="upload-xml">
-                                <i class="material-icons">dashboard</i>
+                                <i class="material-icons">insert_drive_file</i>
                                 <p>Lista de NFes</p>
                             </a>
                         </li>
@@ -123,9 +122,15 @@
                         <div class="navbar-wrapper">
                             <a class="navbar-brand" href="logout.jsp">Sair</a>
                         </div>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="navbar-toggler-icon icon-bar"></span>
+                            <span class="navbar-toggler-icon icon-bar"></span>
+                            <span class="navbar-toggler-icon icon-bar"></span>
+                        </button>
                     </div>
                 </nav>
-                <div class="content mb-0">
+                <div class="content mt-3">
                     <div class="container-fluid">
 
 
