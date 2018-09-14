@@ -7,16 +7,20 @@
 
 <jsp:include page="../layout/footer-auth.jsp"/>
 <script>
+    
+    
     window.onload = function(){
         var json = '<%= request.getAttribute("plano")%>';
         
         console.log(json);
-
+        if(json != ""){
+            
         var obj = JSON.parse(json);
         var plano = obj.plan
-        
         var html="";
         
+         
+      
         html += "<div class='card'>";
         html += "<div class='card-header text-light' id='titulo'>" + plano.name + "</div>";
         html += "<div class='card-body'>";
@@ -29,5 +33,18 @@
         html += "</div>";
         
         $("#plano").append(html);
-    };
+        }
+        else{
+     
+     
+        var html2="";
+              
+                       
+        html += "<div class='card'>";
+        html += "<a href='first-login' class='btn btn-primary'>Contrate!!!!!!!!!!!!!!!!</a>";
+        html += "</div>";
+        
+        $("#plano").append(html);
+        }
+   };
 </script>
