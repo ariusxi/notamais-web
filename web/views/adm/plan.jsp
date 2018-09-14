@@ -1,5 +1,5 @@
 <jsp:include page="../layout/header-auth.jsp" />
-<div class="col-sm-12 col-md-9 col-lg-9">
+<div class="col-sm-12 col-md-12 col-lg-12 mt-4"
     <ul class="nav nav-tabs">
         <li class="active">
             <a class="nav-link active" href="#list" data-toggle="tab">Lista de Planos</a>
@@ -17,6 +17,7 @@
                         <th>Nome</th>
                         <th>Descrição</th>
                         <th>Preço</th>
+                        <th>Preço Promocional</th>
                         <th>Quantidade de XML</th>
                         <th>Ações</th>
                     </tr>
@@ -37,13 +38,19 @@
                             <input type="text" class="form-control"  placeholder="Titulo" name="name" id="name">
                         </div>
                     </div>
-                    <div class="col-sm-12 col-md-6 col-lg-6">
+                    <div class="col-sm-12 col-md-3 col-lg-3">
                         <div class="form-group">
                             <label for="value">Preço</label>
                             <input type="text" class="form-control" placeholder="Preço" name="value" id="value" onkeydown=" formatPrice(this)">
                         </div>
                     </div>
-                    <div class="col-sm-12 col-md-6 col-lg-6">
+                    <div class="col-sm-12 col-md-3 col-lg-3">
+                        <div class="form-group">
+                            <label for="promotion">Preço Promocional</label>
+                            <input type="text" class="form-control" placeholder="Preço Promo" name="promotion" id="promotion" onkeydown=" formatPrice(this)">
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-3 col-lg-3">
                         <div class="form-group">
                             <label for="qtdeXML">Quantidade de XML</label>
                             <input type="number" class="form-control" placeholder="Quantidade de XML" name="qtdeXML" id="qtdeXML">
@@ -67,7 +74,7 @@
     </div>
 </div>
 <div class="space-footer"></div>
-<jsp:include page="../layout/footer.jsp" />
+<jsp:include page="../layout/footer-auth.jsp" />
 
 <script type="text/javascript">
 
@@ -79,6 +86,10 @@
     $(document).ready(function ()
     {
         $("#value").maskMoney({
+            decimal: ",",
+            thousands: "."
+        });
+        $("#promotion").maskMoney({
             decimal: ",",
             thousands: "."
         });

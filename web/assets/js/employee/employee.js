@@ -64,10 +64,11 @@ $("#employee-register").submit(function (e) {
 
     let name = $("#name").val();
     let nickname = $("#nickname").val();
+    let email = $("#email").val();
     let cpf = $("#cpf").val();
     let gender = $("#gender").val();
 
-    if (name == "" || cpf == "" || gender == "") {
+    if (name == "" || cpf == "" || gender == "" || email == "") {
         $('#message').css('display', 'block');
         $('#message').html('Voce deve preencher os campos obrigatorios');
         return false;

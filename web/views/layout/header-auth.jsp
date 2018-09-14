@@ -4,89 +4,133 @@
     Author     : lucas
 --%>
 
-    <%@page contentType="text/html"%>
-        <!DOCTYPE html>
-        <html>
-
-        <head>
-            <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-            <meta name="viewport" content="width=device-width, user-scalable=no">
-            <title>Nota Mais</title>
-            <!-- Fonts -->
-            <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
-            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-            <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-            <link href="${pageContext.request.contextPath}/assets/css/style.css" rel="stylesheet"/>
-            <link href="${pageContext.request.contextPath}/assets/css/jquery.dataTables.min.css" rel="stylesheet"/>
-            <!-- Bootstrap -->
-            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-                crossorigin="anonymous">
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+<%@page contentType="text/html"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <title>Nota Mais</title>
+        <!-- Fonts -->
+        <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+        <link href="${pageContext.request.contextPath}/assets/css/style.css" rel="stylesheet"/>
+        <link href="${pageContext.request.contextPath}/assets/css/jquery.dataTables.min.css" rel="stylesheet"/>
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!--     Fonts and icons     -->
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+        <!-- Material Kit CSS -->
+        <link href="${pageContext.request.contextPath}/assets/dashboard/assets/css/material-dashboard.css" rel="stylesheet" />
     </head>
-
-    <body>
-        <!-- search for navbar bootstrap -->
-        <nav class="navbar navbar-expand-lg navbar-dark blue-sky m-0">
-            <a class="navbar-brand" href="index.jsp">
-                Nota+
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <% if (session.getAttribute("roles").equals("user")) { %>
-                    <li class="nav-item">
-                        <a class="nav-link" href="dashboard">Página Inicial</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="employee">Meus funcionários</a>
-                    </li>
-                    <% } else { %>
-                    <% }%>
-                </ul>
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><%= session.getAttribute("name")%></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="logout.jsp">Sair</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-        <div class="container-fluid user-profile mb-5">
-            <div class="row employee">
-                <div class="col-sm-12 col-md-3 col-lg-3">
-                    <div class="list-group">
-                        <div class="list-group-item ">
-                            <div class="text-center">
-                                <img src="${pageContext.request.contextPath}/assets/img/default-user.png" class="img-fluid img-thumbnail img-profile" alt="<%= session.getAttribute("name")%>"><br/><br/>
-                            </div>
-                            <h5 class="card-title">
-                                <%= session.getAttribute("name")%>
-                            </h5>
-                            <h6 class="card-subtitle mb-2 text-muted">
-                                <%= session.getAttribute("roles")%>
-                            </h6>
-                        </div>
-                        
-                        <a href="dashboard" class="list-group-item list-group-item-action">Meu perfil</a>
-                        
-                        <% if (session.getAttribute("roles").equals("user")) { %>
-                            <a href="employee" class="list-group-item list-group-item-action">Funcionários</a>
-                        <% } else if (session.getAttribute("roles").equals("admin")) {  %>
-                            <a href="plan" class="list-group-item list-group-item-action">Planos</a>
-                            <a href="users" class="list-group-item list-group-item-action">Usuários</a>
-                        <% }%>
-                        
-                        <% if (session.getAttribute("roles").equals("user")) { %>
-                            <a href="edit-user" class="list-group-item list-group-item-action">Alterar dados de perfil</a>
-                            <a href="card" class="list-group-item list-group-item-action">Meus cartões</a>
-                        <% } else if (session.getAttribute("roles").equals("counter")){ %>
-                            <a href="edit-counter" class="list-group-item list-group-item-action">Alterar dados de perfil</a>
-                        <% } %>
-                    </div>
+    <body class="dark-edition">
+        <div class="wrapper ">
+            <div class="sidebar" data-color="purple" data-background-color="black" data-image="./assets/img/sidebar-2.jpg">
+                <div class="logo">
+                    <a href="#" class="simple-text logo-normal">
+                        Nota+
+                    </a>
                 </div>
+                <div class="sidebar-wrapper">
+                    <ul class="nav">
+                        <li class="nav-item">
+                            <div class="text-center">
+                                <img src="${pageContext.request.contextPath}/assets/img/default-user.png" class="img-fluid img-thumbnail img-profile" width="100" alt="<%= session.getAttribute("name")%>"><br/><br/>
+                                <h5 class="card-title">
+                                    <%= session.getAttribute("name")%>
+                                </h5>
+                                <h6 class="card-subtitle mb-2 text-muted">
+                                    <%= session.getAttribute("roles")%>
+                                </h6>
+                            </div>
+                        </li>
+                        <% if (session.getAttribute("roles").equals("user")) { %>
+                        <li class="nav-item active  ">
+                            <a class="nav-link" href="dashboard">
+                                <i class="material-icons">dashboard</i>
+                                <p>Meu Perfil</p>
+                            </a>
+                        </li>
+                        <% }%>
+                        <% if (session.getAttribute("roles").equals("user")) { %>
+                        <li class="nav-item active  ">
+                            <a class="nav-link" href="employee">
+                                <i class="material-icons">person_pin</i>
+                                <p>Funcionários</p>
+                            </a>
+                        </li>
+                        <li class="nav-item active  ">
+                            <a class="nav-link" href="user-plan">
+                                <i class="material-icons">subtitles</i>
+                                <p>Meu Plano</p>
+                            </a>
+                        </li>
+                        <% } else if (session.getAttribute("roles").equals("admin")) {  %>
+                        <li class="nav-item active  ">
+                            <a class="nav-link" href="plan">
+                                <i class="material-icons">dashboard</i>
+                                <p>Planos</p>
+                            </a>
+                        </li>
+                        <li class="nav-item active  ">
+                            <a class="nav-link" href="users">
+                                <i class="material-icons">dashboard</i>
+                                <p>Usuários</p>
+                            </a>
+                        </li>
+                        <% }%>
+                        <% if (session.getAttribute("roles").equals("user")) { %>
+                        <li class="nav-item active  ">
+                            <a class="nav-link" href="edit-user">
+                                <i class="material-icons">person</i>
+                                <p>Alterar perfil</p>
+                            </a>
+                        </li>
+                        <li class="nav-item active  ">
+                            <a class="nav-link" href="card">
+                                <i class="material-icons">style</i>
+                                <p>Meus Cartões</p>
+                            </a>
+                        </li>
+                         <li class="nav-item active  ">
+                            <a class="nav-link" href="upload-xml">
+                                <i class="material-icons">insert_drive_file</i>
+                                <p>Lista de NFes</p>
+                            </a>
+                        </li>
+                        <% } else if (session.getAttribute("roles").equals("counter")) { %>
+                        <li class="nav-item active  ">
+                            <a class="nav-link" href="edit-counter">
+                                <i class="material-icons">dashboard</i>
+                                <p>Alterar dados de perfil</p>
+                            </a>
+                        </li>
+                        <% }%>
+                    </ul>
+                </div>
+            </div>
+            <div class="main-panel">
+                <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+                    <div class="container-fluid">
+                        <div class="navbar-wrapper">
+                            <a class="navbar-brand" href="dashboard">Dashboard</a>
+                        </div>
+                        <div class="navbar-wrapper">
+                            <a class="navbar-brand" href="logout.jsp">Sair</a>
+                        </div>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="navbar-toggler-icon icon-bar"></span>
+                            <span class="navbar-toggler-icon icon-bar"></span>
+                            <span class="navbar-toggler-icon icon-bar"></span>
+                        </button>
+                    </div>
+                </nav>
+                <div class="content mt-3">
+                    <div class="container-fluid">
+
+

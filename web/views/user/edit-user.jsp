@@ -5,7 +5,7 @@
 --%>
 
 <jsp:include page="../layout/header-auth.jsp"/>
-<div class="col-sm-12 col-md-9 col-lg-9">
+<div class="col-sm-12 col-md-12 col-lg-12 mt-4">
     <div class="card">
         <div class="card-body">
             <form id="formEditUser">
@@ -70,9 +70,12 @@
         </div>
     </div>
 </div>
+<<<<<<< HEAD
        
 
 <jsp:include page="../layout/footer.jsp"/>
+=======
+>>>>>>> 0612e05f7c0968c07619100abf0fc9aac8c73d8b
 
 <style rel="stylesheet">
     #message{
@@ -80,8 +83,9 @@
     }
 </style>
 
-<script type="text/javascript">
+<jsp:include page="../layout/footer-auth.jsp"/>
 
+<script>
     $(function () {
         $('#name').bind('keydown', onlyLetter);
         $('#namefantasy').bind('keydown', onlyLetter);
@@ -143,5 +147,4 @@
         });
 
     });
-
 </script>

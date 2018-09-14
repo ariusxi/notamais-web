@@ -60,6 +60,7 @@ public class Plan extends HttpServlet {
         String name = request.getParameter("name");
         String description = request.getParameter("description");
         String valueFloat = request.getParameter("valueFloat");
+        String promotionFloat = request.getParameter("promotionFloat");
         String qtdeXML = request.getParameter("qtdeXML");
         String id = request.getParameter("id");
         String token = (String) session.getAttribute("token");
@@ -83,6 +84,7 @@ public class Plan extends HttpServlet {
             map.put("name", name);
             map.put("description", description);
             map.put("value", valueFloat);
+            map.put("promotion", promotionFloat);
             map.put("qtdeXML", qtdeXML);
         }
         String responseJSON = con.getJsonString(map);

@@ -5,9 +5,13 @@
 --%>
 
 <jsp:include page="../layout/header-auth.jsp" />
+<<<<<<< HEAD
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript"></script>
 <div class="col-sm-12 col-md-9 col-lg-9">
+=======
+<div class="col-sm-12 col-md-12 col-lg-12 mt-4">
+>>>>>>> 0612e05f7c0968c07619100abf0fc9aac8c73d8b
     <ul class="nav nav-tabs">
         <li class="active">
             <a class="nav-link active" href="#list" data-toggle="tab">Lista de Cartão de Crédito</a>
@@ -16,29 +20,35 @@
             <a  class="nav-link" href="#register" data-toggle="tab">Cadastrar Cartão de Crédito</a>
         </li>
     </ul>
-    
+
     <div class="tab-content ">
         <div class="tab-pane active" id="list">
             <h2 class="title-register">Lista de Cartões de Crédito</h2>
-            <table id="cards-list" class="display table">
-                <thead>
-                    <tr>
-                        <td>Número do cartão</td>
-                        <td>Titular</td>
-                        <td>Código de Segurança</td>
-                        <td>Data de expiração</td>
-                        <td>Bandeira</td>
-                        <td>Tipo</td>
-                        <td>Ações</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
+            <div class="table-responsive">
+                <table id="cards-list" class="display table text-center">
+                    <thead>
+                        <tr>
+                            <td>Número do cartão</td>
+                            <td>Titular</td>
+                            <td>Código de Segurança</td>
+                            <td>Data de expiração</td>
+                            <td>Bandeira</td>
+                            <td>Tipo</td>
+                            <td>Ações</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
 
-                    </tr>
-                </tbody>
-            </table>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="alert alert-info mt-2 mb-0" id="message" style="margin-bottom:100px !important;">
+
+            </div>
         </div>
+<<<<<<< HEAD
         
 
    
@@ -46,6 +56,8 @@
    
    
    
+=======
+>>>>>>> 0612e05f7c0968c07619100abf0fc9aac8c73d8b
 
         <div class="tab-pane" id="register">
             <form action="" method="POST" id="card-register">
@@ -81,7 +93,6 @@
                         <div class="form-group">
                             <label for="brand">Bandeira</label>
                             <select class="form-control" id="brand" name="brand">
-                                <option value="">Escolha a bandeira do seu cartão de crédito</option>
                                 <option value="" selected="">Bandeira</option>
                                 <option value="master">Master</option>
                                 <option value="visa">Visa</option>
@@ -94,7 +105,7 @@
                         <div class="form-group">
                             <label for="card-type">Tipo:</label>
                             <select class="form-control" id="card-type" name="card-type">
-                                <option value="">Escolha a bandeira do seu cartão de crédito</option>
+                                <option value="">Tipo</option>
                                 <option value="CreditCard">Cartão de Crédito</option>
                                 <option value="DebitCard">Cartão de Débito</option>
                             </select>
@@ -102,8 +113,11 @@
                     </div>
                     <div class="col-sm-12 col-md-12 col-lg-12">
                         <input type="submit" class="btn btn-secondary" value="Cadastrar">
+<<<<<<< HEAD
                         <input type="button" class="btn btn-secondary back-type" value="Voltar">
                        
+=======
+>>>>>>> 0612e05f7c0968c07619100abf0fc9aac8c73d8b
                     </div>
                 </div>
             </form>
@@ -112,6 +126,6 @@
             </div>
         </div>
     </div>
-    
+
 </div>
-<jsp:include page="../layout/footer.jsp" />
+<jsp:include page="../layout/footer-auth.jsp" />
