@@ -1,11 +1,13 @@
 <jsp:include page="../layout/header-auth.jsp"/>
 
+
 <div class="col" id="plano">
     <h2>Meu plano</h2>
     <hr />
 </div>
 
 <jsp:include page="../layout/footer-auth.jsp"/>
+
 <script>
     
     
@@ -37,12 +39,16 @@
         else{
      
      
-        var html2="";
+        var html="";
               
-                       
         html += "<div class='card'>";
-        html += "<a href='first-login' class='btn btn-primary'>Contrate!!!!!!!!!!!!!!!!</a>";
-        html += "</div>";
+        html += "<div class='card-header text-light' id='titulo'>Verificamos que você ainda não possui um plano <i class='far fa-frown'></i> </div>";
+       
+        html += "<a href='first-login' class='btn btn-danger' >Clique aqui e contrate!</a>";
+        
+         html += "</div>";
+        
+     
         
         $("#plano").append(html);
         }
