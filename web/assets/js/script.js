@@ -76,60 +76,113 @@ $("#contato").submit(function (e) {
     return false
 });
 
- $("#users-list").ready(function () {
-        
-        $.ajax({
-            url: "users",
-            method: "post",
-            data: {
-                type: "users-list"
-            },
-            dataType: "json",
-            success: function (data) {
-                
-                $.each(data, function (i, value) {
-                    let roles = "";
-                    if(value.roles != undefined){
-                        roles = value.roles[0];
-                    }
-                    let html = "<tr><td>" + value.name + "</td><td>" + value.email + "</td><td><a href='user-profile?id=" + value._id + "' class='btn btn-primary'>Perfil</a>&nbsp;<button class='btn btn-primary btnAtivacao' data-id='" + value._id + "'data-ativo='" + value.active + "'>" + (value.active?"Desativar":"Ativar") + "</button></td></tr>";
+$("#users-list").ready(function () {
+    $.ajax({
+        url: "users",
+        method: "post",
+        data: {
+            type: "users-list"
+        },
+        dataType: "json",
+        success: function (data) {
+            var months = [],
+                values = [];
+            months['meses'] = [],
+            months['values'] = [];
+            $.each(data, function (i, value) {
+                let roles = "";
+                if(value.roles != undefined){
+                    roles = value.roles[0];
+                }
+                let html = "<tr><td>" + value.name + "</td><td>" + value.email + "</td><td><a href='user-profile?id=" + value._id + "' class='btn btn-primary'>Perfil</a>&nbsp;<button class='btn btn-primary btnAtivacao' data-id='" + value._id + "'data-ativo='" + value.active + "'>" + (value.active?"Desativar":"Ativar") + "</button></td></tr>";
 
-                    if (roles == "user") {
-                        $("#users-list tbody").append(html);
+                if (roles == "user") {
+                    $("#users-list tbody").append(html);
+                }
+                else if(roles == "counter")
+                {
+                    $("#counter-list tbody").append(html);
+                }
+                var month = value.createdAt.split("-");
+                month = getMes(month[1]);
+                if(!in_array(month, months['meses'])){
+                    months['values'][month] = 1;
+                    months['meses'].push(month);
+                }else{
+                    months['values'][month]++;
+                }
+            });
+            
+            for(var value in months.values){
+                values.push(months.values[value]);
+            }
+            
+            var ctx = document.getElementById("user-chart").getContext('2d');
+            
+            var users_chart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: months['meses'],
+                    datasets: [{
+                        label: 'Numeros de usuarios',
+                        data: values,
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.8)',
+                            'rgba(54, 162, 235, 0.8)',
+                            'rgba(255, 206, 86, 0.8)',
+                            'rgba(75, 192, 192, 0.8)',
+                            'rgba(153, 102, 255, 0.8)',
+                            'rgba(255, 159, 64, 0.8)'
+                        ],
+                        borderColor: [
+                            'rgba(255,99,132,1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero:true
+                            }
+                        }]
                     }
-                    else if(roles == "counter")
-                    {
-                        $("#counter-list tbody").append(html);
-                    }
-                });
+                }
+            });
 
-        $("#users-list").dataTable({
-            "language": {
-            "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Portuguese-Brasil.json"
-            }
-        });
-        $("#counter-list").dataTable({
-            "language": {
-            "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Portuguese-Brasil.json"
-            }
-        });    
-            }, error: function (e) {
-                console.log(e);
-            }
-        });
-        
+            $("#users-list").dataTable({
+                "language": {
+                "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Portuguese-Brasil.json"
+                }
+            });
+            $("#counter-list").dataTable({
+                "language": {
+                "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Portuguese-Brasil.json"
+                }
+            });    
+        }, error: function (e) {
+            console.log(e);
+        }
     });
-    
+
+});
+
 $("#contaReceber").ready(function () {
             var json = $("#JSON").val();
             var pagamentos = JSON.parse(json);
-            
+
             var html = "";
             $.each(pagamentos, function (i, value) {
-                
+
                 var u = value.user;
                 var date = new Date(value.date);
-                
+
                 html += "<tr>";
                 html += "   <td>" + (u != null ? u.name : "-") + "</td>";
                 html += "   <td>" + date.getDate() + '/' + (date.getMonth() + 1) + '/' +  date.getFullYear() + "</td>";
@@ -137,9 +190,9 @@ $("#contaReceber").ready(function () {
                 html += "   <td> R$" + (u != null ? value.value.toFixed(2).replace(".", ","): "-") + "</td>";
                 html += "</tr>";
             });
-   
+
         $("#contaReceber tbody").html(html);
-        
+
            $("#contaReceber").dataTable({
             "language": {
             "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Portuguese-Brasil.json"
@@ -147,7 +200,7 @@ $("#contaReceber").ready(function () {
         });
 });
 
-    
+
 $(document).on('click', '.btnAtivacao', function (e) {
     e.preventDefault();
 
@@ -167,7 +220,7 @@ $(document).on('click', '.btnAtivacao', function (e) {
     $.ajax({
         url: "users",
         type: "post",
-        
+
         data: {
             type: "users-block",
             id: id
@@ -308,6 +361,58 @@ function onlyLetter(e) {
     if ((tecla >= "48") && (tecla <= "57")) {
         return false;
     }
+}
+
+function getMes(mes){
+    switch(mes){
+        case "01":
+            return "Janeiro";
+            break;
+        case "02":
+            return "Fevereiro";
+            break;
+        case "03":
+            return "Março"
+            break;
+        case "04":
+            return "Abril";
+            break;
+        case "05":
+            return "Maio";
+            break;
+        case "06":
+            return "Junho";
+            break;
+        case "07":
+            return "Julho";
+            break;
+        case "08":
+            return "Agosto";
+            break;
+        case "09":
+            return "Setembro";
+            break;
+        case "10":
+            return "Outubro";
+            break;
+        case "11":
+            return "Novembro";
+            break;
+        case "12":
+            return "Dezembro";
+            break;
+        default:
+            return "Mês inválido";
+            break;
+    }
+}
+
+function in_array(value, array){
+    var exist = false;
+    for(var i = 0; i < array.length; i++)
+        if(array[i] == value)
+            exist = true;
+    return exist;
 }
 
 function formatPrice(text) {
