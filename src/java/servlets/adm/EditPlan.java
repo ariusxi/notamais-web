@@ -59,6 +59,7 @@ public class EditPlan extends HttpServlet {
         String name = request.getParameter("name");
         String description = request.getParameter("description");
         String value = request.getParameter("valueFloat");
+        String promotion = request.getParameter("promotionFloat");
         String qtdeXML = request.getParameter("qtdeXML");
         String token = (String) session.getAttribute("token");
         String type = request.getParameter("type");
@@ -78,6 +79,7 @@ public class EditPlan extends HttpServlet {
         if (type.equals("update-plan")) {
             map.put("name", name);
             map.put("value", value);
+            map.put("promotion", promotion);
             map.put("qtdeXML", qtdeXML);
             map.put("description", description);
         }else if(type.equals("plan-activate")){

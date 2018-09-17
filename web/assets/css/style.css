@@ -47,6 +47,9 @@ body{
     background:#4E4D4C;
     color:#fff;
 }
+.modal-dialog .dark-edition .form-control{
+    color:#000 !important;
+}
 .footer{
     padding:50px 0px;
     color:#fff;
@@ -151,6 +154,12 @@ a:hover{
 .navbar{
     z-index:1000;
 }
+
+.nav-tabs > li > a.active {
+    background-color:#9c27b0 !important; 
+    color: #fff !important;    
+}
+
 footer {
     width: 100%;
     position:fixed;

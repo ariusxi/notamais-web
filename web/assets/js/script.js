@@ -88,7 +88,10 @@ $("#contato").submit(function (e) {
             success: function (data) {
                 
                 $.each(data, function (i, value) {
-                    let roles = value.roles[0];
+                    let roles = "";
+                    if(value.roles != undefined){
+                        roles = value.roles[0];
+                    }
                     let html = "<tr><td>" + value.name + "</td><td>" + value.email + "</td><td><a href='user-profile?id=" + value._id + "' class='btn btn-primary'>Perfil</a>&nbsp;<button class='btn btn-primary btnAtivacao' data-id='" + value._id + "'data-ativo='" + value.active + "'>" + (value.active?"Desativar":"Ativar") + "</button></td></tr>";
 
                     if (roles == "user") {
@@ -116,6 +119,34 @@ $("#contato").submit(function (e) {
         });
         
     });
+    
+$("#contaReceber").ready(function () {
+            var json = $("#JSON").val();
+            var pagamentos = JSON.parse(json);
+            
+            var html = "";
+            $.each(pagamentos, function (i, value) {
+                
+                var u = value.user;
+                var date = new Date(value.date);
+                
+                html += "<tr>";
+                html += "   <td>" + (u != null ? u.name : "-") + "</td>";
+                html += "   <td>" + date.getDate() + '/' + (date.getMonth() + 1) + '/' +  date.getFullYear() + "</td>";
+                html += "   <td>" + (value.paymentType == "CreditCard" ? "Cr&eacute;dito" : "D&eacute;bito") + "</td>";
+                html += "   <td> R$" + (u != null ? value.value.toFixed(2).replace(".", ","): "-") + "</td>";
+                html += "</tr>";
+            });
+   
+        $("#contaReceber tbody").html(html);
+        
+           $("#contaReceber").dataTable({
+            "language": {
+            "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Portuguese-Brasil.json"
+            }
+        });
+});
+
     
 $(document).on('click', '.btnAtivacao', function (e) {
     e.preventDefault();

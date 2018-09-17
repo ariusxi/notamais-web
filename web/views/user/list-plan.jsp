@@ -28,10 +28,13 @@
                 <select class="custom-select" id="slcCartoes"></select>
                 <input type="hidden" id="idPlano" value="" />
             </div>
-            <a href="#" data-target="#modalCadastro" data-toggle="modal">+ Cadastrar um novo cartão</a>
+            <a href="#" data-target="#modalCadastro" data-toggle="modal" style="color:#2b76ca" >+ Cadastrar um novo cartão</a>
+            <div class="alert alert-info mb-0 mt-2" id="message1">
+
+            </div>
       </div>
       <div class="modal-footer">
-          <button type="button" class="btn btn-primary" onclick="salvarPlano();">Salvar</button>
+          <button type="button" class="btn btn-primary" onclick="salvarPlano();" id="btnSalvar">Salvar</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
       </div>
     </div>
@@ -56,31 +59,31 @@
                     <div class="col-sm-12 col-md-12 col-lg-12">
                         <div class="form-group">
                             <label for="number">Número do cartão</label>
-                            <input type="number" class="form-control"  placeholder="Número do cartão" name="number" id="number">
+                            <input type="number" class="form-control"  placeholder="Número do cartão" name="number" id="number" style="color:#000 !important;">
                         </div>
                     </div>
                     <div class="col-sm-12 col-md-4 col-lg-4">
                         <div class="form-group">
                             <label for="holder">Titular</label>
-                            <input type="text" class="form-control" placeholder="Titular" name="holder" id="holder">
+                            <input type="text" class="form-control" placeholder="Titular" name="holder" id="holder" style="color:#000 !important;">
                         </div>
                     </div>
                     <div class="col-sm-12 col-md-4 col-lg-4">
                         <div class="form-group">
                             <label for="expiration-date">Data de expiração</label>
-                            <input type="text" class="form-control expirationDate" placeholder="Data de expiração" name="expiration-date" id="expiration-date">
+                            <input type="text" class="form-control expirationDate" placeholder="Data de expiração" name="expiration-date" id="expiration-date" style="color:#000 !important;">
                         </div>
                     </div>
                     <div class="col-sm-12 col-md-4 col-lg-4">
                         <div class="form-group">
                             <label for="security-code">Código de Segurança</label>
-                            <input type="text" class="form-control securityCode" placeholder="Código de segurança" size="4" max="4" name="security-code" id="security-code">
+                            <input type="text" class="form-control securityCode" placeholder="Código de segurança" size="4" max="4" name="security-code" id="security-code" style="color:#000 !important;">
                         </div>
                     </div>
                     <div class="col-sm-12 col-md-4 col-lg-4">
                         <div class="form-group">
                             <label for="brand">Bandeira</label>
-                            <select class="form-control" id="brand" name="brand">
+                            <select class="form-control" id="brand" name="brand" style="color:#000 !important;">
                                 <option value="" selected="">Bandeira</option>
                                 <option value="master">Master</option>
                                 <option value="visa">Visa</option>
@@ -117,8 +120,8 @@
 </div>
 
 
+<jsp:include page="../layout/footer-auth.jsp" />
 
-<jsp:include page="../layout/footer.jsp"/>
 <script>
     var json = '<%= request.getAttribute("planos")%>';
 
@@ -126,7 +129,7 @@
     var planos = JSON.parse(json);
     
     window.onload = function(){
-
+        $("#message1").css('display', 'none');
         
         var html="";
         var json2 = '<%= request.getAttribute("plano")%>';
@@ -187,6 +190,7 @@
     }    
     
     function getCartoes(){
+        $("#slcCartoes").attr("disabled", "");
         $.ajax({
             url: "card",
             method: "POST",
@@ -199,10 +203,11 @@
                     var html = "";
 
                 $.each(data, function (i, value) {
-
+                    
                     html += "<option value='" + value._id + "' " + (value.selected ? "selected= 'selected'": "") + "> Cartão de " + (value.type == "DebitCard"?"débido":"crédito") + " - " + value.Brand.toUpperCase() + " com final "  + value.CardNumber.substr(-4) + "</option> ";        
-                    $("#slcCartoes").html(html);
+                    $("#slcCartoes").html(html);   
                 });
+                $("#slcCartoes").removeAttr("disabled");
 
             }, error: function (e) {
                 console.log(e);
@@ -211,23 +216,34 @@
     }
     
     function salvarPlano(){
-        debugger;
+        $("#btnSalvar").attr("disabled", "");
+        $("#slcCartoes").attr("disabled", "");
+        
         var idPlano = $("#idPlano").val();
         var idCartao = $("#slcCartoes").val();
-    $.ajax({
-        url: "list-plan",
-        type: "POST",
-        data: {
-            methodType: "contracts-change",
-            idPlano : idPlano, 
-            idCartao : idCartao
-            
-        }, success: function (data) {
-            location.href = "/user-plan"
-        }, error: function (e) {
-            alert(e);
-        }
-     });
+        
+        $("#message1").css('display', 'none');
+        
+        $.ajax({
+            url: "list-plan",
+            type: "POST",
+            data: {
+                methodType: "contracts-change",
+                idPlano : idPlano, 
+                idCartao : idCartao
+            }, success: function (data) {
+                var responseData = JSON.parse(data);
+                $("#message1").css('display', 'block');
+                $("#message1").html(responseData.message);
+                setTimeout(function(){
+                    location.href = "/notamais-web/user-plan"
+                }, 2000);
+                $("#btnSalvar").removeAttr("disabled");
+                $("#slcCartoes").removeAttr("disabled");
+            }, error: function (e) {
+                console.log(e);
+            }
+        });
         
     }
 </script>

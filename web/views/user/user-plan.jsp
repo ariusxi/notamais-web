@@ -4,10 +4,13 @@
     <h2>Meu plano</h2>
     <hr />
 </div>
-<jsp:include page="../layout/footer.jsp"/>
+
+<jsp:include page="../layout/footer-auth.jsp"/>
 <script>
     window.onload = function(){
         var json = '<%= request.getAttribute("plano")%>';
+        
+        console.log(json);
 
         var obj = JSON.parse(json);
         var plano = obj.plan
@@ -15,7 +18,7 @@
         var html="";
         
         html += "<div class='card'>";
-        html += "<div class='card-header' id='titulo'>" + plano.name + "</div>";
+        html += "<div class='card-header text-light' id='titulo'>" + plano.name + "</div>";
         html += "<div class='card-body'>";
         html += "<h5 class='card-title' id='qtdXML'>" + "Armazenamento de " + plano.qtdeXML + " XMLs" + "</h5>";
         html += "<p class='card-text' id='descricao'>" + plano.description + "</p>";

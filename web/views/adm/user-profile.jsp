@@ -1,5 +1,5 @@
 <jsp:include page="../layout/header-auth.jsp"/>
-<div class="col-sm-12 col-md-9 col-lg-9">
+<div class="col-sm-12 col-md-12 col-lg-12 mt-4">
     <div class="card">
         <div class="card-body">
                 <div class="form-row">
@@ -24,7 +24,6 @@
                     <div class="form-group col-md-3">
                         <label>Gênero:</label>
                         <input type="text" class="form-control" id="gender" name="gender" disabled=""/>
-                        </select>
                     </div>
                 </div>
                 <div class="form-row" id="camposUsuario">
@@ -52,7 +51,7 @@
         </div>
     </div>
 </div>
-<jsp:include page="../layout/footer.jsp"/>
+<jsp:include page="../layout/footer-auth.jsp"/>
 <script type="text/javascript">
 $(document).ready(function () {
     var json = '<%= request.getAttribute("user")%>';   
