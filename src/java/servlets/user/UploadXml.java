@@ -35,12 +35,25 @@ public class UploadXml extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        String url = "/views/user/upload-xml.jsp";
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
+        HttpSession session = request.getSession();
+        
+        String idUser = session.getAttribute("id").toString();
+        String token = session.getAttribute("token").toString();
+        
+        String rotaAPI = "contracts/user/" + idUser;
+        API api = new API(rotaAPI, "GET", token);
+        
+        String json = api.getJsonString(new HashMap<String, String>());
+        request.setAttribute("plano", json);
+        
+        
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/user/upload-xml.jsp");
         dispatcher.forward(request, response);
         
+        
+        
+        
     }
-    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
@@ -53,6 +66,17 @@ public class UploadXml extends HttpServlet {
         String id = (String) session.getAttribute("id");
         String token = (String) session.getAttribute("token");
         String methodType = request.getParameter("methodType");
+        
+         String rotaAPI = "plans/";
+        API api = new API(rotaAPI, "GET", "");
+        
+       
+        
+        rotaAPI = "contracts/user/" + id;
+        api = new API(rotaAPI, "GET", token);
+         String json = api.getJsonString(new HashMap<String, String>());
+        request.setAttribute("plano", json);
+       
 
         Hashtable<Integer, String> source = new Hashtable<Integer, String>();
         HashMap<String, String> map = new HashMap(source);
@@ -67,7 +91,12 @@ public class UploadXml extends HttpServlet {
         }
         
         String responseJSON = con.getJsonString(map); 
+        
+        
         out.print(responseJSON);
+        
+        
+        
     }
     
     @Override
