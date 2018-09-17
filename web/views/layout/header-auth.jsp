@@ -71,6 +71,12 @@
                         </li>
                         <% } else if (session.getAttribute("roles").equals("admin")) {  %>
                         <li class="nav-item active  ">
+                            <a class="nav-link" href="dashboard">
+                                <i class="material-icons">dashboard</i>
+                                <p>Página Inicial</p>
+                            </a>
+                        </li>
+                        <li class="nav-item active  ">
                             <a class="nav-link" href="plan">
                                 <i class="material-icons">dashboard</i>
                                 <p>Planos</p>
