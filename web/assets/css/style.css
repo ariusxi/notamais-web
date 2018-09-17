@@ -149,6 +149,12 @@ a:hover{
 .navbar{
     z-index:1000;
 }
+
+.nav-tabs > li > a.active {
+    background-color:#9c27b0 !important; 
+    color: #fff !important;    
+}
+
 footer {
     width: 100%;
     position:fixed;

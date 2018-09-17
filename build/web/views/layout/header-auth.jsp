@@ -82,6 +82,12 @@
                                 <p>Usuários</p>
                             </a>
                         </li>
+                        <li class="nav-item active  ">
+                            <a class="nav-link" href="pay-list">
+                                <i class="material-icons">dashboard</i>
+                                <p>Pagamentos</p>
+                            </a>
+                        </li>
                         <% }%>
                         <% if (session.getAttribute("roles").equals("user")) { %>
                         <li class="nav-item active  ">
