@@ -9,11 +9,13 @@
             <file>file:/C:/Users/Windows%207/Documents/NetBeansProjects/notamais-web/web/views/user/edit-user.jsp</file>
             <file>file:/C:/Users/Windows%207/Documents/NetBeansProjects/notamais-web/src/java/servlets/user/ListPlan.java</file>
             <file>file:/C:/Users/Windows%207/Documents/NetBeansProjects/notamais-web/web/index.jsp</file>
+            <file>file:/C:/Users/Windows%207/Documents/NetBeansProjects/notamais-web/web/assets/css/style.css</file>
             <file>file:/C:/Users/Windows%207/Documents/NetBeansProjects/notamais-web/web/views/adm/plan.jsp</file>
             <file>file:/C:/Users/Windows%207/Documents/NetBeansProjects/notamais-web/web/assets/css/plans.css</file>
             <file>file:/C:/Users/Windows%207/Documents/NetBeansProjects/notamais-web/src/java/servlets/Register.java</file>
             <file>file:/C:/Users/Windows%207/Documents/NetBeansProjects/notamais-web/web/views/public/login.jsp</file>
             <file>file:/C:/Users/Windows%207/Documents/NetBeansProjects/notamais-web/web/views/dashboard.jsp</file>
+            <file>file:/C:/Users/Windows%207/Documents/NetBeansProjects/notamais-web/src/java/servlets/user/UploadXml.java</file>
             <file>file:/C:/Users/Windows%207/Documents/NetBeansProjects/notamais-web/web/assets/dashboard/assets/css/material-dashboard.css</file>
             <file>file:/C:/Users/Windows%207/Documents/NetBeansProjects/notamais-web/web/views/counter/edit-counter.jsp</file>
             <file>file:/C:/Users/Windows%207/Documents/NetBeansProjects/notamais-web/web/assets/dashboard/assets/css/material-dashboard.min.css</file>
@@ -32,11 +34,14 @@
             <file>file:/C:/Users/Windows%207/Documents/NetBeansProjects/notamais-web/web/views/public/forgot-password.jsp</file>
             <file>file:/C:/Users/Windows%207/Documents/NetBeansProjects/notamais-web/web/views/layout/footer-auth.jsp</file>
             <file>file:/C:/Users/Windows%207/Documents/NetBeansProjects/notamais-web/src/java/servlets/SetLogin.java</file>
+            <file>file:/C:/Users/Windows%207/Documents/NetBeansProjects/notamais-web/web/views/public/register.jsp</file>
             <file>file:/C:/Users/Windows%207/Documents/NetBeansProjects/notamais-web/src/java/servlets/employee/Employee.java</file>
             <file>file:/C:/Users/Windows%207/Documents/NetBeansProjects/notamais-web/web/assets/js/script-first.js</file>
             <file>file:/C:/Users/Windows%207/Documents/NetBeansProjects/notamais-web/web/logout.jsp</file>
+            <file>file:/C:/Users/Windows%207/Documents/NetBeansProjects/notamais-web/web/assets/js/xml.js</file>
             <file>file:/C:/Users/Windows%207/Documents/NetBeansProjects/notamais-web/web/views/employee/employee.jsp</file>
             <file>file:/C:/Users/Windows%207/Documents/NetBeansProjects/notamais-web/web/views/adm/user-profile.jsp</file>
+            <file>file:/C:/Users/Windows%207/Documents/NetBeansProjects/notamais-web/web/assets/js/user/user.js</file>
             <file>file:/C:/Users/Windows%207/Documents/NetBeansProjects/notamais-web/web/views/user/cards.jsp</file>
             <file>file:/C:/Users/Windows%207/Documents/NetBeansProjects/notamais-web/web/views/adm/edit-plan.jsp</file>
             <file>file:/C:/Users/Windows%207/Documents/NetBeansProjects/notamais-web/src/java/servlets/user/UserPlan.java</file>
