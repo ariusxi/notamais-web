@@ -1,5 +1,5 @@
 <jsp:include page="../layout/header-auth.jsp" />
-<div class="col-sm-12 col-md-12 col-lg-12 mt-4"
+<div class="col-sm-12 col-md-12 col-lg-12 mt-4">
     <ul class="nav nav-tabs">
         <li class="active">
             <a class="nav-link active" href="#list" data-toggle="tab">Lista de Planos</a>
