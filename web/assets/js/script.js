@@ -120,6 +120,34 @@ $("#contato").submit(function (e) {
         
     });
     
+$("#contaReceber").ready(function () {
+            var json = $("#JSON").val();
+            var pagamentos = JSON.parse(json);
+            
+            var html = "";
+            $.each(pagamentos, function (i, value) {
+                
+                var u = value.user;
+                var date = new Date(value.date);
+                
+                html += "<tr>";
+                html += "   <td>" + (u != null ? u.name : "-") + "</td>";
+                html += "   <td>" + date.getDate() + '/' + (date.getMonth() + 1) + '/' +  date.getFullYear() + "</td>";
+                html += "   <td>" + (value.paymentType == "CreditCard" ? "Cr&eacute;dito" : "D&eacute;bito") + "</td>";
+                html += "   <td> R$" + (u != null ? value.value.toFixed(2).replace(".", ","): "-") + "</td>";
+                html += "</tr>";
+            });
+   
+        $("#contaReceber tbody").html(html);
+        
+           $("#contaReceber").dataTable({
+            "language": {
+            "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Portuguese-Brasil.json"
+            }
+        });
+});
+
+    
 $(document).on('click', '.btnAtivacao', function (e) {
     e.preventDefault();
 

@@ -227,13 +227,13 @@ $("#plan-register").submit(function (e) {
 
     if (value < 0) {
         $('#message').css('display', 'block');
-        $('#message').html('O preço do plano não pode ser maior que 0');
+        $('#message').html('O preço do plano não pode ser menor que 0');
         return false;
     }
     
     if (promotion < 0) {
         $('#message').css('display', 'block');
-        $('#message').html('O preço promo do plano não pode ser maior que 0');
+        $('#message').html('O preço promo do plano não pode ser menor que 0');
         return false;
     }
 

@@ -50,11 +50,6 @@ body{
 .modal-dialog .dark-edition .form-control{
     color:#000 !important;
 }
-.footer{
-    padding:50px 0px;
-    color:#fff;
-    background:#4E4D4C;
-}
 .space-footer{
     width:100%;
     height:40px;
@@ -154,6 +149,12 @@ a:hover{
 .navbar{
     z-index:1000;
 }
+
+.nav-tabs > li > a.active {
+    background-color:#9c27b0 !important; 
+    color: #fff !important;    
+}
+
 footer {
     width: 100%;
     position:fixed;
@@ -213,6 +214,14 @@ footer .social a:hover {
 .face, .linked {
     font-size: 1.2em;
     width: 20%;
+}
+
+.login{
+    margin: 0 auto;
+}
+
+.card-login .form {
+    min-height: 330px !important;
 }
 
 @media (max-width: 600px){
