@@ -40,6 +40,14 @@
         <servlet-name>EditPlan</servlet-name>
         <servlet-class>servlets.adm.EditPlan</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>FirstLogin</servlet-name>
+        <servlet-class>servlets.user.FirstLogin</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Card</servlet-name>
+        <servlet-class>servlets.user.Card</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ForgotPassword</servlet-name>
         <url-pattern>/ForgotPassword</url-pattern>
@@ -79,6 +87,14 @@
     <servlet-mapping>
         <servlet-name>EditPlan</servlet-name>
         <url-pattern>/EditPlan</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FirstLogin</servlet-name>
+        <url-pattern>/FirstLogin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Card</servlet-name>
+        <url-pattern>/Card</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

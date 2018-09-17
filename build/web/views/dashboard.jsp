@@ -5,10 +5,7 @@
 --%>
 
 <jsp:include page="../views/layout/header-auth.jsp" />
-        <div class="col-sm-12 col-md-9 col-lg-9">
-            Dashboard
-        </div>
-    </div>
+<div class="col-sm-12 col-md-12 col-lg-12 mt-4">
+    Dashboard
 </div>
-<div class="space-footer"></div>
-<jsp:include page="../views/layout/footer.jsp" />
+<jsp:include page="../views/layout/footer-auth.jsp" />

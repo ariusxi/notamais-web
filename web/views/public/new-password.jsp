@@ -10,7 +10,7 @@
         <div class="col-sm-12 col-md-4">
             <div class="card">
                 <div class="card-header">
-                    <div class="h5 text-left mb-0">Redefinição de Senha</div>    
+                    <div class="h5 text-left mb-0">Redefiniï¿½ï¿½o de Senha</div>    
                 </div>
                 <div class="card-body">
                     <p class="text-center">
@@ -51,7 +51,7 @@
 
         if(password == "" || cpassword == ""){
             $('#message').css('display', 'block');
-            $('#message').html('Você deve preencher todos os campos');
+            $('#message').html('Vocï¿½ deve preencher todos os campos');
         }
 
         if (password != cpassword) {
@@ -62,7 +62,7 @@
         
         if(password.length < 6){
             $("#message").css('display', 'block');
-            $("#message").html("A sua senha não pode ser menor que 6 digitos");
+            $("#message").html("A sua senha nï¿½o pode ser menor que 6 digitos");
             return false;
         }
 
@@ -90,7 +90,7 @@
                 $('#message').html(dataJSON.message);
                 if (dataJSON.message == "Senha atualizada com sucesso") {
                     setTimeout(function () {
-                        $(location).attr('href','/notamais-web');
+                        $(location).attr('href','/notamais-web/');
                     }, 2000);
                 }
             },
