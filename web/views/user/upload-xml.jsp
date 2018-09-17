@@ -61,10 +61,10 @@
 	var upload = obj.active;
 	var html="";
 	
-	if(obj.ativo =false){
+	if(obj.ativo =true){
 		html += " <div class='card' style=' margin-top:  5px; padding-top: 3px;' >    ";
 		html += " <input type='file' name='file' id='file' class='inputfile'  accept='.xml' />";
-		html += "<label for='file' style='margin-left: 35px; width: 1000px;'> <i class='fa fa-folder-open' style='margin-right: 5px;'></i>Escolha um arquivo <button class='btn btn-danger btn-sm' style='width: 100px; margin-left:700px;'>Enviar</button></label>";
+		html += "<label for='file' style='margin-left: 35px; width: 1000px;'> <i class='fa fa-folder-open' style='margin-right: 5px;'></i>Escolha um arquivo <button class='btn btn-success btn-sm' style='width: 100px; margin-left:700px;'>Enviar</button></label>";
 		html += "<div class='alert alert-info mt-2 mb-0' id='message'>";
 		html += "</div>";
 		html += "</div>";   
