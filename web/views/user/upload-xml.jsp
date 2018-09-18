@@ -26,14 +26,14 @@
     
         <div class="col-sm-12 col-md-5 col-lg-5">
             <div class="form-group">
-                <label for="name">Nome:</label>
-                <input class="form-control" type="text" id="name" name="name" placeholder="nome" >
+                <label for="name">Nome: *</label>
+                <input required class="form-control" type="text" id="name" name="name" placeholder="nome" >
             </div>
         </div>
         <div class="col-sm-12 col-md-6 col-lg-6">
             <div class="form-group">
-                <label for="description">Descrição: </label>
-                <input type="text" class="form-control" id="description" name="description" placeholder="descrição" >
+                <label for="description">Descriï¿½ï¿½o: </label>
+                <input type="text" class="form-control" id="description" name="description" placeholder="descriï¿½ï¿½o" >
             </div>
         </div>
     </div>

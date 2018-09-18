@@ -1,5 +1,5 @@
 <jsp:include page="../layout/header-auth.jsp" />
-<div class="col-sm-12 col-md-12 col-lg-12 mt-4"
+<div class="col-sm-12 col-md-12 col-lg-12 mt-4">
     <ul class="nav nav-tabs">
         <li class="active">
             <a class="nav-link active" href="#list" data-toggle="tab">Lista de Planos</a>
@@ -15,11 +15,11 @@
                 <thead>
                     <tr>
                         <th>Nome</th>
-                        <th>Descrição</th>
-                        <th>Preço</th>
-                        <th>Preço Promocional</th>
+                        <th>Descriï¿½ï¿½o</th>
+                        <th>Preï¿½o</th>
+                        <th>Preï¿½o Promocional</th>
                         <th>Quantidade de XML</th>
-                        <th>Ações</th>
+                        <th>Aï¿½ï¿½es</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -40,14 +40,14 @@
                     </div>
                     <div class="col-sm-12 col-md-3 col-lg-3">
                         <div class="form-group">
-                            <label for="value">Preço</label>
-                            <input type="text" class="form-control" placeholder="Preço" name="value" id="value" onkeydown=" formatPrice(this)">
+                            <label for="value">Preï¿½o</label>
+                            <input type="text" class="form-control" placeholder="Preï¿½o" name="value" id="value" onkeydown=" formatPrice(this)">
                         </div>
                     </div>
                     <div class="col-sm-12 col-md-3 col-lg-3">
                         <div class="form-group">
-                            <label for="promotion">Preço Promocional</label>
-                            <input type="text" class="form-control" placeholder="Preço Promo" name="promotion" id="promotion" onkeydown=" formatPrice(this)">
+                            <label for="promotion">Preï¿½o Promocional</label>
+                            <input type="text" class="form-control" placeholder="Preï¿½o Promo" name="promotion" id="promotion" onkeydown=" formatPrice(this)">
                         </div>
                     </div>
                     <div class="col-sm-12 col-md-3 col-lg-3">
@@ -58,8 +58,8 @@
                     </div>
                     <div class="col-sm-12 col-md-12 col-lg-12">
                         <div class="form-group"> 
-                            <label for="description">Descrição do Plano</label>
-                            <textarea class="form-control" placeholder="Descrição do Plano" id="description" name="description"></textarea>
+                            <label for="description">Descriï¿½ï¿½o do Plano</label>
+                            <textarea class="form-control" placeholder="Descriï¿½ï¿½o do Plano" id="description" name="description"></textarea>
                         </div>
                     </div>
                     <div class="col-sm-12 col-md-12 col-lg-12">
