@@ -1,13 +1,19 @@
 $(function(){
     $("#formulario").submit(function (e) {
         e.preventDefault();
+        var name = $("#name").val();
+        var description = $("#description").val();
         var user =  $("#user").val();
         var token = $("#token").val();
         var form = new FormData($(this)[0]);
         console.log($(this)[0]);
         $("#message").css('display', 'none');
 
-
+        if(name == "" || description == ""){
+            $("#message").css('display', 'block');
+            $("#message").html('Voce deve preeencher todos os campos');
+            return false;
+        }
 
         $.ajax({
             type: "POST",
@@ -40,7 +46,11 @@ $(function(){
             },
             success: function(data){
                 $.each(data, function(i, value){
-                    $("#xml-list tbody").append("<tr><td>"+(i+1)+"</td><td>"+value.name+"</td><td><a target='_blank' title='"+value.xml+"' href='"+value.xml+"'>Acessar</a></td><td>"+value.date+"</td></tr>");
+                    var name = value.name;
+                    if(value.name == undefined){
+                        name = "-";
+                    }
+                    $("#xml-list tbody").append("<tr><td>"+(i+1)+"</td><td>"+name+"</td><td><a target='_blank' title='"+value.xml+"' href='"+value.xml+"'>Acessar</a></td><td>"+value.date+"</td></tr>");
                 });
             },error: function(e){
                 console.log(e);

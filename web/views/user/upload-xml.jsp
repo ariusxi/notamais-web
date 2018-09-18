@@ -27,13 +27,13 @@
         <div class="col-sm-12 col-md-5 col-lg-5">
             <div class="form-group">
                 <label for="name">Nome: *</label>
-                <input required class="form-control" type="text" id="name" name="name" placeholder="nome" >
+                <input required class="form-control" type="text" id="name" name="name" placeholder="Nome" >
             </div>
         </div>
         <div class="col-sm-12 col-md-6 col-lg-6">
             <div class="form-group">
-                <label for="description">Descriï¿½ï¿½o: </label>
-                <input type="text" class="form-control" id="description" name="description" placeholder="descriï¿½ï¿½o" >
+                <label for="description">Descrição: </label>
+                <input type="text" class="form-control" id="description" name="description" placeholder="Descrição" >
             </div>
         </div>
     </div>
