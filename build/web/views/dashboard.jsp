@@ -9,7 +9,7 @@
     <% if (session.getAttribute("roles").equals("user")) { %>
         Dashboard
     <% }else if(session.getAttribute("roles").equals("admin")){ %>
-    <p>Usuï¿½rios cadastrados</p>
+    <p>Usuários cadastrados</p>
         <canvas id="user-chart"></canvas>
     <% } %>
 </div>
