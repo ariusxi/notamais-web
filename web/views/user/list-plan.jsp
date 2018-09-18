@@ -150,7 +150,11 @@
             html+="<div class='collapse show' aria-labelledby='headingOne' data-parent='#accordion'>";
             html+="<div class='card-body'>";
             html += "<p class='card-text' id='descricao'>" + plano.description + "</p>";
-            html += "<strong class='card-text' id='preco'>" + "R$" + plano.value.toFixed(2).replace(".", ",") + "/mês" + "</strong>";
+            if(plano.promotion != "0"){
+                html += "<strong class='card-text' id='preco'> <strike>" + "R$" + plano.value.toFixed(2).replace(".", ",") + "/mês</strike> " + "<br>R$" + plano.promotion.toFixed(2).replace(".", ",") + "</strong>";
+            }else{
+                html += "<strong class='card-text' id='preco'>" + "R$" + plano.value.toFixed(2).replace(".", ",") + "/mês" + "</strong>";
+            }
             html += "<br /><br />";
             if (p.plan._id != plano._id) {
                 html += "<button type='button' class='btn btn-primary' onclick='selecionarPlano(this);' data-toggle='modal' data-plano='" + i + "' data-target='#modal'>";
