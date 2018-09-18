@@ -17,6 +17,7 @@
             <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
             <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
             <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+            <link rel="manifest" href="/manifest.json"/>
             <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
             <link href="${pageContext.request.contextPath}/assets/css/style.css" rel="stylesheet"/>
             <link href="${pageContext.request.contextPath}/assets/css/plans.css" rel="stylesheet"/>
