@@ -28,4 +28,3 @@
             <link href="${pageContext.request.contextPath}/assets/css/material-kit.min.css" rel="stylesheet"/>
         </head>
         <body>
-            
