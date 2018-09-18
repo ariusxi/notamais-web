@@ -12,7 +12,7 @@
                 <div class="card card-login">
                     <form id="formNewPassword" class="form" method="POST" action="">
                         <div class="card-header card-header-primary text-center">
-                            <h4>Redifinição de Senha</h4>
+                            <h4>Redifiniï¿½ï¿½o de Senha</h4>
                         </div>
                         <div class="card-body">
                             <span class="bmd-form-group">
@@ -66,7 +66,7 @@
 
         if(password == "" || cpassword == ""){
             $('#message').css('display', 'block');
-            $('#message').html('Você deve preencher todos os campos');
+            $('#message').html('Vocï¿½ deve preencher todos os campos');
         }
 
         if (password != cpassword) {
@@ -77,7 +77,7 @@
         
         if(password.length < 6){
             $("#message").css('display', 'block');
-            $("#message").html("A sua senha não pode ser menor que 6 digitos");
+            $("#message").html("A sua senha nï¿½o pode ser menor que 6 digitos");
             return false;
         }
 

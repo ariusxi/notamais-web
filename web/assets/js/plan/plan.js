@@ -102,68 +102,39 @@ $("#plans, #plans-list").ready(function () {
         },
         dataType: "json",
         success: function (data) {
-<<<<<<< HEAD
-
-=======
             var dark = false;
->>>>>>> 611e6cf940883056b12e65235fd151cb694e9f92
             $.each(data, function (i, value) {
-                console.log(data);
 
                 let valueReal = floatToReal(value.value);
                 let promotion;
-<<<<<<< HEAD
 
                 if (value.promotion == null || value.promotion == "null") {
-                    promotion = "Nulo";
-                } else {
-                    promotion = floatToReal(value.promotion);
-                }
-
-                let html = '<div id="' + value._id + '" class="plan">';
-                html += '<h2 class="plan-heading">' + value.name + '</h2>';
-                if(promotion != "0,00"){
-                    html += '<div class="plan-subheading h3"><strike> R$ ' + valueReal + '/mes </strike><label class="h3 mt-1">R$ ' + promotion + '/mes </label></div>';
-                }else{
-                    html += '<div class="plan-subheading h3">R$ ' + valueReal + '/mes</div>';
-                }
-                html += '<p>Armazenamento de ' + value.qtdeXML + ' XMLs</p>';
-                html += '<p id="uno3">' + value.description + '</p>';
-                html += '</div>';
-=======
-                
-                if( value.promotion == null || value.promotion == "null"){
                     promotion = "";
-                }else{
+                } else {
                     promotion = floatToReal(value.promotion);
                 }
                 var classe = 'bg-primary';
                 var button = 'btn-white';
-                if(dark == false){
+                if (dark == false) {
                     classe = '';
                     button = 'btn-primary';
                 }
-                let html = '<div class="col-md-4" id="' + value._id + '">';
-                    html += '<div class="card card-pricing '+classe+'"><div class="card-body ">';
-                    html += '<div class="icon"><i class="material-icons">business</i></div>';
-                    html += '<h3 class="card-title">$' + valueReal + '</h3>';
-                    html += '<p class="card-description"><p>Armazenamento de ' + value.qtdeXML + ' XMLs</p>';
-                    html += '<p>' + value.description + '</p>';
-                    html += '<a href="" class="btn btn-round '+button+'">Escolher esse plano</a>';
-                    html += '</div></div></div>';
->>>>>>> 611e6cf940883056b12e65235fd151cb694e9f92
-                $("#plans").append(html);
-
-                html = "<tr>\n\
-                <td>" + value.name + "</td>\n\
-                <td>" + value.description + "</td>\n\
-                <td>" + valueReal + "</td>\n\
-                <td>" + promotion + "</td>\n\
-                <td>" + value.qtdeXML + "</td>\n\
-                <td><div class='btn-group btn-group-toggle'>\n\
-                <a href='edit-plan?id=" + value._id + "' class='btn btn-primary'>Editar</a>\n\
-                <button class='delete-plan btn btn-primary' id='" + value._id + "'>Excluir</button>";
                 
+                let html = '<div class="col-md-4" id="' + value._id + '">';
+                html += '<div class="card card-pricing ' + classe + '"><div class="card-body ">';
+                html += '<div class="icon"><i class="material-icons">business</i></div>';
+                if(promotion != "0,00"){
+                  html += '<h3 class="card-title mb-0"> <strike> R$' + valueReal + ' </strike><h3 class="card-title mt-0">R$ ' + promotion +  '</h3></h3>';  
+                }else{
+                  html += '<h3 class="card-title">R$ ' + valueReal + '</h3>';  
+                }
+                html += '<p class="card-description"><p>Armazenamento de ' + value.qtdeXML + ' XMLs</p>';
+                html += '<p>' + value.description + '</p>';
+                html += '<a href="" class="btn btn-round ' + button + '">Escolher esse plano</a>';
+                html += '</div></div></div>';
+                
+                $("#plans").append(html);
+                html = "<tr><td>" + value.name + "</td><td>" + value.description + "</td><td>" + valueReal + "</td><td>" + promotion + "</td><td>" + value.qtdeXML + "</td><td><div class='btn-group btn-group-toggle'><a href='edit-plan?id=" + value._id + "' class='btn btn-primary'>Editar</a><button class='delete-plan btn btn-primary' id='" + value._id + "'>Excluir</button>";
                 if (value.active) {
                     html += "<button class='btn btn-primary activate' id='" + value._id + "'>Ativado</button>";
                 } else {
@@ -171,14 +142,10 @@ $("#plans, #plans-list").ready(function () {
                 }
                 html += "</div></td></tr>";
                 $("#plans-list tbody").append(html);
-<<<<<<< HEAD
-                
-=======
-                if(dark == false)
+                if (dark == false)
                     dark = true;
                 else
                     dark = false;
->>>>>>> 611e6cf940883056b12e65235fd151cb694e9f92
             });
         }, error: function (e) {
             console.log(e);

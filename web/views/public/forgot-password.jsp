@@ -15,8 +15,8 @@
                             <h4>Esqueci minha senha</h4>
                         </div>
                         <div class="card-body">
-                            <p class="text-center m-0">Digite o seu endereço de e-mail.</p>
-                            <p class="text-center m-0">Nós enviaremos um link para redefinir a senha da sua conta.</p>
+                            <p class="text-center m-0">Digite o seu endereï¿½o de e-mail.</p>
+                            <p class="text-center m-0">Nï¿½s enviaremos um link para redefinir a senha da sua conta.</p>
                             <span class="bmd-form-group">
                                 <div class="input-group">
                                     <div class="input-group-prepend">
