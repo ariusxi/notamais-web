@@ -5,11 +5,17 @@
 --%>
 
 <jsp:include page="../layout/header.jsp" />
+
 <div class="page-header header-filter" style="background-image: url('http://demos.creative-tim.com/material-bootstrap-wizard/assets/img/wizard-book.jpg'); background-size: cover; background-position: top center;">
+    
     <div class="container">
+         <br>
+                    <br> <br>
+                   
         <div class="row mt-3 justify-content-center">
             <div class="col-sm-12 col-md-4">
                 <div class="card card-login">
+                    
                     <form id="formLogin" class="form" method="POST" action="">
                         <div class="card-header card-header-primary text-center">
                             <h4>Entrar no Nota+</h4>

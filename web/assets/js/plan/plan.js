@@ -102,20 +102,31 @@ $("#plans, #plans-list").ready(function () {
         },
         dataType: "json",
         success: function (data) {
+            var dark = false;
             $.each(data, function (i, value) {
 
                 let valueReal = floatToReal(value.value);
                 let promotion;
                 
                 if( value.promotion == null || value.promotion == "null"){
-                    promotion = "Nulo";
+                    promotion = "";
                 }else{
                     promotion = floatToReal(value.promotion);
                 }
-                
-                
-
-                let html = '<div id="' + value._id + '" class="plan"><h2 class="plan-heading">' + value.name + '</h2><div class="plan-subheading">$' + valueReal + '/mes</div><p>Armazenamento de ' + value.qtdeXML + ' XMLs</p><p id="uno3">' + value.description + '</p></div>';
+                var classe = 'bg-primary';
+                var button = 'btn-white';
+                if(dark == false){
+                    classe = '';
+                    button = 'btn-primary';
+                }
+                let html = '<div class="col-md-4" id="' + value._id + '">';
+                    html += '<div class="card card-pricing '+classe+'"><div class="card-body ">';
+                    html += '<div class="icon"><i class="material-icons">business</i></div>';
+                    html += '<h3 class="card-title">$' + valueReal + '</h3>';
+                    html += '<p class="card-description"><p>Armazenamento de ' + value.qtdeXML + ' XMLs</p>';
+                    html += '<p>' + value.description + '</p>';
+                    html += '<a href="" class="btn btn-round '+button+'">Escolher esse plano</a>';
+                    html += '</div></div></div>';
                 $("#plans").append(html);
                 html = "<tr><td>" + value.name + "</td><td>" + value.description + "</td><td>" + valueReal + "</td><td>" + promotion + "</td><td>" + value.qtdeXML + "</td><td><div class='btn-group btn-group-toggle'><a href='edit-plan?id=" + value._id + "' class='btn btn-primary'>Editar</a><button class='delete-plan btn btn-primary' id='" + value._id + "'>Excluir</button>";
                 if (value.active) {
@@ -125,6 +136,10 @@ $("#plans, #plans-list").ready(function () {
                 }
                 html += "</div></td></tr>";
                 $("#plans-list tbody").append(html);
+                if(dark == false)
+                    dark = true;
+                else
+                    dark = false;
             });
         }, error: function (e) {
             console.log(e);
