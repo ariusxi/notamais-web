@@ -367,9 +367,9 @@
             OneSignal.push(["init", {
                 //Alterne aqui as chaves do Push Notification
                 //Produção
-                //appId: "159ddb12-4eac-4ac4-9dbe-ea9aaae0b507",
-                //Desenvolvimento
                 appId: "159ddb12-4eac-4ac4-9dbe-ea9aaae0b507",
+                //Desenvolvimento
+                //appId: "159ddb12-4eac-4ac4-9dbe-ea9aaae0b507",
                 autoRegister: true,
                 httpPermissionRequest: {
                     enable: true,
