@@ -92,7 +92,7 @@
                 var dataJSON = JSON.parse(data);
                 if (dataJSON.message != null) {
                     $('#message').css('display', 'block');
-                    $('#message').html('Login ou Senha inválidos<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true"><i class="material-icons">clear</i></span></button>').addClass('alert-danger').removeClass('alert-info');
+                    $('#message').html('Login ou Senha invï¿½lidos<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true"><i class="material-icons">clear</i></span></button>').addClass('alert-danger').removeClass('alert-info');
                 } else {
                     $('#message').css('display', 'block');
                     $('#message').html('Login bem sucedido.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true"><i class="material-icons">clear</i></span></button>').addClass('alert-info').removeClass('alert-danger');

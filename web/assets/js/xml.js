@@ -10,15 +10,14 @@ $(function(){
 
 
         $.ajax({
+            type: "POST",
             url: "https://notamaisapi.herokuapp.com/files/send/"+user,
             headers: { 'x-access-token': token },
             data: form,
             contentType: false,
             cache: false,
             processData: false,
-            type: "POST",
             dataType: "json",
-            data: form,
             success: function (response) {
                 $("#message").css('display', 'block');
                 $("#message").html(response.message + '<a href="'+response.path+'" target"_blank">Clique aqui para abrir o seu arquivo</a>' );
@@ -41,7 +40,7 @@ $(function(){
             },
             success: function(data){
                 $.each(data, function(i, value){
-                    $("#xml-list tbody").append("<tr><td>"+(i+1)+"</td><td>"+value.xml+"</td><td>"+value.date+"</td></tr>");
+                    $("#xml-list tbody").append("<tr><td>"+(i+1)+"</td><td>"+value.name+"</td><td><a target='_blank' title='"+value.xml+"' href='"+value.xml+"'>Acessar</a></td><td>"+value.date+"</td></tr>");
                 });
             },error: function(e){
                 console.log(e);

@@ -21,11 +21,28 @@
 <h2 class="title-register"  >Upload de XML</h2>
 
 <form id="formulario"  class="upload" method="post" enctype="multipart/form-data">
+    
+    <div class="row">
+    
+        <div class="col-sm-12 col-md-5 col-lg-5">
+            <div class="form-group">
+                <label for="name">Nome: *</label>
+                <input required class="form-control" type="text" id="name" name="name" placeholder="nome" >
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-6">
+            <div class="form-group">
+                <label for="description">Descri��o: </label>
+                <input type="text" class="form-control" id="description" name="description" placeholder="descri��o" >
+            </div>
+        </div>
+    </div>
+    
     <label >Importar arquivo <br><small> (Tipos de arquivo suportados: .xml)</small></label>
     <table id="upload" class="display table">
               
                 
-</table>
+    </table>
     <input type="hidden" id="user" value="<%out.print(session.getAttribute("id"));%>">
     <input type="hidden" id="token" value="<%out.print(session.getAttribute("token"));%>">
     
@@ -37,6 +54,7 @@
         <thead>
             <tr>
                 <th>#</th>
+                <th>Nome</th>
                 <th>URL</th>
                 <th>Data de envio</th>
             </tr>

@@ -60,7 +60,7 @@
                         <li class="nav-item active  ">
                             <a class="nav-link" href="employee">
                                 <i class="material-icons">person_pin</i>
-                                <p>Funcionários</p>
+                                <p>Funcionï¿½rios</p>
                             </a>
                         </li>
                         <li class="nav-item active  ">
@@ -73,7 +73,7 @@
                         <li class="nav-item active  ">
                             <a class="nav-link" href="dashboard">
                                 <i class="material-icons">dashboard</i>
-                                <p>Página Inicial</p>
+                                <p>Pï¿½gina Inicial</p>
                             </a>
                         </li>
                         <li class="nav-item active  ">
@@ -85,7 +85,7 @@
                         <li class="nav-item active  ">
                             <a class="nav-link" href="users">
                                 <i class="material-icons">dashboard</i>
-                                <p>Usuários</p>
+                                <p>Usuï¿½rios</p>
                             </a>
                         </li>
                         <li class="nav-item active  ">
@@ -105,7 +105,7 @@
                         <li class="nav-item active  ">
                             <a class="nav-link" href="card">
                                 <i class="material-icons">style</i>
-                                <p>Meus Cartões</p>
+                                <p>Meus Cartï¿½es</p>
                             </a>
                         </li>
                          <li class="nav-item active  ">
