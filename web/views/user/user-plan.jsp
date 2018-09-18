@@ -1,22 +1,28 @@
 <jsp:include page="../layout/header-auth.jsp"/>
 
+
 <div class="col" id="plano">
     <h2>Meu plano</h2>
     <hr />
 </div>
 
 <jsp:include page="../layout/footer-auth.jsp"/>
+
 <script>
+    
+    
     window.onload = function(){
         var json = '<%= request.getAttribute("plano")%>';
         
         console.log(json);
-
+        if(json != ""){
+            
         var obj = JSON.parse(json);
         var plano = obj.plan
-        
         var html="";
         
+         
+      
         html += "<div class='card'>";
         html += "<div class='card-header text-light' id='titulo'>" + plano.name + "</div>";
         html += "<div class='card-body'>";
@@ -29,5 +35,22 @@
         html += "</div>";
         
         $("#plano").append(html);
-    };
+        }
+        else{
+     
+     
+        var html="";
+              
+        html += "<div class='card'>";
+        html += "<div class='card-header text-light' id='titulo'>Verificamos que você ainda não possui um plano <i class='far fa-frown'></i> </div>";
+       
+        html += "<a href='first-login' class='btn btn-danger' >Clique aqui e contrate!</a>";
+        
+         html += "</div>";
+        
+     
+        
+        $("#plano").append(html);
+        }
+   };
 </script>
