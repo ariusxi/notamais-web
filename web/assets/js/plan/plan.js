@@ -36,7 +36,7 @@ $("#form-edit-plan").submit(function (e) {
     let description = $("#description").val();
     let id = $("#id_plano").val();
 
-    if (name == "" || value == ""  || qtdeXML == "" || description == "") {
+    if (name == "" || value == "" || qtdeXML == "" || description == "") {
         $('#message').css('display', 'block');
         $('#message').html('Voce deve preencher os campos obrigatorios');
         return false;
@@ -47,7 +47,7 @@ $("#form-edit-plan").submit(function (e) {
         $('#message').html('O preço do plano não pode ser maior que 0');
         return false;
     }
-    
+
     if (promotion != "" && promotion < 0) {
         $('#message').css('display', 'block');
         $('#message').html('O preço promocional do plano não pode ser maior que 0');
@@ -65,7 +65,7 @@ $("#form-edit-plan").submit(function (e) {
     var valueDecimal = valueReal.replace(".", "");
     var separatorPosition = valueDecimal.charAt(valueDecimal.length - 3);
     var valueFloat = valueDecimal.replace(separatorPosition, ".");
-    
+
     //Format promotion with mask on Real format to float
     var promotionReal = (promotion).toLocaleString('pt-BR');
     var promotionDecimal = promotionReal.replace(".", "");
@@ -74,7 +74,7 @@ $("#form-edit-plan").submit(function (e) {
 
     let form = $(this);
     let formData = form.serialize();
-    formData += '&type=update-plan&id=' + id + "&valueFloat=" + valueFloat+'&promotionFloat=' + promotionFloat;
+    formData += '&type=update-plan&id=' + id + "&valueFloat=" + valueFloat + '&promotionFloat=' + promotionFloat;
 
     $.ajax({
         url: "edit-plan",
@@ -107,26 +107,32 @@ $("#plans, #plans-list").ready(function () {
 
                 let valueReal = floatToReal(value.value);
                 let promotion;
-                
-                if( value.promotion == null || value.promotion == "null"){
+
+                if (value.promotion == null || value.promotion == "null") {
                     promotion = "";
-                }else{
+                } else {
                     promotion = floatToReal(value.promotion);
                 }
                 var classe = 'bg-primary';
                 var button = 'btn-white';
-                if(dark == false){
+                if (dark == false) {
                     classe = '';
                     button = 'btn-primary';
                 }
+                
                 let html = '<div class="col-md-4" id="' + value._id + '">';
-                    html += '<div class="card card-pricing '+classe+'"><div class="card-body ">';
-                    html += '<div class="icon"><i class="material-icons">business</i></div>';
-                    html += '<h3 class="card-title">$' + valueReal + '</h3>';
-                    html += '<p class="card-description"><p>Armazenamento de ' + value.qtdeXML + ' XMLs</p>';
-                    html += '<p>' + value.description + '</p>';
-                    html += '<a href="" class="btn btn-round '+button+'">Escolher esse plano</a>';
-                    html += '</div></div></div>';
+                html += '<div class="card card-pricing ' + classe + '"><div class="card-body ">';
+                html += '<div class="icon"><i class="material-icons">business</i></div>';
+                if(promotion != "0,00"){
+                  html += '<h3 class="card-title mb-0"> <strike> R$' + valueReal + ' </strike><h3 class="card-title mt-0">R$ ' + promotion +  '</h3></h3>';  
+                }else{
+                  html += '<h3 class="card-title">R$ ' + valueReal + '</h3>';  
+                }
+                html += '<p class="card-description"><p>Armazenamento de ' + value.qtdeXML + ' XMLs</p>';
+                html += '<p>' + value.description + '</p>';
+                html += '<a href="" class="btn btn-round ' + button + '">Escolher esse plano</a>';
+                html += '</div></div></div>';
+                
                 $("#plans").append(html);
                 html = "<tr><td>" + value.name + "</td><td>" + value.description + "</td><td>" + valueReal + "</td><td>" + promotion + "</td><td>" + value.qtdeXML + "</td><td><div class='btn-group btn-group-toggle'><a href='edit-plan?id=" + value._id + "' class='btn btn-primary'>Editar</a><button class='delete-plan btn btn-primary' id='" + value._id + "'>Excluir</button>";
                 if (value.active) {
@@ -136,7 +142,7 @@ $("#plans, #plans-list").ready(function () {
                 }
                 html += "</div></td></tr>";
                 $("#plans-list tbody").append(html);
-                if(dark == false)
+                if (dark == false)
                     dark = true;
                 else
                     dark = false;
@@ -227,7 +233,7 @@ $("#plan-register").submit(function (e) {
     var valueDecimal = valueReal.replace(".", "");
     var separatorPosition = valueDecimal.charAt(valueDecimal.length - 3);
     var valueFloat = valueDecimal.replace(separatorPosition, ".");
-    
+
     //Format promotion with mask on Real format to float
     var promotionReal = (promotion).toLocaleString('pt-BR');
     var promotionDecimal = promotionReal.replace(".", "");
@@ -245,7 +251,7 @@ $("#plan-register").submit(function (e) {
         $('#message').html('O preço do plano não pode ser menor que 0');
         return false;
     }
-    
+
     if (promotion < 0) {
         $('#message').css('display', 'block');
         $('#message').html('O preço promo do plano não pode ser menor que 0');
@@ -260,7 +266,7 @@ $("#plan-register").submit(function (e) {
 
     let form = $(this);
     let formData = form.serialize();
-    formData += '&type=plan-create&valueFloat=' + valueFloat+'&promotionFloat=' + promotionFloat;
+    formData += '&type=plan-create&valueFloat=' + valueFloat + '&promotionFloat=' + promotionFloat;
 
     $.ajax({
         url: "plan",
