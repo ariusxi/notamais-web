@@ -102,12 +102,17 @@ $("#plans, #plans-list").ready(function () {
         },
         dataType: "json",
         success: function (data) {
+<<<<<<< HEAD
 
+=======
+            var dark = false;
+>>>>>>> 611e6cf940883056b12e65235fd151cb694e9f92
             $.each(data, function (i, value) {
                 console.log(data);
 
                 let valueReal = floatToReal(value.value);
                 let promotion;
+<<<<<<< HEAD
 
                 if (value.promotion == null || value.promotion == "null") {
                     promotion = "Nulo";
@@ -125,6 +130,28 @@ $("#plans, #plans-list").ready(function () {
                 html += '<p>Armazenamento de ' + value.qtdeXML + ' XMLs</p>';
                 html += '<p id="uno3">' + value.description + '</p>';
                 html += '</div>';
+=======
+                
+                if( value.promotion == null || value.promotion == "null"){
+                    promotion = "";
+                }else{
+                    promotion = floatToReal(value.promotion);
+                }
+                var classe = 'bg-primary';
+                var button = 'btn-white';
+                if(dark == false){
+                    classe = '';
+                    button = 'btn-primary';
+                }
+                let html = '<div class="col-md-4" id="' + value._id + '">';
+                    html += '<div class="card card-pricing '+classe+'"><div class="card-body ">';
+                    html += '<div class="icon"><i class="material-icons">business</i></div>';
+                    html += '<h3 class="card-title">$' + valueReal + '</h3>';
+                    html += '<p class="card-description"><p>Armazenamento de ' + value.qtdeXML + ' XMLs</p>';
+                    html += '<p>' + value.description + '</p>';
+                    html += '<a href="" class="btn btn-round '+button+'">Escolher esse plano</a>';
+                    html += '</div></div></div>';
+>>>>>>> 611e6cf940883056b12e65235fd151cb694e9f92
                 $("#plans").append(html);
 
                 html = "<tr>\n\
@@ -144,7 +171,14 @@ $("#plans, #plans-list").ready(function () {
                 }
                 html += "</div></td></tr>";
                 $("#plans-list tbody").append(html);
+<<<<<<< HEAD
                 
+=======
+                if(dark == false)
+                    dark = true;
+                else
+                    dark = false;
+>>>>>>> 611e6cf940883056b12e65235fd151cb694e9f92
             });
         }, error: function (e) {
             console.log(e);

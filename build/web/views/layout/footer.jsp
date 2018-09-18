@@ -3,7 +3,10 @@
     Created on : 23/08/2018, 09:29:12
     Author     : lucas
 --%>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 611e6cf940883056b12e65235fd151cb694e9f92
         <!--Start of Zendesk Chat Script-->
         <script type="text/javascript">
         window.$zopim||(function(d,s){var z=$zopim=function(c){z._.push(c)},$=z.s=
@@ -13,6 +16,7 @@
         type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
         </script>
         <!--End of Zendesk Chat Script-->
+<<<<<<< HEAD
         <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
         <script>
             var OneSignal = window.OneSignal || [];
@@ -98,6 +102,8 @@
             }]);
         </script>
 
+=======
+>>>>>>> 611e6cf940883056b12e65235fd151cb694e9f92
         <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous" type="text/javascript"></script>
 
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous" type="text/javascript"></script>

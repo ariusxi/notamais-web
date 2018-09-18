@@ -73,7 +73,7 @@ $("#contato").submit(function (e) {
         }
     });
 
-    return false
+    return false;
 });
 
 $("#users-list").ready(function () {
