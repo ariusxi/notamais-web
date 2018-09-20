@@ -28,5 +28,5 @@
 
 %>
 <script type="text/javascript">
-   window.location.href = "http://localhost:8080/notamais-web/login";
+   window.location.href = "http://localhost:8080/notamais-web/active";
  </script>

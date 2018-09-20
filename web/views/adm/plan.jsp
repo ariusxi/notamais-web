@@ -15,11 +15,11 @@
                 <thead>
                     <tr>
                         <th>Nome</th>
-                        <th>Descriï¿½ï¿½o</th>
-                        <th>Preï¿½o</th>
-                        <th>Preï¿½o Promocional</th>
+                        <th>Descrição</th>
+                        <th>Preço</th>
+                        <th>Preço Promocional</th>
                         <th>Quantidade de XML</th>
-                        <th>Aï¿½ï¿½es</th>
+                        <th>Ações</th>
                     </tr>
                 </thead>
                 <tbody>

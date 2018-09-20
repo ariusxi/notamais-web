@@ -36,7 +36,7 @@
                         <li class="nav-item active">
                             <a class="nav-link" href="#">Administrador</a>
                         </li>
-                        <li class="nav-item">
+                      <!--  <li class="nav-item">
                             <a class="nav-link" href="#">SST</a>
                         </li>
                         <li class="nav-item">
@@ -50,7 +50,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Receber</a>
-                        </li>
+                        </li>-->
                     </ul>
                     <ul class="navbar-nav">
                         <li class="nav-item">

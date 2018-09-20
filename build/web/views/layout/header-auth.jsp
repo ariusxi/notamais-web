@@ -72,25 +72,25 @@
                         <% } else if (session.getAttribute("roles").equals("admin")) {  %>
                         <li class="nav-item active  ">
                             <a class="nav-link" href="dashboard">
-                                <i class="material-icons">dashboard</i>
+                                <i class="material-icons">home</i>
                                 <p>Página Inicial</p>
                             </a>
                         </li>
                         <li class="nav-item active  ">
                             <a class="nav-link" href="plan">
-                                <i class="material-icons">dashboard</i>
+                                <i class="material-icons">subtitles</i>
                                 <p>Planos</p>
                             </a>
                         </li>
                         <li class="nav-item active  ">
                             <a class="nav-link" href="users">
-                                <i class="material-icons">dashboard</i>
+                                <i class="material-icons">supervised_user_circle</i>
                                 <p>Usuários</p>
                             </a>
                         </li>
                         <li class="nav-item active  ">
                             <a class="nav-link" href="pay-list">
-                                <i class="material-icons">dashboard</i>
+                                <i class="material-icons">payment</i>
                                 <p>Pagamentos</p>
                             </a>
                         </li>
