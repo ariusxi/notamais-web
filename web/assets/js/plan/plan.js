@@ -134,7 +134,8 @@ $("#plans, #plans-list").ready(function () {
                 html += '</div></div></div>';
                 
                 $("#plans").append(html);
-                html = "<tr><td>" + value.name + "</td><td>" + value.description + "</td><td>" + valueReal + "</td><td>" + promotion + "</td><td>" + value.qtdeXML + "</td><td><div class='btn-group btn-group-toggle'><a href='edit-plan?id=" + value._id + "' class='btn btn-primary'>Editar</a><button class='delete-plan btn btn-primary' id='" + value._id + "'>Excluir</button>";
+                html = "<tr><td>" + value.name + "</td><td>" + value.description + "</td><td>" + valueReal + "</td><td>" + promotion + "</td><td>" + value.qtdeXML + "</td><td><div class='btn-group btn-group-toggle'><a href='edit-plan?id=" + value._id + "' class='btn btn-primary'>Editar</a>";
+//html = "<button class='delete-plan btn btn-primary' id='" + value._id + "'>Excluir</button>";
                 if (value.active) {
                     html += "<button class='btn btn-primary activate' id='" + value._id + "'>Ativado</button>";
                 } else {
