@@ -25,7 +25,7 @@
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
         <!-- Material Kit CSS -->
-        <link href="${pageContext.request.contextPath}/assets/dashboard/assets/css/material-dashboard.css" rel="stylesheet" />
+        <link href="${pageContext.request.contextPath}/assets/dashboard/assets/css/material-dashboard.css?v=2.1.0" rel="stylesheet" />
     </head>
     <body class="dark-edition">
         <div class="wrapper ">
@@ -108,7 +108,7 @@
                                 <p>Meus Cartões</p>
                             </a>
                         </li>
-                         <li class="nav-item active  ">
+                        <li class="nav-item active  ">
                             <a class="nav-link" href="upload-xml">
                                 <i class="material-icons">insert_drive_file</i>
                                 <p>Lista de NFes</p>
@@ -140,6 +140,10 @@
                             <span class="navbar-toggler-icon icon-bar"></span>
                             <span class="navbar-toggler-icon icon-bar"></span>
                         </button>
+                        <div class="collapse navbar-collapse justify-content-end">
+                            <ul class="navbar-nav">
+                            </ul>
+                        </div>
                     </div>
                 </nav>
                 <div class="content mt-3">
