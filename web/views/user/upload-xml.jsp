@@ -55,48 +55,27 @@
 <jsp:include page="../layout/footer-auth.jsp"/>
 
 <script>
-    
     $(function(){
-    
-    var json = '<%= request.getAttribute("plano")%>';
-     console.log(json);
-     
+        var json = '<%= request.getAttribute("plano")%>';
+        var html="";
         if(json != ""){
-            
-        var obj = JSON.parse(json);
-        var plano = obj.plan
-        var html="";
-         
-            var html="";
-	
-           html += " <div class='card' style=' margin-top:  5px; padding-top: 10px;' >    ";
-            
-             html += "   <label style='width: 500px; margin-left: 20px;' for='name'>Nome: * <input required class='form-control' type='text' id='name' name='name' placeholder='Nome'></label>";
-  
-        html += "       <label  style='width: 500px; margin-left: 20px;' for='description'>Descrição: <input type='text' class='form-control'  id='description' name='description' placeholder='Descrição' ></label> ";
-    
-		   html += "    <br>";
-		html += " <input type='file' name='file' id='file' class='inputfile'  accept='.xml' />";
-		html += "<label for='file' style='margin-left: 35px; width: 1000px;'> <i class='fa fa-folder-open' style='margin-right: 5px;'></i>Escolha um arquivo <button class='btn btn-success btn-sm' style='width: 100px; margin-left:700px;'>Enviar</button></label>";
-		html += "<div class='alert alert-info mt-2 mb-0' id='message'>";
-		html += "</div>";
-		html += "</div>";   
-                $("#upload").append(html);
-                
-    }else { 
-
-        var html="";
-        html += "<div class='card'>";
-        html += "<div class='card-header text-light' id='titulo'>Verificamos que seu plano expirou <i class='far fa-frown'></i> </div>";
-       
-        html += "<a href='first-login' class='btn btn-success' >Clique aqui e renove!</a>";
-        
-         html += "</div>";  
-         $("#upload").append(html);
-              
-    }  
-  
-        
-});
-
+            var obj = JSON.parse(json);
+            var plano = obj.plan;
+            html += "<div class='card' style=' margin-top:  5px; padding-top: 10px;' >    ";
+            html += "<label style='width: 500px; margin-left: 20px;' for='name'>Nome: * <input required class='form-control' type='text' id='name' name='name' placeholder='Nome'></label>";
+            html += "<label  style='width: 500px; margin-left: 20px;' for='description'>Descrição: <input type='text' class='form-control'  id='description' name='description' placeholder='Descrição' ></label> ";
+            html += "<br>";
+            html += "<input type='file' name='file' id='file' class='inputfile'  accept='.xml' />";
+            html += "<label for='file' style='margin-left: 35px; width: 1000px;'> <i class='fa fa-folder-open' style='margin-right: 5px;'></i><span class='text-file'>Escolha um arquivo</span><button class='btn btn-success btn-sm' style='width: 100px; margin-left:700px;'>Enviar</button></label>";
+            html += "<div class='alert alert-info mt-2 mb-0' id='message'>";
+            html += "</div>";
+            html += "</div>";       
+        }else{
+            html += "<div class='card'>";
+            html += "<div class='card-header text-light' id='titulo'>Verificamos que seu plano expirou <i class='far fa-frown'></i> </div>";
+            html += "<a href='first-login' class='btn btn-success' >Clique aqui e renove!</a>";
+            html += "</div>";   
+        }
+        $("#upload").html(html);
+    });
 </script>
