@@ -38,19 +38,19 @@
                             <input type="text" class="form-control"  placeholder="Titulo" name="name" id="name">
                         </div>
                     </div>
-                    <div class="col-sm-12 col-md-3 col-lg-3">
+                    <div class="col-sm-12 col-md-4 col-lg-4">
                         <div class="form-group">
-                            <label for="value">Preï¿½o</label>
-                            <input type="text" class="form-control" placeholder="Preï¿½o" name="value" id="value" onkeydown=" formatPrice(this)">
+                            <label for="value">Preço</label>
+                            <input type="text" class="form-control" placeholder="Preço" name="value" id="value" onkeydown=" formatPrice(this)">
                         </div>
                     </div>
-                    <div class="col-sm-12 col-md-3 col-lg-3">
+                    <div class="col-sm-12 col-md-4 col-lg-4">
                         <div class="form-group">
-                            <label for="promotion">Preï¿½o Promocional</label>
-                            <input type="text" class="form-control" placeholder="Preï¿½o Promo" name="promotion" id="promotion" onkeydown=" formatPrice(this)">
+                            <label for="promotion">Preço Promocional</label>
+                            <input type="text" class="form-control" placeholder="Preço Promo" name="promotion" id="promotion" onkeydown=" formatPrice(this)">
                         </div>
                     </div>
-                    <div class="col-sm-12 col-md-3 col-lg-3">
+                    <div class="col-sm-12 col-md-4 col-lg-4">
                         <div class="form-group">
                             <label for="qtdeXML">Quantidade de XML</label>
                             <input type="number" class="form-control" placeholder="Quantidade de XML" name="qtdeXML" id="qtdeXML">
@@ -58,8 +58,8 @@
                     </div>
                     <div class="col-sm-12 col-md-12 col-lg-12">
                         <div class="form-group"> 
-                            <label for="description">Descriï¿½ï¿½o do Plano</label>
-                            <textarea class="form-control" placeholder="Descriï¿½ï¿½o do Plano" id="description" name="description"></textarea>
+                            <label for="description">Descrição do Plano</label>
+                            <textarea class="form-control" placeholder="Descrição do Plano" id="description" name="description"></textarea>
                         </div>
                     </div>
                     <div class="col-sm-12 col-md-12 col-lg-12">

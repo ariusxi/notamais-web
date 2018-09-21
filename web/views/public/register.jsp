@@ -12,14 +12,14 @@
             <div class="card card-login">
                 <div class="card-header card-header-primary text-center">
                     <div class="col-sm-12 col-md-12 col-lg-12 text-center">
-                        <h5 class="title-register">Escolha o tipo de usuï¿½rio</h5>
+                        <h5 class="title-register">Escolha o tipo de usuário</h5>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-sm-6 col-md-6 col-lg-6 user-register">
                         <a href="" class="open-register" id="user">
                             <h1><i class="fas fa-user"></i></h1>
-                            <p>Usuï¿½rio</p>
+                            <p>Usuário</p>
                         </a>
                     </div>
                     <div class="col-sm-6 col-md-6 col-lg-6 counter-register">
@@ -37,13 +37,13 @@
             <div class="card card-login">
                 <form action="" method="POST" id="user-register">
                     <div class="card-header card-header-primary text-center">
-                        <h5 class="title-register">Cadastro de Usuï¿½rio</h5>
+                        <h5 class="title-register">Cadastro de Usuário</h5>
                     </div>
                     <div class="container">
                         <div class="row">
                             <div class="col-sm-12 col-md-12 col-lg-12">
                                 <div class="form-group">
-                                    <label for="fullname">Nome de Usuï¿½rio</label>
+                                    <label for="fullname">Nome de Usuário</label>
                                     <input type="text" class="form-control"  placeholder="Nome Completo" name="fullname" id="fullname">
                                 </div>
                             </div>
@@ -67,9 +67,9 @@
                             </div>
                             <div class="col-sm-12 col-md-6 col-lg-6">
                                 <div class="form-group">
-                                    <label for="nickname">Gï¿½nero</label>
+                                    <label for="nickname">Gênero</label>
                                     <select class="form-control" id="gender" name="gender">
-                                        <option value="">Escolha o seu gï¿½nero</option>
+                                        <option value="">Escolha o seu gênero</option>
                                         <option value="M">Masculino</option>
                                         <option value="F">Feminino</option>
                                     </select>
@@ -137,7 +137,7 @@
                         <div class="row">
                             <div class="col-sm-12 col-md-12 col-lg-12">
                                 <div class="form-group">
-                                    <label for="fullname">Nome de Usuï¿½rio</label>
+                                    <label for="fullname">Nome de Usuário</label>
                                     <input type="text" class="form-control"  placeholder="Nome Completo" name="fullname" id="fullname">
                                 </div>
                             </div>
@@ -161,9 +161,9 @@
                             </div>
                             <div class="col-sm-12 col-md-4 col-lg-4">
                                 <div class="form-group">
-                                    <label for="nickname">Gï¿½nero</label>
+                                    <label for="nickname">Gênero</label>
                                     <select class="form-control" id="gender" name="gender">
-                                        <option value="">Escolha o seu gï¿½nero</option>
+                                        <option value="">Escolha o seu gênero</option>
                                         <option value="M">Masculino</option>
                                         <option value="F">Feminino</option>
                                     </select>

@@ -3,7 +3,7 @@
 <div class="col-sm-12 col-md-12 col-lg-12 mt-4">
     <ul class="nav nav-tabs">
         <li>
-            <a class="nav-link active" href="#list" data-toggle="tab" >Lista de usuï¿½rios</a>
+            <a class="nav-link active" href="#list" data-toggle="tab" >Lista de usuários</a>
         </li>
         <li>
             <a class="nav-link" href="#contadores" data-toggle="tab">Lista de contadores</a>
@@ -11,14 +11,14 @@
     </ul>
     <div class="tab-content ">
         <div class="tab-pane active" id="list">
-            <h2 class="title-register">Lista de usuï¿½rios</h2>
+            <h2 class="title-register">Lista de usuários</h2>
             <div class="table-responsive">
                 <table id="users-list" class="display table">
                     <thead>
                         <tr>
                             <th>Nome</th>
                             <th>Email</th>
-                            <th>Aï¿½ï¿½es</th>
+                            <th>Ações</th>
                         </tr>
                     </thead>
                     <tbody></tbody>
@@ -32,7 +32,7 @@
                     <tr>
                         <th>Nome</th>
                         <th>Email</th>
-                        <th>Aï¿½ï¿½es</th>
+                        <th>Ações</th>
                     </tr>
                 </thead>
                 <tbody>

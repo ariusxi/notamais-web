@@ -93,7 +93,43 @@ $("#form-edit-plan").submit(function (e) {
     return false;
 });
 
-$("#plans, #plans-list").ready(function () {
+$("#plans-list").ready(function(){
+    $.ajax({
+        url: "plan",
+        method: "POST",
+        data: {
+            type: "admin-list"
+        },
+        dataType: "json",
+        success: function(data){
+            
+            $.each(data, function (i, value) {
+                let valueReal = floatToReal(value.value);
+                let promotion;
+
+                if (value.promotion == null || value.promotion == "null") {
+                    promotion = "";
+                } else {
+                    promotion = floatToReal(value.promotion);
+                }
+                
+                var html = "<tr><td>" + value.name + "</td><td>" + value.description + "</td><td>" + valueReal + "</td><td>" + promotion + "</td><td>" + value.qtdeXML + "</td><td><div class='btn-group btn-group-toggle'><a href='edit-plan?id=" + value._id + "' class='btn btn-primary'>Editar</a>";
+//html = "<button class='delete-plan btn btn-primary' id='" + value._id + "'>Excluir</button>";
+                if (value.active) {
+                    html += "<button class='btn btn-primary activate' id='" + value._id + "'>Ativado</button>";
+                } else {
+                    html += "<button class='btn btn-primary desactivate' id='" + value._id + "'>Desativado</button>";
+                }
+                html += "</div></td></tr>";
+                $("#plans-list tbody").append(html);
+            });
+        }, error: function(e){
+            console.log(e);
+        } 
+    });
+})
+
+$("#plans").ready(function () {
     $.ajax({
         url: "plan",
         method: "POST",
@@ -134,15 +170,7 @@ $("#plans, #plans-list").ready(function () {
                 html += '</div></div></div>';
                 
                 $("#plans").append(html);
-                html = "<tr><td>" + value.name + "</td><td>" + value.description + "</td><td>" + valueReal + "</td><td>" + promotion + "</td><td>" + value.qtdeXML + "</td><td><div class='btn-group btn-group-toggle'><a href='edit-plan?id=" + value._id + "' class='btn btn-primary'>Editar</a>";
-//html = "<button class='delete-plan btn btn-primary' id='" + value._id + "'>Excluir</button>";
-                if (value.active) {
-                    html += "<button class='btn btn-primary activate' id='" + value._id + "'>Ativado</button>";
-                } else {
-                    html += "<button class='btn btn-primary desactivate' id='" + value._id + "'>Desativado</button>";
-                }
-                html += "</div></td></tr>";
-                $("#plans-list tbody").append(html);
+                
                 if (dark == false)
                     dark = true;
                 else

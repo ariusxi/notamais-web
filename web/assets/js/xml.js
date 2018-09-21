@@ -28,12 +28,20 @@ $(function(){
                 $("#message").css('display', 'block');
                 $("#message").html(response.message + '<a href="'+response.path+'" target"_blank">Clique aqui para abrir o seu arquivo</a>' );
                 //window.location.href = "/views/user/cards.jsp";
+                $(".text-file").text('Escolha um arquivo');
             },
             error: function (e) {
                 alert('Erro ao carregar pagina');
             }
         });
             return false;
+    });
+    
+    $(document).on('change', '#file', function(){
+        var filename = $(this).val();
+        filename = filename.split("\\");
+        filename = filename[filename.length - 1];
+        $(".text-file").text(filename);
     });
 
     $("#xml-list").ready(function(){
