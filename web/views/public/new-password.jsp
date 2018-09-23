@@ -5,29 +5,44 @@
 --%>
 
 <jsp:include page="../layout/header.jsp" />
-<div class="container">
-    <div class="row mt-3 justify-content-center">
-        <div class="col-sm-12 col-md-4">
-            <div class="card">
-                <div class="card-header">
-                    <div class="h5 text-left mb-0">Redefini��o de Senha</div>    
-                </div>
-                <div class="card-body">
-                    <p class="text-center">
-                        <i class="fa fa-fw fa-key fa-4x"></i>
-                    </p>
-                    <form id="formNewPassword" class="mt-4">
-                        <div class="form-group">
-                            <label for="password">Nova senha</label>
-                            <input type="password" class="form-control" name="password" id="password" required>
+<div class="page-header header-filter" style="background-image: url('http://demos.creative-tim.com/material-bootstrap-wizard/assets/img/wizard-book.jpg'); background-size: cover; background-position: top center;">
+    <div class="container">
+        <div class="row mt-3 justify-content-center">
+            <div class="col-sm-12 col-md-4">
+                <div class="card card-login">
+                    <form id="formNewPassword" class="form" method="POST" action="">
+                        <div class="card-header card-header-primary text-center">
+                            <h4>Redifini��o de Senha</h4>
                         </div>
-                        <div class="form-group">
-                            <label for="confirmpassword">Confirme a nova senha</label>
-                            <input type="password" class="form-control" name="confirmpassword" id="confirmpassword" required>
+                        <div class="card-body">
+                            <span class="bmd-form-group">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="material-icons">mail</i>
+                                        </span>
+                                    </div>
+                                    <input type="password" name="password" id="password" class="form-control" placeholder="Nova senha...">
+                                </div>
+                            </span>
+                            <span class="bmd-form-group">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="material-icons">mail</i>
+                                        </span>
+                                    </div>
+                                    <input type="password" name="confirmpassword" id="confirmpassword" class="form-control" placeholder="Confirme a nova senha...">
+                                </div>
+                            </span>
                         </div>
-                        <input type="submit" value="Salvar" class="btn btn-secondary form-control">
+                        <div class="col-sm-12 col-md-12 col-lg-12">
+                            <input type="submit" class="btn btn-primary login btn-round  btn-block" value="Salvar"/>
+                        </div>
+                        <div class="alert alert-info mt-2 mb-0" id="message">
+
+                        </div>
                     </form>
-                    <div class="alert alert-info mt-2 mb-0" id="message"></div>
                 </div>
             </div>
         </div>

@@ -26,6 +26,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
         <!-- Material Kit CSS -->
         <link href="${pageContext.request.contextPath}/assets/dashboard/assets/css/material-dashboard.css" rel="stylesheet" />
+        <link href="${pageContext.request.contextPath}/assets/css/fix.css" rel="stylesheet"/>
     </head>
     <body class="dark-edition">
         <div class="wrapper ">
@@ -36,7 +37,7 @@
                     </a>
                 </div>
                 <div class="sidebar-wrapper">
-                    <ul class="nav">
+                    <ul class="nav fix-dashboard-menu">
                         <li class="nav-item">
                             <div class="text-center">
                                 <img src="${pageContext.request.contextPath}/assets/img/default-user.png" class="img-fluid img-thumbnail img-profile" width="100" alt="<%= session.getAttribute("name")%>"><br/><br/>
@@ -71,20 +72,26 @@
                         </li>
                         <% } else if (session.getAttribute("roles").equals("admin")) {  %>
                         <li class="nav-item active  ">
+                            <a class="nav-link" href="dashboard">
+                                <i class="material-icons">home</i>
+                                <p>Página Inicial</p>
+                            </a>
+                        </li>
+                        <li class="nav-item active  ">
                             <a class="nav-link" href="plan">
-                                <i class="material-icons">dashboard</i>
+                                <i class="material-icons">subtitles</i>
                                 <p>Planos</p>
                             </a>
                         </li>
                         <li class="nav-item active  ">
                             <a class="nav-link" href="users">
-                                <i class="material-icons">dashboard</i>
+                                <i class="material-icons">supervised_user_circle</i>
                                 <p>Usuários</p>
                             </a>
                         </li>
                         <li class="nav-item active  ">
                             <a class="nav-link" href="pay-list">
-                                <i class="material-icons">dashboard</i>
+                                <i class="material-icons">payment</i>
                                 <p>Pagamentos</p>
                             </a>
                         </li>

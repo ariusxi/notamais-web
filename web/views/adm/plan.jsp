@@ -1,5 +1,5 @@
 <jsp:include page="../layout/header-auth.jsp" />
-<div class="col-sm-12 col-md-12 col-lg-12 mt-4"
+<div class="col-sm-12 col-md-12 col-lg-12 mt-4">
     <ul class="nav nav-tabs">
         <li class="active">
             <a class="nav-link active" href="#list" data-toggle="tab">Lista de Planos</a>
@@ -38,19 +38,19 @@
                             <input type="text" class="form-control"  placeholder="Titulo" name="name" id="name">
                         </div>
                     </div>
-                    <div class="col-sm-12 col-md-3 col-lg-3">
+                    <div class="col-sm-12 col-md-4 col-lg-4">
                         <div class="form-group">
                             <label for="value">Preço</label>
                             <input type="text" class="form-control" placeholder="Preço" name="value" id="value" onkeydown=" formatPrice(this)">
                         </div>
                     </div>
-                    <div class="col-sm-12 col-md-3 col-lg-3">
+                    <div class="col-sm-12 col-md-4 col-lg-4">
                         <div class="form-group">
                             <label for="promotion">Preço Promocional</label>
                             <input type="text" class="form-control" placeholder="Preço Promo" name="promotion" id="promotion" onkeydown=" formatPrice(this)">
                         </div>
                     </div>
-                    <div class="col-sm-12 col-md-3 col-lg-3">
+                    <div class="col-sm-12 col-md-4 col-lg-4">
                         <div class="form-group">
                             <label for="qtdeXML">Quantidade de XML</label>
                             <input type="number" class="form-control" placeholder="Quantidade de XML" name="qtdeXML" id="qtdeXML">

@@ -63,7 +63,7 @@
                     <div class="col-sm-12 col-md-4 col-lg-4">
                         <div class="form-group">
                             <label for="nickname">Gênero</label>
-                            <select class="form-control" id="gender" name="gender" style="color:#000 !important;">
+                            <select class="form-control fix-select-option"  id="gender" name="gender">
                                 <option value="">Escolha o seu gênero</option>
                                 <option value="M">Masculino</option>
                                 <option value="F">Feminino</option>

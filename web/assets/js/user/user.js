@@ -63,8 +63,9 @@ $("#user-register").submit(function (e) {
             $('#message').html('Aguarde...');
         },
         success: function (data) {
+            var dataJSON = JSON.parse(data);
             $("#message").css('display', 'block');
-            $('#message').html(data.message);
+            $('#message').html(dataJSON.message);
             setTimeout(() => {
                 $(location).attr('href', '/notamais-web/');
             }, 2000);

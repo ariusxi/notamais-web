@@ -17,6 +17,7 @@
             <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
             <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
             <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+            <link rel="manifest" href="/manifest.json"/>
             <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
             <link href="${pageContext.request.contextPath}/assets/css/style.css" rel="stylesheet"/>
             <link href="${pageContext.request.contextPath}/assets/css/plans.css" rel="stylesheet"/>
@@ -25,45 +26,6 @@
                 crossorigin="anonymous">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+            <link href="${pageContext.request.contextPath}/assets/css/material-kit.min.css" rel="stylesheet"/>
         </head>
-
         <body>
-            <!-- search for navbar bootstrap -->
-            <nav class="navbar navbar-expand-lg navbar-dark blue-sky">
-                <a class="navbar-brand" href="index.jsp">
-                    Nota+  
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Administrador</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">SST</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Exames</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">eSocial</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Gerencia</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Receber</a>
-                        </li>
-                    </ul>
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="${pageContext.request.contextPath}/login">Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="${pageContext.request.contextPath}/register">Cadastre-se</a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>

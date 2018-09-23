@@ -83,7 +83,7 @@
                     <div class="col-sm-12 col-md-4 col-lg-4">
                         <div class="form-group">
                             <label for="brand">Bandeira</label>
-                            <select class="form-control" id="brand" name="brand" style="color:#000 !important;">
+                            <select class="form-control fix-select" id="brand" name="brand" >
                                 <option value="" selected="">Bandeira</option>
                                 <option value="master">Master</option>
                                 <option value="visa">Visa</option>
@@ -95,7 +95,7 @@
                     <div class="col-sm-12 col-md-4 col-lg-4">
                         <div class="form-group">
                             <label for="card-type">Tipo:</label>
-                            <select class="form-control" id="card-type" name="card-type">
+                            <select class="form-control fix-select" id="card-type" name="card-type">
                                 <option value="">Tipo</option>
                                 <option value="CreditCard">Cartão de Crédito</option>
                                 <option value="DebitCard">Cartão de Débito</option>
@@ -124,7 +124,6 @@
 
 <script>
     var json = '<%= request.getAttribute("planos")%>';
-
     
     var planos = JSON.parse(json);
     
@@ -150,7 +149,11 @@
             html+="<div class='collapse show' aria-labelledby='headingOne' data-parent='#accordion'>";
             html+="<div class='card-body'>";
             html += "<p class='card-text' id='descricao'>" + plano.description + "</p>";
-            html += "<strong class='card-text' id='preco'>" + "R$" + plano.value.toFixed(2).replace(".", ",") + "/mês" + "</strong>";
+            if(plano.promotion != "0"){
+                html += "<strong class='card-text' id='preco'> <strike>" + "R$" + plano.value.toFixed(2).replace(".", ",") + "/mês</strike> " + "<br>R$" + plano.promotion.toFixed(2).replace(".", ",") + "</strong>";
+            }else{
+                html += "<strong class='card-text' id='preco'>" + "R$" + plano.value.toFixed(2).replace(".", ",") + "/mês" + "</strong>";
+            }
             html += "<br /><br />";
             if (p.plan._id != plano._id) {
                 html += "<button type='button' class='btn btn-primary' onclick='selecionarPlano(this);' data-toggle='modal' data-plano='" + i + "' data-target='#modal'>";

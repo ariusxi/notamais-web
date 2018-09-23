@@ -6,6 +6,11 @@
 
 <jsp:include page="../views/layout/header-auth.jsp" />
 <div class="col-sm-12 col-md-12 col-lg-12 mt-4">
-    Dashboard
+    <% if (session.getAttribute("roles").equals("user")) { %>
+        Dashboard
+    <% }else if(session.getAttribute("roles").equals("admin")){ %>
+    <p>Usuários cadastrados</p>
+        <canvas id="user-chart"></canvas>
+    <% } %>
 </div>
 <jsp:include page="../views/layout/footer-auth.jsp" />
