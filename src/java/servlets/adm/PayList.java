@@ -46,16 +46,36 @@ public class PayList extends HttpServlet {
 
         request.setAttribute("pagamentos", responseJSON);
         
-        String url = "/views/adm/pay-list.jsp";
-          
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
-        dispatcher.forward(request, response);
+        if(session.getAttribute("id")==null){
+            response.sendRedirect("/notamais-web");
+        }else{
+            String url = "/views/adm/pay-list.jsp";
+
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
+            dispatcher.forward(request, response);
+        }
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+        PrintWriter out = response.getWriter();
+
+        response.setContentType("text/html;charset=UTF-8");
+        HttpSession session = request.getSession();
+        
+        String id = request.getParameter("id");
+        String token = (String) session.getAttribute("token");
+        String type = request.getParameter("type");
+
+        API con = new API("payments/", "GET", token);
+        
+
+        Hashtable<Integer, String> source = new Hashtable<Integer, String>();
+        HashMap<String, String> map = new HashMap(source);
+        String responseJSON = con.getJsonString(map);
+        out.println(responseJSON);
     }
 
     @Override

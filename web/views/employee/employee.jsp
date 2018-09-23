@@ -16,9 +16,8 @@
                     <thead>
                         <tr>
                             <td>Nome</td>
-                            <td>Gênero</td>
-                            <td>Nickname</td>
-                            <td>CPF</td>
+                            <td>Email</td>
+                            <td>Data de Criação</td>
                             <td>Ações</td>
                         </tr>
                     </thead>
@@ -72,7 +71,6 @@
                     </div>
                     <div class="col-sm-12 col-md-12 col-lg-12">
                         <input type="submit" class="btn btn-secondary" value="Cadastrar">
-                        <input type="button" class="btn btn-secondary back-type" value="Voltar">
                     </div>
                 </div>
             </form>

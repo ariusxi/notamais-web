@@ -5,10 +5,23 @@
 --%>
 
 <%@page contentType="text/html"%>
+<%
+    try{
+        session=request.getSession(false);
+        if (session.isNew()){
+            response.sendRedirect("/");
+        }else{
+            
+        }
+    }catch(Exception e){
+        response.sendRedirect("/");
+    }
+%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no">
         <title>Nota Mais</title>
         <!-- Fonts -->
         <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
@@ -144,5 +157,3 @@
                 </nav>
                 <div class="content mt-3">
                     <div class="container-fluid">
-
-

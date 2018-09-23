@@ -43,10 +43,15 @@ public class Dashboard extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        String url = "/views/dashboard.jsp";
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
-        dispatcher.forward(request, response);
+        
+        HttpSession session = request.getSession();
+        if(session.getAttribute("id")==null){
+            response.sendRedirect("/notamais-web");
+        }else{
+            String url = "/views/dashboard.jsp";
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
+            dispatcher.forward(request, response);
+        }
     }
     
     @Override

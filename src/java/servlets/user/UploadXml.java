@@ -36,22 +36,24 @@ public class UploadXml extends HttpServlet {
             throws ServletException, IOException {
         
         HttpSession session = request.getSession();
+        if(session.getAttribute("id")==null){
+            response.sendRedirect("/notamais-web");
+        }else{
         
-        String idUser = session.getAttribute("id").toString();
-        String token = session.getAttribute("token").toString();
+            String idUser = session.getAttribute("id").toString();
+            String token = session.getAttribute("token").toString();
+
+            String rotaAPI = "contracts/user/" + idUser;
+            API api = new API(rotaAPI, "GET", token);
+
+            String json = api.getJsonString(new HashMap<String, String>());
+            request.setAttribute("plano", json);
+
+
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/user/upload-xml.jsp");
+            dispatcher.forward(request, response);
         
-        String rotaAPI = "contracts/user/" + idUser;
-        API api = new API(rotaAPI, "GET", token);
-        
-        String json = api.getJsonString(new HashMap<String, String>());
-        request.setAttribute("plano", json);
-        
-        
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/user/upload-xml.jsp");
-        dispatcher.forward(request, response);
-        
-        
-        
+        }
         
     }
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -67,7 +69,7 @@ public class UploadXml extends HttpServlet {
         String token = (String) session.getAttribute("token");
         String methodType = request.getParameter("methodType");
         
-         String rotaAPI = "plans/";
+        String rotaAPI = "plans/";
         API api = new API(rotaAPI, "GET", "");
         
        
@@ -83,7 +85,7 @@ public class UploadXml extends HttpServlet {
         API con;
         switch(methodType){
             case "list-xml":
-                con = new API("files/" + id, "GET", token);
+                con = new API("files/user/" + id, "GET", token);
                 break;
             default: 
                 con = new API("/files/delete/" + id, "DELETE", token);

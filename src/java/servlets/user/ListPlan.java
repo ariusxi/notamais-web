@@ -37,28 +37,33 @@ public class ListPlan extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         HttpSession session = request.getSession();
-        String id = (String) session.getAttribute("id");
-        String token = (String) session.getAttribute("token");
         
-        String rotaAPI = "plans/";
-        API api = new API(rotaAPI, "GET", "");
-        
-        String json = api.getJsonString(new HashMap<String, String>());
-        request.setAttribute("planos", json);
-        
-        rotaAPI = "contracts/user/" + id;
-        api = new API(rotaAPI, "GET", token);
-        
-        json = api.getJsonString(new HashMap<String, String>());
-        request.setAttribute("plano", json);
+        HttpSession session = request.getSession();
+        if(session.getAttribute("id")==null){
+            response.sendRedirect("/notamais-web");
+        }else{
+            String id = (String) session.getAttribute("id");
+            String token = (String) session.getAttribute("token");
 
-        
-        
-        
-        
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/user/list-plan.jsp");
-        dispatcher.forward(request, response);
+            String rotaAPI = "plans/";
+            API api = new API(rotaAPI, "GET", "");
+
+            String json = api.getJsonString(new HashMap<String, String>());
+            request.setAttribute("planos", json);
+
+            rotaAPI = "contracts/user/" + id;
+            api = new API(rotaAPI, "GET", token);
+
+            json = api.getJsonString(new HashMap<String, String>());
+            request.setAttribute("plano", json);
+
+
+
+
+
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/user/list-plan.jsp");
+            dispatcher.forward(request, response);
+        }
 
     }
 
