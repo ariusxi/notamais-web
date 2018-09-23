@@ -16,10 +16,10 @@
                 <table  class="display table" id="contaReceber">
                     <thead>
                         <tr>
+                            <th>Valor</th>
                             <th>Cliente</th>
                             <th>Data</th>
-                            <th>Forma de pagamento</th>
-                            <th>Valor</th>
+                            <th>Forma de pagamento</
                         </tr>
                     </thead>
                     <tbody></tbody>

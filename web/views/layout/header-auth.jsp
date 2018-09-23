@@ -5,10 +5,23 @@
 --%>
 
 <%@page contentType="text/html"%>
+<%
+    try{
+        session=request.getSession(false);
+        if (session.isNew()){
+            response.sendRedirect("/");
+        }else{
+            
+        }
+    }catch(Exception e){
+        response.sendRedirect("/");
+    }
+%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no">
         <title>Nota Mais</title>
         <!-- Fonts -->
         <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
@@ -25,7 +38,8 @@
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
         <!-- Material Kit CSS -->
-        <link href="${pageContext.request.contextPath}/assets/dashboard/assets/css/material-dashboard.css" rel="stylesheet" />
+        <link href="${pageContext.request.contextPath}/assets/dashboard/assets/css/material-dashboard.css?v=2.1.0" rel="stylesheet" />
+        <link href="${pageContext.request.contextPath}/assets/css/fix.css" rel="stylesheet"/>
     </head>
     <body class="dark-edition">
         <div class="wrapper ">
@@ -36,7 +50,7 @@
                     </a>
                 </div>
                 <div class="sidebar-wrapper">
-                    <ul class="nav">
+                    <ul class="nav fix-dashboard-menu">
                         <li class="nav-item">
                             <div class="text-center">
                                 <img src="${pageContext.request.contextPath}/assets/img/default-user.png" class="img-fluid img-thumbnail img-profile" width="100" alt="<%= session.getAttribute("name")%>"><br/><br/>
@@ -108,7 +122,7 @@
                                 <p>Meus Cartões</p>
                             </a>
                         </li>
-                         <li class="nav-item active  ">
+                        <li class="nav-item active  ">
                             <a class="nav-link" href="upload-xml">
                                 <i class="material-icons">insert_drive_file</i>
                                 <p>Lista de NFes</p>
@@ -140,9 +154,11 @@
                             <span class="navbar-toggler-icon icon-bar"></span>
                             <span class="navbar-toggler-icon icon-bar"></span>
                         </button>
+                        <div class="collapse navbar-collapse justify-content-end">
+                            <ul class="navbar-nav">
+                            </ul>
+                        </div>
                     </div>
                 </nav>
                 <div class="content mt-3">
                     <div class="container-fluid">
-
-

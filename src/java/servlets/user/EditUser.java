@@ -37,31 +37,35 @@ public class EditUser extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        PrintWriter out = response.getWriter();
-        response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
+        if(session.getAttribute("id")==null){
+            response.sendRedirect("/notamais-web");
+        }else{
+            PrintWriter out = response.getWriter();
+            response.setContentType("text/html;charset=UTF-8");
 
-        //Parameters
-        String idUser = session.getAttribute("id").toString();
-        String token = session.getAttribute("token").toString();
+            //Parameters
+            String idUser = session.getAttribute("id").toString();
+            String token = session.getAttribute("token").toString();
 
-        //Route to get profile data
-        String routeGetProfile = "users/get-profile/" + idUser;
-        API conGetProfile = new API(routeGetProfile, GET, token);
+            //Route to get profile data
+            String routeGetProfile = "users/get-profile/" + idUser;
+            API conGetProfile = new API(routeGetProfile, GET, token);
 
-        Hashtable<Integer, String> source = new Hashtable<Integer, String>();
-        HashMap<String, String> map = new HashMap(source);
+            Hashtable<Integer, String> source = new Hashtable<Integer, String>();
+            HashMap<String, String> map = new HashMap(source);
 
-        //Get response of routes
-        String responseGetProfile = conGetProfile.getJsonString(map);
+            //Get response of routes
+            String responseGetProfile = conGetProfile.getJsonString(map);
 
-        //Make a single data list to get on javascript
-        request.setAttribute("userData", responseGetProfile);
+            //Make a single data list to get on javascript
+            request.setAttribute("userData", responseGetProfile);
 
-        //Redirect to edit user view
-        String url = "/views/user/edit-user.jsp";
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
-        dispatcher.forward(request, response);
+            //Redirect to edit user view
+            String url = "/views/user/edit-user.jsp";
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
+            dispatcher.forward(request, response);
+        }
     }
 
     @Override

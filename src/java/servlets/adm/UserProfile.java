@@ -53,10 +53,13 @@ public class UserProfile extends HttpServlet {
         json = api.getJsonString(new HashMap<String, String>());
         request.setAttribute("plano", json);
         
-
-        String url = "/views/adm/user-profile.jsp";
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
-        dispatcher.forward(request, response);
+        if(session.getAttribute("id")==null){
+            response.sendRedirect("/notamais-web");
+        }else{
+            String url = "/views/adm/user-profile.jsp";
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
+            dispatcher.forward(request, response);
+        }
     }
 
 

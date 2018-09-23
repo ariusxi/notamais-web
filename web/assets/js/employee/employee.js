@@ -19,9 +19,8 @@ $("#employee-list").ready(function (e) {
                     nickname = value.person.nickname;
                 }
                 let html = "<tr><td>" + value.person.name + "</td>";
-                html += "<td>" + value.person.gender + "</td>";
-                html += "<td>" + nickname + "</td>";
-                html += "<td>" + value.person.cpf + "</td>";
+                html += "<td>" + value.person.email + "</td>";
+                html += "<td>" + value.person.createdAt + "</td>";
                 html += "<td><button class='btn btn-primary delete-employee' id='" + value._id + "'>Excluir</button></td>";
                 html += "</tr>";
 

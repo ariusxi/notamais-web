@@ -37,28 +37,32 @@ public class EditCounter extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        PrintWriter out = response.getWriter();
-        response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
+        if(session.getAttribute("id")==null){
+            response.sendRedirect("/notamais-web");
+        }else{
+            PrintWriter out = response.getWriter();
+            response.setContentType("text/html;charset=UTF-8");
 
-        String idCounter = session.getAttribute("id").toString();
-        String token = session.getAttribute("token").toString();
+            String idCounter = session.getAttribute("id").toString();
+            String token = session.getAttribute("token").toString();
 
-        String route = "users/get-profile/" + idCounter;
-        API con = new API(route, GET, token);
+            String route = "users/get-profile/" + idCounter;
+            API con = new API(route, GET, token);
 
-        Hashtable<Integer, String> source = new Hashtable<Integer, String>();
-        HashMap<String, String> map = new HashMap(source);
+            Hashtable<Integer, String> source = new Hashtable<Integer, String>();
+            HashMap<String, String> map = new HashMap(source);
 
-        String responseJson = con.getJsonString(map);
-        out.print(session.getAttribute("email"));
-        request.setAttribute("counterData", responseJson);
+            String responseJson = con.getJsonString(map);
+            out.print(session.getAttribute("email"));
+            request.setAttribute("counterData", responseJson);
 
-        out.print(responseJson);
+            out.print(responseJson);
 
-        String url = "/views/counter/edit-counter.jsp";
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
-        dispatcher.forward(request, response);
+            String url = "/views/counter/edit-counter.jsp";
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
+            dispatcher.forward(request, response);
+        }
 
     }
 

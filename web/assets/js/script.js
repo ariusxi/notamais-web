@@ -94,7 +94,7 @@ $("#users-list").ready(function () {
                 if(value.roles != undefined){
                     roles = value.roles[0];
                 }
-                let html = "<tr><td>" + value.name + "</td><td>" + value.email + "</td><td><a href='user-profile?id=" + value._id + "' class='btn btn-primary'>Perfil</a>&nbsp;<button class='btn btn-primary btnAtivacao' data-id='" + value._id + "'data-ativo='" + value.active + "'>" + (value.active?"Desativar":"Ativar") + "</button></td></tr>";
+                let html = "<tr><td>" + value.name + "</td><td>" + value.email + "</td><td><a href='user-profile?id=" + value._id + "' class='btn btn-primary'>Perfil</a><button class='btn btn-primary btnAtivacao' data-id='" + value._id + "'data-ativo='" + value.active + "'>" + (value.active?"Desativar":"Ativar") + "</button></td></tr>";
 
                 if (roles == "user") {
                     $("#users-list tbody").append(html);
@@ -117,6 +117,8 @@ $("#users-list").ready(function () {
                 values.push(months.values[value]);
             }
             
+            $("#number-user").text(values[values.length - 1]);
+            
             var ctx = document.getElementById("user-chart").getContext('2d');
             
             var users_chart = new Chart(ctx, {
@@ -124,23 +126,23 @@ $("#users-list").ready(function () {
                 data: {
                     labels: months['meses'],
                     datasets: [{
-                        label: 'Numeros de usuarios',
+                        label: 'Numero de usuarios',
                         data: values,
                         backgroundColor: [
-                            'rgba(255, 99, 132, 0.8)',
-                            'rgba(54, 162, 235, 0.8)',
-                            'rgba(255, 206, 86, 0.8)',
-                            'rgba(75, 192, 192, 0.8)',
-                            'rgba(153, 102, 255, 0.8)',
-                            'rgba(255, 159, 64, 0.8)'
+                            'rgba(255, 255, 255, 0.8)',
+                            'rgba(255, 255, 255, 0.8)',
+                            'rgba(255, 255, 255, 0.8)',
+                            'rgba(255, 255, 255, 0.8)',
+                            'rgba(255, 255, 255, 0.8)',
+                            'rgba(255, 255, 255, 0.8)'
                         ],
                         borderColor: [
-                            'rgba(255,99,132,1)',
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(255, 206, 86, 1)',
-                            'rgba(75, 192, 192, 1)',
-                            'rgba(153, 102, 255, 1)',
-                            'rgba(255, 159, 64, 1)'
+                            'rgba(255,255,255,1)',
+                            'rgba(255, 255, 255, 1)',
+                            'rgba(255, 255, 255, 1)',
+                            'rgba(255, 255, 255, 1)',
+                            'rgba(255, 255, 255, 1)',
+                            'rgba(255, 255, 255, 1)'
                         ],
                         borderWidth: 1
                     }]
@@ -171,6 +173,219 @@ $("#users-list").ready(function () {
         }
     });
 
+});
+
+$("#dispatch-chart").ready(function(){
+    $.ajax({
+        url: "dispatches",
+        method: "POST",
+        dataType: "json",
+        success: function(data){
+            var months = [],
+                values = [];
+            months['meses'] = [],
+            months['values'] = [];
+            $.each(data, function (i, value) {
+                var month = value.date.split("-");
+                month = getMes(month[1]);
+                if(!in_array(month, months['meses'])){
+                    months['values'][month] = 1;
+                    months['meses'].push(month);
+                }else{
+                    months['values'][month]++;
+                }
+            });
+            
+            for(var value in months.values){
+                values.push(months.values[value]);
+            }
+            
+            
+            $("#number-files").text(values[values.length - 1]);
+            
+            var ctx = document.getElementById("dispatch-chart").getContext('2d');
+            
+            var users_chart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: months['meses'],
+                    datasets: [{
+                        label: 'Numero de envios',
+                        data: values,
+                        backgroundColor: [
+                            'rgba(255, 255, 255, 0.8)',
+                            'rgba(255, 255, 255, 0.8)',
+                            'rgba(255, 255, 255, 0.8)',
+                            'rgba(255, 255, 255, 0.8)',
+                            'rgba(255, 255, 255, 0.8)',
+                            'rgba(255, 255, 255, 0.8)'
+                        ],
+                        borderColor: [
+                            'rgba(255,255,255,1)',
+                            'rgba(255, 255, 255, 1)',
+                            'rgba(255, 255, 255, 1)',
+                            'rgba(255, 255, 255, 1)',
+                            'rgba(255, 255, 255, 1)',
+                            'rgba(255, 255, 255, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero:true
+                            }
+                        }]
+                    }
+                }
+            });
+        },error: function(e){
+            console.log(e);
+        }
+    });
+});
+
+$("#payments-chart").ready(function(){
+    $.ajax({
+        url: "pay-list",
+        method: "POST",
+        dataType: "json",
+        success: function(data){
+            var months = [],
+                values = [];
+            months['meses'] = [],
+            months['values'] = [];
+            $.each(data, function (i, value) {
+                var month = value.date.split("-");
+                month = getMes(month[1]);
+                if(!in_array(month, months['meses'])){
+                    months['values'][month] = 1;
+                    months['meses'].push(month);
+                }else{
+                    months['values'][month]++;
+                }
+            });
+            
+            for(var value in months.values){
+                values.push(months.values[value]);
+            }
+            
+            
+            $("#number-pay").text(values[values.length - 1]);
+            
+            var ctx = document.getElementById("payments-chart").getContext('2d');
+            
+            var users_chart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: months['meses'],
+                    datasets: [{
+                        label: 'Numero de Pagamentos',
+                        data: values,
+                        backgroundColor: [
+                            'rgba(255, 255, 255, 0.8)',
+                            'rgba(255, 255, 255, 0.8)',
+                            'rgba(255, 255, 255, 0.8)',
+                            'rgba(255, 255, 255, 0.8)',
+                            'rgba(255, 255, 255, 0.8)',
+                            'rgba(255, 255, 255, 0.8)'
+                        ],
+                        borderColor: [
+                            'rgba(255,255,255,1)',
+                            'rgba(255, 255, 255, 1)',
+                            'rgba(255, 255, 255, 1)',
+                            'rgba(255, 255, 255, 1)',
+                            'rgba(255, 255, 255, 1)',
+                            'rgba(255, 255, 255, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero:true
+                            }
+                        }]
+                    }
+                }
+            });
+        },error: function(e){
+            console.log(e);
+        }
+    });
+});
+
+$("#xml-chart").ready(function(){
+   $.ajax({
+       type: "POST",
+       url: "dispatches",
+       dataType: "json",
+       success: function(data){
+            var months = [],
+                values = [];
+            months['meses'] = [],
+            months['values'] = [];
+            $.each(data, function (i, value) {
+                var month = value.date.split("-");
+                month = getMes(month[1]);
+                if(!in_array(month, months['meses'])){
+                    months['values'][month] = 1;
+                    months['meses'].push(month);
+                }else{
+                    months['values'][month]++;
+                }
+            });
+            
+            for(var value in months.values){
+                values.push(months.values[value]);
+            }
+            
+            var ctx = document.getElementById("xml-chart").getContext('2d');
+            
+            var users_chart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: months['meses'],
+                    datasets: [{
+                        label: 'Numero de envios',
+                        data: values,
+                        backgroundColor: [
+                            'rgba(255, 255, 255, 0.8)',
+                            'rgba(255, 255, 255, 0.8)',
+                            'rgba(255, 255, 255, 0.8)',
+                            'rgba(255, 255, 255, 0.8)',
+                            'rgba(255, 255, 255, 0.8)',
+                            'rgba(255, 255, 255, 0.8)'
+                        ],
+                        borderColor: [
+                            'rgba(255,255,255,1)',
+                            'rgba(255, 255, 255, 1)',
+                            'rgba(255, 255, 255, 1)',
+                            'rgba(255, 255, 255, 1)',
+                            'rgba(255, 255, 255, 1)',
+                            'rgba(255, 255, 255, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero:true
+                            }
+                        }]
+                    }
+                }
+            });
+       }, error: function(e){
+           console.log(e);
+       }
+   }); 
 });
 
 $("#contaReceber").ready(function () {
