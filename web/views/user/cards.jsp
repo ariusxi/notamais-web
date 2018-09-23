@@ -76,8 +76,8 @@
                     <div class="col-sm-12 col-md-4 col-lg-4">
                         <div class="form-group">
                             <label for="brand">Bandeira</label>
-                            <select class="form-control" id="brand" name="brand">
-                                <option value="" selected="">Bandeira</option>
+                            <select class="form-control fix-select-option" id="brand" name="brand">
+                                <option value="" >Bandeira</option>
                                 <option value="master">Master</option>
                                 <option value="visa">Visa</option>
                                 <option value="elo">Elo</option>
@@ -88,7 +88,7 @@
                     <div class="col-sm-12 col-md-4 col-lg-4">
                         <div class="form-group">
                             <label for="card-type">Tipo:</label>
-                            <select class="form-control" id="card-type" name="card-type">
+                            <select class="form-control fix-select-option" id="card-type" name="card-type">
                                 <option value="">Tipo</option>
                                 <option value="CreditCard">Cartão de Crédito</option>
                                 <option value="DebitCard">Cartão de Débito</option>

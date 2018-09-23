@@ -1,0 +1,27 @@
+.fix-select-option
+{
+    color: #fff !important;
+}
+
+.fix-select-option > option{
+    color: #000 !important;
+}
+
+.fix-select
+{
+   color: #000 !important; 
+}
+
+.fix-dashboard-menu a.nav-link{
+    padding: 5px 10px !important;
+}
+
+.fix-dashboard-menu h5.card-title{
+    color: #8b92a9 !important;
+}
+
+.nav-tabs .nav-link:hover {
+   background-color: #651473; 
+   border-color: #651473;
+   color: #fff;
+}

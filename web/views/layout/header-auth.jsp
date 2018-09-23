@@ -39,6 +39,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
         <!-- Material Kit CSS -->
         <link href="${pageContext.request.contextPath}/assets/dashboard/assets/css/material-dashboard.css?v=2.1.0" rel="stylesheet" />
+        <link href="${pageContext.request.contextPath}/assets/css/fix.css" rel="stylesheet"/>
     </head>
     <body class="dark-edition">
         <div class="wrapper ">
@@ -49,7 +50,7 @@
                     </a>
                 </div>
                 <div class="sidebar-wrapper">
-                    <ul class="nav">
+                    <ul class="nav fix-dashboard-menu">
                         <li class="nav-item">
                             <div class="text-center">
                                 <img src="${pageContext.request.contextPath}/assets/img/default-user.png" class="img-fluid img-thumbnail img-profile" width="100" alt="<%= session.getAttribute("name")%>"><br/><br/>

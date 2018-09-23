@@ -83,7 +83,7 @@
                     <div class="col-sm-12 col-md-4 col-lg-4">
                         <div class="form-group">
                             <label for="brand">Bandeira</label>
-                            <select class="form-control" id="brand" name="brand" style="color:#000 !important;">
+                            <select class="form-control fix-select" id="brand" name="brand" >
                                 <option value="" selected="">Bandeira</option>
                                 <option value="master">Master</option>
                                 <option value="visa">Visa</option>
@@ -95,7 +95,7 @@
                     <div class="col-sm-12 col-md-4 col-lg-4">
                         <div class="form-group">
                             <label for="card-type">Tipo:</label>
-                            <select class="form-control" id="card-type" name="card-type">
+                            <select class="form-control fix-select" id="card-type" name="card-type">
                                 <option value="">Tipo</option>
                                 <option value="CreditCard">Cartão de Crédito</option>
                                 <option value="DebitCard">Cartão de Débito</option>
@@ -124,7 +124,6 @@
 
 <script>
     var json = '<%= request.getAttribute("planos")%>';
-
     
     var planos = JSON.parse(json);
     

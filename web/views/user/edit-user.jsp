@@ -30,7 +30,7 @@
                     </div>
                     <div class="form-group col-md-3">
                         <label>Gênero:</label>
-                        <select class="form-control" id="gender" name="gender">
+                        <select class="form-control fix-select-option" id="gender" name="gender">
                         </select>
                     </div>
                 </div>
