@@ -5,7 +5,7 @@
 --%>
 
 <jsp:include page="../layout/header.jsp" />
-<div class="page-header header-filter" style="background-image: url('https://pixabay.com/get/e131b8072af11c22d9584518a33219c8b66ae3d01ab6164495f5c17c/student-849825_1920.jpg');
+<div class="page-header header-filter" style="background-image: url('${pageContext.request.contextPath}/assets/img/background.jpg');
         background-size: cover;background-position: top center;">
     <div class="container">
         <div class="row mt-3 justify-content-center">
@@ -16,8 +16,8 @@
                             <h4>Esqueci minha senha</h4>
                         </div>
                         <div class="card-body">
-                            <p class="text-center m-0">Digite o seu endereï¿½o de e-mail.</p>
-                            <p class="text-center m-0">Nï¿½s enviaremos um link para redefinir a senha da sua conta.</p>
+                            <p class="text-center m-0">Digite o seu endereço de e-mail.</p>
+                            <p class="text-center m-0">Nós enviaremos um link para redefinir a senha da sua conta.</p>
                             <span class="bmd-form-group">
                                 <div class="input-group">
                                     <div class="input-group-prepend">

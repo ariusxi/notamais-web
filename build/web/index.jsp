@@ -64,7 +64,7 @@
             </div>
         </nav>
 
-        <div class="page-header header-filter" data-parallax="true" style="background-image: url('https://pixabay.com/get/e131b8072af11c22d9584518a33219c8b66ae3d01ab6164495f5c17c/student-849825_1920.jpg')">
+        <div class="page-header header-filter" data-parallax="true" style="background-image: url('${pageContext.request.contextPath}/assets/img/background.jpg');">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">

@@ -1,7 +1,7 @@
 
 
 <jsp:include page="../layout/header.jsp" />
-<div class="page-header header-filter" style="background-image: url('https://pixabay.com/get/e131b8072af11c22d9584518a33219c8b66ae3d01ab6164495f5c17c/student-849825_1920.jpg'); background-position: top center;">
+<div class="page-header header-filter" style="background-image: url('${pageContext.request.contextPath}/assets/img/background.jpg'); background-position: top center;">
     
     <div class="container">
          <br>

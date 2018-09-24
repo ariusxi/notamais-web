@@ -5,7 +5,7 @@
 --%>
 
 <jsp:include page="../layout/header.jsp" />
-<div class="page-header header-filter" style="background-image: url('https://pixabay.com/get/e131b8072af11c22d9584518a33219c8b66ae3d01ab6164495f5c17c/student-849825_1920.jpg');
+<div class="page-header header-filter" style="background-image: url('${pageContext.request.contextPath}/assets/img/background.jpg');
         background-size: cover; background-position: top center;">
     <div class="container">
         <div class="row mt-3 justify-content-center">
@@ -13,7 +13,7 @@
                 <div class="card card-login">
                     <form id="formNewPassword" class="form" method="POST" action="">
                         <div class="card-header card-header-primary text-center">
-                            <h4>Redifiniï¿½ï¿½o de Senha</h4>
+                            <h4>Redifinição de Senha</h4>
                         </div>
                         <div class="card-body">
                             <span class="bmd-form-group">
