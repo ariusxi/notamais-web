@@ -5,7 +5,8 @@
 --%>
 
 <jsp:include page="../layout/header.jsp" />
-<div class="page-header header-filter" style="background-image: url('http://demos.creative-tim.com/material-bootstrap-wizard/assets/img/wizard-book.jpg'); background-size: cover; background-position: top center;">
+<div class="page-header header-filter" style="background-image: url('${pageContext.request.contextPath}/assets/img/background.jpg');
+        background-size: cover;background-position: top center;">
     <div class="container">
         <div class="row mt-3 justify-content-center">
             <div class="col-sm-12 col-md-4">
@@ -15,8 +16,8 @@
                             <h4>Esqueci minha senha</h4>
                         </div>
                         <div class="card-body">
-                            <p class="text-center m-0">Digite o seu endereï¿½o de e-mail.</p>
-                            <p class="text-center m-0">Nï¿½s enviaremos um link para redefinir a senha da sua conta.</p>
+                            <p class="text-center m-0">Digite o seu endereço de e-mail.</p>
+                            <p class="text-center m-0">Nós enviaremos um link para redefinir a senha da sua conta.</p>
                             <span class="bmd-form-group">
                                 <div class="input-group">
                                     <div class="input-group-prepend">

@@ -32,7 +32,7 @@
         <link href="${pageContext.request.contextPath}/assets/css/jquery.dataTables.min.css" rel="stylesheet"/>
         <!-- Bootstrap -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-              crossorigin="anonymous">
+              crossorigin="anonymous">        
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <!--     Fonts and icons     -->
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
@@ -135,7 +135,20 @@
                                 <p>Alterar dados de perfil</p>
                             </a>
                         </li>
-                        <% }%>
+                        <% } else if (session.getAttribute("roles").equals("employee")) { %>
+                        <li class="nav-item active  ">
+                            <a class="nav-link" href="edit-counter">
+                                <i class="material-icons">dashboard</i>
+                                <p>Alterar dados de perfil</p>
+                            </a>
+                        </li>
+                        <li class="nav-item active  ">
+                            <a class="nav-link" href="upload-xml">
+                                <i class="material-icons">insert_drive_file</i>
+                                <p>Lista de NFes</p>
+                            </a>
+                        </li>
+                        <% } %>
                     </ul>
                 </div>
             </div>

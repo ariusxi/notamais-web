@@ -26,7 +26,8 @@ $(function(){
             dataType: "json",
             success: function (response) {
                 $("#message").css('display', 'block');
-                $("#message").html(response.message + '<a href="'+response.path+'" target"_blank">Clique aqui para abrir o seu arquivo</a>' );
+                $(".btnUploadXml").css('display','none');
+                $("#message").html(response.message + '<a href="'+response.path+'" target"_blank" class="mt-2"> Clique aqui para abrir o seu arquivo</a>' );
                 //window.location.href = "/views/user/cards.jsp";
                 $(".text-file").text('Escolha um arquivo');
             },
@@ -58,11 +59,25 @@ $(function(){
                     if(value.name == undefined){
                         name = "-";
                     }
+                    
                     $("#xml-list tbody").append("<tr><td>"+(i+1)+"</td><td>"+name+"</td><td><a target='_blank' title='"+value.xml+"' href='"+value.xml+"'>Acessar</a></td><td>"+value.date+"</td></tr>");
+                    
                 });
+                
+                $("#xml-list").dataTable({
+                    "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Portuguese-Brasil.json"
+                    }
+                });
+                
             },error: function(e){
                 console.log(e);
             }
         });
+        
+       
+        
+        
+        
     });
 });

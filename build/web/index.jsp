@@ -64,7 +64,7 @@
             </div>
         </nav>
 
-        <div class="page-header header-filter" data-parallax="true" style="background-image: url('http://demos.creative-tim.com/material-bootstrap-wizard/assets/img/wizard-book.jpg')">
+        <div class="page-header header-filter" data-parallax="true" style="background-image: url('${pageContext.request.contextPath}/assets/img/background.jpg');">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">

@@ -35,22 +35,19 @@
     <!-- <button class="btn btn-secondary" type="button" > 
     <i class="fa fa-times ng-scope" aria-hidden="true"></i> Remover</button>-->
 </form>
-<div class="table-responsive">
+<div class="table-responsive">    
     <table id="xml-list" class="display table">
         <thead>
             <tr>
-                <th>#</th>
+                <th>Nº</th>
                 <th>Nome</th>
-                <th>URL</th>
+                <th>XML</th>
                 <th>Data de envio</th>
             </tr>
         </thead>
-        <tbody>
-            <tr>
-
-            </tr>
+        <tbody>   
         </tbody>
-    </table>
+    </table>  
 </div>
 <jsp:include page="../layout/footer-auth.jsp"/>
 
@@ -66,7 +63,7 @@
             html += "<label  style='width: 500px; margin-left: 20px;' for='description'>Descrição: <input type='text' class='form-control'  id='description' name='description' placeholder='Descrição' ></label> ";
             html += "<br>";
             html += "<input type='file' name='file' id='file' class='inputfile'  accept='.xml' />";
-            html += "<label for='file' style='margin-left: 35px; width: 1000px;'> <i class='fa fa-folder-open' style='margin-right: 5px;'></i><span class='text-file'>Escolha um arquivo</span><button class='btn btn-success btn-sm' style='width: 100px; margin-left:700px;'>Enviar</button></label>";
+            html += "<label for='file' style='margin-left: 35px; width: 1000px;'> <i class='fa fa-folder-open' style='margin-right: 5px;'></i><span class='text-file'>Escolha um arquivo</span><button class='btn btn-success btn-sm btnUploadXml' style='width: 100px; margin-left:700px;'>Enviar</button></label>";
             html += "<div class='alert alert-info mt-2 mb-0' id='message'>";
             html += "</div>";
             html += "</div>";       

@@ -38,6 +38,7 @@ public class SetLogin extends HttpServlet {
 
         String url = "/views/public/login.jsp";
         String url2 = "/views/user/upload-xml.jsp";
+      
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
         dispatcher.forward(request, response);
     }

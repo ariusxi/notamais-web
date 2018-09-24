@@ -19,16 +19,17 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author lucas
+ * @author Isabela
  */
-@WebServlet("/forgot-password")
-public class ForgotPassword extends HttpServlet {
+
+@WebServlet("/active")
+public class Active extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        String url = "/views/public/forgot-password.jsp";
+        String url = "/views/public/active.jsp";
       
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
         dispatcher.forward(request, response);
@@ -55,3 +56,4 @@ public class ForgotPassword extends HttpServlet {
     }
     
 }
+
