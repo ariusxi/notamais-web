@@ -1,4 +1,5 @@
 package servlets.employee;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -46,15 +47,15 @@ public class Employee extends HttpServlet {
             throws ServletException, IOException {
 
         HttpSession session = request.getSession();
-        if(session.getAttribute("id")==null){
+        if (session.getAttribute("id") == null) {
             response.sendRedirect("/notamais-web");
-        }else{
+        } else {
             String url = "/views/employee/employee.jsp";
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
             dispatcher.forward(request, response);
         }
     }
-    
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -69,22 +70,22 @@ public class Employee extends HttpServlet {
         String cpf = request.getParameter("cpf");
         String gender = request.getParameter("gender");
         String id = (String) session.getAttribute("id");
-        String e = (String) request.getParameter("id");
+        String e = (String) request.getParameter("e");
         String token = (String) session.getAttribute("token");
         String type = request.getParameter("type");
-        
+
         API con;
-        if(type.equals("employee-list")){
-            con = new API("employees/fetch-all/"+id, "GET", token);
-        }else if(type.equals("delete-employee")){
-            con = new API("employees/delete/"+id, "GET", token);
-        }else{
-            con = new API("employees/create/"+id, "POST", token);
+        if (type.equals("employee-list")) {
+            con = new API("employees/fetch-all/" + id, "GET", token);
+        } else if (type.equals("delete-employee")) {
+            con = new API("employees/delete/" + e, "GET", token);
+        } else {
+            con = new API("employees/create/" + id, "POST", token);
         }
-        
+
         Hashtable<Integer, String> source = new Hashtable<Integer, String>();
         HashMap<String, String> map = new HashMap(source);
-        if(!type.equals("employee-list") && !type.equals("delete-employee")){
+        if (!type.equals("employee-list") && !type.equals("delete-employee")) {
             map.put("name", name);
             map.put("nickname", nickname);
             map.put("email", email);

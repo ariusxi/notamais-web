@@ -26,7 +26,8 @@ $(function(){
             dataType: "json",
             success: function (response) {
                 $("#message").css('display', 'block');
-                $("#message").html(response.message + '<a href="'+response.path+'" target"_blank">Clique aqui para abrir o seu arquivo</a>' );
+                $(".btnUploadXml").css('display','none');
+                $("#message").html(response.message + '<a href="'+response.path+'" target"_blank" class="mt-2"> Clique aqui para abrir o seu arquivo</a>' );
                 //window.location.href = "/views/user/cards.jsp";
                 $(".text-file").text('Escolha um arquivo');
             },
