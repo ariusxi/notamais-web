@@ -1,12 +1,14 @@
 <jsp:include page="../layout/header.jsp" />
 <style>
     body{
-        background-image: url('http://demos.creative-tim.com/material-bootstrap-wizard/assets/img/wizard-book.jpg');
-        background-size: cover;
+        background-image: url('https://pixabay.com/get/e131b8072af11c22d9584518a33219c8b66ae3d01ab6164495f5c17c/student-849825_1920.jpg');
+     
         background-position: top center;
     }   
 </style>
+
 <div class="container">
+    <BR>
     <div class="row mt-12 justify-content-center text-center user-register">
         <div class="col-sm-12 col-md-4 col-lg-4">
             <div class="card card-login">

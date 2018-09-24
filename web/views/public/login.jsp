@@ -1,12 +1,7 @@
-<%-- 
-    Document   : login
-    Created on : 24/08/2018, 08:37:12
-    Author     : lucas
---%>
+
 
 <jsp:include page="../layout/header.jsp" />
-
-<div class="page-header header-filter" style="background-image: url('http://demos.creative-tim.com/material-bootstrap-wizard/assets/img/wizard-book.jpg'); background-size: cover; background-position: top center;">
+<div class="page-header header-filter" style="background-image: url('https://pixabay.com/get/e131b8072af11c22d9584518a33219c8b66ae3d01ab6164495f5c17c/student-849825_1920.jpg'); background-position: top center;">
     
     <div class="container">
          <br>
