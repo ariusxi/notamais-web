@@ -54,7 +54,7 @@
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 
 <script src="${pageContext.request.contextPath}/assets/dashboard/assets/js/core/bootstrap-material-design.min.js" type="text/javascript"></script>
-<script src="${pageContext.request.contextPath}/assets/dashboard/assets/js/core/jquery.min.js" type="text/javascript"></script>
+<!--<script src="${pageContext.request.contextPath}/assets/dashboard/assets/js/core/jquery.min.js" type="text/javascript"></script> -->
 <script src="${pageContext.request.contextPath}/assets/dashboard/assets/js/core/popper.min.js" type="text/javascript"></script>
 <script src="${pageContext.request.contextPath}/assets/dashboard/assets/js/plugins/perfect-scrollbar.jquery.min.js" type="text/javascript"></script>
 <script src="${pageContext.request.contextPath}/assets/dashboard/assets/js/material-dashboard.js?v=2.1.0" type="text/javascript"></script>
