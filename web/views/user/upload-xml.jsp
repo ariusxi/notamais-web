@@ -35,22 +35,19 @@
     <!-- <button class="btn btn-secondary" type="button" > 
     <i class="fa fa-times ng-scope" aria-hidden="true"></i> Remover</button>-->
 </form>
-<div class="table-responsive">
+<div class="table-responsive">    
     <table id="xml-list" class="display table">
         <thead>
             <tr>
-                <th>#</th>
+                <th>Nº</th>
                 <th>Nome</th>
                 <th>URL</th>
                 <th>Data de envio</th>
             </tr>
         </thead>
-        <tbody>
-            <tr>
-
-            </tr>
+        <tbody>   
         </tbody>
-    </table>
+    </table>  
 </div>
 <jsp:include page="../layout/footer-auth.jsp"/>
 
@@ -79,3 +76,11 @@
         $("#upload").html(html);
     });
 </script>
+<script>
+  $(function(){
+        
+        
+        
+        
+  })
+ </script>

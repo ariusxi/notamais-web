@@ -58,11 +58,25 @@ $(function(){
                     if(value.name == undefined){
                         name = "-";
                     }
+                    
                     $("#xml-list tbody").append("<tr><td>"+(i+1)+"</td><td>"+name+"</td><td><a target='_blank' title='"+value.xml+"' href='"+value.xml+"'>Acessar</a></td><td>"+value.date+"</td></tr>");
+                    
                 });
+                
+                $("#xml-list").dataTable({
+                    "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Portuguese-Brasil.json"
+                    }
+                });
+                
             },error: function(e){
                 console.log(e);
             }
         });
+        
+       
+        
+        
+        
     });
 });
