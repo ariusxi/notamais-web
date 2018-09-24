@@ -135,7 +135,20 @@
                                 <p>Alterar dados de perfil</p>
                             </a>
                         </li>
-                        <% }%>
+                        <% } else if (session.getAttribute("roles").equals("employee")) { %>
+                        <li class="nav-item active  ">
+                            <a class="nav-link" href="edit-counter">
+                                <i class="material-icons">dashboard</i>
+                                <p>Alterar dados de perfil</p>
+                            </a>
+                        </li>
+                        <li class="nav-item active  ">
+                            <a class="nav-link" href="upload-xml">
+                                <i class="material-icons">insert_drive_file</i>
+                                <p>Lista de NFes</p>
+                            </a>
+                        </li>
+                        <% } %>
                     </ul>
                 </div>
             </div>
