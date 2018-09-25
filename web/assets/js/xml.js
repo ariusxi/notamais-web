@@ -14,6 +14,8 @@ $(function(){
             $("#message").html('Voce deve preeencher todos os campos');
             return false;
         }
+        
+        $(".btnUploadXml").prop("disabled", true);
 
         $.ajax({
             type: "POST",
@@ -25,17 +27,23 @@ $(function(){
             processData: false,
             dataType: "json",
             success: function (response) {
+                $("#message").removeClass('alert-danger').addClass('alert-info');
                 $("#message").css('display', 'block');
                 $(".btnUploadXml").css('display','none');
                 $("#message").html(response.message + '<a href="'+response.path+'" target"_blank" class="mt-2"> Clique aqui para abrir o seu arquivo</a>' );
                 //window.location.href = "/views/user/cards.jsp";
                 $(".text-file").text('Escolha um arquivo');
+                $(".btnUploadXml").prop("disabled", false);
             },
             error: function (e) {
-                alert('Erro ao carregar pagina');
+                var dataJSON = JSON.parse(e.responseText);
+                $("#message").removeClass('alert-info').addClass('alert-danger');
+                $("#message").css('display', 'block');
+                $("#message").html(dataJSON.message);
+                $(".btnUploadXml").prop("disabled", true);
             }
         });
-            return false;
+        return false;
     });
     
     $(document).on('change', '#file', function(){

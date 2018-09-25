@@ -189,6 +189,7 @@
         var m = $("#modal");
         $(m).find(".modal-title").html(p.name + " - R$" + p.value.toFixed(2).replace(".", ","));
         
+        $(m).modal();
         getCartoes();
     }    
     
@@ -207,7 +208,7 @@
 
                 $.each(data, function (i, value) {
                     
-                    html += "<option value='" + value._id + "' " + (value.selected ? "selected= 'selected'": "") + "> Cartão de " + (value.type == "DebitCard"?"débido":"crédito") + " - " + value.Brand.toUpperCase() + " com final "  + value.CardNumber.substr(-4) + "</option> ";        
+                    html += "<option value='" + value._id + "' " + (value.selected ? "selected= 'selected'": "") + "> Cartão de " + (value.type == "DebitCard"?"débito":"crédito") + " - " + value.Brand.toUpperCase() + " com final "  + value.CardNumber.substr(-4) + "</option> ";        
                     $("#slcCartoes").html(html);   
                 });
                 $("#slcCartoes").removeAttr("disabled");

@@ -25,3 +25,7 @@
    border-color: #651473;
    color: #fff;
 }
+
+.fix-upload-a tbody tr:hover td > a {
+    color: #8b92a9 !important;
+}

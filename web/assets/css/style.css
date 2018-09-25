@@ -101,6 +101,10 @@ a:hover{
     font-size:90px;
 }
 
+.g-recaptcha{
+    padding:7px 0;
+}
+
 /* background gorseli */
 .landing {
     padding-top:90px;

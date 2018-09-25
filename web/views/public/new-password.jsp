@@ -5,6 +5,51 @@
 --%>
 
 <jsp:include page="../layout/header.jsp" />
+<nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" color-on-scroll="100" id="sectionsNav">
+    <div class="container">
+        <div class="navbar-translate">
+            <a class="navbar-brand">
+                Nota+ 
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Administrador</a>
+                </li>
+              <!--  <li class="nav-item">
+                    <a class="nav-link" href="#">SST</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Exames</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">eSocial</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Gerencia</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Receber</a>
+                </li>-->
+            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="${pageContext.request.contextPath}/login">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="${pageContext.request.contextPath}/register">Cadastre-se</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
 <div class="page-header header-filter" style="background-image: url('${pageContext.request.contextPath}/assets/img/background.jpg');
         background-size: cover; background-position: top center;">
     <div class="container">
@@ -67,7 +112,7 @@
 
         if(password == "" || cpassword == ""){
             $('#message').css('display', 'block');
-            $('#message').html('Vocï¿½ deve preencher todos os campos');
+            $('#message').html('Você deve preencher todos os campos');
         }
 
         if (password != cpassword) {
@@ -78,7 +123,7 @@
         
         if(password.length < 6){
             $("#message").css('display', 'block');
-            $("#message").html("A sua senha nï¿½o pode ser menor que 6 digitos");
+            $("#message").html("A sua senha não pode ser menor que 6 digitos");
             return false;
         }
 

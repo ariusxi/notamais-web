@@ -8,6 +8,8 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no">
         <!--     Fonts and icons     -->
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
@@ -22,7 +24,7 @@
             <div class="container">
                 <div class="navbar-translate">
                     <a class="navbar-brand">
-                        Nota Mais 
+                        Nota+ 
                     </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="sr-only">Toggle navigation</span>
