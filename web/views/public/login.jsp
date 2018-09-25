@@ -80,6 +80,11 @@
                             </span>
                         </div>
                         <div class="col-sm-12 col-md-12 col-lg-12">
+                            <center>
+                                <div class="g-recaptcha" data-callback="callback" data-sitekey="6LfqDXIUAAAAAFCdsYg6fL4rX00CximlpeN9Ftwk"></div>
+                            </center>
+                        </div>
+                        <div class="col-sm-12 col-md-12 col-lg-12">
                             <input type="submit" class="btn btn-primary login btn-round  btn-block" value="Entrar"/>
                         </div>
                         <div class="alert alert-info mt-2 mb-0" id="message">
@@ -102,53 +107,3 @@
         display: none;
     }
 </style>
-
-<script type="text/javascript">
-
-    $("#formLogin").submit(function (e) {
-        e.preventDefault();
-
-        var form = $(this);
-        var formData = form.serialize();
-
-        setLogin(formData);
-
-    });
-
-    function setLogin(formData) {
-        $.ajax({
-            url: "login",
-            method: "post",
-            data: formData,
-            beforeSend: function () {
-                $('#message').css('display', 'block');
-                $('#message').html('Aguarde...');
-            },
-            success: function (data) {
-
-                var dataJSON = JSON.parse(data);
-                if (dataJSON.message != null) {
-                    $('#message').css('display', 'block');
-                    $('#message').html('Login ou Senha invalidos<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true"><i class="material-icons">clear</i></span></button>').addClass('alert-danger').removeClass('alert-info');
-                } else {
-                    $('#message').css('display', 'block');
-                    $('#message').html('Login bem sucedido.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true"><i class="material-icons">clear</i></span></button>').addClass('alert-info').removeClass('alert-danger');
-                    setTimeout(function () {
-                        if(dataJSON.firstlogin == true && dataJSON.roles[0] == "user"){
-                            $(location).attr('href', '/notamais-web/first-login');
-                        }else{
-                            $(location).attr('href', '/notamais-web/dashboard');
-                        }
-                    }, 2000);
-                }
-
-            },
-            error: function (error) {
-                $('#message').css('display', 'block');
-                $('#message').html(error.responseText);
-            }
-        });
-    }
-
-
-</script>

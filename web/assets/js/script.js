@@ -1,3 +1,9 @@
+var recaptcha = false;
+
+function callback(){
+    recatpcha = true;
+}
+
 $(function () {
 
     $('.cpf').mask('000.000.000-00', {reverse: true});
@@ -12,7 +18,58 @@ $(function () {
         $("#uno3").appendTo($("#card2"));
         $("#uno3").appendTo($("#card3"));
     });
+    
+    
+    $("#formLogin").submit(function (e) {
+        e.preventDefault();
 
+        var form = $(this);
+        var formData = form.serialize();
+        
+        if(!recaptcha){
+            $('#message').css('display', 'block');
+            $('#message').html('Voce deve preencher o CAPTCHA<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true"><i class="material-icons">clear</i></span></button>').addClass('alert-danger').removeClass('alert-info');
+            return false;
+        }
+
+        setLogin(formData);
+
+    });
+
+    function setLogin(formData) {
+        $.ajax({
+            url: "login",
+            method: "post",
+            data: formData,
+            beforeSend: function () {
+                $('#message').css('display', 'block');
+                $('#message').html('Aguarde...');
+            },
+            success: function (data) {
+
+                var dataJSON = JSON.parse(data);
+                if (dataJSON.message != null) {
+                    $('#message').css('display', 'block');
+                    $('#message').html('Login ou Senha invalidos<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true"><i class="material-icons">clear</i></span></button>').addClass('alert-danger').removeClass('alert-info');
+                } else {
+                    $('#message').css('display', 'block');
+                    $('#message').html('Login bem sucedido.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true"><i class="material-icons">clear</i></span></button>').addClass('alert-info').removeClass('alert-danger');
+                    setTimeout(function () {
+                        if(dataJSON.firstlogin == true && dataJSON.roles[0] == "user"){
+                            $(location).attr('href', '/notamais-web/first-login');
+                        }else{
+                            $(location).attr('href', '/notamais-web/dashboard');
+                        }
+                    }, 2000);
+                }
+
+            },
+            error: function (error) {
+                $('#message').css('display', 'block');
+                $('#message').html(error.responseText);
+            }
+        });
+    }
 });
 
 $(".open-register").click(function (e) {
