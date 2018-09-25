@@ -11,7 +11,7 @@
         <head>
             <meta http-equiv="content-type" content="text/html; charset=UTF-8">
             <meta name="viewport" content="width=device-width, user-scalable=no">
-            <title>Nota Mais</title>
+            <title>Nota+</title>
             
             <!-- Fonts -->
             <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>

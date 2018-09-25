@@ -2,7 +2,6 @@
 <style>
     body{
         background-image: url('${pageContext.request.contextPath}/assets/img/background.jpg');
-     
         background-position: top center;
     }   
 </style>

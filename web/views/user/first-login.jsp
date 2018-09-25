@@ -19,7 +19,7 @@
         <link href="${pageContext.request.contextPath}/assets/css/first-login.css" rel="stylesheet"/>
     </head>
     <body>
-        <div class="image-container set-full-height" style="background-image: url('http://demos.creative-tim.com/material-bootstrap-wizard/assets/img/wizard-book.jpg')">
+        <div class="image-container set-full-height" style="background-image: url('${pageContext.request.contextPath}/assets/img/background.jpg');">
 
 	    <!--   Big container   -->
 	    <div class="container">
@@ -27,7 +27,7 @@
 		        <div class="col-sm-8 col-sm-offset-2">
 		            <!-- Wizard container -->
 		            <div class="wizard-container">
-		                <div class="card wizard-card" data-color="red" id="wizard">
+		                <div class="card wizard-card" data-color="purple" id="wizard">
 		                    <form action="" method="POST" id="first-login">
 
 		                    	<div class="wizard-header">
@@ -132,11 +132,11 @@
 	                        	<div class="wizard-footer">
                                             <div id="message"></div>
                                             <div class="pull-right">
-                                                <input type='button' class='btn btn-next btn-fill btn-danger btn-wd' name='next' value='Próximo' />
-                                                <input type='button' class='btn btn-finish btn-fill btn-danger btn-wd' name='finish' value='Finalizar' />
+                                                <input type='button' class='btn btn-next btn-fill btn-primary btn-round btn-wd' name='next' value='Próximo' />
+                                                <input type='button' class='btn btn-finish btn-fill btn-primary btn-round btn-wd' name='finish' value='Finalizar' />
                                             </div>
                                             <div class="pull-left">
-                                                <input type='button' class='btn btn-previous btn-fill btn-default btn-wd' name='previous' value='Anterior' />
+                                                <input type='button' class='btn btn-previous btn-fill btn-primary btn-round btn-wd' name='previous' value='Anterior' />
                                             </div>
                                             <div class="clearfix"></div>
 	                        	</div>

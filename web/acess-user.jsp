@@ -28,5 +28,5 @@
 
 %>
 <script type="text/javascript">
-   window.location.href = "http://localhost:8080/notamais-web/active";
+   window.location.href = "https://notamais.herokuapp.com/active";
  </script>

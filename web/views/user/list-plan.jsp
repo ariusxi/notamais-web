@@ -189,6 +189,7 @@
         var m = $("#modal");
         $(m).find(".modal-title").html(p.name + " - R$" + p.value.toFixed(2).replace(".", ","));
         
+        $(m).modal();
         getCartoes();
     }    
     
