@@ -35,8 +35,8 @@
     <!-- <button class="btn btn-secondary" type="button" > 
     <i class="fa fa-times ng-scope" aria-hidden="true"></i> Remover</button>-->
 </form>
-<div class="table-responsive">    
-    <table id="xml-list" class="display table">
+<div class="table-responsive ">    
+    <table id="xml-list" class="display table fix-upload-a">
         <thead>
             <tr>
                 <th>Nº</th>
