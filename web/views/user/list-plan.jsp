@@ -207,7 +207,7 @@
 
                 $.each(data, function (i, value) {
                     
-                    html += "<option value='" + value._id + "' " + (value.selected ? "selected= 'selected'": "") + "> Cartão de " + (value.type == "DebitCard"?"débido":"crédito") + " - " + value.Brand.toUpperCase() + " com final "  + value.CardNumber.substr(-4) + "</option> ";        
+                    html += "<option value='" + value._id + "' " + (value.selected ? "selected= 'selected'": "") + "> Cartão de " + (value.type == "DebitCard"?"débito":"crédito") + " - " + value.Brand.toUpperCase() + " com final "  + value.CardNumber.substr(-4) + "</option> ";        
                     $("#slcCartoes").html(html);   
                 });
                 $("#slcCartoes").removeAttr("disabled");

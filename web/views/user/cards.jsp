@@ -38,9 +38,6 @@
                     </tbody>
                 </table>
             </div>
-            <div class="alert alert-info mt-2 mb-0" id="message" style="margin-bottom:100px !important;">
-
-            </div>
         </div>
 
         <div class="tab-pane" id="register">
