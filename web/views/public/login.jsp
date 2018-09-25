@@ -81,7 +81,7 @@
                         </div>
                         <div class="col-sm-12 col-md-12 col-lg-12">
                             <center>
-                                <div class="g-recaptcha" data-callback="callback" data-sitekey="6LfqDXIUAAAAAFCdsYg6fL4rX00CximlpeN9Ftwk"></div>
+                                <div class="g-recaptcha" id="r_c" data-callback="callback" data-sitekey="6LfqDXIUAAAAAFCdsYg6fL4rX00CximlpeN9Ftwk"></div>
                             </center>
                         </div>
                         <div class="col-sm-12 col-md-12 col-lg-12">

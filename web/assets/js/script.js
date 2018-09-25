@@ -1,7 +1,8 @@
-var recaptcha = false;
+let rec = false;
 
 function callback(){
-    recatpcha = true;
+    rec = true;
+    console.log(rec);
 }
 
 $(function () {
@@ -26,7 +27,9 @@ $(function () {
         var form = $(this);
         var formData = form.serialize();
         
-        if(!recaptcha){
+        console.log(rec);
+        
+        if(rec == false){
             $('#message').css('display', 'block');
             $('#message').html('Voce deve preencher o CAPTCHA<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true"><i class="material-icons">clear</i></span></button>').addClass('alert-danger').removeClass('alert-info');
             return false;
