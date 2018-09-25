@@ -81,6 +81,7 @@ $("#user-register").submit(function (e) {
 });
 
 $("#cards, #cards-list").ready(function () {
+
     $.ajax({
         url: "card",
         method: "POST",
@@ -99,9 +100,9 @@ $("#cards, #cards-list").ready(function () {
                 html += "<td>" + value.ExpirationDate + "</td>";
                 html += "<td>" + value.Brand + "</td>";
                 html += "<td>" + value.type + "</td>";
-                if(value.selected){
+                if (value.selected) {
                     btnCardMain = "<button class='btn btn-primary main-card' id='" + value._id + "'>Principal</button></td>"
-                }else{
+                } else {
                     btnCardMain = "<button class='btn btn-primary main-card' id='" + value._id + "'>Definir como principal</button></td>"
                 }
                 html += "<td><div class='btn-group'><button class='btn btn-primary delete-card' id='" + value._id + "'>Excluir</button>" + btnCardMain + "</div>";
@@ -113,6 +114,7 @@ $("#cards, #cards-list").ready(function () {
         }, error: function (e) {
             console.log(e);
         }
+
     });
 });
 
@@ -156,7 +158,7 @@ $(document).on('click', '.delete-card', function (e) {
             methodType: "card-delete",
             id: id
         }, success: function (data) {
-            $this.parent().parent().remove();
+            $this.parent().parent().parent().remove();
         }, error: function (e) {
             console.log(e);
         }
