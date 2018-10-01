@@ -235,6 +235,11 @@ $("#users-list").ready(function () {
 
 });
 
+
+
+
+
+
 $("#dispatch-chart").ready(function(){
     $.ajax({
         url: "dispatches",

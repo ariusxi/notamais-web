@@ -78,6 +78,12 @@
                             </a>
                         </li>
                         <li class="nav-item active  ">
+                            <a class="nav-link" href="counters">
+                                <i class="material-icons">monetization_on</i>
+                                <p>Contadores</p>
+                            </a>
+                        </li>                      
+                        <li class="nav-item active  ">
                             <a class="nav-link" href="user-plan">
                                 <i class="material-icons">subtitles</i>
                                 <p>Meu Plano</p>

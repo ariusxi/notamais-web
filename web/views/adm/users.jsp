@@ -44,19 +44,3 @@
     <div class="space-footer"></div>
     <jsp:include page="../layout/footer-auth.jsp" />
 
-    <script type="text/javascript">
-
-        $(function () {
-            $('#name').bind('keydown', onlyLetter);
-            $('#qtdeXML').bind('keydown', onlyNumber);
-        });
-
-        $(document).ready(function ()
-        {
-            $("#value").maskMoney({
-                decimal: ",",
-                thousands: "."
-            });
-        });
-
-    </script>
