@@ -6,14 +6,14 @@
 
 <%@page contentType="text/html"%>
 <%
-    try{
-        session=request.getSession(false);
-        if (session.isNew()){
+    try {
+        session = request.getSession(false);
+        if (session.isNew()) {
             response.sendRedirect("/");
-        }else{
-            
+        } else {
+
         }
-    }catch(Exception e){
+    } catch (Exception e) {
         response.sendRedirect("/");
     }
 %>
@@ -141,6 +141,12 @@
                                 <p>Lista de Arquivos</p>
                             </a>
                         </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="invitations">
+                                <i class="material-icons">dashboard</i>
+                                <p>Convites <span class="badge badge-light countInvitation"></span> </p>
+                            </a>
+                        </li>
                         <% } else if (session.getAttribute("roles").equals("employee")) { %>
                         <li class="nav-item active  ">
                             <a class="nav-link" href="edit-counter">
@@ -154,7 +160,7 @@
                                 <p>Lista de NFes</p>
                             </a>
                         </li>
-                        <% } %>
+                        <% }%>
                     </ul>
                 </div>
             </div>

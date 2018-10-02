@@ -120,7 +120,7 @@ $("#counter-register").submit(function (e) {
         $('#message').html('As senhas informadas devem ser iguais');
         return false;
     }
-    
+
     console.log(cpf);
 
     if (!validarCPF(cpf)) {
@@ -165,3 +165,24 @@ $("#counter-register").submit(function (e) {
     return false;
 });
 
+$(document).ready(function () {
+    $.ajax({
+        url: "invitations",
+        method: "GET",
+        data: {
+            "action": "countInvitations"
+        },
+        success: function (data) {
+            var json = JSON.parse(data);
+
+            if (json.length > 1) {
+                $(".countInvitation").html(json.length);
+            } else {
+                $(".countInvitation").html("1");
+            }
+
+        }, error: function (error) {
+            console.log(error);
+        }
+    });
+});

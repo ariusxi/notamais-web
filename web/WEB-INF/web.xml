@@ -52,6 +52,10 @@
         <servlet-name>Dispatches</servlet-name>
         <servlet-class>servlets.adm.Dispatches</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Invitations</servlet-name>
+        <servlet-class>servlets.counter.Invitations</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ForgotPassword</servlet-name>
         <url-pattern>/ForgotPassword</url-pattern>
@@ -103,6 +107,10 @@
     <servlet-mapping>
         <servlet-name>Dispatches</servlet-name>
         <url-pattern>/Dispatches</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Invitations</servlet-name>
+        <url-pattern>/Invitations</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
