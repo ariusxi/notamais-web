@@ -42,6 +42,11 @@ public class Invitations extends HttpServlet {
             String idCounter = session.getAttribute("id").toString();
             String token = session.getAttribute("token").toString();
 
+            String action = request.getParameter("action");
+            if (action == null) {
+                action = "";
+            }
+
             String route = "relationships/counter/" + idCounter;
             API con = new API(route, GET, token);
 
@@ -51,9 +56,13 @@ public class Invitations extends HttpServlet {
             String responseJson = con.getJsonString(map);
             request.setAttribute("invitations", responseJson);
 
-            String url = "/views/counter/invitations.jsp";
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
-            dispatcher.forward(request, response);
+            if (action.equals("")) {
+                String url = "/views/counter/invitations.jsp";
+                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
+                dispatcher.forward(request, response);
+            } else if(action.equals("countInvitations")) {
+                out.println(responseJson);
+            }
         }
 
     }

@@ -17,27 +17,49 @@
 
 <script type="text/javascript">
 
-    $(document).ready(function (e) {
+    $(document).ready(function () {
+        
         var json = JSON.parse('<%= request.getAttribute("invitations")%>');
 
-        console.log(json);
+        if (json.length > 1) {
+            
+            var html = "";
+            for (let i = 0; i < json.length; i++) {
 
-        var html = "";
-        for (let i = 0; i < json.length; i++) {
+                let counter = json[i].counter;
+                let user = json[i].user;
+                let idInvitation = json[i]._id
+                let isApproved = json[i].approved;
 
-            let counter = json[i].counter;
-            let user = json[i].user;
-            let idInvitation = json[i]._id
-            let isApproved = json[i].approved;
+                if (isApproved == false) {
+                    
+                    $(".countInvitation").html(json.length)
 
-            if (isApproved == false) {
-                html += '<li class="list-group-item d-flex justify-content-between align-items-center">';
-                html += '<div class="h4">' + user.name + ' enviou um convite - Email: ' + user.email + ' </div>';
-                html += '<input type="button" class="btn btn-primary btnAcceptInvitation" id="' + idInvitation + '" value="Aceitar" />';
-                html += '</li>';
+                    html += '<li class="list-group-item d-flex justify-content-between align-items-center">';
+                    html += '<div class="h4">' + user.name + ' enviou um convite - Email: ' + user.email + ' </div>';
+                    html += '<input type="button" class="btn btn-primary btnAcceptInvitation" id="' + idInvitation + '" value="Aceitar" />';
+                    html += '</li>';
 
-                $(".listInvitations").html(html);
+                    $(".listInvitations").html(html);
+                }
             }
+        } else {
+            var html = "";
+
+            $(".countInvitation").html("1")
+
+            let counter = json.counter;
+            let user = json.user;
+            let idInvitation = json._id
+            let isApproved = json.approved;
+
+            html += '<li class="list-group-item d-flex justify-content-between align-items-center">';
+            html += '<div class="h4">' + user.name + ' enviou um convite - Email: ' + user.email + ' </div>';
+            html += '<input type="button" class="btn btn-primary btnAcceptInvitation" id="' + idInvitation + '" value="Aceitar" />';
+            html += '</li>';
+
+            $(".listInvitations").html(html);
+
         }
 
     });
@@ -52,7 +74,8 @@
                 'id': id
             },
             success: function (data) {
-                console.log(data);
+                var json = JSON.parse(data);
+                alert(json.message)
             }, error: function (data) {
                 console.log(data);
             }
