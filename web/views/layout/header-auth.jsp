@@ -135,6 +135,12 @@
                                 <p>Alterar dados de perfil</p>
                             </a>
                         </li>
+                        <li class="nav-item active  ">
+                            <a class="nav-link" href="lista-arquivos">
+                                <i class="material-icons">insert_drive_file</i>
+                                <p>Lista de Arquivos</p>
+                            </a>
+                        </li>
                         <% } else if (session.getAttribute("roles").equals("employee")) { %>
                         <li class="nav-item active  ">
                             <a class="nav-link" href="edit-counter">
