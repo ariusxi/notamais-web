@@ -6,8 +6,10 @@ $(function(){
         var user =  $("#user").val();
         var token = $("#token").val();
         var form = new FormData($(this)[0]);
-        console.log($(this)[0]);
         $("#message").css('display', 'none');
+        
+        $("#message").css('display', 'block');
+        $("#message").html("Enviando....");
 
         if(name == "" || description == ""){
             $("#message").css('display', 'block');
