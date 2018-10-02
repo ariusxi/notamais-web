@@ -22,6 +22,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import org.json.JSONObject;
 
 /**
  *
@@ -66,6 +67,7 @@ public class UploadXml extends HttpServlet {
         
               
         String id = (String) session.getAttribute("id");
+        String file = request.getParameter("file");
         String token = (String) session.getAttribute("token");
         String methodType = request.getParameter("methodType");
         
@@ -76,7 +78,7 @@ public class UploadXml extends HttpServlet {
         
         rotaAPI = "contracts/user/" + id;
         api = new API(rotaAPI, "GET", token);
-         String json = api.getJsonString(new HashMap<String, String>());
+        String json = api.getJsonString(new HashMap<String, String>());
         request.setAttribute("plano", json);
        
 
@@ -87,15 +89,32 @@ public class UploadXml extends HttpServlet {
             case "list-xml":
                 con = new API("files/user/" + id, "GET", token);
                 break;
+            case "activate-sefaz":
+                con = new API("files/generate-company/" + id, "GET", token);
+                break;
+            case "emitir-nota":
+                con = new API("files/nfe/" + file, "GET", token);
+                break;
             default: 
-                con = new API("/files/delete/" + id, "DELETE", token);
+                con = new API("/files/delete/" + file, "DELETE", token);
                 break;
         }
         
         String responseJSON = con.getJsonString(map); 
         
-        
-        out.print(responseJSON);
+        try{
+
+            JSONObject js = new JSONObject(responseJSON);
+            
+            if(js.has("company")){
+                Object company = js.get("company").toString();
+                session.setAttribute("company", company);
+            }
+
+            out.print(responseJSON);
+        }catch(Exception  e){
+            out.print(responseJSON);
+        }
         
         
         

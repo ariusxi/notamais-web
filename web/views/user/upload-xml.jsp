@@ -42,6 +42,7 @@
                 <th>Nome</th>
                 <th>XML</th>
                 <th>Data de envio</th>
+                <th>Ações</th>
             </tr>
         </thead>
         <tbody>   

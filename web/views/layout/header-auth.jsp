@@ -39,6 +39,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
         <!-- Material Kit CSS -->
         <link href="${pageContext.request.contextPath}/assets/dashboard/assets/css/material-dashboard.css?v=2.1.0" rel="stylesheet" />
+        <link href="${pageContext.request.contextPath}/assets/css/material-kit.min.css" rel="stylesheet" />
         <link href="${pageContext.request.contextPath}/assets/css/fix.css" rel="stylesheet"/>
     </head>
     <body class="dark-edition">
@@ -53,7 +54,11 @@
                     <ul class="nav fix-dashboard-menu">
                         <li class="nav-item">
                             <div class="text-center">
+                                <% if(session.getAttribute("image").equals("default")){ %>
                                 <img src="${pageContext.request.contextPath}/assets/img/default-user.png" class="img-fluid img-thumbnail img-profile" width="100" alt="<%= session.getAttribute("name")%>"><br/><br/>
+                                <% }else{ %>
+                                <img src="<%= session.getAttribute("image") %>" class="img-fluid img-thumbnail img-profile" width="93%" alt="<%= session.getAttribute("name")%>"><br/><br/>
+                                <% } %>
                                 <h5 class="card-title">
                                     <%= session.getAttribute("name")%>
                                 </h5>
@@ -77,6 +82,12 @@
                                 <p>Funcionários</p>
                             </a>
                         </li>
+                        <li class="nav-item active  ">
+                            <a class="nav-link" href="counters">
+                                <i class="material-icons">monetization_on</i>
+                                <p>Contadores</p>
+                            </a>
+                        </li>                      
                         <li class="nav-item active  ">
                             <a class="nav-link" href="user-plan">
                                 <i class="material-icons">subtitles</i>

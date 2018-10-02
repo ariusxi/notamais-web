@@ -78,6 +78,12 @@ public class SetLogin extends HttpServlet {
                 String userName = data.get("name").toString();
                 Object userRoles = data.get("roles").toString();
                 Object contract = data.get("contract").toString();
+                Object image = "default";
+                Object company = "0";
+                if(data.has("image")){
+                    image = data.get("image").toString();
+                    company = data.get("company").toString();
+                }
 
                 Pattern p = Pattern.compile("()\\w+");
                 Matcher m = p.matcher(userRoles.toString());
@@ -90,6 +96,8 @@ public class SetLogin extends HttpServlet {
                 session.setAttribute("email", userEmail);
                 session.setAttribute("name", userName);
                 session.setAttribute("roles", userRoles);
+                session.setAttribute("image", image);
+                session.setAttribute("company", company);
                 
                 out.print(data);
                 
