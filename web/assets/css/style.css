@@ -237,11 +237,9 @@ input[type=search], .dataTables_length select{
 .dataTables_length select option{
     color: #000;
 }
-.paginate_button{
-    color:#fff !important;
-    border:none !important;
-    background: linear-gradient(60deg, #7b1fa2, #913f9e) !important;
-    box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(156, 39, 176, 0.4);
+.paginate_button{   
+    
+   
 }
 
 .lds-roller {
