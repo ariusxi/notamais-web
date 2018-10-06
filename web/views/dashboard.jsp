@@ -8,6 +8,30 @@
 <div class="col-sm-12 col-md-12 col-lg-12 mt-4">
     <% if (session.getAttribute("roles").equals("user")) { %>
     <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+            <% if(session.getAttribute("company").equals("")){ %>
+            <div class="alert alert-warning">
+                <div class="container">
+                    <div class="alert-icon">
+                       <i class="material-icons">warning</i>
+                   </div>
+                   <button type="button" id="<% out.print(session.getAttribute("id")); %>" class="close activate-sefaz">
+                       <span aria-hidden="true">Ativar</span>
+                   </button>
+                   Atenção: Detectamos que a sua empresa não está registrada no SEFAZ
+               </div>
+            </div>
+            <% }else{ %>
+            <div class="alert alert-success">
+                <div class="container">
+                    <div class="alert-icon">
+                       <i class="material-icons">check</i>
+                    </div>
+                    Sua conta esta ativada no SEFAZ
+               </div>
+            </div>
+            <% } %>
+        </div>
         <div class="col-sm-12 col-md-6 col-lg-6">
             <div class="card card-chart">
                 <div class="card-header card-header-warning">
@@ -27,7 +51,7 @@
                     <div class="card-icon">
                         <i class="material-icons">person</i>
                     </div>
-                    <p class="card-category">Cadastros do último mês</p>
+                    <p class="card-category">Cadastros do mês</p>
                     <h3 class="card-title" id="number-user">
                         <div class="lds-roller">
                             <div></div>

@@ -3,12 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package servlets.user;
+package servlets.counter;
+
+
 
 import dao.API;
 import java.io.IOException;
@@ -22,17 +19,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import org.json.JSONObject;
 
 /**
  *
  * @author Isabela
  */
-@WebServlet(name = "upload-xml", urlPatterns = {"/upload-xml"})
-public class UploadXml extends HttpServlet {
-
-
-    @Override
+@WebServlet(name = "lista-arquivos", urlPatterns = {"/lista-arquivos"})
+public class ListaXML  extends HttpServlet{
+  @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
@@ -44,14 +38,14 @@ public class UploadXml extends HttpServlet {
             String idUser = session.getAttribute("id").toString();
             String token = session.getAttribute("token").toString();
 
-            String rotaAPI = "contracts/user/" + idUser;
+            String rotaAPI = "relationships/counter/" + idUser;
             API api = new API(rotaAPI, "GET", token);
 
             String json = api.getJsonString(new HashMap<String, String>());
-            request.setAttribute("plano", json);
+            request.setAttribute("counter", json);
 
 
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/user/upload-xml.jsp");
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/counter/lista-arquivos.jsp");
             dispatcher.forward(request, response);
         
         }
@@ -67,19 +61,18 @@ public class UploadXml extends HttpServlet {
         
               
         String id = (String) session.getAttribute("id");
-        String file = request.getParameter("file");
         String token = (String) session.getAttribute("token");
         String methodType = request.getParameter("methodType");
         
-        String rotaAPI = "plans/";
+        String rotaAPI = "relationships/counter/";
         API api = new API(rotaAPI, "GET", "");
         
        
         
-        rotaAPI = "contracts/user/" + id;
+        rotaAPI = "relationships/counter/" + id;
         api = new API(rotaAPI, "GET", token);
-        String json = api.getJsonString(new HashMap<String, String>());
-        request.setAttribute("plano", json);
+         String json = api.getJsonString(new HashMap<String, String>());
+        request.setAttribute("counter", json);
        
 
         Hashtable<Integer, String> source = new Hashtable<Integer, String>();
@@ -89,32 +82,15 @@ public class UploadXml extends HttpServlet {
             case "list-xml":
                 con = new API("files/user/" + id, "GET", token);
                 break;
-            case "activate-sefaz":
-                con = new API("files/generate-company/" + id, "GET", token);
-                break;
-            case "emitir-nota":
-                con = new API("files/nfe/" + file, "GET", token);
-                break;
             default: 
-                con = new API("/files/delete/" + file, "DELETE", token);
+                con = new API("/files/delete/" + id, "DELETE", token);
                 break;
         }
         
         String responseJSON = con.getJsonString(map); 
         
-        try{
-
-            JSONObject js = new JSONObject(responseJSON);
-            
-            if(js.has("company")){
-                Object company = js.get("company").toString();
-                session.setAttribute("company", company);
-            }
-
-            out.print(responseJSON);
-        }catch(Exception  e){
-            out.print(responseJSON);
-        }
+        
+        out.print(responseJSON);
         
         
         
@@ -124,5 +100,4 @@ public class UploadXml extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
 }

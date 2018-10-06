@@ -5,16 +5,15 @@
 --%>
 
 <style>
-     
-         .inputfile{
-	width: 0.1px;
-	height: 0.1px;
-	opacity: 0;
-	overflow: hidden;
-	position: absolute;
-	z-index: -1;
+.inputfile{
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
 }
-    </style>
+</style>
     
 <jsp:include page="../layout/header-auth.jsp" />
 
@@ -43,6 +42,7 @@
                 <th>Nome</th>
                 <th>XML</th>
                 <th>Data de envio</th>
+                <th>Ações</th>
             </tr>
         </thead>
         <tbody>   

@@ -20,7 +20,6 @@ $(function () {
         $("#uno3").appendTo($("#card3"));
     });
     
-    
     $("#formLogin").submit(function (e) {
         e.preventDefault();
 
@@ -94,6 +93,20 @@ $(".back-type").click(function (e) {
     $(".user-register").show();
 
     return false;
+});
+
+$("#imageUser #file").change(function(){
+    var input = this;
+    var url = $(this).val();
+    var ext = url.substring(url.lastIndexOf('.') + 1).toLowerCase();
+    if (input.files && input.files[0]&& (ext == "gif" || ext == "png" || ext == "jpeg" || ext == "jpg")) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+           $('#imageUser img').attr('src', e.target.result);
+        }
+       reader.readAsDataURL(input.files[0]);
+    }
 });
 
 $("#contato").submit(function (e) {
@@ -234,6 +247,11 @@ $("#users-list").ready(function () {
     });
 
 });
+
+
+
+
+
 
 $("#dispatch-chart").ready(function(){
     $.ajax({

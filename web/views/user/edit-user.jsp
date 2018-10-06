@@ -5,12 +5,50 @@
 --%>
 
 <jsp:include page="../layout/header-auth.jsp"/>
+<%
+    if(request.getParameter("image") != null){
+        session.setAttribute("image", request.getParameter("image"));
+    }
+%>
 <div class="col-sm-12 col-md-12 col-lg-12 mt-4">
+    <h3>Imagem de Perfil</h3>
+    <div class="col-sm-12 col-md-12 col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <form id="imageUser" action="" method="POST" enctype="multipart/formdata">
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                        <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                            <div class="fileinput-new thumbnail img-circle img-raised">
+                                <% if(session.getAttribute("image").equals("default")){ %>
+                                <img src="${pageContext.request.contextPath}/assets/img/default-user.png">
+                                <% }else{ %>
+                                <img src="<%= session.getAttribute("image") %>">
+                                <% } %>
+                            </div>
+                            <div class="fileinput-preview fileinput-exists thumbnail img-circle img-raised" style=""></div>
+                            <div>
+                                <span class="btn btn-raised btn-round btn-default btn-file">
+                                    <span class="fileinput-new">Alterar Foto</span>
+                                    <span class="fileinput-exists">Alterar</span>
+                                    <input type="hidden" id="token" value="<% out.print(session.getAttribute("token")); %>">
+                                    <input type="hidden" id="user" value="<% out.print(session.getAttribute("id")); %>">
+                                    <input type="file" name="file" id="file">
+                                <div class="ripple-container"></div></span>
+                            </div>
+                            <input type="submit" class="btn btn-primary btn-round" value="ATUALIZAR IMAGEM"/>
+                        </div>
+                        <div id="feedback-image"></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <h3>Dados de Perfil</h3>
     <div class="card">
         <div class="card-body">
             <form id="formEditUser">
                 <div class="form-row">
-                    <div class="form-group col-md-6 ">
+                    <div class="form-group col-md-6">
                         <label>Nome:</label>
                         <input type="text" class="form-control" id="name" name="name" value="<%= session.getAttribute("name")%>" onkeydown="onlyLetter(this)"/>
                     </div>
