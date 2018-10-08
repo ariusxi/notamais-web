@@ -79,9 +79,13 @@ public class SetLogin extends HttpServlet {
                 Object userRoles = data.get("roles").toString();
                 Object contract = data.get("contract").toString();
                 Object image = "default";
-                Object company = "0";
+                Object company = "";
+                
                 if(data.has("image")){
                     image = data.get("image").toString();
+                }
+                
+                if(data.has("company")){
                     company = data.get("company").toString();
                 }
 
@@ -99,7 +103,7 @@ public class SetLogin extends HttpServlet {
                 session.setAttribute("image", image);
                 session.setAttribute("company", company);
                 
-                out.print(data);
+                out.print(responseJSON);
                 
             }
 

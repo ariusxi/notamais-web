@@ -48,7 +48,7 @@ $(function () {
                 $('#message').html('Aguarde...');
             },
             success: function (data) {
-
+                console.log(data);
                 var dataJSON = JSON.parse(data);
                 if (dataJSON.message != null) {
                     $('#message').css('display', 'block');
