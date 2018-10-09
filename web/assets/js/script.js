@@ -20,6 +20,45 @@ $(function () {
         $("#uno3").appendTo($("#card3"));
     });
     
+    $("#cliente").ready(function(e){
+        $.ajax({
+            url: "counters",
+            method: "POST",
+            data: {
+                type : "counters-list",
+            },
+            success: function(json){
+                var data = JSON.parse(json);
+                $("#cliente").html("<option value=''>Escolha um cliente</option>");
+                $.each(data, function(key, value){
+                    if(value.approved){
+                        $("#cliente").append("<option value='"+value.user._id+"'>"+value.user.name+"</option>");
+                    }
+                });
+            },error: function(e){
+                console.log(e);
+            }
+        });
+    });
+    
+    $("#report").submit(function(e){
+        e.preventDefault();
+        
+        var cliente = $("#cliente").val();
+        var begin = $("#begin").val();
+        var end = $("#end").val();
+        
+        if(cliente == ""){
+            $("#feedback").css('display', 'block');
+            $("#feedback").html('Você deve preencher todos os campos');
+            return false;
+        }
+        
+        window.location.href = "/notamais-web/report?cliente="+cliente+"&begin="+begin+"&end="+end;
+        
+        return false;
+    });
+    
     $("#formLogin").submit(function (e) {
         e.preventDefault();
 
