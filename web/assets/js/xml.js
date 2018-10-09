@@ -119,10 +119,37 @@ $(function(){
                 file: id
             }, success: function(data){
                 $this.prop("disabled", true);
+                $this.parent().append("<button class='gerar-danfe btn btn-primary btn-rounded' id='"+id+"'>Gerar DANFE</button>");
             }, error: function(e){
                 console.log(e);
             }
         });
+    });
+    
+    $(document).on('click', '.gerar-danfe', function(e){
+        e.preventDefault();
+        
+        var id = $(this).attr('id');
+        var $this = $(this);
+        
+        alert(id);
+        
+        $.ajax({
+            url: "upload-xml",
+            method: "POST",
+            dataType: "json",
+            data: {
+                methodType: "gerar-danfe",
+                file: id
+            }, success: function(data){
+                console.log(data);
+                $this.replaceWith("<a href='"+data.url+"' class='btn btn-primary btn-rounded' target='_blank'>Ver DANFE</a>");
+            }, error: function(e){
+                console.log(e);
+            }
+        });
+        
+        return false;
     });
 
     $("#xml-list").ready(function(){
@@ -141,7 +168,13 @@ $(function(){
                     }
                     var html = "<tr><td>"+(i+1)+"</td><td>"+name+"</td><td><a target='_blank' title='"+value.xml+"' href='"+value.xml+"'>Acessar</a></td><td>"+value.date+"</td>";
                     if(value.nfe){
-                        html += "<td><button class='emitir-nota btn btn-primary btn-rounded' id='"+value._id+"' disabled='disabled'>Emitir</button></td></tr>"
+                        html += "<td><button class='emitir-nota btn btn-primary btn-rounded' id='"+value._id+"' disabled='disabled'>Emitir</button>";
+                        if(!value.danfe){
+                            html += "<button class='gerar-danfe btn btn-primary btn-rounded' id='"+value._id+"'>Gerar DANFE</button>";
+                        }else{
+                            html += "<a href='"+value.danfe+"' class='btn btn-primary btn-rounded' target='_blank'>Ver DANFE</a>";
+                        }
+                        html += "</td></tr>";
                     }else{
                         html += "<td><button class='emitir-nota btn btn-primary btn-rounded' id='"+value._id+"'>Emitir</button></td></tr>";
                     }
