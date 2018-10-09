@@ -56,6 +56,10 @@
         <servlet-name>Invitations</servlet-name>
         <servlet-class>servlets.counter.Invitations</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>PayDetail</servlet-name>
+        <servlet-class>servlets.adm.PayDetail</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ForgotPassword</servlet-name>
         <url-pattern>/ForgotPassword</url-pattern>
@@ -111,6 +115,10 @@
     <servlet-mapping>
         <servlet-name>Invitations</servlet-name>
         <url-pattern>/Invitations</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PayDetail</servlet-name>
+        <url-pattern>/PayDetail</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

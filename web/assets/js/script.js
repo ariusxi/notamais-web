@@ -1,6 +1,6 @@
 let rec = false;
 
-function callback(){
+function callback() {
     rec = true;
     console.log(rec);
 }
@@ -19,16 +19,16 @@ $(function () {
         $("#uno3").appendTo($("#card2"));
         $("#uno3").appendTo($("#card3"));
     });
-    
+
     $("#formLogin").submit(function (e) {
         e.preventDefault();
 
         var form = $(this);
         var formData = form.serialize();
-        
+
         console.log(rec);
-        
-        if(rec == false){
+
+        if (rec == false) {
             $('#message').css('display', 'block');
             $('#message').html('Voce deve preencher o CAPTCHA<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true"><i class="material-icons">clear</i></span></button>').addClass('alert-danger').removeClass('alert-info');
             return false;
@@ -57,9 +57,9 @@ $(function () {
                     $('#message').css('display', 'block');
                     $('#message').html('Login bem sucedido.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true"><i class="material-icons">clear</i></span></button>').addClass('alert-info').removeClass('alert-danger');
                     setTimeout(function () {
-                        if(dataJSON.firstlogin == true && dataJSON.roles[0] == "user"){
+                        if (dataJSON.firstlogin == true && dataJSON.roles[0] == "user") {
                             $(location).attr('href', '/notamais-web/first-login');
-                        }else{
+                        } else {
                             $(location).attr('href', '/notamais-web/dashboard');
                         }
                     }, 2000);
@@ -95,17 +95,17 @@ $(".back-type").click(function (e) {
     return false;
 });
 
-$("#imageUser #file").change(function(){
+$("#imageUser #file").change(function () {
     var input = this;
     var url = $(this).val();
     var ext = url.substring(url.lastIndexOf('.') + 1).toLowerCase();
-    if (input.files && input.files[0]&& (ext == "gif" || ext == "png" || ext == "jpeg" || ext == "jpg")) {
+    if (input.files && input.files[0] && (ext == "gif" || ext == "png" || ext == "jpeg" || ext == "jpg")) {
         var reader = new FileReader();
 
         reader.onload = function (e) {
-           $('#imageUser img').attr('src', e.target.result);
+            $('#imageUser img').attr('src', e.target.result);
         }
-       reader.readAsDataURL(input.files[0]);
+        reader.readAsDataURL(input.files[0]);
     }
 });
 
@@ -159,88 +159,87 @@ $("#users-list").ready(function () {
         dataType: "json",
         success: function (data) {
             var months = [],
-                values = [];
+                    values = [];
             months['meses'] = [],
-            months['values'] = [];
+                    months['values'] = [];
             $.each(data, function (i, value) {
                 let roles = "";
-                if(value.roles != undefined){
+                if (value.roles != undefined) {
                     roles = value.roles[0];
                 }
-                let html = "<tr><td>" + value.name + "</td><td>" + value.email + "</td><td><a href='user-profile?id=" + value._id + "' class='btn btn-primary'>Perfil</a><button class='btn btn-primary btnAtivacao' data-id='" + value._id + "'data-ativo='" + value.active + "'>" + (value.active?"Desativar":"Ativar") + "</button></td></tr>";
+                let html = "<tr><td>" + value.name + "</td><td>" + value.email + "</td><td><a href='user-profile?id=" + value._id + "' class='btn btn-primary'>Perfil</a><button class='btn btn-primary btnAtivacao' data-id='" + value._id + "'data-ativo='" + value.active + "'>" + (value.active ? "Desativar" : "Ativar") + "</button></td></tr>";
 
                 if (roles == "user") {
                     $("#users-list tbody").append(html);
-                }
-                else if(roles == "counter")
+                } else if (roles == "counter")
                 {
                     $("#counter-list tbody").append(html);
                 }
                 var month = value.createdAt.split("-");
                 month = getMes(month[1]);
-                if(!in_array(month, months['meses'])){
+                if (!in_array(month, months['meses'])) {
                     months['values'][month] = 1;
                     months['meses'].push(month);
-                }else{
+                } else {
                     months['values'][month]++;
                 }
             });
-            
-            for(var value in months.values){
+
+            for (var value in months.values) {
                 values.push(months.values[value]);
             }
-            
+
             $("#number-user").text(values[values.length - 1]);
-            
+
             var ctx = document.getElementById("user-chart").getContext('2d');
-            
+
             var users_chart = new Chart(ctx, {
                 type: 'bar',
                 data: {
                     labels: months['meses'],
                     datasets: [{
-                        label: 'Numero de usuarios',
-                        data: values,
-                        backgroundColor: [
-                            'rgba(255, 255, 255, 0.8)',
-                            'rgba(255, 255, 255, 0.8)',
-                            'rgba(255, 255, 255, 0.8)',
-                            'rgba(255, 255, 255, 0.8)',
-                            'rgba(255, 255, 255, 0.8)',
-                            'rgba(255, 255, 255, 0.8)'
-                        ],
-                        borderColor: [
-                            'rgba(255,255,255,1)',
-                            'rgba(255, 255, 255, 1)',
-                            'rgba(255, 255, 255, 1)',
-                            'rgba(255, 255, 255, 1)',
-                            'rgba(255, 255, 255, 1)',
-                            'rgba(255, 255, 255, 1)'
-                        ],
-                        borderWidth: 1
-                    }]
+                            label: 'Numero de usuarios',
+                            data: values,
+                            backgroundColor: [
+                                'rgba(255, 255, 255, 0.8)',
+                                'rgba(255, 255, 255, 0.8)',
+                                'rgba(255, 255, 255, 0.8)',
+                                'rgba(255, 255, 255, 0.8)',
+                                'rgba(255, 255, 255, 0.8)',
+                                'rgba(255, 255, 255, 0.8)'
+                            ],
+                            borderColor: [
+                                'rgba(255,255,255,1)',
+                                'rgba(255, 255, 255, 1)',
+                                'rgba(255, 255, 255, 1)',
+                                'rgba(255, 255, 255, 1)',
+                                'rgba(255, 255, 255, 1)',
+                                'rgba(255, 255, 255, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
                 },
                 options: {
                     scales: {
                         yAxes: [{
-                            ticks: {
-                                beginAtZero:true
-                            }
-                        }]
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
                     }
                 }
             });
 
             $("#users-list").dataTable({
                 "language": {
-                "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Portuguese-Brasil.json"
+                    "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Portuguese-Brasil.json"
                 }
             });
             $("#counter-list").dataTable({
                 "language": {
-                "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Portuguese-Brasil.json"
+                    "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Portuguese-Brasil.json"
                 }
-            });    
+            });
         }, error: function (e) {
             console.log(e);
         }
@@ -253,260 +252,280 @@ $("#users-list").ready(function () {
 
 
 
-$("#dispatch-chart").ready(function(){
+$("#dispatch-chart").ready(function () {
     $.ajax({
         url: "dispatches",
         method: "POST",
         dataType: "json",
-        success: function(data){
+        success: function (data) {
             var months = [],
-                values = [];
+                    values = [];
             months['meses'] = [],
-            months['values'] = [];
+                    months['values'] = [];
             $.each(data, function (i, value) {
                 var month = value.date.split("-");
                 month = getMes(month[1]);
-                if(!in_array(month, months['meses'])){
+                if (!in_array(month, months['meses'])) {
                     months['values'][month] = 1;
                     months['meses'].push(month);
-                }else{
+                } else {
                     months['values'][month]++;
                 }
             });
-            
-            for(var value in months.values){
+
+            for (var value in months.values) {
                 values.push(months.values[value]);
             }
-            
-            
+
+
             $("#number-files").text(values[values.length - 1]);
-            
+
             var ctx = document.getElementById("dispatch-chart").getContext('2d');
-            
+
             var users_chart = new Chart(ctx, {
                 type: 'line',
                 data: {
                     labels: months['meses'],
                     datasets: [{
-                        label: 'Numero de envios',
-                        data: values,
-                        backgroundColor: [
-                            'rgba(255, 255, 255, 0.8)',
-                            'rgba(255, 255, 255, 0.8)',
-                            'rgba(255, 255, 255, 0.8)',
-                            'rgba(255, 255, 255, 0.8)',
-                            'rgba(255, 255, 255, 0.8)',
-                            'rgba(255, 255, 255, 0.8)'
-                        ],
-                        borderColor: [
-                            'rgba(255,255,255,1)',
-                            'rgba(255, 255, 255, 1)',
-                            'rgba(255, 255, 255, 1)',
-                            'rgba(255, 255, 255, 1)',
-                            'rgba(255, 255, 255, 1)',
-                            'rgba(255, 255, 255, 1)'
-                        ],
-                        borderWidth: 1
-                    }]
+                            label: 'Numero de envios',
+                            data: values,
+                            backgroundColor: [
+                                'rgba(255, 255, 255, 0.8)',
+                                'rgba(255, 255, 255, 0.8)',
+                                'rgba(255, 255, 255, 0.8)',
+                                'rgba(255, 255, 255, 0.8)',
+                                'rgba(255, 255, 255, 0.8)',
+                                'rgba(255, 255, 255, 0.8)'
+                            ],
+                            borderColor: [
+                                'rgba(255,255,255,1)',
+                                'rgba(255, 255, 255, 1)',
+                                'rgba(255, 255, 255, 1)',
+                                'rgba(255, 255, 255, 1)',
+                                'rgba(255, 255, 255, 1)',
+                                'rgba(255, 255, 255, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
                 },
                 options: {
                     scales: {
                         yAxes: [{
-                            ticks: {
-                                beginAtZero:true
-                            }
-                        }]
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
                     }
                 }
             });
-        },error: function(e){
+        }, error: function (e) {
             console.log(e);
         }
     });
 });
 
-$("#payments-chart").ready(function(){
+$("#payments-chart").ready(function () {
     $.ajax({
         url: "pay-list",
         method: "POST",
         dataType: "json",
-        success: function(data){
+        success: function (data) {
             var months = [],
-                values = [];
+                    values = [];
             months['meses'] = [],
-            months['values'] = [];
+                    months['values'] = [];
             $.each(data, function (i, value) {
                 var month = value.date.split("-");
                 month = getMes(month[1]);
-                if(!in_array(month, months['meses'])){
+                if (!in_array(month, months['meses'])) {
                     months['values'][month] = 1;
                     months['meses'].push(month);
-                }else{
+                } else {
                     months['values'][month]++;
                 }
             });
-            
-            for(var value in months.values){
+
+            for (var value in months.values) {
                 values.push(months.values[value]);
             }
-            
-            
+
+
             $("#number-pay").text(values[values.length - 1]);
-            
+
             var ctx = document.getElementById("payments-chart").getContext('2d');
-            
+
             var users_chart = new Chart(ctx, {
                 type: 'line',
                 data: {
                     labels: months['meses'],
                     datasets: [{
-                        label: 'Numero de Pagamentos',
-                        data: values,
-                        backgroundColor: [
-                            'rgba(255, 255, 255, 0.8)',
-                            'rgba(255, 255, 255, 0.8)',
-                            'rgba(255, 255, 255, 0.8)',
-                            'rgba(255, 255, 255, 0.8)',
-                            'rgba(255, 255, 255, 0.8)',
-                            'rgba(255, 255, 255, 0.8)'
-                        ],
-                        borderColor: [
-                            'rgba(255,255,255,1)',
-                            'rgba(255, 255, 255, 1)',
-                            'rgba(255, 255, 255, 1)',
-                            'rgba(255, 255, 255, 1)',
-                            'rgba(255, 255, 255, 1)',
-                            'rgba(255, 255, 255, 1)'
-                        ],
-                        borderWidth: 1
-                    }]
+                            label: 'Numero de Pagamentos',
+                            data: values,
+                            backgroundColor: [
+                                'rgba(255, 255, 255, 0.8)',
+                                'rgba(255, 255, 255, 0.8)',
+                                'rgba(255, 255, 255, 0.8)',
+                                'rgba(255, 255, 255, 0.8)',
+                                'rgba(255, 255, 255, 0.8)',
+                                'rgba(255, 255, 255, 0.8)'
+                            ],
+                            borderColor: [
+                                'rgba(255,255,255,1)',
+                                'rgba(255, 255, 255, 1)',
+                                'rgba(255, 255, 255, 1)',
+                                'rgba(255, 255, 255, 1)',
+                                'rgba(255, 255, 255, 1)',
+                                'rgba(255, 255, 255, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
                 },
                 options: {
                     scales: {
                         yAxes: [{
-                            ticks: {
-                                beginAtZero:true
-                            }
-                        }]
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
                     }
                 }
             });
-        },error: function(e){
+        }, error: function (e) {
             console.log(e);
         }
     });
 });
 
-$("#xml-chart").ready(function(){
-   $.ajax({
-       type: "POST",
-       url: "dispatches",
-       dataType: "json",
-       success: function(data){
+$("#xml-chart").ready(function () {
+    $.ajax({
+        type: "POST",
+        url: "dispatches",
+        dataType: "json",
+        success: function (data) {
             var months = [],
-                values = [];
+                    values = [];
             months['meses'] = [],
-            months['values'] = [];
+                    months['values'] = [];
             $.each(data, function (i, value) {
                 var month = value.date.split("-");
                 month = getMes(month[1]);
-                if(!in_array(month, months['meses'])){
+                if (!in_array(month, months['meses'])) {
                     months['values'][month] = 1;
                     months['meses'].push(month);
-                }else{
+                } else {
                     months['values'][month]++;
                 }
             });
-            
-            for(var value in months.values){
+
+            for (var value in months.values) {
                 values.push(months.values[value]);
             }
-            
+
             var ctx = document.getElementById("xml-chart").getContext('2d');
-            
+
             var users_chart = new Chart(ctx, {
                 type: 'line',
                 data: {
                     labels: months['meses'],
                     datasets: [{
-                        label: 'Numero de envios',
-                        data: values,
-                        backgroundColor: [
-                            'rgba(255, 255, 255, 0.8)',
-                            'rgba(255, 255, 255, 0.8)',
-                            'rgba(255, 255, 255, 0.8)',
-                            'rgba(255, 255, 255, 0.8)',
-                            'rgba(255, 255, 255, 0.8)',
-                            'rgba(255, 255, 255, 0.8)'
-                        ],
-                        borderColor: [
-                            'rgba(255,255,255,1)',
-                            'rgba(255, 255, 255, 1)',
-                            'rgba(255, 255, 255, 1)',
-                            'rgba(255, 255, 255, 1)',
-                            'rgba(255, 255, 255, 1)',
-                            'rgba(255, 255, 255, 1)'
-                        ],
-                        borderWidth: 1
-                    }]
+                            label: 'Numero de envios',
+                            data: values,
+                            backgroundColor: [
+                                'rgba(255, 255, 255, 0.8)',
+                                'rgba(255, 255, 255, 0.8)',
+                                'rgba(255, 255, 255, 0.8)',
+                                'rgba(255, 255, 255, 0.8)',
+                                'rgba(255, 255, 255, 0.8)',
+                                'rgba(255, 255, 255, 0.8)'
+                            ],
+                            borderColor: [
+                                'rgba(255,255,255,1)',
+                                'rgba(255, 255, 255, 1)',
+                                'rgba(255, 255, 255, 1)',
+                                'rgba(255, 255, 255, 1)',
+                                'rgba(255, 255, 255, 1)',
+                                'rgba(255, 255, 255, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
                 },
                 options: {
                     scales: {
                         yAxes: [{
-                            ticks: {
-                                beginAtZero:true
-                            }
-                        }]
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
                     }
                 }
             });
-       }, error: function(e){
-           console.log(e);
-       }
-   }); 
-});
-
-$("#contaReceber").ready(function () {
-        var json = $("#JSON").val();
-        var pagamentos = JSON.parse(json);
-
-        var html = "";
-        $.each(pagamentos, function (i, value) {
-
-            var u = value.user;
-            var date = new Date(value.date);
-
-            html += "<tr>";
-            html += "   <td>" + (u != null ? u.name : "-") + "</td>";
-            html += "   <td>" + date.getDate() + '/' + (date.getMonth() + 1) + '/' +  date.getFullYear() + "</td>";
-            html += "   <td>" + (value.paymentType == "CreditCard" ? "Cr&eacute;dito" : "D&eacute;bito") + "</td>";
-            html += "   <td> R$" + (u != null ? value.value.toFixed(2).replace(".", ","): "-") + "</td>";
-            html += "</tr>";
-        });
-
-    $("#contaReceber tbody").html(html);
-
-       $("#contaReceber").dataTable({
-        "language": {
-        "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Portuguese-Brasil.json"
+        }, error: function (e) {
+            console.log(e);
         }
     });
 });
 
+$("#contaReceber").ready(function () {
+    var json = $("#JSON").val();
+    var pagamentos = JSON.parse(json);
+
+    var html = "";
+    $.each(pagamentos, function (i, value) {
+
+        var u = value.user;
+        var date = new Date(value.date);
+
+        html += "<tr>";
+        html += "   <td>" + (u != null ? u.name : "-") + "</td>";
+        html += "   <td>" + date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear() + "</td>";
+        html += "   <td>" + (value.paymentType == "CreditCard" ? "Cr&eacute;dito" : "D&eacute;bito") + "</td>";
+        html += "   <td> R$" + (u != null ? value.value.toFixed(2).replace(".", ",") : "-") + "</td>";
+        html += "   <td> <a href='paydetail?id=" + value._id + "' class='btn btn-primary'>Detalhes</a> </td>";
+        html += "</tr>";
+    });
+
+    $("#contaReceber tbody").html(html);
+
+    $("#contaReceber").dataTable({
+        "language": {
+            "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Portuguese-Brasil.json"
+        }
+    });
+});
+
+$(document).on('click', '.btnPayDetails', function (e) {
+    e.preventDefault();
+
+    var idPayment = $(this).attr("id");
+
+    $.ajax({
+        url: "users",
+        type: "get",
+        data: {
+            type: "paydetail",
+            idPayment: idPayment
+        }, success: function (data) {
+            console.log(data);
+        }, error: function (e) {
+            console.log(e);
+        }
+    });
+
+});
 
 $(document).on('click', '.btnAtivacao', function (e) {
     e.preventDefault();
 
-    var id = $(this).attr('data-id');    
+    var id = $(this).attr('data-id');
     var ativo = $(this).attr('data-ativo');
     var newativo = true;
-    if(ativo == "true"){
+    if (ativo == "true") {
         newativo = false;
     }
 
     var $this = $(this);
 
-    if (!confirm("Tem certeza que deseja " + (ativo == "true" ?"desativar":"ativar") + " esse usuario?")) {
+    if (!confirm("Tem certeza que deseja " + (ativo == "true" ? "desativar" : "ativar") + " esse usuario?")) {
         return false;
     }
 
@@ -656,8 +675,8 @@ function onlyLetter(e) {
     }
 }
 
-function getMes(mes){
-    switch(mes){
+function getMes(mes) {
+    switch (mes) {
         case "01":
             return "Janeiro";
             break;
@@ -700,10 +719,10 @@ function getMes(mes){
     }
 }
 
-function in_array(value, array){
+function in_array(value, array) {
     var exist = false;
-    for(var i = 0; i < array.length; i++)
-        if(array[i] == value)
+    for (var i = 0; i < array.length; i++)
+        if (array[i] == value)
             exist = true;
     return exist;
 }
