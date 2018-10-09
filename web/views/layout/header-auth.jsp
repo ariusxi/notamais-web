@@ -39,7 +39,6 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
         <!-- Material Kit CSS -->
         <link href="${pageContext.request.contextPath}/assets/dashboard/assets/css/material-dashboard.css?v=2.1.0" rel="stylesheet" />
-        <link href="${pageContext.request.contextPath}/assets/css/material-kit.min.css" rel="stylesheet" />
         <link href="${pageContext.request.contextPath}/assets/css/fix.css" rel="stylesheet"/>
     </head>
     <body class="dark-edition">
@@ -147,6 +146,12 @@
                             </a>
                         </li>
                         <li class="nav-item active  ">
+                            <a class="nav-link" href="vusers">
+                                <i class="material-icons">assignment_ind</i>
+                                <p>Clientes</p>
+                            </a>
+                        </li> 
+                        <li class="nav-item active  ">
                             <a class="nav-link" href="lista-arquivos">
                                 <i class="material-icons">insert_drive_file</i>
                                 <p>Lista de Arquivos</p>
@@ -154,7 +159,7 @@
                         </li>
                         <li class="nav-item active">
                             <a class="nav-link" href="invitations">
-                                <i class="material-icons">dashboard</i>
+                                <i class="material-icons">question_answer</i>
                                 <p>Convites <span class="badge badge-light countInvitation"></span> </p>
                             </a>
                         </li>

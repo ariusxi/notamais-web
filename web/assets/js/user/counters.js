@@ -1,6 +1,6 @@
 $(function(){  
     meusContadores();
-    $("a[href='#listCounter']").click(meusContadores);
+    $("a[href='#listCounter']").click(meusContadores); 
 });
     
 $("#btnPesquisarContador").click(function(){
@@ -100,7 +100,7 @@ function meusContadores(){
             html+="<th>Nome</th>";
             html+="<th>Email</th>";
             html+="<th>Status</th>";
-            html+="<th>Aç&otilde;es</th>";
+            html+="<th></th>";
             html+="</tr>";
             html+="</thead>";
             html+="<tbody>";       
@@ -112,7 +112,7 @@ function meusContadores(){
                 html+="<td>" + convite.counter.name + "</td>";
                 html+="<td>" + convite.counter.email + "</td>";
                 html+=" <td>" + (convite.approved?"Aprovado":"Aguardando aprovaç&atilde;o") + "</td>";
-                html+="<td><button type='button' data-id-convite='" + convite._id + "' onclick='excluir(this)' class='btn btn-primary'>Excluir</button></td>";
+                html+="<td></td>";
                 html+="</tr>";
             }
             
