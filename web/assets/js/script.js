@@ -21,6 +21,7 @@ $(function () {
     });
     
     $("#cliente").ready(function(e){
+        loader();
         $.ajax({
             url: "counters",
             method: "POST",
@@ -35,6 +36,7 @@ $(function () {
                         $("#cliente").append("<option value='"+value.user._id+"'>"+value.user.name+"</option>");
                     }
                 });
+                closeLoader();
             },error: function(e){
                 console.log(e);
             }
@@ -165,7 +167,7 @@ $("#contato").submit(function (e) {
 
     let form = $(this);
     let formData = form.serialize();
-
+    loader();
     $.ajax({
         url: "contact",
         method: "post",
@@ -178,17 +180,21 @@ $("#contato").submit(function (e) {
             var dataJSON = JSON.parse(data);
             $("#message").css('display', 'block');
             $('#message').html(dataJSON.message);
+            
+            closeLoader();
         },
         error: function (e) {
             $('#message').css('display', 'block');
             $('#message').html(e.responseText);
         }
+        
     });
 
     return false;
 });
 
 $("#users-list").ready(function () {
+    loader();
     $.ajax({
         url: "users",
         method: "post",
@@ -197,37 +203,49 @@ $("#users-list").ready(function () {
         },
         dataType: "json",
         success: function (data) {
-            var months = [],
-                values = [];
-            months['meses'] = [],
-            months['values'] = [];
-            $.each(data, function (i, value) {
-                let roles = "";
-                if(value.roles != undefined){
-                    roles = value.roles[0];
-                }
-                let html = "<tr><td>" + value.name + "</td><td>" + value.email + "</td><td><a href='user-profile?id=" + value._id + "' class='btn btn-primary'>Perfil</a><button class='btn btn-primary btnAtivacao' data-id='" + value._id + "'data-ativo='" + value.active + "'>" + (value.active?"Desativar":"Ativar") + "</button></td></tr>";
+            try {
+                var months = [],
+                    values = [];
+                months['meses'] = [],
+                months['values'] = [];
+                $.each(data, function (i, value) {
+                    let roles = "";
+                    if(value.roles != undefined){
+                        roles = value.roles[0];
+                    }
+                    let html = "<tr><td>" + value.name + "</td><td>" + value.email + "</td><td><a href='user-profile?id=" + value._id + "' class='btn btn-primary'>Perfil</a><button class='btn btn-primary btnAtivacao' data-id='" + value._id + "'data-ativo='" + value.active + "'>" + (value.active?"Desativar":"Ativar") + "</button></td></tr>";
 
-                if (roles == "user") {
-                    $("#users-list tbody").append(html);
+                    if (roles == "user") {
+                        $("#users-list tbody").append(html);
+                    }
+                    else if(roles == "counter")
+                    {
+                        $("#counter-list tbody").append(html);
+                    }
+                    var month = value.createdAt.split("-");
+                    month = getMes(month[1]);
+                    if(!in_array(month, months['meses'])){
+                        months['values'][month] = 1;
+                        months['meses'].push(month);
+                    }else{
+                        months['values'][month]++;
+                    }
+                });
+
+                for(var value in months.values){
+                    values.push(months.values[value]);
                 }
-                else if(roles == "counter")
-                {
-                    $("#counter-list tbody").append(html);
-                }
-                var month = value.createdAt.split("-");
-                month = getMes(month[1]);
-                if(!in_array(month, months['meses'])){
-                    months['values'][month] = 1;
-                    months['meses'].push(month);
-                }else{
-                    months['values'][month]++;
-                }
-            });
-            
-            for(var value in months.values){
-                values.push(months.values[value]);
-            }
+
+                $("#users-list").dataTable({
+                    "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Portuguese-Brasil.json"
+                    }
+                });
+                $("#counter-list").dataTable({
+                    "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Portuguese-Brasil.json"
+                    }
+                }); 
             
             $("#number-user").text(values[values.length - 1]);
             
@@ -269,17 +287,10 @@ $("#users-list").ready(function () {
                     }
                 }
             });
+            }
+            catch (e) { }
+            closeLoader();
 
-            $("#users-list").dataTable({
-                "language": {
-                "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Portuguese-Brasil.json"
-                }
-            });
-            $("#counter-list").dataTable({
-                "language": {
-                "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Portuguese-Brasil.json"
-                }
-            });    
         }, error: function (e) {
             console.log(e);
         }
@@ -288,16 +299,14 @@ $("#users-list").ready(function () {
 });
 
 
-
-
-
-
 $("#dispatch-chart").ready(function(){
+    loader();
     $.ajax({
         url: "dispatches",
         method: "POST",
         dataType: "json",
         success: function(data){
+            try {
             var months = [],
                 values = [];
             months['meses'] = [],
@@ -316,7 +325,6 @@ $("#dispatch-chart").ready(function(){
             for(var value in months.values){
                 values.push(months.values[value]);
             }
-            
             
             $("#number-files").text(values[values.length - 1]);
             
@@ -358,6 +366,10 @@ $("#dispatch-chart").ready(function(){
                     }
                 }
             });
+        }
+        catch (e) { }
+        closeLoader();
+        
         },error: function(e){
             console.log(e);
         }
@@ -370,6 +382,7 @@ $("#payments-chart").ready(function(){
         method: "POST",
         dataType: "json",
         success: function(data){
+            try {
             var months = [],
                 values = [];
             months['meses'] = [],
@@ -388,7 +401,6 @@ $("#payments-chart").ready(function(){
             for(var value in months.values){
                 values.push(months.values[value]);
             }
-            
             
             $("#number-pay").text(values[values.length - 1]);
             
@@ -430,6 +442,9 @@ $("#payments-chart").ready(function(){
                     }
                 }
             });
+        }
+        catch (e) { }
+        closeLoader();
         },error: function(e){
             console.log(e);
         }
@@ -437,11 +452,13 @@ $("#payments-chart").ready(function(){
 });
 
 $("#xml-chart").ready(function(){
+   loader();
    $.ajax({
        type: "POST",
        url: "dispatches",
        dataType: "json",
        success: function(data){
+           try {
             var months = [],
                 values = [];
             months['meses'] = [],
@@ -499,6 +516,9 @@ $("#xml-chart").ready(function(){
                     }
                 }
             });
+        }
+        catch (e) { }
+        closeLoader();
        }, error: function(e){
            console.log(e);
        }
@@ -507,6 +527,7 @@ $("#xml-chart").ready(function(){
 
 $("#contaReceber").ready(function () {
         var json = $("#JSON").val();
+        if (json != "" && json != null) {
         var pagamentos = JSON.parse(json);
 
         var html = "";
@@ -523,13 +544,14 @@ $("#contaReceber").ready(function () {
             html += "</tr>";
         });
 
-    $("#contaReceber tbody").html(html);
+        $("#contaReceber tbody").html(html);
 
        $("#contaReceber").dataTable({
         "language": {
         "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Portuguese-Brasil.json"
         }
     });
+    }
 });
 
 
@@ -548,7 +570,7 @@ $(document).on('click', '.btnAtivacao', function (e) {
     if (!confirm("Tem certeza que deseja " + (ativo == "true" ?"desativar":"ativar") + " esse usuario?")) {
         return false;
     }
-
+    loader();  
     $.ajax({
         url: "users",
         type: "post",
@@ -558,6 +580,7 @@ $(document).on('click', '.btnAtivacao', function (e) {
             id: id
         }, success: function () {
             location.href = location.href;
+        closeLoader();
         }, error: function (e) {
             console.log(e);
         }

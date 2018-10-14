@@ -2,7 +2,7 @@
 <div class="col-sm-12 col-md-12 col-lg-12 mt-4">
     <ul class="nav nav-tabs">
         <li class="active">
-            <a class="nav-link active" href="#list" data-toggle="tab">Lista de Funcionarios</a>
+            <a class="nav-link active" href="#list" data-toggle="tab" onclick="atualizarPagina()">Lista de Funcionarios</a>
         </li>
         <li>
             <a  class="nav-link" href="#register" data-toggle="tab">Cadastrar Funcionário</a>

@@ -61,6 +61,7 @@ public class ListaXML  extends HttpServlet{
         
               
         String id = (String) session.getAttribute("id");
+        String idCliente = (String) request.getParameter("idCliente");
         String token = (String) session.getAttribute("token");
         String methodType = request.getParameter("methodType");
         
@@ -80,7 +81,7 @@ public class ListaXML  extends HttpServlet{
         API con;
         switch(methodType){
             case "list-xml":
-                con = new API("files/user/" + id, "GET", token);
+                con = new API("files/user/" + idCliente, "GET", token);
                 break;
             default: 
                 con = new API("/files/delete/" + id, "DELETE", token);
