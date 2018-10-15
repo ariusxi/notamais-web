@@ -20,6 +20,45 @@ $(function () {
         $("#uno3").appendTo($("#card3"));
     });
 
+    $("#cliente").ready(function (e) {
+        $.ajax({
+            url: "counters",
+            method: "POST",
+            data: {
+                type: "counters-list",
+            },
+            success: function (json) {
+                var data = JSON.parse(json);
+                $("#cliente").html("<option value=''>Escolha um cliente</option>");
+                $.each(data, function (key, value) {
+                    if (value.approved) {
+                        $("#cliente").append("<option value='" + value.user._id + "'>" + value.user.name + "</option>");
+                    }
+                });
+            }, error: function (e) {
+                console.log(e);
+            }
+        });
+    });
+
+    $("#report").submit(function (e) {
+        e.preventDefault();
+
+        var cliente = $("#cliente").val();
+        var begin = $("#begin").val();
+        var end = $("#end").val();
+
+        if (cliente == "") {
+            $("#feedback").css('display', 'block');
+            $("#feedback").html('Você deve preencher todos os campos');
+            return false;
+        }
+
+        window.location.href = "/notamais-web/report?cliente=" + cliente + "&begin=" + begin + "&end=" + end;
+
+        return false;
+    });
+
     $("#formLogin").submit(function (e) {
         e.preventDefault();
 
@@ -158,23 +197,28 @@ $("#users-list").ready(function () {
         },
         dataType: "json",
         success: function (data) {
+
             var months = [],
                     values = [];
+
             months['meses'] = [],
                     months['values'] = [];
+
             $.each(data, function (i, value) {
                 let roles = "";
+
                 if (value.roles != undefined) {
                     roles = value.roles[0];
                 }
+
                 let html = "<tr><td>" + value.name + "</td><td>" + value.email + "</td><td><a href='user-profile?id=" + value._id + "' class='btn btn-primary'>Perfil</a><button class='btn btn-primary btnAtivacao' data-id='" + value._id + "'data-ativo='" + value.active + "'>" + (value.active ? "Desativar" : "Ativar") + "</button></td></tr>";
 
                 if (roles == "user") {
                     $("#users-list tbody").append(html);
-                } else if (roles == "counter")
-                {
+                } else if (roles == "counter") {
                     $("#counter-list tbody").append(html);
                 }
+
                 var month = value.createdAt.split("-");
                 month = getMes(month[1]);
                 if (!in_array(month, months['meses'])) {
@@ -198,7 +242,7 @@ $("#users-list").ready(function () {
                 data: {
                     labels: months['meses'],
                     datasets: [{
-                            label: 'Numero de usuarios',
+                            label: 'Numero de funcionários',
                             data: values,
                             backgroundColor: [
                                 'rgba(255, 255, 255, 0.8)',
@@ -246,11 +290,6 @@ $("#users-list").ready(function () {
     });
 
 });
-
-
-
-
-
 
 $("#dispatch-chart").ready(function () {
     $.ajax({
@@ -493,25 +532,6 @@ $("#contaReceber").ready(function () {
     });
 });
 
-$(document).on('click', '.btnPayDetails', function (e) {
-    e.preventDefault();
-
-    var idPayment = $(this).attr("id");
-
-    $.ajax({
-        url: "users",
-        type: "get",
-        data: {
-            type: "paydetail",
-            idPayment: idPayment
-        }, success: function (data) {
-            console.log(data);
-        }, error: function (e) {
-            console.log(e);
-        }
-    });
-
-});
 
 $(document).on('click', '.btnAtivacao', function (e) {
     e.preventDefault();

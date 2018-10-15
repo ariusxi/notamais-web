@@ -13,11 +13,20 @@ $("#employee-list").ready(function (e) {
         },
         dataType: "json",
         success: function (data) {
+
+            var months = [],
+                    values = [];
+
+            months['meses'] = [],
+                    months['values'] = [];
+
             $.each(data, function (i, value) {
                 let nickname = "Não informado";
+
                 if (value.person.nickname != "") {
                     nickname = value.person.nickname;
                 }
+
                 let html = "<tr><td>" + value.person.name + "</td>";
                 html += "<td>" + value.person.email + "</td>";
                 html += "<td>" + value.person.createdAt + "</td>";
@@ -25,7 +34,62 @@ $("#employee-list").ready(function (e) {
                 html += "</tr>";
 
                 $("#employee-list tbody").append(html);
+
+                var month = value.person.createdAt.split("-");
+                month = getMes(month[1]);
+                if (!in_array(month, months['meses'])) {
+                    months['values'][month] = 1;
+                    months['meses'].push(month);
+                } else {
+                    months['values'][month]++;
+                }
             });
+
+            for (var value in months.values) {
+                values.push(months.values[value]);
+            }
+
+            $("#number-user").text(values[values.length - 1]);
+
+            var ctx = document.getElementById("employee-chart").getContext('2d');
+
+            var users_chart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: months['meses'],
+                    datasets: [{
+                            label: 'Numero de funcionários',
+                            data: values,
+                            backgroundColor: [
+                                'rgba(255, 255, 255, 0.8)',
+                                'rgba(255, 255, 255, 0.8)',
+                                'rgba(255, 255, 255, 0.8)',
+                                'rgba(255, 255, 255, 0.8)',
+                                'rgba(255, 255, 255, 0.8)',
+                                'rgba(255, 255, 255, 0.8)'
+                            ],
+                            borderColor: [
+                                'rgba(255,255,255,1)',
+                                'rgba(255, 255, 255, 1)',
+                                'rgba(255, 255, 255, 1)',
+                                'rgba(255, 255, 255, 1)',
+                                'rgba(255, 255, 255, 1)',
+                                'rgba(255, 255, 255, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
+                    }
+                }
+            });
+
         }, error: function (e) {
             console.log(e);
         }

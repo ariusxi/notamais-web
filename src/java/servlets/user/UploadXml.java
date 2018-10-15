@@ -95,6 +95,9 @@ public class UploadXml extends HttpServlet {
             case "emitir-nota":
                 con = new API("files/nfe/" + file, "GET", token);
                 break;
+            case "gerar-danfe":
+                con = new API("files/danfe/" + file, "GET", token);
+                break;
             default: 
                 con = new API("/files/delete/" + file, "DELETE", token);
                 break;

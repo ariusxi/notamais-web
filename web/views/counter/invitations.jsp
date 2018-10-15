@@ -20,6 +20,8 @@
     $(document).ready(function () {
         
         var json = JSON.parse('<%= request.getAttribute("invitations")%>');
+        
+        console.log(json.length);
 
         if (json.length > 1) {
             

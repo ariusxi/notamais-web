@@ -56,8 +56,6 @@
     var paymentDetails = <%= request.getAttribute("paymentDetails")%>;
     var user = paymentDetails.user;
     var date = new Date(paymentDetails.date);
-    
-    console.log(paymentDetails);
 
     $(".cardPaymentDetail #idPayment").val(paymentDetails._id);
     $(".cardPaymentDetail #datePayment").val(date.toLocaleString());

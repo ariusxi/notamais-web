@@ -5,11 +5,6 @@
 --%>
 
 <jsp:include page="../layout/header-auth.jsp"/>
-<%
-    if(request.getParameter("image") != null){
-        session.setAttribute("image", request.getParameter("image"));
-    }
-%>
 <div class="col-sm-12 col-md-12 col-lg-12 mt-4">
     <h3>Imagem de Perfil</h3>
     <div class="col-sm-12 col-md-12 col-md-4">
