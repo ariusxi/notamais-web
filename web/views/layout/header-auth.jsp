@@ -125,12 +125,6 @@
                             <p>Pagamentos</p>
                         </a>
                     </li>
-                    <li class="nav-item active  ">
-                        <a class="nav-link" href="auths">
-                            <i class="material-icons">person</i>
-                            <p>Histórico de Login</p>
-                        </a>
-                    </li>
                     <% }%>
                     <% if (session.getAttribute("roles").equals("user")) { %>
                     <li class="nav-item active  ">
