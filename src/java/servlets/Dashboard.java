@@ -43,17 +43,34 @@ public class Dashboard extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         HttpSession session = request.getSession();
-        if(session.getAttribute("id")==null){
+        if (session.getAttribute("id") == null) {
             response.sendRedirect("/notamais-web");
-        }else{
+        } else {
+
+            PrintWriter out = response.getWriter();
+
+            response.setContentType("text/html;charset=UTF-8");
+
+            String token = (String) session.getAttribute("token");
+            String idAuth = request.getParameter("id");
+
+            String route = "auths";
+            API con = new API(route, "GET", token);
+
+            Hashtable<Integer, String> source = new Hashtable<Integer, String>();
+            HashMap<String, String> map = new HashMap(source);
+            String responseJSON = con.getJsonString(map);
+
+            request.setAttribute("auths", responseJSON);
+
             String url = "/views/dashboard.jsp";
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
             dispatcher.forward(request, response);
         }
     }
-    
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -99,9 +116,9 @@ public class Dashboard extends HttpServlet {
                 session.setAttribute("email", userEmail);
                 session.setAttribute("name", userName);
                 session.setAttribute("roles", userRoles);
-                
+
                 out.print(data);
-                
+
             }
 
         } catch (JSONException ex) {

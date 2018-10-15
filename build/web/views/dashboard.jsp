@@ -200,6 +200,54 @@
             </div>
         </div>
     </div>
+    <div>
+        <div class="table-responsive mt-0">
+            <h3>Histórico de login</h3>
+            <table id="auths-list" class="display table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Email</th>
+                        <th>Data/Horário</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>   
+                </tbody>
+            </table>  
+        </div>
+    </div>
     <% }%>
 </div>
 <jsp:include page="../views/layout/footer-auth.jsp" />
+
+
+<script>
+
+    var auths = <%= request.getAttribute("auths")%>;
+
+    for (var i = 0; i < auths.length; i++) {
+
+        var date = new Date(auths[i].date);
+
+        let html = "<tr>";
+        html += "<td>" + auths[i]._id + "</td>";
+        if (auths[i].user != null) {
+            html += "<td>" + auths[i].user.email + "</td>";
+        } else {
+            html += "<td></td>";
+        }
+        html += "<td>" + date.toLocaleDateString() + " " + date.toLocaleTimeString() + "</td>";
+        if (auths[i].user != null) {
+            html += "<td> <a href='auth-detail?id=" + auths[i].user._id + "' class='btn btn-primary btn-sm'>Detalhes</a> </td>";
+        } else {
+            html += "<td></td>";
+        }
+        html += "</tr>";
+
+        $("#auths-list tbody").append(html);
+    }
+    
+    $("#auths-list").dataTable();
+
+</script>
