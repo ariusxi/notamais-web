@@ -102,7 +102,7 @@
         </div>
     </div>
     <% } else if (session.getAttribute("roles").equals("admin")) { %>
-    <div class="row">
+    <div class="row mt-5 mb-0">
         <div class="col-lg-4 col-md-12 col-sm-12">
             <div class="card card-stats">
                 <div class="card-header card-header-warning card-header-icon">
@@ -201,8 +201,8 @@
         </div>
     </div>
     <div>
-        <div class="table-responsive mt-0">
-            <h3>Histórico de login</h3>
+        <div class="table-responsive">
+            <h3 class="mt-0">Histórico de login</h3>
             <table id="auths-list" class="display table">
                 <thead>
                     <tr>
