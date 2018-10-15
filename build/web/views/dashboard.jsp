@@ -109,8 +109,8 @@
                     <div class="card-icon">
                         <i class="material-icons">person</i>
                     </div>
-                    <p class="card-category">Cadastros do mês</p>
-                    <h3 class="card-title" id="number-user">
+                    <p class="card-category text-light">Cadastros do mês</p>
+                    <h3 class="card-title text-light" id="number-user">
                         <div class="lds-roller">
                             <div></div>
                             <div></div>
@@ -131,8 +131,8 @@
                     <div class="card-icon">
                         <i class="material-icons">insert_drive_file</i>
                     </div>
-                    <p class="card-category">Envios do último mês</p>
-                    <h3 class="card-title" id="number-files">
+                    <p class="card-category text-light">Envios do último mês</p>
+                    <h3 class="card-title text-light" id="number-files">
                         <div class="lds-roller">
                             <div></div>
                             <div></div>
@@ -153,8 +153,8 @@
                     <div class="card-icon">
                         <i class="material-icons">attach_money</i>
                     </div>
-                    <p class="card-category">Pagamentos do mês</p>
-                    <h3 class="card-title" id="number-pay">
+                    <p class="card-category text-light">Pagamentos do mês</p>
+                    <h3 class="card-title text-light" id="number-pay">
                         <div class="lds-roller">
                             <div></div>
                             <div></div>

@@ -27,21 +27,22 @@ public class Dispatches extends HttpServlet {
 
     String POST = "POST";
     String GET = "GET";
-    
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         HttpSession session = request.getSession();
-        if(session.getAttribute("id")==null){
+        if (session.getAttribute("id") == null) {
             response.sendRedirect("/notamais-web");
-        }else{
+        } else {
             String url = "/views/adm/users.jsp";
 
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
             dispatcher.forward(request, response);
         }
     }
+
     /**
      * Handles the HTTP <code>POST</code> method.
      *
@@ -53,24 +54,23 @@ public class Dispatches extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         PrintWriter out = response.getWriter();
 
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
-        
+
         String id = (String) session.getAttribute("id");
         String roles = (String) session.getAttribute("roles");
         String token = (String) session.getAttribute("token");
         String type = request.getParameter("type");
 
         API con;
-        if(roles.equals("user")){
-            con = new API("files/user/"+id, "GET", token);
-        }else{
+        if (roles.equals("user")) {
+            con = new API("files/user/" + id, "GET", token);
+        } else {
             con = new API("files/fetch-all/", "GET", token);
         }
-        
 
         Hashtable<Integer, String> source = new Hashtable<Integer, String>();
         HashMap<String, String> map = new HashMap(source);

@@ -26,9 +26,6 @@ import javax.servlet.http.HttpSession;
 @WebServlet("/user-profile")
 public class UserProfile extends HttpServlet {
 
-
-
-
     String POST = "POST";
     String GET = "GET";
 

@@ -60,6 +60,14 @@
         <servlet-name>PayDetail</servlet-name>
         <servlet-class>servlets.adm.PayDetail</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Auths</servlet-name>
+        <servlet-class>servlets.adm.Auths</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AuthDetail</servlet-name>
+        <servlet-class>servlets.adm.AuthDetail</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ForgotPassword</servlet-name>
         <url-pattern>/ForgotPassword</url-pattern>
@@ -119,6 +127,14 @@
     <servlet-mapping>
         <servlet-name>PayDetail</servlet-name>
         <url-pattern>/PayDetail</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Auths</servlet-name>
+        <url-pattern>/Auths</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AuthDetail</servlet-name>
+        <url-pattern>/AuthDetail</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

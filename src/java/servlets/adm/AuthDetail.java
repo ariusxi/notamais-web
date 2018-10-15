@@ -22,45 +22,58 @@ import javax.servlet.http.HttpSession;
  *
  * @author lucas
  */
-@WebServlet("/paydetail")
-public class PayDetail extends HttpServlet {
-    
+@WebServlet("/auth-detail")
+public class AuthDetail extends HttpServlet {
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         PrintWriter out = response.getWriter();
-        
+
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
-        
+
         String token = (String) session.getAttribute("token");
-        String idPayment = request.getParameter("id");
-        
-        String route = "payments/get/" + idPayment;
-        API con = new API(route, "GET", token);
-        
-        Hashtable<Integer, String> source = new Hashtable<Integer, String>();
-        HashMap<String, String> map = new HashMap(source);
-        String responseJSON = con.getJsonString(map);
-        
-        request.setAttribute("paymentDetails", responseJSON);
-        
+        String idUser = request.getParameter("id");
+
+        API conn;
+        Hashtable<Integer, String> source;
+        HashMap<String, String> map;
+        String responseJSON;
+        String route;
+
+        route = "auths/user/" + idUser;
+        conn = new API(route, "GET", token);
+        source = new Hashtable<Integer, String>();
+        map = new HashMap(source);
+        responseJSON = conn.getJsonString(map);
+        request.setAttribute("auth-detail", responseJSON);
+
         if (session.getAttribute("id") == null) {
             response.sendRedirect("/notamais-web");
         } else {
-            String url = "/views/adm/pay-details.jsp";
-            
+
+            route = "users/get-user/" + idUser;
+            conn = new API(route, "GET", token);
+            source = new Hashtable<Integer, String>();
+            map = new HashMap(source);
+            responseJSON = conn.getJsonString(map);
+
+            request.setAttribute("user-detail", responseJSON);
+
+            String url = "/views/adm/auth-detail.jsp";
+
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
             dispatcher.forward(request, response);
         }
-        
+
     }
-    
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         doGet(request, response);
     }
-    
+
 }
