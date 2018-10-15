@@ -24,14 +24,13 @@
     <i class="fa fa-times ng-scope" aria-hidden="true"></i> Remover</button>
 </form>-->
 <div class="table-responsive ">    
-    <table id="xml-list" class="display table fix-upload-a">
+    <table id="xml-list-counter" class="display table fix-upload-a">
         <thead>
             <tr>
                 <th>Nº</th>
                 <th>Nome</th>
                 <th>XML</th>
                 <th>Data de envio</th>
-                <th>Ações</th>
             </tr>
         </thead>
         <tbody>   
