@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/Windows%207/Documents/NetBeansProjects/notamais-web/web/assets/js/error.js</file>
             <file>file:/C:/Users/Windows%207/Documents/NetBeansProjects/notamais-web/web/views/user/user-plan.jsp</file>
             <file>file:/C:/Users/Windows%207/Documents/NetBeansProjects/notamais-web/web/views/user/edit-user.jsp</file>
@@ -74,6 +75,11 @@
             <file>file:/C:/Users/Windows%207/Documents/NetBeansProjects/notamais-web/web/views/user/cards.jsp</file>
             <file>file:/C:/Users/Windows%207/Documents/NetBeansProjects/notamais-web/web/views/adm/edit-plan.jsp</file>
             <file>file:/C:/Users/Windows%207/Documents/NetBeansProjects/notamais-web/src/java/servlets/user/UserPlan.java</file>
+=======
+            <file>file:/C:/Users/igorc/Desktop/NotaMais/notamais-web-master/web/views/adm/pay-list.jsp</file>
+            <file>file:/C:/Users/igorc/Desktop/NotaMais/notamais-web-master/web/views/user/upload-xml.jsp</file>
+            <file>file:/C:/Users/igorc/Desktop/NotaMais/notamais-web-master/web/assets/js/script.js</file>
+>>>>>>> 3ff4a02d7ef724cd42d287f957c9cc115175b063
         </group>
     </open-files>
 </project-private>
