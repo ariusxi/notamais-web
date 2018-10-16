@@ -47,6 +47,7 @@
         <link href="${pageContext.request.contextPath}/assets/dashboard/assets/css/material-dashboard.css?v=2.1.0" rel="stylesheet" />
         <link href="${pageContext.request.contextPath}/assets/css/material-kit.min.css" rel="stylesheet" />
         <link href="${pageContext.request.contextPath}/assets/css/fix.css" rel="stylesheet"/>
+        <link href="${pageContext.request.contextPath}/assets/css/loader.css" type="text/css" rel="stylesheet" />
     </head>
     <body class="dark-edition">
         <div class="wrapper ">
@@ -153,9 +154,9 @@
                             </a>
                         </li>
                         <li class="nav-item active  ">
-                            <a class="nav-link" href="lista-arquivos">
+                            <a class="nav-link" href="costumer-list">
                                 <i class="material-icons">insert_drive_file</i>
-                                <p>Lista de Arquivos</p>
+                                <p>Clientes</p>
                             </a>
                         </li>
                         <li class="nav-item active">

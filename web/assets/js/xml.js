@@ -214,7 +214,7 @@ $(function(){
             method: "POST",
             dataType: "json",
             data: {
-                methodType: "list-xml"
+                methodType: "list-xml",
             },
             success: function(data){
                 $.each(data, function(i, value){

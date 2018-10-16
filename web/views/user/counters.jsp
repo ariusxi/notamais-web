@@ -2,7 +2,7 @@
 <div class="col-sm-12 col-md-12 col-lg-12 mt-4">
     <ul class="nav nav-tabs">
         <li class="active">
-            <a class="nav-link active" href="#listCounter" data-toggle="tab">Lista de Contadores</a>
+            <a class="nav-link active" href="#listCounter" data-toggle="tab" onclick="atualizarPagina()">Lista de Contadores</a>
         </li>
         <li>
             <a  class="nav-link" href="#addCounter" data-toggle="tab">Adicionar novo contador</a>

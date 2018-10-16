@@ -58,6 +58,7 @@
 <script src="${pageContext.request.contextPath}/assets/dashboard/assets/js/core/popper.min.js" type="text/javascript"></script>
 <script src="${pageContext.request.contextPath}/assets/dashboard/assets/js/plugins/perfect-scrollbar.jquery.min.js" type="text/javascript"></script>
 <script src="${pageContext.request.contextPath}/assets/dashboard/assets/js/material-dashboard.js?v=2.1.0" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/assets/js/loader.js" type="text/javascript"></script>
 
 <script>
     $(document).ready(function () {

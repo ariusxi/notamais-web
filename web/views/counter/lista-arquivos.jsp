@@ -24,7 +24,7 @@
     <i class="fa fa-times ng-scope" aria-hidden="true"></i> Remover</button>
 </form>-->
 <div class="table-responsive ">    
-    <table id="xml-list" class="display table fix-upload-a">
+    <table id="xmls" class="display table fix-upload-a">
         <thead>
             <tr>
                 <th>Nº</th>
@@ -38,6 +38,55 @@
         </tbody>
     </table>  
 </div>
+<input type="hidden" id="idCliente" name="idCliente" value="<% out.println(request.getParameter("cliente")); %>" />
+
 <jsp:include page="../layout/footer-auth.jsp"/>
+
+<script type="text/javascript">
+    $("#xmls").ready(function(){
+        loader();
+
+        $.ajax({
+            url: "lista-arquivos",
+            method: "POST",
+            dataType: "json",
+            data: {
+                methodType: "list-xml",
+                idCliente : $("#idCliente").val()
+            },
+            success: function(data){
+                    $.each(data, function(i, value){
+                    var name = value.name;
+                    if(value.name == undefined){
+                        name = "-";
+                    }
+                    var html = "<tr><td>"+(i+1)+"</td><td>"+name+"</td><td><a target='_blank' title='"+value.xml+"' href='"+value.xml+"'>Acessar</a></td><td>"+value.date+"</td>";
+                    if(value.nfe){
+                        html += "<td><button class='emitir-nota btn btn-primary btn-rounded' id='"+value._id+"' disabled='disabled'>Emitir</button>";
+                        if(!value.danfe){
+                            html += "<button class='gerar-danfe btn btn-primary btn-rounded' id='"+value._id+"'>Gerar DANFE</button>";
+                        }else{
+                            html += "<a href='"+value.danfe+"' class='btn btn-primary btn-rounded' target='_blank'>Ver DANFE</a>";
+                        }
+                        html += "</td></tr>";
+                    }else{
+                        html += "<td><button class='emitir-nota btn btn-primary btn-rounded' id='"+value._id+"'>Emitir</button></td></tr>";
+                    }
+                    $("#xmls tbody").append(html);
+                    
+                });
+                
+                $("#xmls").dataTable({
+                    "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Portuguese-Brasil.json"
+                    }
+                });
+                closeLoader();
+            },error: function(e){
+                console.log(e);
+            }
+        });
+    });
+</script>
 
 
