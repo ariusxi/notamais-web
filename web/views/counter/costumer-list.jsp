@@ -4,8 +4,8 @@
     <div class="tab-content">
         <div class="tab-pane active" id="listCounter">
             <h2 class="title-register">Lista de Clientes</h2>
-            <div class="table-responsive" id="counter-list">
-            </div>    
+            <table class="table-responsive" id="counter-list">
+            </table>    
         </div>
         
     </div>
