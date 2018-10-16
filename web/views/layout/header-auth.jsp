@@ -161,7 +161,7 @@
                         <li class="nav-item active">
                             <a class="nav-link" href="invitations">
                                 <i class="material-icons">dashboard</i>
-                                <p>Convites <span class="badge badge-light countInvitation"></span> </p>
+                                <p>Convites <span class="badge badge-light countInvitation text-dark"></span> </p>
                             </a>
                         </li>
                         <li class="nav-item active">

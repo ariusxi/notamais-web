@@ -1,5 +1,61 @@
 $(function(){
     
+    var fileobj;
+    
+    function upload_file(e){
+        e.preventDefault();
+        console.log(e);
+        fileobj = e.dataTransfer.files[0];
+        ajax_file_upload(fileobj);
+    }
+    
+    function file_explorer(){
+        document.getElementById('file').click();
+        document.getElementById('file').onchange = function(){
+            fileobj = document.getElementById('file').files[0];
+            ajax_file_upload(fileobj);
+        };
+    }
+    
+    function ajax_file_upload(file_obj){
+        if(file_obj != undefined){
+            var user =  $("#user").val();
+            var token = $("#token").val();
+            var form = new FormData();
+            
+            $("#drag_upload_file").html('<p>Enviando....</p>');
+            form.append('file', file_obj);
+            $.ajax({
+                type: "POST",
+                url: "https://notamaisapi.herokuapp.com/files/send/"+user,
+                headers: { 'x-access-token': token },
+                data: form,
+                contentType: false,
+                cache: false,
+                processData: false,
+                dataType: "json",
+                success: function (response) {
+                    $("#drag_upload_file").html('<p>Arraste o arquivo arquivo</p><p>ou</p> <p><input type="button" value="Selecione um arquivo" class="btn btn-primary btn-rounded file"/></p><input type="file" id="file" name="file"/>');
+                },
+                error: function (e) {
+                    $("#drag_upload_file").html('<p>Arraste o arquivo arquivo</p><p>ou</p> <p><input type="button" value="Selecione um arquivo" class="btn btn-primary btn-rounded file"/></p><input type="file" id="file" name="file"/>');
+                }
+            });
+        }
+    }
+    
+    $(".file").click(function(){
+        file_explorer();
+    });
+    
+    $("#drop_file_zone").on('drop', function(e){
+        upload_file(e);
+    });
+    
+    $("#drop_file_zone").on('dragover', function(){
+        return false;
+    })
+    
     $("#formulario").submit(function (e) {
         e.preventDefault();
         var name = $("#name").val();
