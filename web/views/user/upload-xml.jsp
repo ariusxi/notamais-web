@@ -20,11 +20,11 @@
 <h2 class="title-register"  >Upload de XML</h2>
 
 <form id="formulario" class="upload box" method="post" enctype="multipart/form-data">
-    <div id="drop_file_zone">
+    <div id="drop_file_zone" ondrop="upload_file(event)">
         <div id="drag_upload_file">
             <p>Arraste o arquivo arquivo</p>
             <p>ou</p>
-            <p><input type="button" value="Selecione um arquivo" class="btn btn-primary btn-rounded file"/></p>
+            <p><input type="button" value="Selecione um arquivo" class="btn btn-dark btn-rounded file"/></p>
             <input type="file" id="file" name="file" accept="text/xml"/>
         </div>
     </div>

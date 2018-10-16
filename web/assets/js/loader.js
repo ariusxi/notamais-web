@@ -15,12 +15,10 @@ function loader(){
 }
 
 function closeLoader(){
-    try{
-        $("#back-loader").remove();   
-    }
-    catch(e){
-        
-    }
+
+    setTimeout(function(){
+        $("#back-loader").remove(); 
+    }, 2000);
     
 }
 

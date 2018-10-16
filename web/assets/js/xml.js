@@ -4,7 +4,7 @@ $(function(){
     
     function upload_file(e){
         e.preventDefault();
-        console.log(e);
+        console.log(e.dataTransfer);
         fileobj = e.dataTransfer.files[0];
         ajax_file_upload(fileobj);
     }
@@ -35,10 +35,10 @@ $(function(){
                 processData: false,
                 dataType: "json",
                 success: function (response) {
-                    $("#drag_upload_file").html('<p>Arraste o arquivo arquivo</p><p>ou</p> <p><input type="button" value="Selecione um arquivo" class="btn btn-primary btn-rounded file"/></p><input type="file" id="file" name="file"/>');
+                    $("#drag_upload_file").html('<p>'+response.message+'</br><a href="'+response.path+'" target="_blank">Clique aqui para visualizar</a> <p><input type="button" value="Selecione um arquivo" class="btn btn-dark btn-rounded file"/></p><input type="file" id="file" name="file"/></p>');
                 },
                 error: function (e) {
-                    $("#drag_upload_file").html('<p>Arraste o arquivo arquivo</p><p>ou</p> <p><input type="button" value="Selecione um arquivo" class="btn btn-primary btn-rounded file"/></p><input type="file" id="file" name="file"/>');
+                    $("#drag_upload_file").html('<p>Arraste o arquivo arquivo</p><p>ou</p> <p><input type="button" value="Selecione um arquivo" class="btn btn-dark btn-rounded file"/></p><input type="file" id="file" name="file"/>');
                 }
             });
         }
@@ -48,9 +48,9 @@ $(function(){
         file_explorer();
     });
     
-    $("#drop_file_zone").on('drop', function(e){
+    /*$("#drop_file_zone").on('drop', function(e){
         upload_file(e);
-    });
+    });*/
     
     $("#drop_file_zone").on('dragover', function(){
         return false;
@@ -188,8 +188,6 @@ $(function(){
         var id = $(this).attr('id');
         var $this = $(this);
         
-        alert(id);
-        
         $.ajax({
             url: "upload-xml",
             method: "POST",
@@ -198,7 +196,6 @@ $(function(){
                 methodType: "gerar-danfe",
                 file: id
             }, success: function(data){
-                console.log(data);
                 $this.replaceWith("<a href='"+data.url+"' class='btn btn-primary btn-rounded' target='_blank'>Ver DANFE</a>");
             }, error: function(e){
                 console.log(e);
@@ -238,11 +235,6 @@ $(function(){
                     
                 });
                 
-                $("#xml-list").dataTable({
-                    "language": {
-                    "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Portuguese-Brasil.json"
-                    }
-                });
                 
             },error: function(e){
                 console.log(e);
@@ -267,12 +259,6 @@ $(function(){
                     var html = "<tr><td>"+(i+1)+"</td><td>"+name+"</td><td><a target='_blank' title='"+value.xml+"' href='"+value.xml+"'>Acessar</a></td><td>"+value.date+"</td>";
                     
                     
-                });
-                
-                $("#xml-list").dataTable({
-                    "language": {
-                    "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Portuguese-Brasil.json"
-                    }
                 });
                 
             },error: function(e){

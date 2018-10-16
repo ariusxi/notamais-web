@@ -93,7 +93,7 @@
                         </div>
                     </div>
                     <div class="col-sm-12 col-md-12 col-lg-12">
-                        <input type="submit" class="btn btn-secondary" value="Cadastrar">
+                        <input type="submit" class="btn btn-primary btn-rounded" value="Cadastrar">
                     </div>
                 </div>
             </form>
