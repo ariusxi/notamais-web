@@ -203,39 +203,6 @@ $("#users-list").ready(function () {
         },
         dataType: "json",
         success: function (data) {
-<<<<<<< HEAD
-            var months = [],
-                    values = [];
-            months['meses'] = [],
-                    months['values'] = [];
-            $.each(data, function (i, value) {
-                let roles = "";
-                if (value.roles != undefined) {
-                    roles = value.roles[0];
-                }
-                let html = "<tr><td>" + value.name + "</td><td>" + value.email + "</td><td><a href='user-profile?id=" + value._id + "' class='btn btn-primary'>Perfil</a><button class='btn btn-primary btnAtivacao' data-id='" + value._id + "'data-ativo='" + value.active + "'>" + (value.active ? "Desativar" : "Ativar") + "</button></td></tr>";
-
-                if (roles == "user") {
-                    $("#users-list tbody").append(html);
-                } else if (roles == "counter")
-                {
-                    $("#counter-list tbody").append(html);
-                }
-                var month = value.createdAt.split("-");
-                month = getMes(month[1]);
-                if (!in_array(month, months['meses'])) {
-                    months['values'][month] = 1;
-                    months['meses'].push(month);
-                } else {
-                    months['values'][month]++;
-                }
-            });
-
-            for (var value in months.values) {
-                values.push(months.values[value]);
-            }
-
-=======
             try {
                 var months = [],
                     values = [];
@@ -280,7 +247,6 @@ $("#users-list").ready(function () {
                     }
                 }); 
             
->>>>>>> 512b05d8d9a82f4dbc29255b5c90f6fe83645a17
             $("#number-user").text(values[values.length - 1]);
 
             var ctx = document.getElementById("user-chart").getContext('2d');
@@ -325,7 +291,6 @@ $("#users-list").ready(function () {
             catch (e) { }
             closeLoader();
 
-<<<<<<< HEAD
             $("#users-list").dataTable({
                 "language": {
                     "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Portuguese-Brasil.json"
@@ -336,8 +301,6 @@ $("#users-list").ready(function () {
                     "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Portuguese-Brasil.json"
                 }
             });
-=======
->>>>>>> 512b05d8d9a82f4dbc29255b5c90f6fe83645a17
         }, error: function (e) {
             console.log(e);
         }
@@ -346,26 +309,14 @@ $("#users-list").ready(function () {
 });
 
 
-<<<<<<< HEAD
-
-
-
-
-$("#dispatch-chart").ready(function () {
-=======
 $("#dispatch-chart").ready(function(){
     loader();
->>>>>>> 512b05d8d9a82f4dbc29255b5c90f6fe83645a17
     $.ajax({
         url: "dispatches",
         method: "POST",
         dataType: "json",
-<<<<<<< HEAD
-        success: function (data) {
-=======
         success: function(data){
             try {
->>>>>>> 512b05d8d9a82f4dbc29255b5c90f6fe83645a17
             var months = [],
                     values = [];
             months['meses'] = [],
@@ -384,12 +335,7 @@ $("#dispatch-chart").ready(function(){
             for (var value in months.values) {
                 values.push(months.values[value]);
             }
-<<<<<<< HEAD
-
-
-=======
             
->>>>>>> 512b05d8d9a82f4dbc29255b5c90f6fe83645a17
             $("#number-files").text(values[values.length - 1]);
 
             var ctx = document.getElementById("dispatch-chart").getContext('2d');
@@ -430,15 +376,11 @@ $("#dispatch-chart").ready(function(){
                     }
                 }
             });
-<<<<<<< HEAD
-        }, error: function (e) {
-=======
         }
         catch (e) { }
         closeLoader();
         
         },error: function(e){
->>>>>>> 512b05d8d9a82f4dbc29255b5c90f6fe83645a17
             console.log(e);
         }
     });
@@ -449,12 +391,8 @@ $("#payments-chart").ready(function () {
         url: "pay-list",
         method: "POST",
         dataType: "json",
-<<<<<<< HEAD
-        success: function (data) {
-=======
         success: function(data){
             try {
->>>>>>> 512b05d8d9a82f4dbc29255b5c90f6fe83645a17
             var months = [],
                     values = [];
             months['meses'] = [],
@@ -473,12 +411,7 @@ $("#payments-chart").ready(function () {
             for (var value in months.values) {
                 values.push(months.values[value]);
             }
-<<<<<<< HEAD
-
-
-=======
             
->>>>>>> 512b05d8d9a82f4dbc29255b5c90f6fe83645a17
             $("#number-pay").text(values[values.length - 1]);
 
             var ctx = document.getElementById("payments-chart").getContext('2d');
@@ -519,27 +452,15 @@ $("#payments-chart").ready(function () {
                     }
                 }
             });
-<<<<<<< HEAD
-        }, error: function (e) {
-=======
         }
         catch (e) { }
         closeLoader();
         },error: function(e){
->>>>>>> 512b05d8d9a82f4dbc29255b5c90f6fe83645a17
             console.log(e);
         }
     });
 });
 
-<<<<<<< HEAD
-$("#xml-chart").ready(function () {
-    $.ajax({
-        type: "POST",
-        url: "dispatches",
-        dataType: "json",
-        success: function (data) {
-=======
 $("#xml-chart").ready(function(){
    loader();
    $.ajax({
@@ -548,7 +469,6 @@ $("#xml-chart").ready(function(){
        dataType: "json",
        success: function(data){
            try {
->>>>>>> 512b05d8d9a82f4dbc29255b5c90f6fe83645a17
             var months = [],
                     values = [];
             months['meses'] = [],
@@ -606,32 +526,6 @@ $("#xml-chart").ready(function(){
                     }
                 }
             });
-<<<<<<< HEAD
-        }, error: function (e) {
-            console.log(e);
-        }
-    });
-});
-
-$("#contaReceber").ready(function () {
-    var json = $("#JSON").val();
-    var pagamentos = JSON.parse(json);
-
-    var html = "";
-    $.each(pagamentos, function (i, value) {
-
-        var u = value.user;
-        var date = new Date(value.date);
-
-        html += "<tr>";
-        html += "   <td>" + (u != null ? u.name : "-") + "</td>";
-        html += "   <td>" + date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear() + "</td>";
-        html += "   <td>" + (value.paymentType == "CreditCard" ? "Cr&eacute;dito" : "D&eacute;bito") + "</td>";
-        html += "   <td> R$" + (u != null ? value.value.toFixed(2).replace(".", ",") : "-") + "</td>";
-        html += "   <td> <a href='paydetail?id=" + value._id + "' class='btn btn-primary'>Detalhes</a> </td>";
-        html += "</tr>";
-    });
-=======
         }
         catch (e) { }
         closeLoader();
@@ -659,7 +553,6 @@ $("#contaReceber").ready(function () {
             html += "   <td> R$" + (u != null ? value.value.toFixed(2).replace(".", ","): "-") + "</td>";
             html += "</tr>";
         });
->>>>>>> 512b05d8d9a82f4dbc29255b5c90f6fe83645a17
 
         $("#contaReceber tbody").html(html);
 
@@ -690,6 +583,35 @@ $(document).on('click', '.btnPayDetails', function (e) {
     });
 
 });
+
+//BOTAO PROCESSAR DA PAGINA PAGAMENTOS
+$('#btn_processar').click(function(){
+    var json = $("#JSON").val();
+    var pagamentos = JSON.parse(json); 
+
+    var dataInicio = new Date($('#dt_de').val());
+    var dataFim = new Date($('#dt_ate').val());
+    var soma = 0;
+    var cont = 0;
+
+    $.each(pagamentos, function (i, value) {
+         var u = value.user;
+         var date = new Date(value.date);
+         var customDate = new Date(date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate());
+
+         if(customDate >= dataInicio && customDate <= dataFim){
+             cont++;
+             if(value.user == null)
+                 soma += 0;
+             else
+                 soma += value.value;
+         }
+     });
+
+     $("#result").html("No periodo selecionado foram feitos <strong>"+cont+"</strong>\n\
+                         pagamento(s).<br>Soma dos pagamentos no periodo: R$"+soma.toFixed(2).replace(".", ",") );
+
+ });
 
 $(document).on('click', '.btnAtivacao', function (e) {
     e.preventDefault();
