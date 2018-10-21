@@ -104,6 +104,23 @@ a:hover{
 .g-recaptcha{
     padding:7px 0;
 }
+#drop_file_zone {
+    border: #999 5px dashed;
+    width: 100%; 
+    height: 200px;
+    padding: 8px;
+    font-size: 18px;
+}
+#drag_upload_file {
+    width:50%;
+    margin:34px auto;
+}
+#drag_upload_file p {
+    text-align: center;
+}
+#drag_upload_file #file {
+    display: none;
+}
 
 /* background gorseli */
 .landing {

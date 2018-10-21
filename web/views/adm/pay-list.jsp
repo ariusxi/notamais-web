@@ -16,15 +16,26 @@
                 <table  class="display table" id="contaReceber">
                     <thead>
                         <tr>
-                            <th>Valor</th>
                             <th>Cliente</th>
                             <th>Data</th>
-                            <th>Forma de pagamento</
+                            <th>Forma de pagamento</th>
+                            <th>Valor</th>
+                            <th>Ações</th>
                         </tr>
                     </thead>
                     <tbody></tbody>
                 </table>
             </div>
+            
+                    
+                <h3>Filtros</h3>
+                <div>    
+                    <label>De:</label> <input class="form-control" type="date" id="dt_de" >
+                    <label>Até:</label> <input class="form-control" type="date" id="dt_ate" >
+                    <p style="border:solid 1px #fff; border-radius: 3px; color: #fff; font-size: 14pt; margin-top: 15px; margin-bottom: 15px; padding: 5px; " id="result"></p>
+                </div>
+                <button id="btn_processar" class="btn btn-primary">Processar</button>
+            
         </div>
         <div class="tab-pane" id="pagar">
             <h2 class="title-register">Contas a Pagar</h2>
@@ -45,4 +56,3 @@
 </div>
 <div class="space-footer"></div>
 <jsp:include page="../layout/footer-auth.jsp" />
-

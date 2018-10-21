@@ -1,5 +1,61 @@
 $(function(){
     
+    var fileobj;
+    
+    function upload_file(e){
+        e.preventDefault();
+        console.log(e.dataTransfer);
+        fileobj = e.dataTransfer.files[0];
+        ajax_file_upload(fileobj);
+    }
+    
+    function file_explorer(){
+        document.getElementById('file').click();
+        document.getElementById('file').onchange = function(){
+            fileobj = document.getElementById('file').files[0];
+            ajax_file_upload(fileobj);
+        };
+    }
+    
+    function ajax_file_upload(file_obj){
+        if(file_obj != undefined){
+            var user =  $("#user").val();
+            var token = $("#token").val();
+            var form = new FormData();
+            
+            $("#drag_upload_file").html('<p>Enviando....</p>');
+            form.append('file', file_obj);
+            $.ajax({
+                type: "POST",
+                url: "https://notamaisapi.herokuapp.com/files/send/"+user,
+                headers: { 'x-access-token': token },
+                data: form,
+                contentType: false,
+                cache: false,
+                processData: false,
+                dataType: "json",
+                success: function (response) {
+                    $("#drag_upload_file").html('<p>'+response.message+'</br><a href="'+response.path+'" target="_blank">Clique aqui para visualizar</a> <p><input type="button" value="Selecione um arquivo" class="btn btn-dark btn-rounded file"/></p><input type="file" id="file" name="file"/></p>');
+                },
+                error: function (e) {
+                    $("#drag_upload_file").html('<p>Arraste o arquivo arquivo</p><p>ou</p> <p><input type="button" value="Selecione um arquivo" class="btn btn-dark btn-rounded file"/></p><input type="file" id="file" name="file"/>');
+                }
+            });
+        }
+    }
+    
+    $(".file").click(function(){
+        file_explorer();
+    });
+    
+    /*$("#drop_file_zone").on('drop', function(e){
+        upload_file(e);
+    });*/
+    
+    $("#drop_file_zone").on('dragover', function(){
+        return false;
+    })
+    
     $("#formulario").submit(function (e) {
         e.preventDefault();
         var name = $("#name").val();
@@ -132,8 +188,6 @@ $(function(){
         var id = $(this).attr('id');
         var $this = $(this);
         
-        alert(id);
-        
         $.ajax({
             url: "upload-xml",
             method: "POST",
@@ -142,7 +196,6 @@ $(function(){
                 methodType: "gerar-danfe",
                 file: id
             }, success: function(data){
-                console.log(data);
                 $this.replaceWith("<a href='"+data.url+"' class='btn btn-primary btn-rounded' target='_blank'>Ver DANFE</a>");
             }, error: function(e){
                 console.log(e);
@@ -158,7 +211,7 @@ $(function(){
             method: "POST",
             dataType: "json",
             data: {
-                methodType: "list-xml"
+                methodType: "list-xml",
             },
             success: function(data){
                 $.each(data, function(i, value){
@@ -182,10 +235,30 @@ $(function(){
                     
                 });
                 
-                $("#xml-list").dataTable({
-                    "language": {
-                    "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Portuguese-Brasil.json"
+                
+            },error: function(e){
+                console.log(e);
+            }
+        });
+    });
+    
+    $("#xml-list-counter").ready(function(){
+        $.ajax({
+            url: "upload-xml",
+            method: "POST",
+            dataType: "json",
+            data: {
+                methodType: "list-xml"
+            },
+            success: function(data){
+                $.each(data, function(i, value){
+                    var name = value.name;
+                    if(value.name == undefined){
+                        name = "-";
                     }
+                    var html = "<tr><td>"+(i+1)+"</td><td>"+name+"</td><td><a target='_blank' title='"+value.xml+"' href='"+value.xml+"'>Acessar</a></td><td>"+value.date+"</td>";
+                    
+                    
                 });
                 
             },error: function(e){

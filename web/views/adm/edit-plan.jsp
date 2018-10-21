@@ -55,6 +55,8 @@
     $(function () {
         $('#name').bind('keydown', onlyLetter);
         $('#qtdeXML').bind('keydown', onlyNumber);
+        
+        
     });
 
     $(document).ready(function ()

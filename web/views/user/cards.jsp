@@ -8,7 +8,7 @@
 <div class="col-sm-12 col-md-12 col-lg-12 mt-4">
     <ul class="nav nav-tabs">
         <li class="active">
-            <a class="nav-link active" href="#list" data-toggle="tab">Lista de Cartão de Crédito</a>
+            <a class="nav-link active" href="#list" data-toggle="tab" onclick="atualizarPagina()">Lista de Cartão de Crédito</a>
         </li>
         <li>
             <a  class="nav-link" href="#register" data-toggle="tab">Cadastrar Cartão de Crédito</a>
@@ -93,7 +93,7 @@
                         </div>
                     </div>
                     <div class="col-sm-12 col-md-12 col-lg-12">
-                        <input type="submit" class="btn btn-secondary" value="Cadastrar">
+                        <input type="submit" class="btn btn-primary btn-rounded" value="Cadastrar">
                     </div>
                 </div>
             </form>

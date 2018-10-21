@@ -19,15 +19,16 @@
 
 <h2 class="title-register"  >Upload de XML</h2>
 
-<form id="formulario"  class="upload" method="post" enctype="multipart/form-data">
+<form id="formulario" class="upload box" method="post" enctype="multipart/form-data">
+    <div id="drop_file_zone" ondrop="upload_file(event)">
+        <div id="drag_upload_file">
+            <p>Arraste o arquivo arquivo</p>
+            <p>ou</p>
+            <p><input type="button" value="Selecione um arquivo" class="btn btn-dark btn-rounded file"/></p>
+            <input type="file" id="file" name="file" accept="text/xml"/>
+        </div>
+    </div>
     
-   
-    
-    <label >Importar arquivo <br><small> (Tipos de arquivo suportados: .xml)</small></label>
-    <table id="upload" class="display table">
-              
-                
-    </table>
     <input type="hidden" id="user" value="<%out.print(session.getAttribute("id"));%>">
     <input type="hidden" id="token" value="<%out.print(session.getAttribute("token"));%>">
     
@@ -55,24 +56,11 @@
     $(function(){
         var json = '<%= request.getAttribute("plano")%>';
         var html="";
-        if(json != ""){
-            var obj = JSON.parse(json);
-            var plano = obj.plan;
-            html += "<div class='card' style=' margin-top:  5px; padding-top: 10px;' >    ";
-            html += "<label style='width: 500px; margin-left: 20px;' for='name'>Nome: * <input required class='form-control' type='text' id='name' name='name' placeholder='Nome'></label>";
-            html += "<label  style='width: 500px; margin-left: 20px;' for='description'>Descrição: <input type='text' class='form-control'  id='description' name='description' placeholder='Descrição' ></label> ";
-            html += "<br>";
-            html += "<input type='file' name='file' id='file' class='inputfile'  accept='.xml' />";
-            html += "<label for='file' style='margin-left: 35px; width: 1000px;'> <i class='fa fa-folder-open' style='margin-right: 5px;'></i><span class='text-file'>Escolha um arquivo</span><button class='btn btn-success btn-sm btnUploadXml' style='width: 100px; margin-left:700px;'>Enviar</button></label>";
-            html += "<div class='alert alert-info mt-2 mb-0' id='message'>";
-            html += "</div>";
-            html += "</div>";       
-        }else{
+        if(json == ""){
             html += "<div class='card'>";
-            html += "<div class='card-header text-light' id='titulo'>Verificamos que seu plano expirou <i class='far fa-frown'></i> </div>";
+            html += "<div class='card-header card-header-danger text-light' id='titulo'>Verificamos que seu plano expirou <i class='far fa-frown'></i> </div>";
             html += "<a href='first-login' class='btn btn-success' >Clique aqui e renove!</a>";
-            html += "</div>";   
+            $("#formulario").html(html);
         }
-        $("#upload").html(html);
     });
 </script>

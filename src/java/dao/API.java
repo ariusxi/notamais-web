@@ -33,7 +33,7 @@ public class API {
     //Produção
     private static final String baseurl = "https://notamaisapi.herokuapp.com/";
     //Desenvolvimento
-   // private static final String baseurl = "http://localhost:3000/";
+    //private static final String baseurl = "http://localhost:3000/";
     private String token;
     private String query;
     private String method;

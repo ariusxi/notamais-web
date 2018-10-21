@@ -6,7 +6,7 @@
     <div id="accordion">
     </div>
     <br />
-    <a href="user-plan" class="btn btn-secondary">Voltar</a>
+    <a href="user-plan" class="btn btn-primary btn-rounded">Voltar</a>
 </div>
 
 <!-- Modal para selecionar o cartão -->
@@ -34,8 +34,8 @@
             </div>
       </div>
       <div class="modal-footer">
-          <button type="button" class="btn btn-primary" onclick="salvarPlano();" id="btnSalvar">Salvar</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-success" onclick="salvarPlano();" id="btnSalvar">Salvar</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
       </div>
     </div>
   </div>
@@ -103,8 +103,8 @@
                         </div>
                     </div>
                     <div class="col-sm-12 col-md-12 col-lg-12">
-                        <input type="submit" class="btn btn-secondary" value="Cadastrar">
-                        <input type="button" class="btn btn-secondary" value="Voltar" data-dismiss="modal" onclick="getCartoes();">
+                        <input type="submit" class="btn btn-success" value="Cadastrar">
+                        <input type="button" class="btn btn-danger" value="Voltar" data-dismiss="modal" onclick="getCartoes();">
                     </div>
                 </div>
             </form>
@@ -139,7 +139,7 @@
             var plano = planos[i]; 
             
             html+="<div class='card'>";
-            html+="<div class='card-header'>";
+            html+="<div class='card-header card-header-primary white-text'>";
             html+="<h5 class='mb-0'>";
             html+="<button class='btn btn-link' data-toggle='collapse' data-target='#collapseOne' aria-expanded='true' aria-controls='collapseOne'>";
             html+= plano.name;

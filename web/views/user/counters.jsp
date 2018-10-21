@@ -2,7 +2,7 @@
 <div class="col-sm-12 col-md-12 col-lg-12 mt-4">
     <ul class="nav nav-tabs">
         <li class="active">
-            <a class="nav-link active" href="#listCounter" data-toggle="tab">Lista de Contadores</a>
+            <a class="nav-link active" href="#listCounter" data-toggle="tab" onclick="atualizarPagina()">Lista de Contadores</a>
         </li>
         <li>
             <a  class="nav-link" href="#addCounter" data-toggle="tab">Adicionar novo contador</a>
@@ -11,9 +11,9 @@
     <div class="tab-content">
         <div class="tab-pane active" id="listCounter">
             <h2 class="title-register">Lista de Contadores</h2>
-            <div class="table-responsive" id="counter-list">
+            <table class="table-responsive" id="counter-list">
 
-            </div>
+            </table>
         </div>
         <div class="tab-pane" id="addCounter">
             <h2 class="title-register">Pesquise por um novo Contador</h2>
@@ -30,9 +30,9 @@
             <div class="alert alert-info mt-2 mb-0" id="message" style="margin-bottom:100px !important;">
                 
             </div>
-            <div class="table-responsive" id="add-counter-list">
+            <table class="table-responsive" id="add-counter-list">
 
-            </div>
+            </table>
         </div>
         </div>
     </div>

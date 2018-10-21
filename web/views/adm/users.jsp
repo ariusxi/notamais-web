@@ -3,7 +3,7 @@
 <div class="col-sm-12 col-md-12 col-lg-12 mt-4">
     <ul class="nav nav-tabs">
         <li>
-            <a class="nav-link active" href="#list" data-toggle="tab" >Lista de usuários</a>
+            <a class="nav-link active" href="#list" data-toggle="tab" onclick="atualizarPagina()">Lista de usuários</a>
         </li>
         <li>
             <a class="nav-link" href="#contadores" data-toggle="tab">Lista de contadores</a>
@@ -43,4 +43,9 @@
 </div>
     <div class="space-footer"></div>
     <jsp:include page="../layout/footer-auth.jsp" />
+    <script type="text/javascript"> 
+        $(function(){
+            loader();
+        });
+    </script>
 
