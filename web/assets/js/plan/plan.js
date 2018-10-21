@@ -94,6 +94,16 @@ $("#form-edit-plan").submit(function (e) {
 });
 
 $("#plans-list").ready(function(){
+    montarListaPlan();
+})
+
+function montarListaPlan(){
+    $("#register input[type=text]").val("");
+    $("#register input[type=number]").val("");
+    $("#register textarea").val("");
+    $("#message").hide();
+    
+    $("#plans-list > tbody").html("");
     $.ajax({
         url: "plan",
         method: "POST",
@@ -112,7 +122,6 @@ $("#plans-list").ready(function(){
                 } else {
                     promotion = floatToReal(value.promotion);
                 }
-                
                 var html = "<tr><td>" + value.name + "</td><td>" + value.description + "</td><td>" + valueReal + "</td><td>" + promotion + "</td><td>" + value.qtdeXML + "</td><td><div class='btn-group btn-group-toggle'><a href='edit-plan?id=" + value._id + "' class='btn btn-primary'>Editar</a>";
 //html = "<button class='delete-plan btn btn-primary' id='" + value._id + "'>Excluir</button>";
                 if (value.active) {
@@ -127,7 +136,7 @@ $("#plans-list").ready(function(){
             console.log(e);
         } 
     });
-})
+}
 
 $("#plans").ready(function () {
     $.ajax({

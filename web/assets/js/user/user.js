@@ -81,8 +81,17 @@ $("#user-register").submit(function (e) {
 });
 
 $("#cards, #cards-list").ready(function () {
+    montarListaCard();   
+});
 
-    $.ajax({
+function montarListaCard(){
+    $("#register input[type=text]").val("");
+    $("#register input[type=email]").val("");
+    $("#register input[type=number]").val("");
+    $("#register select").val("");
+    $("#message").hide();
+    
+   $.ajax({
         url: "card",
         method: "POST",
         data: {
@@ -115,8 +124,10 @@ $("#cards, #cards-list").ready(function () {
             console.log(e);
         }
 
-    });
-});
+    }); 
+}
+
+
 
 $(document).on('click', '.main-card', function (e) {
     e.preventDefault();
