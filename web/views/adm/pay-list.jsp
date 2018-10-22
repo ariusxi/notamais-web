@@ -27,15 +27,16 @@
                 </table>
             </div>
             
-                    
+            <form id="form-payment-report" action="views/adm/payment-report.jsp" method="POST">
                 <h3>Filtros</h3>
                 <div>    
-                    <label>De:</label> <input class="form-control" type="date" id="dt_de" >
-                    <label>Até:</label> <input class="form-control" type="date" id="dt_ate" >
+                    <label>De:</label> <input required class="form-control" type="date" id="dt_de" name="dt_de" >
+                    <label>Até:</label> <input required class="form-control" type="date" id="dt_ate" name="dt_ate" >
                     <p style="border:solid 1px #fff; border-radius: 3px; color: #fff; font-size: 14pt; margin-top: 15px; margin-bottom: 15px; padding: 5px; " id="result"></p>
                 </div>
+                <input type="hidden" id="json_data" name="json_data" value='<%= request.getAttribute("pagamentos") %>' />
                 <button id="btn_processar" class="btn btn-primary">Processar</button>
-            
+            </form>
         </div>
         <div class="tab-pane" id="pagar">
             <h2 class="title-register">Contas a Pagar</h2>

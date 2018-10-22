@@ -35,9 +35,11 @@
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="navbar-nav mr-auto">
+                        <!--  Removendo botão ADMINISTRADOR 
                         <li class="nav-item active">
                             <a class="nav-link" href="#">Administrador</a>
                         </li>
+                        -->
                       <!--  <li class="nav-item">
                             <a class="nav-link" href="#">SST</a>
                         </li>

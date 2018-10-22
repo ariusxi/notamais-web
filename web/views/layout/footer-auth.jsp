@@ -41,6 +41,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js" type="text/javascript"></script>
 
 <script src="${pageContext.request.contextPath}/assets/js/script.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/assets/js/adm/payment-report.js" type="text/javascript"></script>
 <script src="${pageContext.request.contextPath}/assets/js/counter/counter.js" type="text/javascript"></script>
 <script src="${pageContext.request.contextPath}/assets/js/employee/employee.js" type="text/javascript"></script>
 <script src="${pageContext.request.contextPath}/assets/js/plan/plan.js" type="text/javascript"></script>
