@@ -51,7 +51,7 @@
                     </tr>
                     <tr>
                         <th>Mês/Ano</th>
-                        <th>Soma dos pagamentos</th>   
+                        <th>Soma</th>   
                     </tr>
                 </thead>
                 <tbody>
@@ -67,13 +67,15 @@
                         
                         var ajuda = "";
                         var tbody = "";
+                        var tfoot = "";
                         var jan= 0, feb= 0, mar= 0, apr= 0, may= 0, jun= 0, jul= 0, aug= 0, sep= 0, oct= 0, nov= 0, dec = 0;
                         
-                        
+                        /*
                         console.log(dataInicio);
                         console.log(dataFim);
                         console.log(pagamentos);
-                        
+                        */
+                       
                         $.each(pagamentos, function (i, value) {
                             var u = value.user;
                             var date = new Date(value.date);
@@ -90,20 +92,47 @@
                                 var month = date_array[1];
                                 var year = date_array[3];
                                  
-                                if(month == "Sep" && year == "2018"){
-                                    sep += value.value; 
+                                if(month == "Jan" && year == "2018"){
+                                    jan += value.value; 
                                 }
-                                
+                                if(month == "Feb" && year== "2018"){
+                                    feb += value.value
+                                }
+                                if(month == "Mar" && year== "2018"){
+                                    mar += value.value
+                                }
+                                if(month == "Apr" && year== "2018"){
+                                    apr += value.value
+                                }
+                                if(month == "May" && year== "2018"){
+                                    may += value.value
+                                }
+                                if(month == "Jun" && year== "2018"){
+                                    jun += value.value
+                                }
+                                if(month == "Jul" && year== "2018"){
+                                    jul += value.value
+                                }
+                                if(month == "Aug" && year== "2018"){
+                                    aug += value.value
+                                }
+                                if(month == "Sep" && year== "2018"){
+                                    sep += value.value
+                                }
                                 if(month == "Oct" && year== "2018"){
                                     oct += value.value
-                                    //oct = "<tr> <td>"+month+"/"+year+"</td><td>"+somaMes+"</td> </tr>";
+                                }
+                                if(month == "Nov" && year== "2018"){
+                                    nov += value.value
+                                }
+                                if(month == "Dec" && year== "2018"){
+                                    dec += value.value
                                 }
                                 
-                                 
                                 if(value.user == null)
                                     soma += 0;
                                 else
-                                    soma += value.value;
+                                    soma += value.value; 
                             }
                         });
                         
@@ -132,7 +161,12 @@
                         if(dec>0)
                             $("#tbRelatorio tbody").append("<tr> <td>Dez/2018</td><td>"+dec+"</td> </tr>");
                         
-                        
+                        tfoot += "";            
+                        tfoot += "<tr><td></td><td>Qtd. Total: <strong style=' color: #000'>" + cont + "</strong></td></tr>";                              
+                        tfoot += "<tr><td></td><td>Valor Total: <strong style=' color: #000'>R$ " + soma.toFixed(2).toString().replace(".", ",") + "</strong></td></tr>";
+                        tfoot += "";
+
+                        $("#tbRelatorio > tfoot").html(tfoot);
                         
                     });
                 </script>
@@ -149,6 +183,10 @@
             </div>
         </div>
         
-        
+        <script>
+            $("#btn-imprimir").click(
+                function(){ window.print(); }
+            );
+        </script>   
     </body>
 </html>
