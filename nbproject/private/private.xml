@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/Windows%207/Documents/NetBeansProjects/notamais-web/web/views/counter/costumer-list.jsp</file>
             <file>file:/C:/Users/Windows%207/Documents/NetBeansProjects/notamais-web/web/views/user/user-plan.jsp</file>
             <file>file:/C:/Users/Windows%207/Documents/NetBeansProjects/notamais-web/web/views/user/edit-user.jsp</file>
@@ -49,6 +50,12 @@
             <file>file:/C:/Users/Windows%207/Documents/NetBeansProjects/notamais-web/web/views/public/active.jsp</file>
             <file>file:/C:/Users/Windows%207/Documents/NetBeansProjects/notamais-web/web/views/adm/edit-plan.jsp</file>
             <file>file:/C:/Users/Windows%207/Documents/NetBeansProjects/notamais-web/web/assets/js/user/counters.js</file>
+=======
+            <file>file:/C:/Users/VBSNET-5/Documents/notamais-web/web/assets/js/employee/employee.js</file>
+            <file>file:/C:/Users/VBSNET-5/Documents/notamais-web/web/views/employee/employee.jsp</file>
+            <file>file:/C:/Users/VBSNET-5/Documents/notamais-web/web/views/adm/plan.jsp</file>
+            <file>file:/C:/Users/VBSNET-5/Documents/notamais-web/web/assets/js/plan/plan.js</file>
+>>>>>>> b9c183def8a005c5547fb8fb0df0e473782a7162
         </group>
     </open-files>
 </project-private>

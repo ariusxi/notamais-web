@@ -838,7 +838,12 @@ function formatPrice(text) {
 }
 
 function floatToReal(value) {
-    var numero = value.toFixed(2).split('.');
-    numero[0] = numero[0].split(/(?=(?:...)*$)/).join('.');
-    return numero.join(',');
+    try{
+        var numero = value.toFixed(2).split('.');
+        numero[0] = numero[0].split(/(?=(?:...)*$)/).join('.');
+        return numero.join(',');  
+    }catch(e){
+        
+    }
+    
 }
