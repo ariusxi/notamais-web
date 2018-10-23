@@ -166,7 +166,7 @@ $("#plans").ready(function () {
                 }
                 html += '<p class="card-description"><p>Armazenamento de ' + value.qtdeXML + ' XMLs</p>';
                 html += '<p>' + value.description + '</p>';
-                html += '<a href="" class="btn btn-round ' + button + '">Escolher esse plano</a>';
+                html += '<a href="register?plan='+value._id+'" class="btn btn-round ' + button + '">Escolher esse plano</a>';
                 html += '</div></div></div>';
                 
                 $("#plans").append(html);

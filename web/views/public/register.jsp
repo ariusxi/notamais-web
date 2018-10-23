@@ -9,6 +9,11 @@
 <div class="container">
     <BR>
     <div class="row mt-12 justify-content-center text-center user-register">
+        <div class="cols-sm-12 col-md-4 col-lg-4">
+            <% if(request.getParameter("plan") != null){ %>
+            <input type="hidden" name="plan" id="plan" value="<% out.print(request.getParameter("plan")); %>"/>
+            <% }%> 
+        </div>
         <div class="col-sm-12 col-md-4 col-lg-4">
             <div class="card card-login">
                 <div class="card-header card-header-primary text-center">
