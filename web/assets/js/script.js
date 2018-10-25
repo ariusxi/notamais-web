@@ -20,6 +20,7 @@ $(function () {
         $("#uno3").appendTo($("#card3"));
     });
     
+    
     $("#cliente").ready(function(e){
         loader();
         $.ajax({
@@ -30,12 +31,16 @@ $(function () {
             },
             success: function(json){
                 var data = JSON.parse(json);
-                $("#cliente").html("<option value=''>Escolha um cliente</option>");
-                $.each(data, function(key, value){
-                    if(value.approved){
-                        $("#cliente").append("<option value='"+value.user._id+"'>"+value.user.name+"</option>");
-                    }
-                });
+                if($("#cliente").attr("data-type") == "select")
+                {
+                    $("#cliente").html("<option value=''>Escolha um cliente</option>");
+                    $.each(data, function(key, value){
+                        if(value.approved){
+                            $("#cliente").append("<option value='"+value.user._id+"'>"+value.user.name+"</option>");
+                        }
+                    });
+                }
+
                 closeLoader();
             },error: function(e){
                 console.log(e);
@@ -291,16 +296,6 @@ $("#users-list").ready(function () {
             catch (e) { }
             closeLoader();
 
-            $("#users-list").dataTable({
-                "language": {
-                    "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Portuguese-Brasil.json"
-                }
-            });
-            $("#counter-list").dataTable({
-                "language": {
-                    "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Portuguese-Brasil.json"
-                }
-            });
         }, error: function (e) {
             console.log(e);
         }
