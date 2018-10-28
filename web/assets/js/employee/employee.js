@@ -5,7 +5,17 @@
  */
 
 $("#employee-list").ready(function (e) {
-    $.ajax({
+   montarListaEmployee();
+});
+
+function montarListaEmployee(){
+    $("#register input[type=text]").val("");
+    $("#register input[type=email]").val("");
+    $("#register select").val("");
+    $("#message").hide();
+    
+    $("#employee-list > tbody").html("");
+     $.ajax({
         url: "employee",
         method: "POST",
         data: {
@@ -25,12 +35,13 @@ $("#employee-list").ready(function (e) {
                 html += "</tr>";
 
                 $("#employee-list tbody").append(html);
-            });
+            });        
+         
         }, error: function (e) {
             console.log(e);
         }
     });
-});
+}
 
 $(document).on('click', '.delete-employee', function (e) {
     e.preventDefault();
@@ -95,9 +106,9 @@ $("#employee-register").submit(function (e) {
             var data = JSON.parse(data);
             $("#message").css('display', 'block');
             $('#message').html(data.message);
-            //setTimeout(() => {
-            //$(location).attr('href', '/notamais-web/dashboard');
-            //}, 2000);
+
+
+            
         },
         error: function (e) {
             $('#message').css('display', 'block');

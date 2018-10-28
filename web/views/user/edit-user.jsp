@@ -7,7 +7,7 @@
 <jsp:include page="../layout/header-auth.jsp"/>
 <div class="col-sm-12 col-md-12 col-lg-12 mt-4">
     <h3>Imagem de Perfil</h3>
-    <div class="col-sm-12 col-md-12 col-md-4">
+    <div class="col-sm-12 col-md-12 col-md-4 text-center">
         <div class="card">
             <div class="card-body">
                 <form id="imageUser" action="" method="POST" enctype="multipart/formdata">

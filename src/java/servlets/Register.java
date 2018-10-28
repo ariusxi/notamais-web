@@ -54,6 +54,7 @@ public class Register extends HttpServlet {
             throws ServletException, IOException {
         
         PrintWriter out = response.getWriter();
+        HttpSession session = request.getSession();
         response.setContentType("text/html;charset=UTF-8");
         
         String name = request.getParameter("fullname");
@@ -67,6 +68,7 @@ public class Register extends HttpServlet {
         String cnpj = request.getParameter("cnpj");
         String ie = request.getParameter("ie");
         String telephone = request.getParameter("telephone");
+        String plan = request.getParameter("plan");
         
         String route = "";
         
@@ -97,6 +99,10 @@ public class Register extends HttpServlet {
         
         try{
             String responseJSON = con.getJsonString(map);
+            
+            if(!plan.equals("")){
+                session.setAttribute("current-plan", plan);
+            }
 
             try{
                 JSONObject json = new JSONObject(responseJSON);

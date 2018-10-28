@@ -36,6 +36,7 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
         <link href="${pageContext.request.contextPath}/assets/css/style.css" rel="stylesheet"/>
         <link href="${pageContext.request.contextPath}/assets/css/jquery.dataTables.min.css" rel="stylesheet"/>
+        <link href="${pageContext.request.contextPath}/assets/css/jWindowCrop.css" rel="stylesheet"/>
         <!-- Bootstrap -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
               crossorigin="anonymous">        
@@ -78,7 +79,7 @@
                         <li class="nav-item active  ">
                             <a class="nav-link" href="dashboard">
                                 <i class="material-icons">dashboard</i>
-                                <p>Meu Perfil</p>
+                                <p>Página Inicial</p>
                             </a>
                         </li>
                         <% }%>
@@ -191,12 +192,6 @@
             <div class="main-panel">
                 <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
                     <div class="container-fluid">
-                        <div class="navbar-wrapper">
-                            <a class="navbar-brand" href="dashboard">Dashboard</a>
-                        </div>
-                        <div class="navbar-wrapper">
-                            <a class="navbar-brand" href="logout.jsp">Sair</a>
-                        </div>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="navbar-toggler-icon icon-bar"></span>
@@ -205,6 +200,7 @@
                         </button>
                         <div class="collapse navbar-collapse justify-content-end">
                             <ul class="navbar-nav">
+                                <li><a class="navbar-brand" href="logout.jsp"><i class="material-icons">exit_to_app</i></a></li>
                             </ul>
                         </div>
                     </div>

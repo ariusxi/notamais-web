@@ -81,7 +81,13 @@ function pesquisar(){
 }
 
 function meusContadores(){
-        $.ajax({
+    montarLista();  
+}
+
+function montarLista(){
+    $("#message").hide();
+    
+     $.ajax({
         url: "counters",
         method: "POST",
         data: {

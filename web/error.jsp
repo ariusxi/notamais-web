@@ -45,7 +45,8 @@
                     <div class="box__description-text">Página não encontrada</div>
                 </div>
 
-                <a href="/notamais-web" target="_blank" class="box__button">Voltar</a>
+                <!--<a href="/notamais-web" target="_blank" class="box__button">Voltar</a>-->
+                <a href="javascript:history.back()" class="box__button">Voltar</a>
             </div>
         </div>
         
