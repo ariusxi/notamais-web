@@ -35,24 +35,6 @@
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Administrador</a>
-                        </li>
-                      <!--  <li class="nav-item">
-                            <a class="nav-link" href="#">SST</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Exames</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">eSocial</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Gerencia</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Receber</a>
-                        </li>-->
                     </ul>
                     <ul class="navbar-nav">
                         <li class="nav-item">

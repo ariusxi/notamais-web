@@ -2,18 +2,35 @@
 <style>
     body{
         background-image: url('${pageContext.request.contextPath}/assets/img/background.jpg');
-        background-position: top center;
+        background-position: center center;
+	background-size: cover;
+	background-attachment: fixed;
     }   
 </style>
 
 <div class="container">
-    <BR>
-    <div class="row mt-12 justify-content-center text-center user-register">
-        <div class="cols-sm-12 col-md-4 col-lg-4">
+    <div class="row mt-12 justify-content-center text-center">
+        <div class="col-sm-12 col-md-4 col-lg-4">
             <% if(request.getParameter("plan") != null){ %>
             <input type="hidden" name="plan" id="plan" value="<% out.print(request.getParameter("plan")); %>"/>
-            <% }%> 
+            <div class="card card-pricing bg-primary">
+                <div class="card-body text-center">
+                    <div class="icon">
+                        <i class="material-icons">business</i>
+                    </div>
+                    <h3 class="card-title"></h3>
+                    <p class="card-description">
+                        
+                    </p>
+                    <a href="index.jsp" class="btn btn-white btn-round">Alterar plano</a>
+                </div>
+            </div>
+            <% }else{ %>
+            <input type="hidden" name="plan" id="plan"/>
+            <% } %>
         </div>
+    </div>
+    <div class="row mt-12 justify-content-center text-center user-register">
         <div class="col-sm-12 col-md-4 col-lg-4">
             <div class="card card-login">
                 <div class="card-header card-header-primary text-center">

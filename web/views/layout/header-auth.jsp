@@ -79,7 +79,7 @@
                         <li class="nav-item active  ">
                             <a class="nav-link" href="dashboard">
                                 <i class="material-icons">dashboard</i>
-                                <p>Meu Perfil</p>
+                                <p>Página Inicial</p>
                             </a>
                         </li>
                         <% }%>
@@ -192,12 +192,6 @@
             <div class="main-panel">
                 <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
                     <div class="container-fluid">
-                        <div class="navbar-wrapper">
-                            <a class="navbar-brand" href="dashboard">Dashboard</a>
-                        </div>
-                        <div class="navbar-wrapper">
-                            <a class="navbar-brand" href="logout.jsp">Sair</a>
-                        </div>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="navbar-toggler-icon icon-bar"></span>
@@ -206,6 +200,7 @@
                         </button>
                         <div class="collapse navbar-collapse justify-content-end">
                             <ul class="navbar-nav">
+                                <li><a class="navbar-brand" href="logout.jsp"><i class="material-icons">exit_to_app</i></a></li>
                             </ul>
                         </div>
                     </div>

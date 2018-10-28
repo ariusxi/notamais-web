@@ -56,7 +56,10 @@ $(function () {
             return false;
         }
         
-        window.location.href = "/notamais-web/report?cliente="+cliente+"&begin="+begin+"&end="+end;
+        window.open(
+            "/notamais-web/report?cliente="+cliente+"&begin="+begin+"&end="+end,
+            '_blank' // <- This is what makes it open in a new window.
+        );
         
         return false;
     });
@@ -290,17 +293,6 @@ $("#users-list").ready(function () {
             }
             catch (e) { }
             closeLoader();
-
-            $("#users-list").dataTable({
-                "language": {
-                    "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Portuguese-Brasil.json"
-                }
-            });
-            $("#counter-list").dataTable({
-                "language": {
-                    "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Portuguese-Brasil.json"
-                }
-            });
         }, error: function (e) {
             console.log(e);
         }
@@ -584,34 +576,6 @@ $(document).on('click', '.btnPayDetails', function (e) {
 
 });
 
-//BOTAO PROCESSAR DA PAGINA PAGAMENTOS
-$('#btn_processar').click(function(){
-    var json = $("#JSON").val();
-    var pagamentos = JSON.parse(json); 
-
-    var dataInicio = new Date($('#dt_de').val());
-    var dataFim = new Date($('#dt_ate').val());
-    var soma = 0;
-    var cont = 0;
-
-    $.each(pagamentos, function (i, value) {
-         var u = value.user;
-         var date = new Date(value.date);
-         var customDate = new Date(date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate());
-
-         if(customDate >= dataInicio && customDate <= dataFim){
-             cont++;
-             if(value.user == null)
-                 soma += 0;
-             else
-                 soma += value.value;
-         }
-     });
-
-     $("#result").html("No periodo selecionado foram feitos <strong>"+cont+"</strong>\n\
-                         pagamento(s).<br>Soma dos pagamentos no periodo: R$"+soma.toFixed(2).replace(".", ",") );
-
- });
 
 $(document).on('click', '.btnAtivacao', function (e) {
     e.preventDefault();

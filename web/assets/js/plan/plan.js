@@ -147,6 +147,7 @@ $("#plans").ready(function () {
         },
         dataType: "json",
         success: function (data) {
+            var id = $("#plan").val();
             var dark = false;
             $.each(data, function (i, value) {
 
@@ -180,13 +181,20 @@ $("#plans").ready(function () {
                 
                 $("#plans").append(html);
                 
+                if(id != undefined && id == value._id){
+                    if(promotion != "0,00"){
+                        $(".card-title").html('<strike> R$' + valueReal + ' </strike><br/>R$ ' + promotion +  '');
+                    }else{
+                        $(".card-title").html('R$ ' + valueReal + '');
+                    }
+                    $(".card-description").html('Armazenamento de ' + value.qtdeXML + ' XMLs');
+                }
+                
                 if (dark == false)
                     dark = true;
                 else
                     dark = false;
             });
-        }, error: function (e) {
-            console.log(e);
         }
     });
 });
