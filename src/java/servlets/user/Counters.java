@@ -74,6 +74,7 @@ public class Counters extends HttpServlet {
         String search = request.getParameter("search");
         String idContador = request.getParameter("idContador");
         String idConvite = request.getParameter("idConvite");
+        
 
         Hashtable<Integer, String> source = new Hashtable<Integer, String>();
         HashMap<String, String> map = new HashMap(source);
@@ -92,13 +93,13 @@ public class Counters extends HttpServlet {
             con = new API("relationships/user/" + id, "GET", token); 
         }else if(type.equals("counters-list") && roles.equals("counter")){
             con = new API("relationships/counter/" + id, "GET", token);
+        }else if(type.equals("delete-counter")){
+            con = new API("relationships/delete/" + idConvite, "DELETE", token); 
         }
-      /*  else if(type.equals("delete-counter")){
-            con = new API("relationships/delete/" + idConvite, "POST", token); 
-        } */
            
         String responseJSON = con.getJsonString(map);
         out.println(responseJSON);
+        
     
     }
 

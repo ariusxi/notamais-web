@@ -30,7 +30,7 @@ function montarListaEmployee(){
                 }
                 let html = "<tr><td>" + value.person.name + "</td>";
                 html += "<td>" + value.person.email + "</td>";
-                html += "<td>" + value.person.createdAt + "</td>";
+                html += "<td>" + formatDate(value.person.createdAt) + "</td>";
                 html += "<td><button class='btn btn-primary delete-employee' id='" + value._id + "'>Excluir</button></td>";
                 html += "</tr>";
 

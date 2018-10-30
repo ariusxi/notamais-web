@@ -118,7 +118,7 @@ function montarLista(){
                 html+="<td>" + convite.counter.name + "</td>";
                 html+="<td>" + convite.counter.email + "</td>";
                 html+=" <td>" + (convite.approved?"Aprovado":"Aguardando aprovaç&atilde;o") + "</td>";
-                html+="<td><button type='button' data-id-convite='" + convite._id + "' onclick='excluir(this)' class='btn btn-primary'>Excluir</button></td>";
+                html+="<td><button type='button' id='" + convite._id + "' onclick='excluir(this)' class='btn btn-primary'>Excluir</button></td>";
                 html+="</tr>";
             }
             
@@ -160,14 +160,15 @@ function convidar(btn){
     });
 }
 
-/* FUNÇÃO EXCLUIR
+/* FUNÇÃO EXCLUIR */
 function excluir(btn){ 
+    var id = $(btn).attr('id');
     $.ajax({
         url: "counters",
         method: "POST",
         data: {
             type : "delete-counter",
-            idConvite : $(btn).attr("data-id-convite")
+            idConvite : id
         },
         
         success: function(json){
@@ -180,4 +181,4 @@ function excluir(btn){
             $("#message").show();
         }
     });
-}  */
+}

@@ -140,6 +140,9 @@
                            valorTotal += parseFloat(j.total.vProd);
                         }
                         
+                        if(json.length < 1)
+                            $("#client-name").text("Nenhum registro");
+                        
                         qtdTotal = json.length;
 
                         $("#tbRelatorio > tbody").html(tbody);
