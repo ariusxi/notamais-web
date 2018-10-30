@@ -19,8 +19,9 @@ $(function () {
         $("#uno3").appendTo($("#card2"));
         $("#uno3").appendTo($("#card3"));
     });
-
-    $("#cliente").ready(function (e) {
+    
+    
+    $("#cliente").ready(function(e){
         loader();
         $.ajax({
             url: "counters",
@@ -30,12 +31,16 @@ $(function () {
             },
             success: function (json) {
                 var data = JSON.parse(json);
-                $("#cliente").html("<option value=''>Escolha um cliente</option>");
-                $.each(data, function (key, value) {
-                    if (value.approved) {
-                        $("#cliente").append("<option value='" + value.user._id + "'>" + value.user.name + "</option>");
-                    }
-                });
+                if($("#cliente").attr("data-type") == "select")
+                {
+                    $("#cliente").html("<option value=''>Escolha um cliente</option>");
+                    $.each(data, function(key, value){
+                        if(value.approved){
+                            $("#cliente").append("<option value='"+value.user._id+"'>"+value.user.name+"</option>");
+                        }
+                    });
+                }
+
                 closeLoader();
             }, error: function (e) {
                 console.log(e);

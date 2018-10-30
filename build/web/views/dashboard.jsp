@@ -42,6 +42,16 @@
                 </div>
             </div>
         </div>
+        <div class="col-sm-12 col-md-6 col-lg-6">
+            <div class="card card-chart">
+                <div class="card-header card-header-primary">
+                    <canvas id="employee-chart"></canvas>
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">Funcionários Registrados</h4>
+                </div>
+            </div>
+        </div>
     </div>
     <% }else if(session.getAttribute("roles").equals("admin")){ %>
     <div class="row">
