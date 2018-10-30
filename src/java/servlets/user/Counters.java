@@ -25,8 +25,6 @@ import javax.servlet.http.HttpSession;
 @WebServlet("/counters")
 public class Counters extends HttpServlet {
 
-
-
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -39,7 +37,7 @@ public class Counters extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         HttpSession session = request.getSession();
         if (session.getAttribute("id") == null) {
             response.sendRedirect("/notamais-web");
@@ -47,7 +45,7 @@ public class Counters extends HttpServlet {
             String url = "/views/user/counters.jsp";
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
             dispatcher.forward(request, response);
-        }  
+        }
     }
 
     /**
@@ -61,13 +59,13 @@ public class Counters extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-         PrintWriter out = response.getWriter();
+
+        PrintWriter out = response.getWriter();
 
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
-        
-        String id = (String)session.getAttribute("id");
+
+        String id = (String) session.getAttribute("id");
         String roles = (String) session.getAttribute("roles");
         String token = (String) session.getAttribute("token");
         String type = request.getParameter("type");
@@ -77,29 +75,29 @@ public class Counters extends HttpServlet {
 
         Hashtable<Integer, String> source = new Hashtable<Integer, String>();
         HashMap<String, String> map = new HashMap(source);
-        
+
         API con = null;
         if (type.equals("counters-list-search")) {
             con = new API("users/search-counter/" + id, "POST", token);
             map.put("search", search);
-        }
-        else if(type.equals("add-counter")){
-            con = new API("relationships/create", "POST", token);  
+        } else if (type.equals("add-counter")) {
+            con = new API("relationships/create", "POST", token);
             map.put("user", id);
             map.put("counter", idContador);
-        }
-        else if(type.equals("counters-list") && roles.equals("user")){
-            con = new API("relationships/user/" + id, "GET", token); 
-        }else if(type.equals("counters-list") && roles.equals("counter")){
+        } else if (type.equals("counters-list") && roles.equals("user")) {
+            con = new API("relationships/user/" + id, "GET", token);
+        } else if (type.equals("counters-list") && roles.equals("counter")) {
             con = new API("relationships/counter/" + id, "GET", token);
+        } else if (type.equals("counter-details")) {
+            con = new API("users/counter-view/" + idContador, "GET", token);
         }
-      /*  else if(type.equals("delete-counter")){
+        /*  else if(type.equals("delete-counter")){
             con = new API("relationships/delete/" + idConvite, "POST", token); 
         } */
-           
+
         String responseJSON = con.getJsonString(map);
         out.println(responseJSON);
-    
+
     }
 
     /**
