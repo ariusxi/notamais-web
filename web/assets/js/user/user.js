@@ -91,6 +91,7 @@ function montarListaCard(){
     $("#register select").val("");
     $("#message").hide();
     
+    $("#cards-list > tbody").html("");
    $.ajax({
         url: "card",
         method: "POST",

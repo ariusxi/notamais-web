@@ -4,12 +4,7 @@
         <h2 class="title-register">Relatórios</h2>
         <form id="report" method="" action="">
             <div class="form-row">
-                <div class="form-group col-sm-12 col-md-3 col-lg-3">
-                   <label>Cliente</label> 
-                   <select data-type='select'class="form-control fix-select-option" id="cliente" name="cliente">
-                       <option>-</option>
-                   </select>
-                </div>    
+                <input data-type='hidden' type="hidden" id="cliente" name="cliente" value="<%out.print(session.getAttribute("id"));%>">          
                 <div class="form-group col-sm-12 col-md-3 col-lg-3">
                    <label>De</label>
                    <input type="date" class="form-control" id="begin" /> 
@@ -32,6 +27,6 @@
     </div>
 </div>
 <div class="space-footer"></div>
-<jsp:include page="../layout/footer-auth.jsp" />
-<script src="../../assets/js/plugins/bootstrap-datetimepicker.js" type="text/javascript"></script>
+<jsp:include page="../layout/footer-auth.jsp" />  
+<!--<script src="../../assets/js/plugins/bootstrap-datetimepicker.js" type="text/javascript"></script>  -->
     

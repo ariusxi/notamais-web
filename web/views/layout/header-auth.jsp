@@ -147,6 +147,12 @@
                                 <p>Lista de NFes</p>
                             </a>
                         </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="reports-User">
+                                <i class="material-icons">library_books</i>
+                                <p>Relatório</p>
+                            </a>
+                        </li>  
                         <% } else if (session.getAttribute("roles").equals("counter")) { %>
                         <li class="nav-item active  ">
                             <a class="nav-link" href="edit-counter">
