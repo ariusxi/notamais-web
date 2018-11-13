@@ -2,6 +2,7 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
         <group>
             <file>file:/C:/Users/Windows%207/Documents/NetBeansProjects/notamais-web/web/views/counter/costumer-list.jsp</file>
             <file>file:/C:/Users/Windows%207/Documents/NetBeansProjects/notamais-web/web/views/user/user-plan.jsp</file>
@@ -56,5 +57,14 @@
             <file>file:/C:/Users/Windows%207/Documents/NetBeansProjects/notamais-web/src/java/servlets/adm/Auths.java</file>
             <file>file:/C:/Users/Windows%207/Documents/NetBeansProjects/notamais-web/src/java/servlets/user/UserPlan.java</file>
         </group>
+=======
+<<<<<<< HEAD
+        <group>
+            <file>file:/C:/Users/VBSNET-5/Documents/notamais-web/nbproject/build-impl.xml</file>
+        </group>
+=======
+        <group/>
+>>>>>>> 0321becb6df9ed6a338c2dbf02871d3a76017cbf
+>>>>>>> bc77f2cab869d65b36123b7afc2d675fed6ca9b8
     </open-files>
 </project-private>

@@ -8,6 +8,7 @@ $("#employee-list").ready(function (e) {
         },
         dataType: "json",
         success: function (data) {
+            console.log(data);
 
             var months = [],
                     values = [];

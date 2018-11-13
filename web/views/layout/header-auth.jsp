@@ -63,9 +63,9 @@
                         <li class="nav-item">
                             <div class="text-center">
                                 <% if(session.getAttribute("image").equals("default")){ %>
-                                <img src="${pageContext.request.contextPath}/assets/img/default-user.png" class="img-fluid img-thumbnail img-profile" width="100" alt="<%= session.getAttribute("name")%>"><br/><br/>
+                                <img src="${pageContext.request.contextPath}/assets/img/default-user.png" class="img-fluid img-thumbnail img-profile" width="100" alt="<%= session.getAttribute("name")%>">
                                 <% }else{ %>
-                                <img src="<%= session.getAttribute("image") %>" class="img-fluid img-thumbnail img-profile" width="93%" alt="<%= session.getAttribute("name")%>"><br/><br/>
+                                <img src="<%= session.getAttribute("image") %>" class="img-fluid img-thumbnail img-profile" width="93%" alt="<%= session.getAttribute("name")%>">
                                 <% } %>
                                 <h5 class="card-title">
                                     <%= session.getAttribute("name")%>

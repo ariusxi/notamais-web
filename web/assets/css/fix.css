@@ -17,7 +17,7 @@
 }
 
 .fix-dashboard-menu h5.card-title{
-    color: #8b92a9 !important;
+    color: #fff !important;
 }
 
 .nav-tabs .nav-link:hover {
@@ -28,4 +28,39 @@
 
 .fix-upload-a tbody tr:hover td > a {
     color: #8b92a9 !important;
+}
+
+.dark-edition .sidebar .sidebar-background:after, .dark-edition .sidebar {
+    background-color: #913f9e !important;
+}
+
+
+.dark-edition .sidebar[data-color="purple"] li.active>a {
+    background: #571D62 !important;
+}
+
+.dark-edition .sidebar .logo .simple-text {
+    color: #fff;
+}
+
+.sidebar .logo {
+    padding: 8px 0px !important;
+}
+
+.dark-edition .text-muted, .dark-edition .bmd-help {
+    color: #fff !important;
+}
+
+.sidebar .sidebar-wrapper {
+    padding-bottom: 0px !important;
+}
+
+.dark-edition .btn.btn-link, .dark-edition .btn.btn-default.btn-link {
+    color: #fff;
+}
+
+.alert-danger, .alert-info, .alert-success, .alert-warning, .alert.alert-rose .alert-link, .alert.alert-rose a {
+    color: #fff;
+    background: linear-gradient(60deg, #029eb1, #25b1c3);
+    padding: 5px 10px;
 }

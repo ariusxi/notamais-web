@@ -21,7 +21,6 @@ $(function () {
         $("#uno3").appendTo($("#card3"));
     });
     
-    
     $("#cliente").ready(function(e){
         loader();
         $.ajax({
