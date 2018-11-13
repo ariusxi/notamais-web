@@ -45,9 +45,26 @@ public class Dashboard extends HttpServlet {
             throws ServletException, IOException {
         
         HttpSession session = request.getSession();
-        if(session.getAttribute("id")==null){
+        if(session.getAttribute("id") == null){
             response.sendRedirect("/notamais-web");
         }else{
+            
+            PrintWriter out = response.getWriter();
+            
+            response.setContentType("text/html;charset=UTF8");
+            
+            String token = (String) session.getAttribute("token");
+            String idAuth = request.getParameter("id");
+            
+            String route = "auths";
+            API con = new API(route, "GET", token);
+            
+            Hashtable<Integer, String> source = new Hashtable<Integer, String>();
+            HashMap<String, String> map = new HashMap(source);
+            String responseJSON = con.getJsonString(map);
+            
+            request.setAttribute("auths", responseJSON);
+            
             String url = "/views/dashboard.jsp";
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
             dispatcher.forward(request, response);

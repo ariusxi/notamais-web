@@ -39,6 +39,10 @@
                     </thead>
                     <tbody></tbody>
                 </table>
+                <div class="col-sm-12 col-md-12 col-lg-12 mt-4" style="margin-top: 15px; margin-bottom: 15px; padding: 5px; ">
+                    <p style="font-size: 16pt; color: #fff;">Total de Pagamentos: <strong style="float:right" id="totalPgto">0</strong></p>
+                    <p style="font-size: 16pt; color: #fff;">Total Geral: <span style="float:right">R$<strong id="totalGeral">0,00</strong></span></p>
+                </div>
             </div>
         </div>
         <div class="tab-pane" id="pagar">

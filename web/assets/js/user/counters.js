@@ -37,6 +37,7 @@ function pesquisar() {
             html += "<table  class='display table text-center'>";
             html += "<thead>";
             html += "<tr>";
+            html += "<th>Imagem</th>";
             html += "<th>Nome</th>";
             html += "<th>Email</th>";
             html += "<th>Nickname</th>";
@@ -54,6 +55,11 @@ function pesquisar() {
                 if (contador.pending == 0) {
                     c++;
                     html += "<tr>";
+                    if(contador.counter.image){
+                        html += "<td><img src='"+contador.counter.image+"' class='img-fluid'/></td>";
+                    }else{
+                        html += "<td><img src='/assets/img/default-user.png' class='img-fluid'/></td>";
+                    }
                     html += "<td>" + contador.counter.name + "</td>";
                     html += "<td>" + contador.counter.email + "</td>";
                     html += " <td>" + contador.profile.nickname + "</td>";
@@ -164,10 +170,12 @@ function convidar(btn) {
 }
 
 function counterDetails(btn) {
+    var id = $(btn).attr('id');
     $.ajax({
         url: "counters",
         method: "POST",
         data: {
+            idConvite : id,
             type: "counter-details",
             idContador: $(btn).attr("data-id-contador")
         },
@@ -177,14 +185,20 @@ function counterDetails(btn) {
             var data = json.data;
             var jobs = json.jobs;
             var profile = json.profile;
-
-            $("#photoCounter").html("<img src='" + data.image + "' class='img-fluid' alt='Sem imagem'>");
+            
+            if(!data.image){
+                $("#photoCounter").html("<img src='/assets/img/default-user.png' class='img-fluid' alt='Sem imagem'>");
+            }else{
+                $("#photoCounter").html("<img src='" + data.image + "' class='img-fluid' alt='Sem imagem'>");
+            }
             $("#nameCounter").text(data.name);
             $("#emailCounter").text(data.email);
 
             $("#cpfCounter").text(profile.cpf);
             $("#genderCounter").text(profile.gender);
             $("#nicknameCounter").text(profile.nickname);
+            
+            $("#jobsCounter").html("");
 
             var html = "";
 
@@ -207,24 +221,20 @@ function counterDetails(btn) {
     });
 }
 
-/* FUNÇÃO EXCLUIR
+/* FUNÇÃO EXCLUIR */
  function excluir(btn){ 
- $.ajax({
- url: "counters",
- method: "POST",
- data: {
- type : "delete-counter",
- idConvite : $(btn).attr("data-id-convite")
- },
- 
- success: function(json){
- $(btn).closest("tr").remove();
- 
- },error: function(e){
- console.log(e);
- var msg = JSON.parse(json);
- $("#message").html(msg.mensagem); 
- $("#message").show();
- }
- });
- }  */
+    $.ajax({
+        url: "counters",
+        method: "POST",
+        data: {
+            type : "delete-counter",
+            idConvite : $(btn).attr("data-id-convite")
+        },success: function(json){
+            $(btn).closest("tr").remove();
+        },error: function(e){
+            var msg = JSON.parse(json);
+            $("#message").html(msg.mensagem); 
+            $("#message").show();
+        }
+    });
+ } 

@@ -257,8 +257,6 @@ $(function () {
                         name = "-";
                     }
 
-                    console.log(formatDate(value.date));
-
                     var html = "<tr><td>" + (i + 1) + "</td><td>" + name + "</td><td><a target='_blank' title='" + value.xml + "' href='" + value.xml + "'>Acessar</a></td><td>" + formatDate(value.date) + "</td>";
 
 
