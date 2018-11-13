@@ -49,7 +49,7 @@
                     <div class="col-sm-12 col-md-12 col-lg-12">
                         <div class="form-group">
                             <label for="number">Número do cartão</label>
-                            <input type="number" class="form-control"  placeholder="Número do cartão" name="number" id="number">
+                            <input type="text" class="form-control number"  placeholder="Número do cartão" name="number" id="number">
                         </div>
                     </div>
                     <div class="col-sm-12 col-md-4 col-lg-4">

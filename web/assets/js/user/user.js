@@ -17,6 +17,7 @@ $("#user-register").submit(function (e) {
     let cnpj = $("#user-register #cnpj").val();
     let ie = $("#user-register #ie").val();
     let telephone = $("#user-register #telephone").val();
+    let plan = $("#plan").val();
 
     $('#message').css('display', 'none');
 
@@ -53,6 +54,9 @@ $("#user-register").submit(function (e) {
     let form = $(this);
     let formData = form.serialize();
     formData += '&type=user';
+    if(plan != ""){
+        formData += '&plan='+plan;
+    }
 
     $.ajax({
         url: "register",
@@ -64,11 +68,16 @@ $("#user-register").submit(function (e) {
         },
         success: function (data) {
             var dataJSON = JSON.parse(data);
-            $("#message").css('display', 'block');
-            $('#message').html(dataJSON.message);
-            setTimeout(() => {
-                $(location).attr('href', '/notamais-web/');
-            }, 2000);
+            if(dataJSON.success){
+                $("#message").css('display', 'block');
+                $('#message').html(dataJSON.message);
+                setTimeout(() => {
+                    $(location).attr('href', '/notamais-web/');
+                }, 2000);
+            }else{
+                $("#message").css('display', 'block');
+                $('#message').html(dataJSON.message);
+            }
         },
         error: function (e) {
             $('#message').css('display', 'block');
@@ -186,6 +195,8 @@ $("#card-register").submit(function (e) {
     let brand = $("#brand").val();
     let securityCode = $("#security-code").val();
     let cardType = $("#card-type").val();
+    
+    number = number.split(' ').join('');
 
     if (number == "" || holder == "" || expirationDate == "" || securityCode == "" || brand == "" || cardType == "") {
         $('#message').css('display', 'block');
@@ -195,7 +206,7 @@ $("#card-register").submit(function (e) {
 
     if (number.length < 13 || number.length > 16) {
         $('#message').css('display', 'block');
-        $('#message').html('Número do cartão está incorreto!');
+        $('#message').html('Numero do cartao esta incorreto!');
         return false;
     }
 

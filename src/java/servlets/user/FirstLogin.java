@@ -40,6 +40,9 @@ public class FirstLogin extends HttpServlet {
         if(session.getAttribute("id")==null){
             response.sendRedirect("/notamais-web");
         }else{
+            String plan = (String) session.getAttribute("current-plan");
+            request.setAttribute("plan", plan);
+            
             String url = "/views/user/first-login.jsp";
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
             dispatcher.forward(request, response);

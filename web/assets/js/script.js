@@ -13,6 +13,7 @@ $(function () {
     $('.expirationDate').mask('00/0000');
     $('.securityCode').mask('0000');
     $('.telephone').mask('(99) 9999-9999');
+    $('.number').mask("9999 9999 9999 9999");
 
     $("#modalQuickView").on('show.bs.modal', function () {
         $("#uno3").appendTo($("#card1"));
@@ -97,12 +98,13 @@ $(function () {
                 $('#message').html('Aguarde...');
             },
             success: function (data) {
-                console.log(data);
                 var dataJSON = JSON.parse(data);
-                if (dataJSON.message != null) {
+                console.log(dataJSON);
+                if (!dataJSON.success) {
                     $('#message').css('display', 'block');
                     $('#message').html('Login ou Senha invalidos<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true"><i class="material-icons">clear</i></span></button>').addClass('alert-danger').removeClass('alert-info');
                 } else {
+                    dataJSON = dataJSON.data;
                     $('#message').css('display', 'block');
                     $('#message').html('Login bem sucedido.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true"><i class="material-icons">clear</i></span></button>').addClass('alert-info').removeClass('alert-danger');
                     setTimeout(function () {
@@ -111,6 +113,7 @@ $(function () {
                         } else {
                             $(location).attr('href', '/notamais-web/dashboard');
                         }
+                        
                     }, 2000);
                 }
 

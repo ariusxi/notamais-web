@@ -100,9 +100,11 @@ public class Register extends HttpServlet {
         try{
             String responseJSON = con.getJsonString(map);
             
-            if(!plan.equals("")){
+            /*
+            if(!plan.equals("") && plan != null){
                 session.setAttribute("current-plan", plan);
             }
+            */
 
             try{
                 JSONObject json = new JSONObject(responseJSON);
@@ -117,6 +119,8 @@ public class Register extends HttpServlet {
         }catch(IOException ex){
             ex.printStackTrace();
         }
+        
+        
         
     }
 
