@@ -9,7 +9,7 @@
     <a href="user-plan" class="btn btn-primary btn-rounded">Voltar</a>
 </div>
 
-<!-- Modal para selecionar o cartão -->
+<!-- Modal para selecionar o cartï¿½o -->
 <div class="modal" tabindex="-1" role="dialog" id="modal">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -20,15 +20,15 @@
         </button>
       </div>
       <div class="modal-body">
-            <p>Selecione um cartão.</p>
+            <p>Selecione um cartï¿½o.</p>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                    <label class="input-group-text" for="inputGroupSelect01">Cartões</label>
+                    <label class="input-group-text" for="inputGroupSelect01">Cartï¿½es</label>
                 </div>
                 <select class="custom-select" id="slcCartoes"></select>
                 <input type="hidden" id="idPlano" value="" />
             </div>
-            <a href="#" data-target="#modalCadastro" data-toggle="modal" style="color:#2b76ca" >+ Cadastrar um novo cartão</a>
+            <a href="#" data-target="#modalCadastro" data-toggle="modal" style="color:#2b76ca" >+ Cadastrar um novo cartï¿½o</a>
             <div class="alert alert-info mb-0 mt-2" id="message1">
 
             </div>
@@ -41,12 +41,12 @@
   </div>
 </div>
 
-<!-- Modal para cadastro do cartão -->
+<!-- Modal para cadastro do cartï¿½o -->
 <div class="modal fade bd-example-modal-lg" tabindex="-1"  aria-labelledby="myLargeModalLabel" aria-hidden="true" role="dialog" id="modalCadastro">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Adicionar um cartão de crédito</h5>
+        <h5 class="modal-title">Adicionar um cartï¿½o de crï¿½dito</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -98,7 +98,6 @@
                             <select class="form-control fix-select" id="card-type" name="card-type">
                                 <option value="">Tipo</option>
                                 <option value="CreditCard">Cartão de Crédito</option>
-                                <option value="DebitCard">Cartão de Débito</option>
                             </select>
                         </div>
                     </div>
@@ -150,9 +149,9 @@
             html+="<div class='card-body'>";
             html += "<p class='card-text' id='descricao'>" + plano.description + "</p>";
             if(plano.promotion != "0"){
-                html += "<strong class='card-text' id='preco'> <strike>" + "R$" + plano.value.toFixed(2).replace(".", ",") + "/mês</strike> " + "<br>R$" + plano.promotion.toFixed(2).replace(".", ",") + "</strong>";
+                html += "<strong class='card-text' id='preco'> <strike>" + "R$" + plano.value.toFixed(2).replace(".", ",") + "/mï¿½s</strike> " + "<br>R$" + plano.promotion.toFixed(2).replace(".", ",") + "</strong>";
             }else{
-                html += "<strong class='card-text' id='preco'>" + "R$" + plano.value.toFixed(2).replace(".", ",") + "/mês" + "</strong>";
+                html += "<strong class='card-text' id='preco'>" + "R$" + plano.value.toFixed(2).replace(".", ",") + "/mï¿½s" + "</strong>";
             }
             html += "<br /><br />";
             if (p.plan._id != plano._id) {
@@ -208,7 +207,7 @@
 
                 $.each(data, function (i, value) {
                     
-                    html += "<option value='" + value._id + "' " + (value.selected ? "selected= 'selected'": "") + "> Cartão de " + (value.type == "DebitCard"?"débito":"crédito") + " - " + value.Brand.toUpperCase() + " com final "  + value.CardNumber.substr(-4) + "</option> ";        
+                    html += "<option value='" + value._id + "' " + (value.selected ? "selected= 'selected'": "") + "> Cartï¿½o de " + (value.type == "DebitCard"?"dï¿½bito":"crï¿½dito") + " - " + value.Brand.toUpperCase() + " com final "  + value.CardNumber.substr(-4) + "</option> ";        
                     $("#slcCartoes").html(html);   
                 });
                 $("#slcCartoes").removeAttr("disabled");
@@ -240,7 +239,7 @@
                 $("#message1").css('display', 'block');
                 $("#message1").html(responseData.message);
                 setTimeout(function(){
-                    location.href = "/notamais-web/user-plan"
+                    location.href = "/user-plan"
                 }, 2000);
                 $("#btnSalvar").removeAttr("disabled");
                 $("#slcCartoes").removeAttr("disabled");

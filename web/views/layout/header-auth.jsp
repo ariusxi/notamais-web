@@ -206,6 +206,7 @@
                         </button>
                         <div class="collapse navbar-collapse justify-content-end">
                             <ul class="navbar-nav">
+                                <li><a class="navbar-brand" href="${pageContext.request.contextPath}/manual.pdf">Manual do Usuário</a></li>
                                 <li><a class="navbar-brand" href="logout.jsp"><i class="material-icons">exit_to_app</i></a></li>
                             </ul>
                         </div>
