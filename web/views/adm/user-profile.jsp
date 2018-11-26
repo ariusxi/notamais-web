@@ -72,10 +72,12 @@ $(document).ready(function () {
     $("#ie").val(obj.client[0].ie);
     $("#telephone").val(obj.client[0].telephone);
  
+ 
     if(json2 != "")
     {
         var plano = JSON.parse(json2);
-        $("#plano").val(plano.name); 
+        console.log(plano);
+        $("#plano").val(plano.plan.name); 
     }
     else
     {

@@ -88,7 +88,6 @@
                             <select class="form-control fix-select-option" id="card-type" name="card-type">
                                 <option value="">Tipo</option>
                                 <option value="CreditCard">Cartão de Crédito</option>
-                                <option value="DebitCard">Cartão de Débito</option>
                             </select>
                         </div>
                     </div>
